@@ -10,6 +10,7 @@ export interface IOption {
 
 export interface ICharOption {
     key: string
+    name?: string
     tip?: string
 }
 
@@ -66,6 +67,20 @@ export interface IWeight {
     [key: string]: number
 }
 
+export interface IBuild {
+    key: string
+    name: string
+    set: string[]
+    main: {
+        [slotKey: string]: string[]
+    }
+    weight: {
+        [affixKey: string]: number
+    }
+}
+
+export type IScoreAlg = 'sum' | 'max'
+
 export interface IState {
     artifacts: Artifact[]
     filteredArtifacts: Artifact[]
@@ -83,16 +98,20 @@ export interface IState {
     weightInUse: IWeight
     sort: {
         by: string
-        characters: string[]
+        buildKeys: string[]
+        scoreAlg: IScoreAlg
         sets: string[]
         sands: string[]
         goblet: string[]
         circlet: string[]
     }
+    builds: IBuild[]
     artMode: {
         [key: string]: any // allow string key
         showAffnum: boolean // 展示词条数而不是数值
         useMaxAsUnit: boolean // 用最大提升量作为1单位词条
+        reverseOrder: boolean // 倒序
+        alikeEnabled: boolean // 联想
     }
     ws: {
         server?: WebSocket

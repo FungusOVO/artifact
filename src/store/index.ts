@@ -1,15 +1,42 @@
 import { InjectionKey } from 'vue'
 import { createStore, useStore as baseUseStore, Store } from 'vuex'
-import { IState, YasConfig, IWeight } from './types'
+import { IState, YasConfig, IWeight, IBuild } from './types'
 import { Affix, Artifact } from '@/ys/artifact'
 import CharacterData from "@/ys/data/character"
 import { ElMessage } from 'element-plus'
 import good from '@/ys/ext/good'
+import chs from '@/ys/locale/chs'
 import storage from './storage'
 import filterRules from './filterRules'
 import { assign } from './utils'
 
 const LOADING_DELAY = 250
+
+function getBuilds() {
+    // 读取localStorage
+    let builds = storage.builds.value as IBuild[]
+    // 增量更新
+    let keys = new Set(builds.reduce((p, c) => p.concat([c.key]), [] as string[]))
+    let newKeys = Object.keys(CharacterData).filter(key => !keys.has(key))
+    newKeys.forEach(key => {
+        let c = CharacterData[key]
+        builds.push({
+            key,
+            name: chs.character[key],
+            set: [...c.build.set],
+            main: {
+                sands: [...c.build.main.sands],
+                goblet: [...c.build.main.goblet],
+                circlet: [...c.build.main.circlet],
+            },
+            weight: { ...c.build.weight },
+        })
+    })
+    // 写入localStorage
+    storage.builds.value = builds
+
+    return builds
+}
 
 export const key: InjectionKey<Store<IState>> = Symbol()
 
@@ -28,29 +55,34 @@ export const store = createStore<IState>({
                 location: [],
                 ruleId: 0,
             },
-            weight: { hp: 0, atk: 0, def: 0, hpp: 0, atkp: 0.5, defp: 0, em: 0.5, er: 0.5, cr: 1, cd: 1 },
+            weight: storage.weight.exists() ? storage.weight.value as IWeight :
+                { hp: 0, atk: 0, def: 0, hpp: 0, atkp: 0.5, defp: 0, em: 0.5, er: 0.5, cr: 1, cd: 1 },
             weightInUse: { hp: 0, atk: 0, def: 0, hpp: 0, atkp: 0.5, defp: 0, em: 0.5, er: 0.5, cr: 1, cd: 1 }, // weight的快照，仅在updFilteredArtifacts时修改
             sort: {
-                by: 'avg', // 'avg', 'min', 'max', 'cur', 'pmulti', 'psingle', 'defeat', 'index',
+                by: storage.sort.by.value, // 'avg', 'min', 'max', 'cur', 'pmulti', 'psingle', 'defeat', 'index',
                 // pmulti
-                characters: Object.keys(CharacterData).filter(c => CharacterData[c].pop),
+                buildKeys: storage.sort.buildKeys.value,
+                scoreAlg: storage.sort.scoreAlg.value,
                 // psingle
-                sets: ["NoblesseOblige", "ShimenawasReminiscence", "GladiatorsFinale", "WanderersTroupe", "EmblemOfSeveredFate", "CrimsonWitchOfFlames"],
-                sands: ["em", "er", "atkp"],
-                goblet: ["pyroDB"],
-                circlet: ["cr", "cd"],
+                sets: storage.sort.sets.value,
+                sands: storage.sort.sands.value,
+                goblet: storage.sort.goblet.value,
+                circlet: storage.sort.circlet.value,
             },
+            builds: getBuilds(),
             artMode: {
-                showAffnum: false,
-                useMaxAsUnit: false,
+                showAffnum: storage.artMode.showAffnum.value,
+                useMaxAsUnit: storage.artMode.useMaxAsUnit.value,
+                reverseOrder: storage.artMode.reverseOrder.value,
+                alikeEnabled: storage.artMode.alikeEnabled.value
             },
             ws: {
                 server: undefined,
                 connected: false,
             },
             yas: {
-                version: storage.getYasVersion(),
-                config: storage.getYasConfig(),
+                version: storage.yas.version.value,
+                config: new YasConfig(storage.yas.config.value)
             },
             canExport: false,
             nReload: 0, // for UI refreshing
@@ -64,41 +96,59 @@ export const store = createStore<IState>({
         setFilter(state, payload) {
             assign(state.filter, payload)
         },
-        setWeight(state, { key, value }: { key: string, value: string }) {
-            (state.weight as any)[key] = value
+        setWeight(state, { key, value }: { key: string, value: number }) {
+            if (!(key in state.weight)) return
+            (state.weight as any)[key] = value;
+            storage.weight.value = state.weight
         },
         usePreset(state, { weight }: { weight: IWeight }) {
             state.weight = weight
         },
-        setSort(state, { key, value }: { key: string, value: string }) {
-            (state.sort as any)[key] = value
+        setSort(state, { key, value }: { key: string, value: any }) {
+            if (!(key in state.sort)) return
+            (state.sort as any)[key] = value;
+            (storage.sort as any)[key].value = value;
         },
-        useBuild(state, { charKey }: { charKey: string }) {
-            if (charKey in CharacterData) {
-                let b = CharacterData[charKey].build
+        useBuild(state, { buildKey }: { buildKey: string }) {
+            let b = state.builds.filter(b => b.key == buildKey)[0]
+            if (b) {
                 // 不要直接赋值
                 state.sort.sets = [...b.set]
                 state.sort.sands = [...b.main.sands]
                 state.sort.goblet = [...b.main.goblet]
                 state.sort.circlet = [...b.main.circlet]
                 state.weight = { ...b.weight }
+                // store
+                storage.sort.sets.value = state.sort.sets
+                storage.sort.sands.value = state.sort.sands
+                storage.sort.goblet.value = state.sort.goblet
+                storage.sort.circlet.value = state.sort.circlet
+                storage.weight.value = state.weight
             }
         },
         setArtMode(state, payload) {
             for (let key in payload) {
                 if (key in state.artMode) {
-                    state.artMode[key] = payload[key]
+                    state.artMode[key] = payload[key];
+                    (storage.artMode as any)[key].value = payload[key];
                 }
             }
         },
         setYasConfig(state, { config }: { config: YasConfig }) {
             state.yas.config = config
-            storage.setYasConfig(config)
+            storage.yas.config.value = config
         },
         setYasVersion(state, { version }: { version: string }) {
             state.yas.version = version
-            storage.setYasVersion(version)
-        }
+            storage.yas.version.value = version
+        },
+        setBuilds(state, { builds }: { builds: IBuild[] }) {
+            state.builds = builds
+            storage.builds.value = builds
+
+            let keys = new Set(builds.map(b => b.key))
+            state.sort.buildKeys = state.sort.buildKeys.filter(k => keys.has(k))
+        },
     },
     actions: {
         reload({ state }) {
@@ -153,7 +203,7 @@ export const store = createStore<IState>({
                             weight: state.weight
                         })
                     } else if (state.sort.by == 'pmulti') {
-                        a.updateScore(state.sort.characters)
+                        a.updateScore(state.sort.buildKeys, state.builds, state.sort.scoreAlg)
                     }
                     a.updateAffnum(state.weightInUse)
                 }
@@ -252,7 +302,7 @@ export const store = createStore<IState>({
                 state.ws.connected = false
                 return
             }
-            console.log(ws)
+            // console.log(ws)
             state.ws.server = new WebSocket(ws)
             state.ws.server.onopen = () => {
                 state.ws.connected = true
@@ -300,7 +350,7 @@ export const store = createStore<IState>({
                             }
                             break
                         case 'ConfigNotify':
-                            if (!storage.hasYasConfig()) {
+                            if (!storage.yas.config.exists()) {
                                 state.yas.config = new YasConfig(pkt.data.config)
                             }
                             break
@@ -331,7 +381,7 @@ export const store = createStore<IState>({
             }
             state.ws.server.send(JSON.stringify(pkt))
         },
-        sendLockReq({ state }, { indices }: { indices: number[] }) {
+        sendLockReq({ state }, data) {
             if (!state.ws.server) {
                 ElMessage({
                     message: 'WebSocket未连接',
@@ -342,10 +392,9 @@ export const store = createStore<IState>({
             state.loading = true
             let pkt = {
                 cmd: 'LockReq',
-                data: {
+                data: Object.assign(data, {
                     argv: state.yas.config.toArgv(),
-                    indices
-                }
+                })
             }
             state.ws.server.send(JSON.stringify(pkt))
         },
