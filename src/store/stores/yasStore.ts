@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { reactive, ref } from "vue";
+import { ref } from "vue";
 import { useArtifactStore } from "./artifactStore";
 import { useUiStore } from "./uiStore";
 import { GoodFormat } from "@/ys/ext";
@@ -13,13 +13,14 @@ class YasConfig {
     min_level = 0;
     max_wait_switch_artifact = 800;
     default_stop = 500;
-    lock_stop = 100;
     scroll_stop = 100;
     number = 0;
     speed = 5;
     max_wait_scroll = 0;
     no_check = false;
     dxgcap = false;
+    lock_stop = 100;
+    max_wait_lock = 0;
 
     constructor(o?: any) {
         assign(this, o);
@@ -47,7 +48,12 @@ export const useYasStore = defineStore("yas", () => {
 
     const version = useLocalStorage("yas.version", "");
     // const config = reactive(new YasConfig());
-    const config = useLocalStorage("yas.config", new YasConfig());
+    const config = useLocalStorage("yas.config", new YasConfig(), {
+        serializer: {
+            read: (v: string) => new YasConfig(JSON.parse(v)),
+            write: (v: YasConfig) => JSON.stringify(v),
+        },
+    });
     const connected = ref(false);
     const socketUrl = ref("");
 
@@ -111,7 +117,7 @@ export const useYasStore = defineStore("yas", () => {
                         }
                         break;
                     case "ConfigNotify":
-                        assign(config, pkt.data.config);
+                        assign(config.value, pkt.data.config);
                         break;
                     default:
                         console.warn("unknown packet: ", pkt);

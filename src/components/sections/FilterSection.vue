@@ -25,7 +25,7 @@ const pro = computed<boolean>({
 function countArtifactAttr(key: keyof Artifact) {
     let c: { [key: string]: number } = {};
     for (let a of artStore.artifacts) {
-        let akey = a[key].toString();
+        let akey = a[key]!.toString();
         c[akey] = akey in c ? c[akey] + 1 : 1;
     }
     return c;
@@ -121,14 +121,12 @@ watch(
                 :title="$t('ui.art_set')"
                 :options="setOptions"
                 v-model="artStore.filter.set"
-                :use-icon="true"
             />
             <multi-select
                 class="filter"
                 :title="$t('ui.art_slot')"
                 :options="slotOptions"
                 v-model="artStore.filter.slot"
-                :use-icon="true"
             />
             <multi-select
                 class="filter"

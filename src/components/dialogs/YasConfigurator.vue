@@ -66,6 +66,12 @@ const confirm = () => {
                     {{ $t("ui.millisecond") }}
                 </el-tag>
             </el-form-item>
+            <el-form-item :label="$t('yas.config.max_wait_lock')">
+                <el-input-number v-model="config.max_wait_lock" :min="0" />
+                <el-tag style="margin-left: 10px">
+                    {{ $t("ui.millisecond") }}
+                </el-tag>
+            </el-form-item>
             <el-divider>{{ $t("ui.general") }}</el-divider>
             <el-form-item :label="$t('yas.config.default_stop')">
                 <el-input-number v-model="config.default_stop" :min="0" />

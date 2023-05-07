@@ -5,13 +5,20 @@ import { Affix, Artifact } from "@/ys/artifact";
 import { i18n } from "@/i18n";
 import { ArtifactData, CharacterData } from "@/ys/data";
 import { useArtifactStore } from "@/store";
-import { IAffnumResult, IDefeatResult, IPBuildResult } from "@/ys/sort";
+import {
+    IAffnumResult,
+    IDefeatResult,
+    IPBuildResult,
+    IPEquipResult,
+} from "@/ys/sort";
+import { IMinorAffixKey } from "@/ys/types";
 
 const props = defineProps<{
     artifact: Artifact;
     selected?: boolean;
     selectMode?: boolean;
     readonly?: boolean;
+    fixedStats?: string;
 }>();
 const emit = defineEmits<{
     (e: "flipSelect", shiftKey: boolean): void;
@@ -49,12 +56,10 @@ const affixName = (key: string) => {
     return name;
 };
 const main = computed(() => {
-    if (props.artifact.mainKey in ArtifactData.mainStat) {
+    let mainStats = props.artifact.mainStats;
+    if (mainStats) {
         let key = props.artifact.mainKey,
-            value =
-                ArtifactData.mainStat[props.artifact.mainKey][
-                    props.artifact.level
-                ];
+            value = mainStats[props.artifact.level];
         return {
             name: i18n.global.t("artifact.affix." + key),
             value: new Affix({ key, value }).valueString(),
@@ -76,7 +81,8 @@ const minors = computed(() => {
             if (["atkp", "defp", "hpp"].includes(a.key)) {
                 name += "%";
             }
-            value = a.value / ArtifactData.minorStat[a.key];
+            value =
+                a.value / props.artifact.minorStats[a.key as IMinorAffixKey];
             value = value.toFixed(1);
         } else {
             value = a.valueString();
@@ -94,7 +100,11 @@ const minors = computed(() => {
             text: `${name}+${value}`,
             style: { opacity },
             count: Math.ceil(
-                Math.round((a.value / ArtifactData.minorStat[a.key]) * 10) / 10
+                Math.round(
+                    (a.value /
+                        props.artifact.minorStats[a.key as IMinorAffixKey]) *
+                        10
+                ) / 10
             ),
         });
     }
@@ -115,7 +125,10 @@ const select = (evt: MouseEvent) => {
 };
 const starImgSrc = "./assets/stars.webp";
 const charSrc = computed<string>(() => {
-    if (props.artifact.location in CharacterData) {
+    if (
+        props.artifact.location == "Traveler" ||
+        props.artifact.location in CharacterData
+    ) {
         return `./assets/char_sides/${props.artifact.location}.webp`;
     } else {
         return "";
@@ -136,6 +149,8 @@ const sortResultDisplayType = computed(() => {
             return props.artifact.level < 20 ? "affnum-mam" : "affnum-c";
         case "pbuild":
             return "pbuild";
+        case "pequip":
+            return "pequip";
         case "defeat":
             return "defeat";
         default:
@@ -164,6 +179,21 @@ const pBuildResultStr = computed(() => {
         "<0.1%"
     );
 });
+const pEquipResultStr = computed(() => {
+    let result = artStore.sortResults!.get(props.artifact) as IPEquipResult;
+    let probs: [string, number][] = [];
+    for (let charKey in result.charProbs) {
+        let b = artStore.builds.filter((b) => b.key == charKey)[0];
+        probs.push([b ? b.name : "", result.charProbs[charKey].prob]);
+    }
+    // sort in descending order
+    probs.sort((a, b) => b[1] - a[1]);
+    // formatting
+    return (
+        probs.map((x) => x[0] + (x[1] * 100).toFixed(1) + "%").join(" ") ||
+        "<0.1%"
+    );
+});
 const defeatResultStr = computed(() => {
     let result = artStore.sortResults!.get(props.artifact) as IDefeatResult;
     return result.defeat;
@@ -172,7 +202,7 @@ const defeatResultStr = computed(() => {
 
 <template>
     <div :class="artifactCardClass">
-        <div class="head">
+        <div :class="['head', `r${artifact.rarity}`]">
             <div class="head-stat">
                 <div class="piece-name">{{ pieceName }}</div>
                 <div class="main-affix-name">{{ main.name }}</div>
@@ -207,7 +237,10 @@ const defeatResultStr = computed(() => {
                 </div>
             </div>
             <div class="sort-result">
-                <template v-if="sortResultDisplayType == 'affnum-mam'">
+                <template v-if="readonly && fixedStats !== undefined">
+                    <div class="fixed-stats" v-text="fixedStats" />
+                </template>
+                <template v-else-if="sortResultDisplayType == 'affnum-mam'">
                     <div
                         class="min-an"
                         v-text="$t('ui.min') + formatAffnum(affnumResult.min)"
@@ -233,6 +266,9 @@ const defeatResultStr = computed(() => {
                 </template>
                 <template v-else-if="sortResultDisplayType == 'pbuild'">
                     <div class="pbuild" v-text="pBuildResultStr" />
+                </template>
+                <template v-else-if="sortResultDisplayType == 'pequip'">
+                    <div class="pequip" v-text="pEquipResultStr" />
                 </template>
                 <template v-else-if="sortResultDisplayType == 'defeat'">
                     <div class="defeat" v-text="defeatResultStr" />
@@ -304,6 +340,15 @@ const defeatResultStr = computed(() => {
             rgba(102, 87, 88, 1) 0%,
             rgba(214, 169, 90, 1) 100%
         );
+
+        &.r4 {
+            background: rgb(89, 84, 130);
+            background: linear-gradient(
+                165deg,
+                rgba(89, 84, 130, 1) 0%,
+                rgba(185, 138, 202, 1) 100%
+            );
+        }
 
         .head-stat {
             display: flex;
@@ -411,6 +456,11 @@ const defeatResultStr = computed(() => {
             line-height: 20px;
             display: flex;
 
+            .fixed-stats {
+                background: #d14bd1;
+                width: 100%;
+            }
+
             .min-an {
                 background: #a6a6a6;
                 width: 33.3%;
@@ -431,7 +481,8 @@ const defeatResultStr = computed(() => {
                 width: 100%;
             }
 
-            .pbuild {
+            .pbuild,
+            .pequip {
                 background: cornflowerblue;
                 width: 100%;
                 overflow: hidden;

@@ -21,17 +21,19 @@
             "min_level": "最小等级",
             "speed": "速度（如提示大量重复尝试降低速度）",
             "number": "指定圣遗物数量（在自动识别数量不准确时使用）",
-            "lock_stop": "加解锁停顿时间",
             "default_stop": "等待动画、鼠标点击等操作的默认停顿时间",
             "scroll_stop": "页面滚动停顿时间",
+            "lock_stop": "加解锁停顿时间",
             "max_wait_switch_artifact": "切换圣遗物最大等待时间",
             "max_wait_scroll": "翻页的最大等待时间（翻页不正确可以考虑加大该选项）",
             "no_check": "不检测是否已打开背包等",
-            "dxgcap": "使用dxgcap捕获屏幕"
+            "dxgcap": "使用dxgcap捕获屏幕",
+            "max_wait_lock": "加解锁最大等待时间"
         }
     },
     "artifact": {
         "set": {
+            "Instructor": "教官",
             "GladiatorsFinale": "角斗士的终幕礼",
             "WanderersTroupe": "流浪大地的乐团",
             "Thundersoother": "平息鸣雷的尊者",
@@ -57,7 +59,17 @@
             "DeepwoodMemories": "深林的记忆",
             "GildedDreams": "饰金之梦",
             "DesertPavilionChronicle": "沙上楼阁史话",
-            "FlowerOfParadiseLost": "乐园遗落之花"
+            "FlowerOfParadiseLost": "乐园遗落之花",
+            "NymphsDream": "水仙之梦",
+            "VourukashasGlow": "花海甘露之光"
+        },
+        "set_group": {
+            "s:atkp": "攻击2",
+            "s:em": "精通2",
+            "s:hb": "治疗2",
+            "s:anemoDB": "风2",
+            "s:hpp": "生命2",
+            "s:hydroDB": "水2"
         },
         "affix": {
             "hp": "生命值",
@@ -174,6 +186,7 @@
         "YaeMiko": "八重神子",
         "ShikanoinHeizou": "鹿野院平藏",
         "Yelan": "夜兰",
+        "Kirara": "绮良良",
         "Aloy": "埃洛伊",
         "Shenhe": "申鹤",
         "YunJin": "云堇",
@@ -190,7 +203,11 @@
         "Wanderer": "流浪者",
         "Faruzan": "珐露珊",
         "Yaoyao": "瑶瑶",
-        "Alhaitham": "艾尔海森"
+        "Alhaitham": "艾尔海森",
+        "Dehya": "迪希雅",
+        "Mika": "米卡",
+        "Kaveh": "卡维",
+        "Baizhu": "白术"
     },
     "element": {
         "pyro": "火元素",
@@ -233,7 +250,7 @@
         "pcap_not_supp": "米哈游加强了数据包加密，暂不支持pcap文件解析",
         "file_not_text": "可能不是文本文件",
         "cant_read_file": "无法读取文件",
-        "art_imported": "成功导入{count}个5星圣遗物",
+        "art_imported": "成功导入{count}个圣遗物",
         "import": "导入",
         "export": "导出",
         "tutorial": "教程",
@@ -356,7 +373,13 @@
         "do_not_show_again": "不再提示",
         "database_loader_title": "数据库",
         "database_loader_help": "建议将网页数据库保存至本地，以避免配置丢失。",
-        "database_imported": "数据导入成功，请手动刷新页面"
+        "database_imported": "数据导入成功，请手动刷新页面",
+        "set_group": "组",
+        "pbuild_sort_by": "排序方式",
+        "pbuild_ignore_individual": "忽略散件",
+        "pequip_ignore_individual": "忽略散件",
+        "equip_probs_title": "装备提升概率",
+        "equip_char_filter": "筛选角色"
     },
     "sort": {
         "avg": {
@@ -370,7 +393,11 @@
         "pmulti": {
             "name": "按角色适配概率（多人）",
             "desc": "圣遗物a对角色c的适配概率定义为，刷100个满级圣遗物，其中和a同部位同主词条的圣遗物得分均不超过a的满级期望得分的概率。如果a对c是散件则是200个。",
-            "desc2": "根据<a href='https://ngabbs.com/read.php?tid=27859119' target='_blank'>推荐配装</a>为每个角色计算适配概率，总的适配概率为所有选中角色适配概率的总和。"
+            "desc2": "根据<a href='https://ngabbs.com/read.php?tid=27859119' target='_blank'>推荐配装</a>为每个角色计算适配概率。",
+            "sortBy": {
+                "max": "按最大适配概率",
+                "owner": "优先按拥有者适配概率"
+            }
         },
         "psingle": {
             "name": "按角色适配概率（单人）",
@@ -378,6 +405,10 @@
             "sands": "时之沙偏好",
             "goblet": "空之杯偏好",
             "circlet": "理之冠主词条偏好"
+        },
+        "pequip": {
+            "name": "按装备提升概率（beta)",
+            "desc": "计算升到满级后词条数超过已装备圣遗物的概率，词条数按装备角色的配装中的副词条权重计。目前只支持五星圣遗物，且已装备圣遗物必须是满级。"
         },
         "defeat": {
             "name": "按上位替代数",

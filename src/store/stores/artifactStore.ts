@@ -2,7 +2,7 @@ import { Affix, Artifact } from "@/ys/artifact";
 import { defineStore } from "pinia";
 import { computed, reactive, ref } from "vue";
 import { useUiStore } from "./uiStore";
-import { AffnumSort, PBuildSort, DefeatSort } from "@/ys/sort";
+import { AffnumSort, PBuildSort, DefeatSort, PEquipSort } from "@/ys/sort";
 import type {
     IBuild,
     ISetBonusTable,
@@ -10,6 +10,9 @@ import type {
     IAffnumResults,
     IPBuildResults,
     IDefeatResults,
+    ICharKey,
+    IPBuildSortBy,
+    IPEquipResults,
 } from "@/ys/types";
 import filterRules from "../filterRules";
 import { useLocalStorage } from "@vueuse/core";
@@ -20,30 +23,21 @@ import {
     DefaultSetBonusTable,
 } from "@/ys/data";
 import { i18n } from "@/i18n";
-import { isSame } from "../utils";
 
-function isCustomizedBuild(b: IBuild) {
-    if (!(b.key in CharacterData)) return true;
+export const SortByKeys = [
+    "avg",
+    "avgpro",
+    "psingle",
+    "pmulti",
+    "pequip",
+    "defeat",
+    "set",
+    "index",
+] as const;
 
-    let c = CharacterData[b.key].build;
-    if (!isSame(b.set, c.set)) return true;
-    if (!isSame(b.main.sands, c.main.sands)) return true;
-    if (!isSame(b.main.goblet, c.main.goblet)) return true;
-    if (!isSame(b.main.circlet, c.main.circlet)) return true;
-    if (!isSame(b.weight, c.weight)) return true;
+export type ISortBy = (typeof SortByKeys)[number];
 
-    return false;
-}
-
-export type ISortBy =
-    | "avg"
-    | "avgpro"
-    | "psingle"
-    | "pmulti"
-    | "defeat"
-    | "set"
-    | "index";
-export type ISortResultType = "affnum" | "pbuild" | "defeat";
+export type ISortResultType = "affnum" | "pbuild" | "defeat" | "pequip";
 
 export const useArtifactStore = defineStore("artifact", () => {
     const uiStore = useUiStore();
@@ -80,6 +74,10 @@ export const useArtifactStore = defineStore("artifact", () => {
         goblet: [] as string[],
         circlet: [] as string[],
     });
+    const pBuildSortBy = ref<IPBuildSortBy>("max"); // TODO
+    const pBuildIgnoreIndividual = ref(false); // TODO
+    const pEquipIgnoreIndividual = ref(true); // TODO
+    const pEquipCharKeys = ref<string[]>([]);
     const customizedBuilds = useLocalStorage<IBuild[]>("customized_builds", []);
     const builds = computed(() => {
         let ret: IBuild[] = [];
@@ -94,7 +92,7 @@ export const useArtifactStore = defineStore("artifact", () => {
             if (cbuildMap.has(key)) {
                 ret.push(cbuildMap.get(key)!);
             } else {
-                let c = CharacterData[key];
+                let c = CharacterData[key as ICharKey];
                 ret.push({
                     key,
                     name: i18n.global.t(`character.${key}`),
@@ -124,7 +122,9 @@ export const useArtifactStore = defineStore("artifact", () => {
         "affix_weight_table",
         DefaultAffixWeightTable
     );
-    const sortResults = ref<IAffnumResults | IPBuildResults | IDefeatResults>();
+    const sortResults = ref<
+        IAffnumResults | IPBuildResults | IDefeatResults | IPEquipResults
+    >();
     const sortResultType = ref<ISortResultType>();
     const canExport = ref(false);
     const artMode = reactive({
@@ -200,27 +200,49 @@ export const useArtifactStore = defineStore("artifact", () => {
                 case "pmulti":
                     sortResults.value = PBuildSort.sort(
                         arts,
-                        builds.value.filter((b) =>
-                            sort.value.buildKeys.includes(b.key)
-                        )
+                        builds.value,
+                        sort.value.buildKeys,
+                        {
+                            sortBy: pBuildSortBy.value,
+                            ignoreIndividual: pBuildIgnoreIndividual.value,
+                        }
                     );
                     sortResultType.value = "pbuild";
                     break;
                 case "psingle":
-                    sortResults.value = PBuildSort.sort(arts, [
-                        {
-                            key: "",
-                            name: "",
-                            set: sort.value.set,
-                            main: {
-                                sands: sort.value.sands,
-                                goblet: sort.value.goblet,
-                                circlet: sort.value.circlet,
+                    sortResults.value = PBuildSort.sort(
+                        arts,
+                        [
+                            {
+                                key: "",
+                                name: "",
+                                set: sort.value.set,
+                                main: {
+                                    sands: sort.value.sands,
+                                    goblet: sort.value.goblet,
+                                    circlet: sort.value.circlet,
+                                },
+                                weight: sort.value.weight,
                             },
-                            weight: sort.value.weight,
-                        },
-                    ]);
+                        ],
+                        [""],
+                        {
+                            ignoreIndividual: pBuildIgnoreIndividual.value,
+                        }
+                    );
                     sortResultType.value = "pbuild";
+                    break;
+                case "pequip":
+                    sortResults.value = PEquipSort.sort(
+                        arts,
+                        artifacts.value,
+                        builds.value,
+                        pEquipCharKeys.value,
+                        {
+                            ignoreIndividual: pEquipIgnoreIndividual.value,
+                        }
+                    );
+                    sortResultType.value = "pequip";
                     break;
                 case "defeat":
                     sortResults.value = DefeatSort.sort(arts);
@@ -267,6 +289,8 @@ export const useArtifactStore = defineStore("artifact", () => {
             if (!indices_set.has(a.data.index)) arts.push(a);
         }
         processedArtifacts.value = arts;
+        // reset filter
+        nResetFilter.value++;
         // show reload
         uiStore.run(() => {});
     }
@@ -329,6 +353,10 @@ export const useArtifactStore = defineStore("artifact", () => {
         processedArtifacts,
         filter,
         sort,
+        pBuildSortBy,
+        pBuildIgnoreIndividual,
+        pEquipIgnoreIndividual,
+        pEquipCharKeys,
         customizedBuilds,
         builds,
         setBonusTable,

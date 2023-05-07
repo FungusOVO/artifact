@@ -8,23 +8,16 @@ import BuildLoader from "@/components/dialogs/BuildLoader.vue";
 import BuildEditor from "@/components/dialogs/BuildEditor.vue";
 import ValueButton from "@/components/widgets/ValueButton.vue";
 import AffnumTable from "../dialogs/AffnumTable.vue";
-import { computed, ref } from "vue";
-import { useArtifactStore } from "@/store";
-import { ArtifactData } from "@/ys/data";
+import { computed, ref, watch } from "vue";
+import { useArtifactStore, SortByKeys } from "@/store";
+import { ArtifactData, CharacterData } from "@/ys/data";
 import { i18n } from "@/i18n";
+import type { IOption, ICharOption } from "@/store/types";
 
 const artStore = useArtifactStore();
 
 // 排序方式
-const sortByOptions = [
-    "avg",
-    "avgpro",
-    "pmulti",
-    "psingle",
-    "defeat",
-    "set",
-    "index",
-].map((key) => ({
+const sortByOptions = SortByKeys.map((key) => ({
     key,
     label: i18n.global.t(`sort.${key}.name`),
 }));
@@ -51,12 +44,23 @@ const multiplierOptions = [
 const charOptions = computed(() => {
     return artStore.builds.map((b) => ({ key: b.key, name: b.name }));
 });
-// 按角色适配概率（单人）
-const setsOptions = ArtifactData.setKeys.map((key) => ({
+const pBuildSortByOptions = ["max", "owner"].map((key) => ({
     key,
-    label: i18n.global.t("artifact.set." + key),
-    icon: `./assets/artifacts/${key}/flower.webp`,
+    label: i18n.global.t(`sort.pmulti.sortBy.${key}`),
 }));
+// 按角色适配概率（单人）
+const setsOptions: IOption[] = Object.keys(ArtifactData.setGroups)
+    .map((key) => ({
+        key,
+        label: i18n.global.t("artifact.set_group." + key),
+    }))
+    .concat(
+        ArtifactData.setKeys.map((key) => ({
+            key,
+            label: i18n.global.t("artifact.set." + key),
+            icon: `./assets/artifacts/${key}/flower.webp`,
+        }))
+    );
 const sandsOptions = ArtifactData.mainKeys.sands.map((m) => ({
     key: m,
     label: i18n.global.t("artifact.affix." + m),
@@ -70,8 +74,33 @@ const circletOptions = ArtifactData.mainKeys.circlet.map((m) => ({
     label: i18n.global.t("artifact.affix." + m),
 }));
 // 按上位替代数
+// 按装备提升概率
+const pEquipCharOptions = ref<ICharOption[]>([]);
+watch(
+    () => artStore.nResetFilter,
+    () => {
+        const options: ICharOption[] = [],
+            equipCount = new Map<string, number>();
+        artStore.artifacts.forEach((a) => {
+            if (a.rarity != 5 || a.level != 20) return;
+            if (!a.location || !(a.location in CharacterData)) return;
+            if (!equipCount.has(a.location)) {
+                equipCount.set(a.location, 0);
+            }
+            equipCount.set(a.location, equipCount.get(a.location)! + 1);
+        });
+        equipCount.forEach((count, charKey) => {
+            options.push({
+                key: charKey,
+                name: i18n.global.t("character." + charKey),
+                tip: count.toString(),
+            });
+        });
+        pEquipCharOptions.value = options;
+        artStore.pEquipCharKeys = options.map((o) => o.key);
+    }
+);
 // 不排序
-// *词条数
 
 // 配装加载窗口
 const showBuildLoader = ref(false);
@@ -157,6 +186,18 @@ const openAffnumTable = () => (showAffnumTable.value = true);
                     :options="charOptions"
                     v-model="artStore.sort.buildKeys"
                 />
+                <single-select
+                    :title="$t('ui.pbuild_sort_by')"
+                    :options="pBuildSortByOptions"
+                    v-model="artStore.pBuildSortBy"
+                    style="margin-top: 10px"
+                />
+                <p style="text-align: center">
+                    <el-checkbox
+                        v-model="artStore.pBuildIgnoreIndividual"
+                        :label="$t('ui.pbuild_ignore_individual')"
+                    />
+                </p>
             </div>
             <div v-else-if="artStore.sort.by == 'psingle'">
                 <p class="row small" v-text="$t('sort.pmulti.desc')" />
@@ -192,7 +233,6 @@ const openAffnumTable = () => (showAffnumTable.value = true);
                     v-model="artStore.sort.set"
                     :options="setsOptions"
                     :title="$t('sort.psingle.set')"
-                    :use-icon="true"
                 />
                 <multi-select
                     class="row"
@@ -212,6 +252,36 @@ const openAffnumTable = () => (showAffnumTable.value = true);
                     :options="circletOptions"
                     :title="$t('sort.psingle.circlet')"
                 />
+                <p style="text-align: center">
+                    <el-checkbox
+                        v-model="artStore.pBuildIgnoreIndividual"
+                        :label="$t('ui.pbuild_ignore_individual')"
+                    />
+                </p>
+            </div>
+            <div v-else-if="artStore.sort.by == 'pequip'">
+                <p class="row small" v-text="$t('sort.pequip.desc')" />
+                <p class="row small">
+                    <span
+                        class="text-btn"
+                        @click="openBuildEditor"
+                        style="margin-right: 8px"
+                        v-text="$t('ui.edit_builds')"
+                        role="button"
+                    />
+                </p>
+                <char-select
+                    class="row"
+                    :title="$t('ui.equip_char_filter')"
+                    :options="pEquipCharOptions"
+                    v-model="artStore.pEquipCharKeys"
+                />
+                <p style="text-align: center">
+                    <el-checkbox
+                        v-model="artStore.pEquipIgnoreIndividual"
+                        :label="$t('ui.pequip_ignore_individual')"
+                    />
+                </p>
             </div>
             <div v-else-if="artStore.sort.by == 'defeat'">
                 <p class="row small" v-text="$t('sort.defeat.desc')" />
