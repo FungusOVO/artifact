@@ -77,7 +77,7 @@ const circletOptions = ArtifactData.mainKeys.circlet.map((m) => ({
 // 按装备提升概率
 const pEquipCharOptions = ref<ICharOption[]>([]);
 watch(
-    () => artStore.nResetFilter,
+    () => artStore.artifacts,
     () => {
         const options: ICharOption[] = [],
             equipCount = new Map<string, number>();
@@ -123,7 +123,13 @@ const openAffnumTable = () => (showAffnumTable.value = true);
                 :options="sortByOptions"
                 :title="$t('ui.sortby')"
             />
-            <div v-if="artStore.sort.by == 'avg'">
+            <div
+                v-if="
+                    artStore.sort.by == 'avg' ||
+                    artStore.sort.by == 'min' ||
+                    artStore.sort.by == 'max'
+                "
+            >
                 <p class="row small" v-text="$t('sort.avg.desc')" />
                 <p class="row small">
                     <span

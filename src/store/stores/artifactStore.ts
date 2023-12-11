@@ -2,7 +2,13 @@ import { Affix, Artifact } from "@/ys/artifact";
 import { defineStore } from "pinia";
 import { computed, reactive, ref } from "vue";
 import { useUiStore } from "./uiStore";
-import { AffnumSort, PBuildSort, DefeatSort, PEquipSort } from "@/ys/sort";
+import {
+    AffnumSort,
+    PBuildSort,
+    DefeatSort,
+    PEquipSort,
+    NormalSort,
+} from "@/ys/sort";
 import type {
     IBuild,
     ISetBonusTable,
@@ -27,6 +33,8 @@ import { i18n } from "@/i18n";
 export const SortByKeys = [
     "avg",
     "avgpro",
+    "min",
+    "max",
     "psingle",
     "pmulti",
     "pequip",
@@ -148,13 +156,35 @@ export const useArtifactStore = defineStore("artifact", () => {
                 return 1;
         }
     });
-    const nResetFilter = ref(0);
+    const setTypeCount = ref<{ [key: string]: number }>({});
+
+    /** reset filter */
+    function resetFilter() {
+        let s_set = new Set<string>(),
+            s_slot = new Set<string>(),
+            s_main = new Set<string>(),
+            s_lock = new Set<string>(),
+            s_location = new Set<string>();
+        artifacts.value.forEach((a) => {
+            s_set.add(a.set);
+            s_slot.add(a.slot);
+            s_main.add(a.mainKey);
+            s_lock.add(String(a.lock));
+            s_location.add(a.location);
+        });
+        filter.set = Array.from(s_set);
+        filter.slot = Array.from(s_slot);
+        filter.main = Array.from(s_main);
+        filter.lock = Array.from(s_lock);
+        filter.location = Array.from(s_location);
+        filter.lvRange = [0, 20];
+    }
 
     /** set artifacts, filter & sort them automatically */
     function setArtifacts(_artifacts: Artifact[], _canExport: boolean) {
         artifacts.value = _artifacts;
         canExport.value = _canExport;
-        nResetFilter.value++;
+        resetFilter();
         filterAndSort();
     }
 
@@ -162,6 +192,14 @@ export const useArtifactStore = defineStore("artifact", () => {
     function filterAndSort() {
         uiStore.run(() => {
             const arts: Artifact[] = [];
+            // build countByType
+            setTypeCount.value = {};
+            artifacts.value.forEach((a) => {
+                let key = `${a.set}:${a.slot}_${a.mainKey}`;
+                setTypeCount.value[key] = (setTypeCount.value[key] || 0) + 1;
+                key = `*:${a.slot}_${a.mainKey}`;
+                setTypeCount.value[key] = (setTypeCount.value[key] || 0) + 1;
+            });
             // filter
             for (let a of artifacts.value) {
                 if (!filter.set.includes(a.set)) continue;
@@ -179,14 +217,21 @@ export const useArtifactStore = defineStore("artifact", () => {
             // sort
             switch (sort.value.by) {
                 case "avg":
-                    sortResults.value = AffnumSort.sort(arts, {}, [
-                        {
-                            set: "*",
-                            type: "*",
-                            label: "",
-                            weight: sort.value.weight,
-                        },
-                    ]);
+                case "min":
+                case "max":
+                    sortResults.value = AffnumSort.sort(
+                        arts,
+                        {},
+                        [
+                            {
+                                set: "*",
+                                type: "*",
+                                label: "",
+                                weight: sort.value.weight,
+                            },
+                        ],
+                        sort.value.by
+                    );
                     sortResultType.value = "affnum";
                     break;
                 case "avgpro":
@@ -249,11 +294,7 @@ export const useArtifactStore = defineStore("artifact", () => {
                     sortResultType.value = "defeat";
                     break;
                 case "set":
-                    const setIndex: { [key: string]: number } = {};
-                    ArtifactData.setKeys.forEach((key, i) => {
-                        setIndex[key] = i;
-                    });
-                    arts.sort((a, b) => setIndex[a.set] - setIndex[b.set]);
+                    NormalSort.sort(arts);
                     sortResults.value = undefined;
                     sortResultType.value = undefined;
                     break;
@@ -270,7 +311,7 @@ export const useArtifactStore = defineStore("artifact", () => {
     /** add artifacts, filter and sort automatically */
     function addArtifacts(_artifacts: Artifact[]) {
         _artifacts.forEach((a) => artifacts.value.push(a));
-        nResetFilter.value++;
+        resetFilter();
         filterAndSort();
     }
 
@@ -290,7 +331,7 @@ export const useArtifactStore = defineStore("artifact", () => {
         }
         processedArtifacts.value = arts;
         // reset filter
-        nResetFilter.value++;
+        resetFilter();
         // show reload
         uiStore.run(() => {});
     }
@@ -367,7 +408,8 @@ export const useArtifactStore = defineStore("artifact", () => {
         artMode,
         affnumMultiplierKey,
         affnumMultiplier,
-        nResetFilter,
+        setTypeCount,
+        resetFilter,
         setArtifacts,
         filterAndSort,
         addArtifacts,
