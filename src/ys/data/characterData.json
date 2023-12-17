@@ -1987,5 +1987,110 @@
                 "cd": 1
             }
         }
+    },
+    "Neuvillette": {
+        "element": "hydro",
+        "rarity": 5,
+        "presets": ["攻充双暴", "攻精充双暴"],
+        "build": {
+            "set": ["MarechausseeHunter"],
+            "main": {
+                "sands": ["hpp"],
+                "goblet": ["hydroDB"],
+                "circlet": ["cd"]
+            },
+            "weight": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "hpp": 1,
+                "atkp": 0,
+                "defp": 0,
+                "em": 0.75,
+                "er": 0.75,
+                "cr": 1,
+                "cd": 1
+            }
+        }
+    },
+    "Wriothesley": {
+        "element": "cryo",
+        "rarity": 5,
+        "presets": ["攻双暴"],
+        "build": {
+            "set": [
+                "MarechausseeHunter",
+                "EchoesOfAnOffering",
+                "ShimenawasReminiscence",
+                "BlizzardStrayer"
+            ],
+            "main": {
+                "sands": ["atkp"],
+                "goblet": ["cryoDB"],
+                "circlet": ["cd"]
+            },
+            "weight": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "hpp": 0,
+                "atkp": 0.75,
+                "defp": 0,
+                "em": 0.75,
+                "er": 0.55,
+                "cr": 1,
+                "cd": 1
+            }
+        }
+    },
+    "Furina": {
+        "element": "hydro",
+        "rarity": 5,
+        "presets": ["攻充双暴"],
+        "build": {
+            "set": ["GoldenTroupe"],
+            "main": {
+                "sands": ["hpp"],
+                "goblet": ["hydroDB"],
+                "circlet": ["cr", "cd"]
+            },
+            "weight": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "hpp": 1,
+                "atkp": 0,
+                "defp": 0,
+                "em": 0.45,
+                "er": 0.75,
+                "cr": 1,
+                "cd": 1
+            }
+        }
+    },
+    "Charlotte": {
+        "element": "hydro",
+        "rarity": 4,
+        "presets": ["攻充双暴"],
+        "build": {
+            "set": ["NoblesseOblige", "TenacityOfTheMillelith"],
+            "main": {
+                "sands": ["hpp"],
+                "goblet": ["hydroDB"],
+                "circlet": ["cr", "cd"]
+            },
+            "weight": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "hpp": 0,
+                "atkp": 0.75,
+                "defp": 0,
+                "em": 0.75,
+                "er": 0.75,
+                "cr": 1,
+                "cd": 1
+            }
+        }
     }
 }
