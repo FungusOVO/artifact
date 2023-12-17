@@ -14,8 +14,8 @@ if [ ! -d "dist" ]; then
 fi
 
 TARGETS=(
-    "../ideless.github.io"
-    "../ideless"
+    "../fungusovo.github.io"
+    "../fungusovo"
 )
 
 for TARGET in "${TARGETS[@]}"; do

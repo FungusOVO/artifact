@@ -213,8 +213,12 @@
         "Lynette": "琳妮特",
         "Lyney": "林尼",
         "Freminet": "菲米尼",
+        "Neuvillette": "那维莱特",
         "Wriothesley": "莱欧斯利",
-        "Neuvillette": "那维莱特"
+        "Charlotte": "夏洛蒂",
+        "Furina": "芙宁娜",
+        "Chevreuse": "夏沃蕾",
+        "Navia": "娜维娅"
     },
     "element": {
         "pyro": "火元素",
@@ -330,7 +334,7 @@
         "reset": "重置",
         "save": "保存",
         "about_default_builds": "关于默认配装",
-        "default_builds_desc": "默认配装是作者个人根据<a href='https://ngabbs.com/read.php?tid=27859119'>NGA推荐配装</a>更新的。如有错漏或不及时之处欢迎提<a href='https://github.com/ideless/artifact/issues'>Issue</a>！",
+        "default_builds_desc": "默认配装是作者个人根据<a href='https://ngabbs.com/read.php?tid=27859119'>NGA推荐配装</a>更新的。如有错漏或不及时之处欢迎提<a href='https://github.com/fungusovo/artifact/issues'>Issue</a>！",
         "default_builds_source": "数据来自<a href='https://ngabbs.com/read.php?tid=27859119'>全角色圣遗物及武器搭配简述 [NGA]</a>",
         "element": "元素类型",
         "character": "角色",

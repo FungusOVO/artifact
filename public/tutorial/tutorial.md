@@ -15,7 +15,7 @@
 🔒 快速修改游戏内圣遗物的加解锁状态（需安装yas-lock）
 
 
-反馈：[NGA分享贴](https://bbs.nga.cn/read.php?tid=29551863) | [Issue](https://github.com/ideless/artifact/issues) （都是小号，不经常看）
+反馈：[NGA分享贴](https://bbs.nga.cn/read.php?tid=29551863) | [Issue](https://github.com/fungusovo/artifact/issues) （都是小号，不经常看）
 
 # 1. 圣遗物导出
 
@@ -122,7 +122,7 @@ sudo tcpdump -i wlo1 udp port 22101 or udp port 22102 -w test.pcap
 
 - [yas](https://github.com/wormtql/yas)（速度快）
 - [天目]()
-- [yas-lock](https://github.com/ideless/yas-lock)
+- [yas-lock](https://github.com/fungusovo/yas-lock)
 
 这里推荐yas-lock，因为它包含了yas的扫描功能，同时支持加解锁。
 
@@ -138,7 +138,7 @@ yas-lock是一个圣遗物扫描、加解锁的Windows端程序。
 
 yas-lock是由我对wormtql的 [yas](https://github.com/wormtql/yas) 的代码做少量改动（增加加解锁功能、修复bug等），并在个人电脑上编译的，主要版权归于wormtql，仅供学习交流之用。
 
-[下载地址（约23MB）](https://ghproxy.com/https://github.com/ideless/yas-lock/releases/latest/download/yas-lock.exe) | [项目地址](https://github.com/ideless/yas-lock)
+[下载地址（约23MB）](https://github.com/fungusovo/yas-lock/releases/latest/download/yas-lock.exe) | [项目地址](https://github.com/fungusovo/yas-lock)
 
 下载后最好放在一个单独的文件夹内，后续产生的数据文件都位于此文件夹内。
 

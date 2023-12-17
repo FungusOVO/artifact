@@ -27,7 +27,7 @@ const claim = () => {
 const updYas = () => {
     claim();
     window.open(
-        "https://ghproxy.com/https://github.com/ideless/yas-lock/releases/latest/download/yas-lock.exe",
+        "https://github.com/FungusOVO/yas-lock/releases/latest/download/yas-lock.exe",
         "_blank"
     );
 };
@@ -40,15 +40,15 @@ onMounted(() => {
         }
     } catch (e) {}
 
-    if (window.location.hostname !== "ideless.gitee.io") {
-        uiStore.popConfirm("跳转到大陆镜像站点").then(() => {
-            window.location.href = "https://ideless.gitee.io/artifact";
-        });
-    }
+    // if (window.location.hostname !== "ideless.gitee.io") {
+    //     uiStore.popConfirm("跳转到大陆镜像站点").then(() => {
+    //         window.location.href = "https://ideless.gitee.io/artifact";
+    //     });
+    // }
 
     console.log("Checking for yas-lock updates...");
     axios
-        .get("https://api.github.com/repos/ideless/yas-lock/releases/latest")
+        .get("https://api.github.com/repos/FungusOVO/yas-lock/releases/latest")
         .then((r) => {
             if ("tag_name" in r.data) {
                 yasVersion.value = r.data["tag_name"];

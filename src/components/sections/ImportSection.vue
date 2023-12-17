@@ -65,7 +65,7 @@ const importArts = async () => {
     }
 };
 const openTutorial = () => {
-    window.open("./tutorial", "_blank");
+    window.open("https://ideless.github.io/artifact/tutorial/", "_blank");
 };
 // 预览对话框
 const showPreview = ref(false);
