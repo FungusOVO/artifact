@@ -63,7 +63,9 @@
             "NymphsDream": "水仙之梦",
             "VourukashasGlow": "花海甘露之光",
             "MarechausseeHunter": "逐影猎人",
-            "GoldenTroupe": "黄金剧团"
+            "GoldenTroupe": "黄金剧团",
+            "SongOfDaysPast": "昔时之歌",
+            "NighttimeWhispersInTheEchoingWoods": "回声之林夜话"
         },
         "set_group": {
             "s:atkp": "攻击2",
@@ -218,7 +220,9 @@
         "Charlotte": "夏洛蒂",
         "Furina": "芙宁娜",
         "Chevreuse": "夏沃蕾",
-        "Navia": "娜维娅"
+        "Navia": "娜维娅",
+        "Gaming": "嘉明",
+        "Liuyun": "闲云"
     },
     "element": {
         "pyro": "火元素",

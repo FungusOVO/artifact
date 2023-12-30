@@ -48,6 +48,10 @@ const keymap = {
         FlowerOfParadiseLost: "flower_of_paradise_lost",
         NymphsDream: "nymphs_dream",
         VourukashasGlow: "vourukashas_glow",
+        MarechausseeHunter: "MarechausseeHunter",
+        GoldenTroupe: "GoldenTroupe",
+        SongOfDaysPast: "song_of_days_past",
+        NighttimeWhispersInTheEchoingWoods: "nighttime_whispers_in_the_echoing_woods",
     },
     affix: <{ [key: string]: string }>{
         hp: "flatHP",
@@ -118,26 +122,26 @@ export default {
                 new Affix({
                     key: whatis(a.subStat1Type, keymap.affix),
                     value: a.subStat1Value,
-                })
+                }),
             );
             artifact.minors.push(
                 new Affix({
                     key: whatis(a.subStat2Type, keymap.affix),
                     value: a.subStat2Value,
-                })
+                }),
             );
             artifact.minors.push(
                 new Affix({
                     key: whatis(a.subStat3Type, keymap.affix),
                     value: a.subStat3Value,
-                })
+                }),
             );
             if (a.subStat4Value) {
                 artifact.minors.push(
                     new Affix({
                         key: whatis(a.subStat4Type!, keymap.affix),
                         value: a.subStat4Value,
-                    })
+                    }),
                 );
             }
             artifact.data.index = i;

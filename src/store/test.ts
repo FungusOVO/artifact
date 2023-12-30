@@ -6,7 +6,7 @@ import { choice } from "@/ys/utils";
 //     Object.keys(CharacterData).filter((k) => !k.startsWith("Traveler"))
 // );
 
-const charKeys = ["Lynette", "Lyney", "Freminet", "Wriothesley", "Neuvillette"];
+const charKeys = Object.keys(CharacterData).filter((k) => !k.startsWith("Traveler"));
 
 const testArts =
     process.env.NODE_ENV == "development"

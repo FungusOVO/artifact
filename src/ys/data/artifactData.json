@@ -83,7 +83,9 @@
         "NymphsDream",
         "VourukashasGlow",
         "MarechausseeHunter",
-        "GoldenTroupe"
+        "GoldenTroupe",
+        "SongOfDaysPast",
+        "NighttimeWhispersInTheEchoingWoods"
     ],
     "setKeysR4": ["Instructor"],
     "setGroups": {
@@ -91,7 +93,7 @@
             "GladiatorsFinale",
             "ShimenawasReminiscence",
             "VermillionHereafter",
-            "EchoesOfAnOffering"
+            "NighttimeWhispersInTheEchoingWoods"
         ],
         "s:em": ["WanderersTroupe", "GildedDreams", "FlowerOfParadiseLost"],
         "s:hb": ["MaidenBeloved", "OceanHuedClam"],

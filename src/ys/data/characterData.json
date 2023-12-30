@@ -79,12 +79,7 @@
         "rarity": 5,
         "presets": ["精双暴", "精充双暴", "攻精双暴", "攻精充双暴"],
         "build": {
-            "set": [
-                "EmblemOfSeveredFate",
-                "DeepwoodMemories",
-                "s:em",
-                "NoblesseOblige"
-            ],
+            "set": ["EmblemOfSeveredFate", "DeepwoodMemories", "s:em", "NoblesseOblige"],
             "main": {
                 "sands": ["er", "em"],
                 "goblet": ["dendroDB", "em"],
@@ -109,12 +104,7 @@
         "rarity": 5,
         "presets": ["攻双暴", "攻精双暴"],
         "build": {
-            "set": [
-                "s:atkp",
-                "NoblesseOblige",
-                "EmblemOfSeveredFate",
-                "BlizzardStrayer"
-            ],
+            "set": ["s:atkp", "NoblesseOblige", "EmblemOfSeveredFate", "BlizzardStrayer"],
             "main": {
                 "sands": ["atkp"],
                 "goblet": ["cryoDB"],
@@ -346,13 +336,7 @@
         "rarity": 4,
         "presets": ["攻双暴", "攻精双暴", "攻精充双暴"],
         "build": {
-            "set": [
-                "NoblesseOblige",
-                "s:atkp",
-                "s:em",
-                "EmblemOfSeveredFate",
-                "CrimsonWitchOfFlames"
-            ],
+            "set": ["NoblesseOblige", "s:atkp", "s:em", "EmblemOfSeveredFate", "CrimsonWitchOfFlames"],
             "main": {
                 "sands": ["em", "er", "atkp"],
                 "goblet": ["pyroDB"],
@@ -377,12 +361,7 @@
         "rarity": 4,
         "presets": ["攻双暴"],
         "build": {
-            "set": [
-                "s:atkp",
-                "EmblemOfSeveredFate",
-                "NoblesseOblige",
-                "ThunderingFury"
-            ],
+            "set": ["s:atkp", "EmblemOfSeveredFate", "NoblesseOblige", "ThunderingFury"],
             "main": {
                 "sands": ["atkp", "er"],
                 "goblet": ["electroDB", "atkp"],
@@ -407,12 +386,7 @@
         "rarity": 4,
         "presets": ["攻双暴", "攻精双暴", "攻精充双暴"],
         "build": {
-            "set": [
-                "s:atkp",
-                "NoblesseOblige",
-                "s:hydroDB",
-                "EmblemOfSeveredFate"
-            ],
+            "set": ["s:atkp", "NoblesseOblige", "s:hydroDB", "EmblemOfSeveredFate"],
             "main": {
                 "sands": ["atkp", "er"],
                 "goblet": ["hydroDB"],
@@ -487,13 +461,7 @@
         "rarity": 5,
         "presets": ["攻双暴", "攻精双暴"],
         "build": {
-            "set": [
-                "s:atkp",
-                "s:em",
-                "RetracingBolide",
-                "Lavawalker",
-                "CrimsonWitchOfFlames"
-            ],
+            "set": ["s:atkp", "s:em", "RetracingBolide", "Lavawalker", "CrimsonWitchOfFlames"],
             "main": {
                 "sands": ["atkp"],
                 "goblet": ["pyroDB"],
@@ -543,14 +511,7 @@
         "rarity": 4,
         "presets": ["攻充双暴", "攻精充双暴", "攻双暴"],
         "build": {
-            "set": [
-                "PaleFlame",
-                "ThunderingFury",
-                "s:atkp",
-                "BloodstainedChivalry",
-                "Thundersoother",
-                "s:hpp"
-            ],
+            "set": ["PaleFlame", "ThunderingFury", "s:atkp", "BloodstainedChivalry", "Thundersoother", "s:hpp"],
             "main": {
                 "sands": ["atkp"],
                 "goblet": ["electroDB", "physicalDB"],
@@ -675,12 +636,7 @@
         "rarity": 4,
         "presets": ["攻双暴", "攻精双暴"],
         "build": {
-            "set": [
-                "BlizzardStrayer",
-                "EmblemOfSeveredFate",
-                "Lavawalker",
-                "NoblesseOblige"
-            ],
+            "set": ["BlizzardStrayer", "EmblemOfSeveredFate", "Lavawalker", "NoblesseOblige"],
             "main": {
                 "sands": ["atkp"],
                 "goblet": ["cryoDB"],
@@ -705,13 +661,7 @@
         "rarity": 5,
         "presets": ["攻双暴", "攻精双暴"],
         "build": {
-            "set": [
-                "NoblesseOblige",
-                "s:atkp",
-                "EmblemOfSeveredFate",
-                "BlizzardStrayer",
-                "s:em"
-            ],
+            "set": ["NoblesseOblige", "s:atkp", "EmblemOfSeveredFate", "BlizzardStrayer", "s:em"],
             "main": {
                 "sands": ["atkp"],
                 "goblet": ["cryoDB"],
@@ -786,13 +736,7 @@
         "rarity": 5,
         "presets": ["攻双暴", "攻精双暴", "攻精充双暴"],
         "build": {
-            "set": [
-                "s:hydroDB",
-                "s:em",
-                "EmblemOfSeveredFate",
-                "NoblesseOblige",
-                "s:hpp"
-            ],
+            "set": ["s:hydroDB", "s:em", "EmblemOfSeveredFate", "NoblesseOblige", "s:hpp"],
             "main": {
                 "sands": ["er"],
                 "goblet": ["atkp"],
@@ -874,14 +818,7 @@
         "rarity": 4,
         "presets": ["攻双暴", "攻防双暴"],
         "build": {
-            "set": [
-                "PaleFlame",
-                "s:atkp",
-                "RetracingBolide",
-                "HuskOfOpulentDreams",
-                "s:hpp",
-                "BloodstainedChivalry"
-            ],
+            "set": ["PaleFlame", "s:atkp", "RetracingBolide", "HuskOfOpulentDreams", "s:hpp", "BloodstainedChivalry"],
             "main": {
                 "sands": ["defp", "atkp"],
                 "goblet": ["defp", "physicalDB"],
@@ -938,13 +875,7 @@
         "rarity": 5,
         "presets": ["攻双暴", "攻生精双暴", "生精双暴", "生精爆伤"],
         "build": {
-            "set": [
-                "s:hpp",
-                "s:em",
-                "RetracingBolide",
-                "s:atkp",
-                "CrimsonWitchOfFlames"
-            ],
+            "set": ["s:hpp", "s:em", "RetracingBolide", "s:atkp", "CrimsonWitchOfFlames"],
             "main": {
                 "sands": ["hpp", "em"],
                 "goblet": ["pyroDB"],
@@ -1019,12 +950,7 @@
         "rarity": 5,
         "presets": ["攻双暴", "攻精双暴"],
         "build": {
-            "set": [
-                "s:atkp",
-                "CrimsonWitchOfFlames",
-                "RetracingBolide",
-                "Lavawalker"
-            ],
+            "set": ["s:atkp", "CrimsonWitchOfFlames", "RetracingBolide", "Lavawalker"],
             "main": {
                 "sands": ["atkp"],
                 "goblet": ["pyroDB"],
@@ -1174,13 +1100,7 @@
         "rarity": 4,
         "presets": ["防充"],
         "build": {
-            "set": [
-                "HuskOfOpulentDreams",
-                "EmblemOfSeveredFate",
-                "s:hb",
-                "ArchaicPetra",
-                "NoblesseOblige"
-            ],
+            "set": ["HuskOfOpulentDreams", "EmblemOfSeveredFate", "s:hb", "ArchaicPetra", "NoblesseOblige"],
             "main": {
                 "sands": ["er"],
                 "goblet": ["defp"],
@@ -1205,12 +1125,7 @@
         "rarity": 4,
         "presets": ["攻充双暴", "攻双暴"],
         "build": {
-            "set": [
-                "s:atkp",
-                "ThunderingFury",
-                "EmblemOfSeveredFate",
-                "NoblesseOblige"
-            ],
+            "set": ["s:atkp", "ThunderingFury", "EmblemOfSeveredFate", "NoblesseOblige"],
             "main": {
                 "sands": ["er", "atkp"],
                 "goblet": ["electroDB", "atkp"],
@@ -1310,12 +1225,7 @@
         "rarity": 5,
         "presets": ["生双暴", "生充双暴"],
         "build": {
-            "set": [
-                "EmblemOfSeveredFate",
-                "s:hydroDB",
-                "NoblesseOblige",
-                "s:hpp"
-            ],
+            "set": ["EmblemOfSeveredFate", "s:hydroDB", "NoblesseOblige", "s:hpp"],
             "main": {
                 "sands": ["hpp", "er"],
                 "goblet": ["hydroDB"],
@@ -1365,12 +1275,7 @@
         "rarity": 4,
         "presets": ["攻双暴", "攻精双暴"],
         "build": {
-            "set": [
-                "s:atkp",
-                "EmblemOfSeveredFate",
-                "NoblesseOblige",
-                "BlizzardStrayer"
-            ],
+            "set": ["s:atkp", "EmblemOfSeveredFate", "NoblesseOblige", "BlizzardStrayer"],
             "main": {
                 "sands": ["atkp", "er", "em"],
                 "goblet": ["cryoDB"],
@@ -1420,11 +1325,7 @@
         "rarity": 4,
         "presets": ["防充"],
         "build": {
-            "set": [
-                "EmblemOfSeveredFate",
-                "NoblesseOblige",
-                "HuskOfOpulentDreams"
-            ],
+            "set": ["EmblemOfSeveredFate", "NoblesseOblige", "HuskOfOpulentDreams"],
             "main": {
                 "sands": ["defp", "er"],
                 "goblet": ["defp"],
@@ -1499,12 +1400,7 @@
         "rarity": 4,
         "presets": ["精双暴", "精充双暴", "攻精双暴", "攻精充双暴"],
         "build": {
-            "set": [
-                "DeepwoodMemories",
-                "s:em",
-                "EmblemOfSeveredFate",
-                "NoblesseOblige"
-            ],
+            "set": ["DeepwoodMemories", "s:em", "EmblemOfSeveredFate", "NoblesseOblige"],
             "main": {
                 "sands": ["atkp", "er"],
                 "goblet": ["dendroDB"],
@@ -1796,12 +1692,7 @@
         "rarity": 5,
         "presets": ["攻充双暴", "攻精充双暴", "攻生精充双暴"],
         "build": {
-            "set": [
-                "s:hpp",
-                "CrimsonWitchOfFlames",
-                "EmblemOfSeveredFate",
-                "Instructor"
-            ],
+            "set": ["s:hpp", "CrimsonWitchOfFlames", "EmblemOfSeveredFate", "Instructor"],
             "main": {
                 "sands": ["hpp", "atkp"],
                 "goblet": ["pyroDB", "atkp", "hpp"],
@@ -1933,12 +1824,7 @@
         "rarity": 5,
         "presets": ["攻双暴"],
         "build": {
-            "set": [
-                "MarechausseeHunter",
-                "CrimsonWitchOfFlames",
-                "WanderersTroupe",
-                "s:atkp"
-            ],
+            "set": ["MarechausseeHunter", "CrimsonWitchOfFlames", "WanderersTroupe", "s:atkp"],
             "main": {
                 "sands": ["atkp"],
                 "goblet": ["pyroDB"],
@@ -1963,12 +1849,7 @@
         "rarity": 4,
         "presets": ["攻双暴", "攻充双暴", "攻精充双暴"],
         "build": {
-            "set": [
-                "PaleFlame",
-                "BloodstainedChivalry",
-                "s:atkp",
-                "BlizzardStrayer"
-            ],
+            "set": ["PaleFlame", "BloodstainedChivalry", "s:atkp", "BlizzardStrayer"],
             "main": {
                 "sands": ["atkp"],
                 "goblet": ["physicalDB"],
@@ -2018,12 +1899,7 @@
         "rarity": 5,
         "presets": ["攻双暴"],
         "build": {
-            "set": [
-                "MarechausseeHunter",
-                "EchoesOfAnOffering",
-                "ShimenawasReminiscence",
-                "BlizzardStrayer"
-            ],
+            "set": ["MarechausseeHunter", "EchoesOfAnOffering", "ShimenawasReminiscence", "BlizzardStrayer"],
             "main": {
                 "sands": ["atkp"],
                 "goblet": ["cryoDB"],
@@ -2088,6 +1964,106 @@
                 "defp": 0,
                 "em": 0.75,
                 "er": 0.75,
+                "cr": 1,
+                "cd": 1
+            }
+        }
+    },
+    "Chevreuse": {
+        "element": "pyro",
+        "rarity": 4,
+        "presets": ["攻充双暴"],
+        "build": {
+            "set": [],
+            "main": {
+                "sands": [],
+                "goblet": [],
+                "circlet": []
+            },
+            "weight": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "hpp": 0,
+                "atkp": 0.75,
+                "defp": 0,
+                "em": 0,
+                "er": 0,
+                "cr": 1,
+                "cd": 1
+            }
+        }
+    },
+    "Navia": {
+        "element": "geo",
+        "rarity": 5,
+        "presets": ["攻充双暴"],
+        "build": {
+            "set": ["NighttimeWhispersInTheEchoingWoods"],
+            "main": {
+                "sands": ["atkp"],
+                "goblet": ["geoDB"],
+                "circlet": ["cr", "cd"]
+            },
+            "weight": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "hpp": 0,
+                "atkp": 0.75,
+                "defp": 0,
+                "em": 0,
+                "er": 0,
+                "cr": 1,
+                "cd": 1
+            }
+        }
+    },
+    "Gaming": {
+        "element": "pyro",
+        "rarity": 4,
+        "presets": ["攻充双暴"],
+        "build": {
+            "set": [],
+            "main": {
+                "sands": [],
+                "goblet": [],
+                "circlet": []
+            },
+            "weight": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "hpp": 0,
+                "atkp": 0.75,
+                "defp": 0,
+                "em": 0,
+                "er": 0,
+                "cr": 1,
+                "cd": 1
+            }
+        }
+    },
+    "Liuyun": {
+        "element": "anemo",
+        "rarity": 5,
+        "presets": ["攻充双暴"],
+        "build": {
+            "set": [],
+            "main": {
+                "sands": [],
+                "goblet": [],
+                "circlet": []
+            },
+            "weight": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "hpp": 0,
+                "atkp": 0.75,
+                "defp": 0,
+                "em": 0,
+                "er": 0,
                 "cr": 1,
                 "cd": 1
             }
