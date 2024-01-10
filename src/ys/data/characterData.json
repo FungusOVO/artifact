@@ -1972,25 +1972,25 @@
     "Chevreuse": {
         "element": "pyro",
         "rarity": 4,
-        "presets": ["攻充双暴"],
+        "presets": ["生充"],
         "build": {
-            "set": [],
+            "set": ["NoblesseOblige", "SongOfDaysPast"],
             "main": {
-                "sands": [],
-                "goblet": [],
-                "circlet": []
+                "sands": ["hpp", "er"],
+                "goblet": ["hpp"],
+                "circlet": ["hpp", "hb"]
             },
             "weight": {
                 "hp": 0,
                 "atk": 0,
                 "def": 0,
-                "hpp": 0,
-                "atkp": 0.75,
+                "hpp": 1,
+                "atkp": 0,
                 "defp": 0,
                 "em": 0,
-                "er": 0,
-                "cr": 1,
-                "cd": 1
+                "er": 1,
+                "cr": 0,
+                "cd": 0
             }
         }
     },
@@ -2013,7 +2013,7 @@
                 "atkp": 0.75,
                 "defp": 0,
                 "em": 0,
-                "er": 0,
+                "er": 0.55,
                 "cr": 1,
                 "cd": 1
             }
