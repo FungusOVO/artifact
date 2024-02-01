@@ -2024,11 +2024,11 @@
         "rarity": 4,
         "presets": ["攻充双暴"],
         "build": {
-            "set": [],
+            "set": ["CrimsonWitchOfFlames", "MarechausseeHunter", "VermillionHereafter"],
             "main": {
-                "sands": [],
-                "goblet": [],
-                "circlet": []
+                "sands": ["atkp", "em"],
+                "goblet": ["pyroDB"],
+                "circlet": ["cr", "cd"]
             },
             "weight": {
                 "hp": 0,
@@ -2038,32 +2038,32 @@
                 "atkp": 0.75,
                 "defp": 0,
                 "em": 0,
-                "er": 0,
+                "er": 0.55,
                 "cr": 1,
                 "cd": 1
             }
         }
     },
-    "Liuyun": {
+    "Xianyun": {
         "element": "anemo",
         "rarity": 5,
-        "presets": ["攻充双暴"],
+        "presets": ["攻充"],
         "build": {
-            "set": [],
+            "set": ["SongOfDaysPast", "ViridescentVenerer"],
             "main": {
-                "sands": [],
-                "goblet": [],
-                "circlet": []
+                "sands": ["atkp", "er"],
+                "goblet": ["atkp"],
+                "circlet": ["atkp"]
             },
             "weight": {
                 "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.75,
+                "atkp": 1,
                 "defp": 0,
                 "em": 0,
-                "er": 0,
+                "er": 0.75,
                 "cr": 1,
                 "cd": 1
             }
