@@ -40,6 +40,15 @@
         ],
         "circlet": ["hpp", "atkp", "defp", "em", "hb", "cr", "cd"]
     },
+    "elementKeys": [
+        "pyroDB",
+        "hydroDB",
+        "electroDB",
+        "anemoDB",
+        "cryoDB",
+        "geoDB",
+        "dendroDB"
+    ],
     "minorKeys": [
         "hp",
         "atk",
@@ -96,7 +105,7 @@
             "NighttimeWhispersInTheEchoingWoods"
         ],
         "s:em": ["WanderersTroupe", "GildedDreams", "FlowerOfParadiseLost"],
-        "s:hb": ["MaidenBeloved", "OceanHuedClam"],
+        "s:hb": ["MaidenBeloved", "OceanHuedClam","SongOfDaysPast"],
         "s:anemoDB": ["ViridescentVenerer", "DesertPavilionChronicle"],
         "s:hpp": ["TenacityOfTheMillelith", "VourukashasGlow"],
         "s:hydroDB": ["NymphsDream", "HeartOfDepth"]
@@ -211,7 +220,10 @@
         "em": 23.31,
         "er": 6.48,
         "cr": 3.89,
-        "cd": 7.77
+        "cd": 7.77,
+        "elementalDB": 5.83,
+        "physicalDB": 7.28,
+        "hb": 4.48
     },
     "minorStatsR4": {
         "hp": 239,

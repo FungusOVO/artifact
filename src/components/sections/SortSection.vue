@@ -48,6 +48,32 @@ const pBuildSortByOptions = ["max", "owner"].map((key) => ({
     key,
     label: i18n.global.t(`sort.pmulti.sortBy.${key}`),
 }));
+const artiWeightCalTypeOptions = [
+    {
+        key: "prob",
+        label: i18n.global.t("sort.index.prob"),
+    },
+    {
+        key: "mark",
+        label: i18n.global.t("sort.index.mark"),
+    },
+];
+
+const artiProbCalTypeOptions = [
+    {
+        key: "avg",
+        label: i18n.global.t("ui.avg"),
+    },
+    {
+        key: "max",
+        label: i18n.global.t("ui.max"),
+    },
+    {
+        key: "min",
+        label: i18n.global.t("ui.min"),
+    },
+];
+
 // 按角色适配概率（单人）
 const setsOptions: IOption[] = Object.keys(ArtifactData.setGroups)
     .map((key) => ({
@@ -59,7 +85,7 @@ const setsOptions: IOption[] = Object.keys(ArtifactData.setGroups)
             key,
             label: i18n.global.t("artifact.set." + key),
             icon: `./assets/artifacts/${key}/flower.webp`,
-        }))
+        })),
     );
 const sandsOptions = ArtifactData.mainKeys.sands.map((m) => ({
     key: m,
@@ -98,7 +124,7 @@ watch(
         });
         pEquipCharOptions.value = options;
         artStore.pEquipCharKeys = options.map((o) => o.key);
-    }
+    },
 );
 // 不排序
 
@@ -111,6 +137,10 @@ const openBuildEditor = () => (showBuildEditor.value = true);
 
 const showAffnumTable = ref(false);
 const openAffnumTable = () => (showAffnumTable.value = true);
+
+const isShowArtiWeightCalType = computed(() => {
+    return ["pmulti", "psingle"].includes(artStore.sort.by);
+});
 </script>
 
 <template>
@@ -198,12 +228,6 @@ const openAffnumTable = () => (showAffnumTable.value = true);
                     v-model="artStore.pBuildSortBy"
                     style="margin-top: 10px"
                 />
-                <p style="text-align: center">
-                    <el-checkbox
-                        v-model="artStore.pBuildIgnoreIndividual"
-                        :label="$t('ui.pbuild_ignore_individual')"
-                    />
-                </p>
             </div>
             <div v-else-if="artStore.sort.by == 'psingle'">
                 <p class="row small" v-text="$t('sort.pmulti.desc')" />
@@ -258,12 +282,6 @@ const openAffnumTable = () => (showAffnumTable.value = true);
                     :options="circletOptions"
                     :title="$t('sort.psingle.circlet')"
                 />
-                <p style="text-align: center">
-                    <el-checkbox
-                        v-model="artStore.pBuildIgnoreIndividual"
-                        :label="$t('ui.pbuild_ignore_individual')"
-                    />
-                </p>
             </div>
             <div v-else-if="artStore.sort.by == 'pequip'">
                 <p class="row small" v-text="$t('sort.pequip.desc')" />
@@ -284,13 +302,38 @@ const openAffnumTable = () => (showAffnumTable.value = true);
                 />
                 <p style="text-align: center">
                     <el-checkbox
-                        v-model="artStore.pEquipIgnoreIndividual"
-                        :label="$t('ui.pequip_ignore_individual')"
+                        v-model="artStore.pBuildIgnoreIndividual"
+                        :label="$t('ui.pbuild_ignore_individual')"
                     />
                 </p>
             </div>
             <div v-else-if="artStore.sort.by == 'defeat'">
                 <p class="row small" v-text="$t('sort.defeat.desc')" />
+            </div>
+            <div v-show="isShowArtiWeightCalType">
+                <single-select
+                    :title="$t('ui.arti_weight_cal_type')"
+                    :options="artiWeightCalTypeOptions"
+                    :desc="$t('sort.index.weight_cal_desc')"
+                    v-model="artStore.calArtiWeightType"
+                    style="margin-top: 10px"
+                />
+            </div>
+            <div v-show="isShowArtiWeightCalType">
+                <single-select
+                    :title="$t('ui.arti_prob_cal_type')"
+                    :options="artiProbCalTypeOptions"
+                    v-model="artStore.calArtiProbType"
+                    style="margin-top: 10px"
+                />
+            </div>
+            <div v-show="isShowArtiWeightCalType">
+                <p style="text-align: center">
+                    <el-checkbox
+                        v-model="artStore.pBuildIgnoreIndividual"
+                        :label="$t('ui.pbuild_ignore_individual')"
+                    />
+                </p>
             </div>
         </div>
     </div>

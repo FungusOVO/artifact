@@ -36,5 +36,6 @@ export type IMinorAffixKey =
 export type ISlotKey = "flower" | "plume" | "sands" | "goblet" | "circlet";
 
 export type ICharKey = keyof typeof CharacterData;
+export type ICharBaseAttr = keyof (typeof CharacterData)[ICharKey]["baseAttr"];
 
 export type IPresetKey = keyof typeof PresetData;

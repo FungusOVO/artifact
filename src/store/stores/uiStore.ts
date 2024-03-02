@@ -25,6 +25,7 @@ export const useUiStore = defineStore("ui", () => {
             try {
                 worker();
             } catch (e) {
+                console.error(e);
                 alert(String(e), "error");
             }
             loading.value = false;
@@ -50,7 +51,7 @@ export const useUiStore = defineStore("ui", () => {
     function getFormRule(
         required = true,
         validator?: any,
-        trigger = "blur"
+        trigger = "blur",
     ): FormItemRule[] {
         if (validator) {
             return [
@@ -75,7 +76,7 @@ export const useUiStore = defineStore("ui", () => {
     function affixWeightJsonValidator(
         rule: never,
         value: string,
-        callback: any
+        callback: any,
     ) {
         const minorKeys = ArtifactData.minorKeys;
         try {
@@ -84,28 +85,28 @@ export const useUiStore = defineStore("ui", () => {
                 return callback(new Error(i18n.global.t("ui.format_err")));
             if (minorKeys.length != Object.keys(w).length)
                 return callback(
-                    new Error(i18n.global.t("ui.key_missing_or_redunt"))
+                    new Error(i18n.global.t("ui.key_missing_or_redunt")),
                 );
             for (let key in w) {
                 if (!minorKeys.includes(key))
                     return callback(
-                        new Error(i18n.global.t("ui.key_not_exist", { key }))
+                        new Error(i18n.global.t("ui.key_not_exist", { key })),
                     );
                 if (typeof w[key] != "number")
                     return callback(
                         new Error(
                             i18n.global.t("ui.valofkey_not_num", {
                                 key,
-                            })
-                        )
+                            }),
+                        ),
                     );
                 if (w[key] < 0 || w[key] > 1)
                     return callback(
                         new Error(
                             i18n.global.t("ui.valofkey_not_between_0_1", {
                                 key,
-                            })
-                        )
+                            }),
+                        ),
                     );
             }
             callback();
@@ -166,7 +167,7 @@ export const useUiStore = defineStore("ui", () => {
         let element = document.createElement("a");
         element.setAttribute(
             "href",
-            "data:text/plain;charset=utf-8," + encodeURIComponent(content)
+            "data:text/plain;charset=utf-8," + encodeURIComponent(content),
         );
         element.setAttribute("download", filename);
         element.style.display = "none";

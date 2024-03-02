@@ -45,6 +45,7 @@ export const SortByKeys = [
 
 export type ISortBy = (typeof SortByKeys)[number];
 
+// 排序方式
 export type ISortResultType = "affnum" | "pbuild" | "defeat" | "pequip";
 
 export const useArtifactStore = defineStore("artifact", () => {
@@ -84,7 +85,6 @@ export const useArtifactStore = defineStore("artifact", () => {
     });
     const pBuildSortBy = ref<IPBuildSortBy>("max"); // TODO
     const pBuildIgnoreIndividual = ref(false); // TODO
-    const pEquipIgnoreIndividual = ref(true); // TODO
     const pEquipCharKeys = ref<string[]>([]);
     const customizedBuilds = useLocalStorage<IBuild[]>("customized_builds", []);
     const builds = computed(() => {
@@ -124,11 +124,11 @@ export const useArtifactStore = defineStore("artifact", () => {
     });
     const setBonusTable = useLocalStorage<ISetBonusTable>(
         "set_bonus_table",
-        DefaultSetBonusTable
+        DefaultSetBonusTable,
     );
     const affixWeightTable = useLocalStorage<IAffixWeightTable>(
         "affix_weight_table",
-        DefaultAffixWeightTable
+        DefaultAffixWeightTable,
     );
     const sortResults = ref<
         IAffnumResults | IPBuildResults | IDefeatResults | IPEquipResults
@@ -142,7 +142,7 @@ export const useArtifactStore = defineStore("artifact", () => {
     });
     const affnumMultiplierKey = useLocalStorage(
         "affnum_multiplier_key",
-        "1/0.85"
+        "1/0.85",
     );
     const affnumMultiplier = computed(() => {
         switch (affnumMultiplierKey.value) {
@@ -157,6 +157,9 @@ export const useArtifactStore = defineStore("artifact", () => {
         }
     });
     const setTypeCount = ref<{ [key: string]: number }>({});
+
+    const calArtiWeightType = useLocalStorage("calArtiWeightType", "prob");
+    const calArtiProbType = useLocalStorage("calArtiProbType", "avg");
 
     /** reset filter */
     function resetFilter() {
@@ -230,7 +233,7 @@ export const useArtifactStore = defineStore("artifact", () => {
                                 weight: sort.value.weight,
                             },
                         ],
-                        sort.value.by
+                        sort.value.by,
                     );
                     sortResultType.value = "affnum";
                     break;
@@ -238,7 +241,7 @@ export const useArtifactStore = defineStore("artifact", () => {
                     sortResults.value = AffnumSort.sort(
                         arts,
                         setBonusTable.value,
-                        affixWeightTable.value
+                        affixWeightTable.value,
                     );
                     sortResultType.value = "affnum";
                     break;
@@ -250,7 +253,7 @@ export const useArtifactStore = defineStore("artifact", () => {
                         {
                             sortBy: pBuildSortBy.value,
                             ignoreIndividual: pBuildIgnoreIndividual.value,
-                        }
+                        },
                     );
                     sortResultType.value = "pbuild";
                     break;
@@ -273,7 +276,7 @@ export const useArtifactStore = defineStore("artifact", () => {
                         [""],
                         {
                             ignoreIndividual: pBuildIgnoreIndividual.value,
-                        }
+                        },
                     );
                     sortResultType.value = "pbuild";
                     break;
@@ -284,8 +287,8 @@ export const useArtifactStore = defineStore("artifact", () => {
                         builds.value,
                         pEquipCharKeys.value,
                         {
-                            ignoreIndividual: pEquipIgnoreIndividual.value,
-                        }
+                            ignoreIndividual: pBuildIgnoreIndividual.value,
+                        },
                     );
                     sortResultType.value = "pequip";
                     break;
@@ -345,7 +348,7 @@ export const useArtifactStore = defineStore("artifact", () => {
             slot: string;
             level: number;
             minors: Affix[];
-        }
+        },
     ) {
         for (let a of processedArtifacts.value) {
             if (a.data.index == index) {
@@ -396,7 +399,6 @@ export const useArtifactStore = defineStore("artifact", () => {
         sort,
         pBuildSortBy,
         pBuildIgnoreIndividual,
-        pEquipIgnoreIndividual,
         pEquipCharKeys,
         customizedBuilds,
         builds,
@@ -417,5 +419,7 @@ export const useArtifactStore = defineStore("artifact", () => {
         updArtifact,
         flipLock,
         setLocks,
+        calArtiWeightType,
+        calArtiProbType,
     };
 });

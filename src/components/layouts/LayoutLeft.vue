@@ -192,7 +192,7 @@ const showExport = ref(false);
 const artifactsToExport = ref<Artifact[]>([]);
 const exportSelection = () => {
     artifactsToExport.value = artStore.processedArtifacts.filter((a) =>
-        selectionSet.value.has(a.data.index)
+        selectionSet.value.has(a.data.index),
     );
     showExport.value = true;
 };
@@ -218,7 +218,7 @@ const artifacts = computed(() => {
 const pageProvider = async (pageNumber: number, pageSize: number) => {
     return artifacts.value.slice(
         pageNumber * pageSize,
-        (pageNumber + 1) * pageSize
+        (pageNumber + 1) * pageSize,
     );
 };
 // 手动添加

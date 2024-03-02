@@ -180,8 +180,8 @@ export function getIncreAffnumMinMaxAvg(
     nMinors: number,
     minorKeys: string[] = []
 ) {
-    const nMinorsPre4 = Math.min(nMinors, 4 - minorKeys.length),
-        nMinorsPost4 = nMinors - nMinorsPre4,
+    const nMinorsPre4 = Math.min(nMinors, 4 - minorKeys.length), // 需要补满的词条数量
+        nMinorsPost4 = nMinors - nMinorsPre4, // 满4词条后，升级的次数
         weightVecProbs = getWeightVecProbs(
             mainKey,
             weight,

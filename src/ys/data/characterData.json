@@ -3,6 +3,11 @@
         "element": "anemo",
         "rarity": 5,
         "presets": ["攻精充双暴"],
+        "baseAttr": {
+            "hp": 10875,
+            "atk": 212.4,
+            "def": 682.52
+        },
         "build": {
             "set": ["s:anemoDB"],
             "main": {
@@ -28,6 +33,11 @@
         "element": "geo",
         "rarity": 5,
         "presets": ["攻充双暴"],
+        "baseAttr": {
+            "hp": 10875,
+            "atk": 212.4,
+            "def": 682.52
+        },
         "build": {
             "set": ["s:atkp", "ArchaicPetra", "NoblesseOblige"],
             "main": {
@@ -53,6 +63,11 @@
         "element": "electro",
         "rarity": 5,
         "presets": ["充", "攻充双暴"],
+        "baseAttr": {
+            "hp": 10875,
+            "atk": 212.4,
+            "def": 682.52
+        },
         "build": {
             "set": ["s:atkp", "s:em", "EmblemOfSeveredFate", "NoblesseOblige"],
             "main": {
@@ -78,8 +93,18 @@
         "element": "dendro",
         "rarity": 5,
         "presets": ["精双暴", "精充双暴", "攻精双暴", "攻精充双暴"],
+        "baseAttr": {
+            "hp": 10875,
+            "atk": 212.4,
+            "def": 682.52
+        },
         "build": {
-            "set": ["EmblemOfSeveredFate", "DeepwoodMemories", "s:em", "NoblesseOblige"],
+            "set": [
+                "EmblemOfSeveredFate",
+                "DeepwoodMemories",
+                "s:em",
+                "NoblesseOblige"
+            ],
             "main": {
                 "sands": ["er", "em"],
                 "goblet": ["dendroDB", "em"],
@@ -103,8 +128,18 @@
         "element": "cryo",
         "rarity": 5,
         "presets": ["攻双暴", "攻精双暴"],
+        "baseAttr": {
+            "hp": 12858,
+            "atk": 342.03,
+            "def": 783.93
+        },
         "build": {
-            "set": ["s:atkp", "NoblesseOblige", "EmblemOfSeveredFate", "BlizzardStrayer"],
+            "set": [
+                "s:atkp",
+                "NoblesseOblige",
+                "EmblemOfSeveredFate",
+                "BlizzardStrayer"
+            ],
             "main": {
                 "sands": ["atkp"],
                 "goblet": ["cryoDB"],
@@ -128,6 +163,11 @@
         "element": "anemo",
         "rarity": 5,
         "presets": ["攻充双暴", "攻双暴"],
+        "baseAttr": {
+            "hp": 14695,
+            "atk": 239.18,
+            "def": 768.55
+        },
         "build": {
             "set": ["s:atkp", "s:hb", "s:anemoDB", "NoblesseOblige"],
             "main": {
@@ -153,6 +193,11 @@
         "element": "electro",
         "rarity": 4,
         "presets": ["攻双暴"],
+        "baseAttr": {
+            "hp": 9570,
+            "atk": 231.51,
+            "def": 573.32
+        },
         "build": {
             "set": ["s:em", "EmblemOfSeveredFate", "ThunderingFury"],
             "main": {
@@ -178,6 +223,11 @@
         "element": "hydro",
         "rarity": 4,
         "presets": ["生充"],
+        "baseAttr": {
+            "hp": 9787,
+            "atk": 159.3,
+            "def": 668.87
+        },
         "build": {
             "set": ["s:hpp", "s:hb", "NoblesseOblige"],
             "main": {
@@ -203,6 +253,11 @@
         "element": "cryo",
         "rarity": 4,
         "presets": ["攻双暴", "攻精双暴"],
+        "baseAttr": {
+            "hp": 11636,
+            "atk": 223.02,
+            "def": 791.72
+        },
         "build": {
             "set": [
                 "NoblesseOblige",
@@ -235,6 +290,11 @@
         "element": "pyro",
         "rarity": 5,
         "presets": ["攻双暴", "攻精双暴"],
+        "baseAttr": {
+            "hp": 12981,
+            "atk": 334.85,
+            "def": 783.93
+        },
         "build": {
             "set": ["s:atkp", "s:em", "CrimsonWitchOfFlames"],
             "main": {
@@ -260,6 +320,11 @@
         "element": "electro",
         "rarity": 4,
         "presets": ["攻双暴"],
+        "baseAttr": {
+            "hp": 11962,
+            "atk": 233.64,
+            "def": 750.77
+        },
         "build": {
             "set": ["s:atkp", "BloodstainedChivalry", "PaleFlame"],
             "main": {
@@ -285,6 +350,11 @@
         "element": "pyro",
         "rarity": 4,
         "presets": ["攻双暴", "攻精双暴"],
+        "baseAttr": {
+            "hp": 9461,
+            "atk": 223.02,
+            "def": 600.62
+        },
         "build": {
             "set": ["CrimsonWitchOfFlames", "NoblesseOblige", "s:em"],
             "main": {
@@ -310,6 +380,11 @@
         "element": "anemo",
         "rarity": 5,
         "presets": ["攻精充双暴", "攻双暴"],
+        "baseAttr": {
+            "hp": 10531,
+            "atk": 263.1,
+            "def": 668.64
+        },
         "build": {
             "set": ["s:anemoDB"],
             "main": {
@@ -335,8 +410,19 @@
         "element": "pyro",
         "rarity": 4,
         "presets": ["攻双暴", "攻精双暴", "攻精充双暴"],
+        "baseAttr": {
+            "hp": 10875,
+            "atk": 225.14,
+            "def": 668.87
+        },
         "build": {
-            "set": ["NoblesseOblige", "s:atkp", "s:em", "EmblemOfSeveredFate", "CrimsonWitchOfFlames"],
+            "set": [
+                "NoblesseOblige",
+                "s:atkp",
+                "s:em",
+                "EmblemOfSeveredFate",
+                "CrimsonWitchOfFlames"
+            ],
             "main": {
                 "sands": ["em", "er", "atkp"],
                 "goblet": ["pyroDB"],
@@ -360,8 +446,18 @@
         "element": "electro",
         "rarity": 4,
         "presets": ["攻双暴"],
+        "baseAttr": {
+            "hp": 13050,
+            "atk": 225.14,
+            "def": 648.4
+        },
         "build": {
-            "set": ["s:atkp", "EmblemOfSeveredFate", "NoblesseOblige", "ThunderingFury"],
+            "set": [
+                "s:atkp",
+                "EmblemOfSeveredFate",
+                "NoblesseOblige",
+                "ThunderingFury"
+            ],
             "main": {
                 "sands": ["atkp", "er"],
                 "goblet": ["electroDB", "atkp"],
@@ -385,8 +481,18 @@
         "element": "hydro",
         "rarity": 4,
         "presets": ["攻双暴", "攻精双暴", "攻精充双暴"],
+        "baseAttr": {
+            "hp": 10222,
+            "atk": 201.78,
+            "def": 757.6
+        },
         "build": {
-            "set": ["s:atkp", "NoblesseOblige", "s:hydroDB", "EmblemOfSeveredFate"],
+            "set": [
+                "s:atkp",
+                "NoblesseOblige",
+                "s:hydroDB",
+                "EmblemOfSeveredFate"
+            ],
             "main": {
                 "sands": ["atkp", "er"],
                 "goblet": ["hydroDB"],
@@ -410,6 +516,11 @@
         "element": "anemo",
         "rarity": 5,
         "presets": ["攻双暴"],
+        "baseAttr": {
+            "hp": 12736,
+            "atk": 349.2,
+            "def": 799.3
+        },
         "build": {
             "set": ["s:anemoDB", "s:atkp"],
             "main": {
@@ -435,6 +546,11 @@
         "element": "geo",
         "rarity": 4,
         "presets": ["攻双暴"],
+        "baseAttr": {
+            "hp": 9787,
+            "atk": 212.4,
+            "def": 573.32
+        },
         "build": {
             "set": ["ArchaicPetra", "s:atkp", "NoblesseOblige"],
             "main": {
@@ -460,8 +576,19 @@
         "element": "pyro",
         "rarity": 5,
         "presets": ["攻双暴", "攻精双暴"],
+        "baseAttr": {
+            "hp": 10287,
+            "atk": 310.93,
+            "def": 614.84
+        },
         "build": {
-            "set": ["s:atkp", "s:em", "RetracingBolide", "Lavawalker", "CrimsonWitchOfFlames"],
+            "set": [
+                "s:atkp",
+                "s:em",
+                "RetracingBolide",
+                "Lavawalker",
+                "CrimsonWitchOfFlames"
+            ],
             "main": {
                 "sands": ["atkp"],
                 "goblet": ["pyroDB"],
@@ -485,6 +612,11 @@
         "element": "geo",
         "rarity": 5,
         "presets": ["攻双暴", "攻生充双暴", "攻生双暴"],
+        "baseAttr": {
+            "hp": 14695,
+            "atk": 251.14,
+            "def": 737.81
+        },
         "build": {
             "set": ["ArchaicPetra", "s:atkp", "NoblesseOblige", "s:hpp"],
             "main": {
@@ -510,8 +642,20 @@
         "element": "electro",
         "rarity": 4,
         "presets": ["攻充双暴", "攻精充双暴", "攻双暴"],
+        "baseAttr": {
+            "hp": 9189,
+            "atk": 244.26,
+            "def": 593.79
+        },
         "build": {
-            "set": ["PaleFlame", "ThunderingFury", "s:atkp", "BloodstainedChivalry", "Thundersoother", "s:hpp"],
+            "set": [
+                "PaleFlame",
+                "ThunderingFury",
+                "s:atkp",
+                "BloodstainedChivalry",
+                "Thundersoother",
+                "s:hpp"
+            ],
             "main": {
                 "sands": ["atkp"],
                 "goblet": ["electroDB", "physicalDB"],
@@ -535,6 +679,11 @@
         "element": "pyro",
         "rarity": 4,
         "presets": ["攻双暴", "攻精双暴", "攻精充双暴"],
+        "baseAttr": {
+            "hp": 12397,
+            "atk": 191.16,
+            "def": 771.25
+        },
         "build": {
             "set": ["NoblesseOblige", "Instructor"],
             "main": {
@@ -560,6 +709,11 @@
         "element": "hydro",
         "rarity": 5,
         "presets": ["攻双暴", "攻精双暴"],
+        "baseAttr": {
+            "hp": 13103,
+            "atk": 301.36,
+            "def": 814.67
+        },
         "build": {
             "set": ["s:atkp", "NoblesseOblige", "s:em", "s:hydroDB"],
             "main": {
@@ -585,6 +739,11 @@
         "element": "geo",
         "rarity": 4,
         "presets": ["攻双暴", "攻防双暴", "攻防充双暴", "防双暴"],
+        "baseAttr": {
+            "hp": 12071,
+            "atk": 191.16,
+            "def": 798.55
+        },
         "build": {
             "set": ["RetracingBolide", "s:atkp", "HuskOfOpulentDreams"],
             "main": {
@@ -610,6 +769,11 @@
         "element": "cryo",
         "rarity": 5,
         "presets": ["攻双暴"],
+        "baseAttr": {
+            "hp": 12368,
+            "atk": 287.01,
+            "def": 922.27
+        },
         "build": {
             "set": ["EmblemOfSeveredFate", "s:hb", "NoblesseOblige", "s:hpp"],
             "main": {
@@ -635,8 +799,18 @@
         "element": "cryo",
         "rarity": 4,
         "presets": ["攻双暴", "攻精双暴"],
+        "baseAttr": {
+            "hp": 10984,
+            "atk": 223.02,
+            "def": 648.4
+        },
         "build": {
-            "set": ["BlizzardStrayer", "EmblemOfSeveredFate", "Lavawalker", "NoblesseOblige"],
+            "set": [
+                "BlizzardStrayer",
+                "EmblemOfSeveredFate",
+                "Lavawalker",
+                "NoblesseOblige"
+            ],
             "main": {
                 "sands": ["atkp"],
                 "goblet": ["cryoDB"],
@@ -660,8 +834,19 @@
         "element": "cryo",
         "rarity": 5,
         "presets": ["攻双暴", "攻精双暴"],
+        "baseAttr": {
+            "hp": 9797,
+            "atk": 334.85,
+            "def": 630.21
+        },
         "build": {
-            "set": ["NoblesseOblige", "s:atkp", "EmblemOfSeveredFate", "BlizzardStrayer", "s:em"],
+            "set": [
+                "NoblesseOblige",
+                "s:atkp",
+                "EmblemOfSeveredFate",
+                "BlizzardStrayer",
+                "s:em"
+            ],
             "main": {
                 "sands": ["atkp"],
                 "goblet": ["cryoDB"],
@@ -685,6 +870,11 @@
         "element": "geo",
         "rarity": 5,
         "presets": ["防双暴"],
+        "baseAttr": {
+            "hp": 13226,
+            "atk": 251.14,
+            "def": 876.15
+        },
         "build": {
             "set": ["ArchaicPetra", "HuskOfOpulentDreams", "s:hpp"],
             "main": {
@@ -710,6 +900,11 @@
         "element": "cryo",
         "rarity": 4,
         "presets": ["生充"],
+        "baseAttr": {
+            "hp": 9570,
+            "atk": 212.4,
+            "def": 600.62
+        },
         "build": {
             "set": ["s:hb", "s:hpp", "NoblesseOblige"],
             "main": {
@@ -735,8 +930,19 @@
         "element": "hydro",
         "rarity": 5,
         "presets": ["攻双暴", "攻精双暴", "攻精充双暴"],
+        "baseAttr": {
+            "hp": 10409,
+            "atk": 287.01,
+            "def": 653.27
+        },
         "build": {
-            "set": ["s:hydroDB", "s:em", "EmblemOfSeveredFate", "NoblesseOblige", "s:hpp"],
+            "set": [
+                "s:hydroDB",
+                "s:em",
+                "EmblemOfSeveredFate",
+                "NoblesseOblige",
+                "s:hpp"
+            ],
             "main": {
                 "sands": ["er"],
                 "goblet": ["atkp"],
@@ -760,6 +966,11 @@
         "element": "electro",
         "rarity": 5,
         "presets": ["攻双暴"],
+        "baseAttr": {
+            "hp": 13103,
+            "atk": 322.89,
+            "def": 799.3
+        },
         "build": {
             "set": [
                 "s:atkp",
@@ -792,6 +1003,11 @@
         "element": "anemo",
         "rarity": 4,
         "presets": ["精"],
+        "baseAttr": {
+            "hp": 9244,
+            "atk": 169.92,
+            "def": 703
+        },
         "build": {
             "set": ["s:atkp", "NoblesseOblige", "s:anemoDB"],
             "main": {
@@ -817,8 +1033,20 @@
         "element": "pyro",
         "rarity": 4,
         "presets": ["攻双暴", "攻防双暴"],
+        "baseAttr": {
+            "hp": 11201,
+            "atk": 248.5,
+            "def": 798.55
+        },
         "build": {
-            "set": ["PaleFlame", "s:atkp", "RetracingBolide", "HuskOfOpulentDreams", "s:hpp", "BloodstainedChivalry"],
+            "set": [
+                "PaleFlame",
+                "s:atkp",
+                "RetracingBolide",
+                "HuskOfOpulentDreams",
+                "s:hpp",
+                "BloodstainedChivalry"
+            ],
             "main": {
                 "sands": ["defp", "atkp"],
                 "goblet": ["defp", "physicalDB"],
@@ -842,6 +1070,11 @@
         "element": "cryo",
         "rarity": 4,
         "presets": ["攻双暴", "攻精双暴"],
+        "baseAttr": {
+            "hp": 12289,
+            "atk": 240.01,
+            "def": 709.82
+        },
         "build": {
             "set": [
                 "s:atkp",
@@ -874,8 +1107,19 @@
         "element": "pyro",
         "rarity": 5,
         "presets": ["攻双暴", "攻生精双暴", "生精双暴", "生精爆伤"],
+        "baseAttr": {
+            "hp": 15552,
+            "atk": 106.43,
+            "def": 876.15
+        },
         "build": {
-            "set": ["s:hpp", "s:em", "RetracingBolide", "s:atkp", "CrimsonWitchOfFlames"],
+            "set": [
+                "s:hpp",
+                "s:em",
+                "RetracingBolide",
+                "s:atkp",
+                "CrimsonWitchOfFlames"
+            ],
             "main": {
                 "sands": ["hpp", "em"],
                 "goblet": ["pyroDB"],
@@ -899,6 +1143,11 @@
         "element": "anemo",
         "rarity": 5,
         "presets": ["攻双暴", "攻精双暴", "精充"],
+        "baseAttr": {
+            "hp": 13348,
+            "atk": 296.58,
+            "def": 806.98
+        },
         "build": {
             "set": ["s:anemoDB"],
             "main": {
@@ -924,6 +1173,11 @@
         "element": "pyro",
         "rarity": 4,
         "presets": ["攻双暴", "攻精双暴"],
+        "baseAttr": {
+            "hp": 9352,
+            "atk": 240.01,
+            "def": 586.97
+        },
         "build": {
             "set": ["RetracingBolide", "CrimsonWitchOfFlames", "s:em"],
             "main": {
@@ -949,8 +1203,18 @@
         "element": "pyro",
         "rarity": 5,
         "presets": ["攻双暴", "攻精双暴"],
+        "baseAttr": {
+            "hp": 10164,
+            "atk": 322.89,
+            "def": 614.84
+        },
         "build": {
-            "set": ["s:atkp", "CrimsonWitchOfFlames", "RetracingBolide", "Lavawalker"],
+            "set": [
+                "s:atkp",
+                "CrimsonWitchOfFlames",
+                "RetracingBolide",
+                "Lavawalker"
+            ],
             "main": {
                 "sands": ["atkp"],
                 "goblet": ["pyroDB"],
@@ -974,6 +1238,11 @@
         "element": "pyro",
         "rarity": 4,
         "presets": ["生充", "生精充"],
+        "baseAttr": {
+            "hp": 10331,
+            "atk": 201.78,
+            "def": 750.77
+        },
         "build": {
             "set": ["s:hpp", "EmblemOfSeveredFate", "s:em"],
             "main": {
@@ -999,6 +1268,11 @@
         "element": "cryo",
         "rarity": 5,
         "presets": ["攻充双暴", "攻击爆伤", "攻双暴"],
+        "baseAttr": {
+            "hp": 13226,
+            "atk": 342.03,
+            "def": 750.88
+        },
         "build": {
             "set": ["s:atkp", "BloodstainedChivalry", "PaleFlame"],
             "main": {
@@ -1024,6 +1298,11 @@
         "element": "electro",
         "rarity": 5,
         "presets": ["攻充双暴", "攻双暴"],
+        "baseAttr": {
+            "hp": 12907,
+            "atk": 337.24,
+            "def": 789.31
+        },
         "build": {
             "set": ["EmblemOfSeveredFate"],
             "main": {
@@ -1049,6 +1328,11 @@
         "element": "anemo",
         "rarity": 4,
         "presets": ["攻充双暴", "攻双暴"],
+        "baseAttr": {
+            "hp": 11854,
+            "atk": 244.26,
+            "def": 744.63
+        },
         "build": {
             "set": ["s:atkp", "s:hb", "s:anemoDB"],
             "main": {
@@ -1074,6 +1358,11 @@
         "element": "hydro",
         "rarity": 5,
         "presets": ["生充", "攻生充", "攻生精充"],
+        "baseAttr": {
+            "hp": 13471,
+            "atk": 234.39,
+            "def": 657.11
+        },
         "build": {
             "set": ["s:hb", "s:hpp", "s:hydroDB"],
             "main": {
@@ -1099,8 +1388,19 @@
         "element": "geo",
         "rarity": 4,
         "presets": ["防充"],
+        "baseAttr": {
+            "hp": 9570,
+            "atk": 182.66,
+            "def": 648.4
+        },
         "build": {
-            "set": ["HuskOfOpulentDreams", "EmblemOfSeveredFate", "s:hb", "ArchaicPetra", "NoblesseOblige"],
+            "set": [
+                "HuskOfOpulentDreams",
+                "EmblemOfSeveredFate",
+                "s:hb",
+                "ArchaicPetra",
+                "NoblesseOblige"
+            ],
             "main": {
                 "sands": ["er"],
                 "goblet": ["defp"],
@@ -1124,8 +1424,18 @@
         "element": "electro",
         "rarity": 4,
         "presets": ["攻充双暴", "攻双暴"],
+        "baseAttr": {
+            "hp": 9570,
+            "atk": 195.41,
+            "def": 627.92
+        },
         "build": {
-            "set": ["s:atkp", "ThunderingFury", "EmblemOfSeveredFate", "NoblesseOblige"],
+            "set": [
+                "s:atkp",
+                "ThunderingFury",
+                "EmblemOfSeveredFate",
+                "NoblesseOblige"
+            ],
             "main": {
                 "sands": ["er", "atkp"],
                 "goblet": ["electroDB", "atkp"],
@@ -1149,6 +1459,11 @@
         "element": "geo",
         "rarity": 5,
         "presets": ["攻双暴", "攻防双暴", "攻防充双暴", "防双暴"],
+        "baseAttr": {
+            "hp": 12858,
+            "atk": 227.22,
+            "def": 959.16
+        },
         "build": {
             "set": ["ArchaicPetra", "HuskOfOpulentDreams"],
             "main": {
@@ -1174,6 +1489,11 @@
         "element": "electro",
         "rarity": 5,
         "presets": ["攻精双暴", "攻精充双暴"],
+        "baseAttr": {
+            "hp": 10372,
+            "atk": 339.63,
+            "def": 568.73
+        },
         "build": {
             "set": ["s:atkp", "ThunderingFury", "Thundersoother", "s:hpp"],
             "main": {
@@ -1199,6 +1519,11 @@
         "element": "anemo",
         "rarity": 4,
         "presets": ["攻双暴"],
+        "baseAttr": {
+            "hp": 10657,
+            "atk": 225.14,
+            "def": 683.89
+        },
         "build": {
             "set": ["s:anemoDB", "s:atkp"],
             "main": {
@@ -1224,8 +1549,18 @@
         "element": "hydro",
         "rarity": 5,
         "presets": ["生双暴", "生充双暴"],
+        "baseAttr": {
+            "hp": 14450,
+            "atk": 243.96,
+            "def": 547.98
+        },
         "build": {
-            "set": ["EmblemOfSeveredFate", "s:hydroDB", "NoblesseOblige", "s:hpp"],
+            "set": [
+                "EmblemOfSeveredFate",
+                "s:hydroDB",
+                "NoblesseOblige",
+                "s:hpp"
+            ],
             "main": {
                 "sands": ["hpp", "er"],
                 "goblet": ["hydroDB"],
@@ -1249,6 +1584,11 @@
         "element": "dendro",
         "rarity": 4,
         "presets": ["生充"],
+        "baseAttr": {
+            "hp": 12180,
+            "atk": 223.02,
+            "def": 546.02
+        },
         "build": {
             "set": ["Instructor", "s:hpp", "DeepwoodMemories"],
             "main": {
@@ -1274,8 +1614,18 @@
         "element": "cryo",
         "rarity": 4,
         "presets": ["攻双暴", "攻精双暴"],
+        "baseAttr": {
+            "hp": 10899,
+            "atk": 233.92,
+            "def": 676.33
+        },
         "build": {
-            "set": ["s:atkp", "EmblemOfSeveredFate", "NoblesseOblige", "BlizzardStrayer"],
+            "set": [
+                "s:atkp",
+                "EmblemOfSeveredFate",
+                "NoblesseOblige",
+                "BlizzardStrayer"
+            ],
             "main": {
                 "sands": ["atkp", "er", "em"],
                 "goblet": ["cryoDB"],
@@ -1299,6 +1649,11 @@
         "element": "cryo",
         "rarity": 5,
         "presets": ["攻充", "攻双暴"],
+        "baseAttr": {
+            "hp": 12993,
+            "atk": 303.76,
+            "def": 830.04
+        },
         "build": {
             "set": ["s:atkp", "NoblesseOblige"],
             "main": {
@@ -1324,8 +1679,17 @@
         "element": "geo",
         "rarity": 4,
         "presets": ["防充"],
+        "baseAttr": {
+            "hp": 10657,
+            "atk": 191.16,
+            "def": 734.39
+        },
         "build": {
-            "set": ["EmblemOfSeveredFate", "NoblesseOblige", "HuskOfOpulentDreams"],
+            "set": [
+                "EmblemOfSeveredFate",
+                "NoblesseOblige",
+                "HuskOfOpulentDreams"
+            ],
             "main": {
                 "sands": ["defp", "er"],
                 "goblet": ["defp"],
@@ -1349,6 +1713,11 @@
         "element": "electro",
         "rarity": 4,
         "presets": ["生", "生精"],
+        "baseAttr": {
+            "hp": 12289,
+            "atk": 212.4,
+            "def": 750.77
+        },
         "build": {
             "set": ["s:hpp", "s:hb"],
             "main": {
@@ -1374,6 +1743,11 @@
         "element": "hydro",
         "rarity": 5,
         "presets": ["攻双暴", "攻生双暴"],
+        "baseAttr": {
+            "hp": 13715,
+            "atk": 298.97,
+            "def": 768.55
+        },
         "build": {
             "set": ["s:atkp", "s:hydroDB"],
             "main": {
@@ -1399,8 +1773,18 @@
         "element": "dendro",
         "rarity": 4,
         "presets": ["精双暴", "精充双暴", "攻精双暴", "攻精充双暴"],
+        "baseAttr": {
+            "hp": 9787,
+            "atk": 199.65,
+            "def": 600.62
+        },
         "build": {
-            "set": ["DeepwoodMemories", "s:em", "EmblemOfSeveredFate", "NoblesseOblige"],
+            "set": [
+                "DeepwoodMemories",
+                "s:em",
+                "EmblemOfSeveredFate",
+                "NoblesseOblige"
+            ],
             "main": {
                 "sands": ["atkp", "er"],
                 "goblet": ["dendroDB"],
@@ -1424,6 +1808,11 @@
         "element": "electro",
         "rarity": 4,
         "presets": ["生充"],
+        "baseAttr": {
+            "hp": 12397,
+            "atk": 223.02,
+            "def": 723.47
+        },
         "build": {
             "set": ["s:hb", "NoblesseOblige", "EmblemOfSeveredFate"],
             "main": {
@@ -1449,6 +1838,11 @@
         "element": "dendro",
         "rarity": 5,
         "presets": ["精双暴", "攻精双暴"],
+        "baseAttr": {
+            "hp": 10850,
+            "atk": 267.88,
+            "def": 630.21
+        },
         "build": {
             "set": ["DeepwoodMemories", "s:em"],
             "main": {
@@ -1474,6 +1868,11 @@
         "element": "hydro",
         "rarity": 5,
         "presets": ["生精双暴", "生精充双暴"],
+        "baseAttr": {
+            "hp": 15185,
+            "atk": 229.61,
+            "def": 728.59
+        },
         "build": {
             "set": ["s:em", "s:hpp"],
             "main": { "sands": ["hpp"], "goblet": ["hpp"], "circlet": ["hpp"] },
@@ -1495,6 +1894,11 @@
         "element": "electro",
         "rarity": 5,
         "presets": ["攻精双暴", "攻精充双暴"],
+        "baseAttr": {
+            "hp": 12491,
+            "atk": 318.11,
+            "def": 859.24
+        },
         "build": {
             "set": ["s:em", "s:atkp", "ThunderingFury"],
             "main": {
@@ -1520,6 +1924,11 @@
         "element": "hydro",
         "rarity": 4,
         "presets": ["生充"],
+        "baseAttr": {
+            "hp": 10875,
+            "atk": 212.4,
+            "def": 682.52
+        },
         "build": {
             "set": ["EmblemOfSeveredFate", "NoblesseOblige", "s:hpp"],
             "main": {
@@ -1545,6 +1954,11 @@
         "element": "dendro",
         "rarity": 5,
         "presets": ["精", "精双暴"],
+        "baseAttr": {
+            "hp": 10360,
+            "atk": 298.97,
+            "def": 630.21
+        },
         "build": {
             "set": ["s:em", "DeepwoodMemories"],
             "main": {
@@ -1570,6 +1984,11 @@
         "element": "cryo",
         "rarity": 4,
         "presets": ["生充"],
+        "baseAttr": {
+            "hp": 11092,
+            "atk": 216.65,
+            "def": 655.22
+        },
         "build": {
             "set": ["NoblesseOblige", "s:hpp"],
             "main": { "sands": ["hpp"], "goblet": ["hpp"], "circlet": ["hpp"] },
@@ -1591,6 +2010,11 @@
         "element": "anemo",
         "rarity": 5,
         "presets": ["攻双暴"],
+        "baseAttr": {
+            "hp": 10164,
+            "atk": 327.67,
+            "def": 607.16
+        },
         "build": {
             "set": ["s:anemoDB", "s:atkp"],
             "main": {
@@ -1616,6 +2040,11 @@
         "element": "anemo",
         "rarity": 4,
         "presets": ["攻双暴", "攻充双暴", "充"],
+        "baseAttr": {
+            "hp": 9570,
+            "atk": 196.47,
+            "def": 627.92
+        },
         "build": {
             "set": ["NoblesseOblige", "s:hpp", "s:anemoDB"],
             "main": {
@@ -1641,6 +2070,11 @@
         "element": "dendro",
         "rarity": 4,
         "presets": ["生", "生精"],
+        "baseAttr": {
+            "hp": 12289,
+            "atk": 212.4,
+            "def": 750.77
+        },
         "build": {
             "set": ["s:hb", "s:hpp", "DeepwoodMemories"],
             "main": {
@@ -1666,6 +2100,11 @@
         "element": "dendro",
         "rarity": 5,
         "presets": ["精双暴", "攻精双暴", "攻精充双暴"],
+        "baseAttr": {
+            "hp": 13348,
+            "atk": 313.32,
+            "def": 781.62
+        },
         "build": {
             "set": ["s:em", "DeepwoodMemories"],
             "main": {
@@ -1691,8 +2130,18 @@
         "element": "pyro",
         "rarity": 5,
         "presets": ["攻充双暴", "攻精充双暴", "攻生精充双暴"],
+        "baseAttr": {
+            "hp": 15675,
+            "atk": 265.49,
+            "def": 627.91
+        },
         "build": {
-            "set": ["s:hpp", "CrimsonWitchOfFlames", "EmblemOfSeveredFate", "Instructor"],
+            "set": [
+                "s:hpp",
+                "CrimsonWitchOfFlames",
+                "EmblemOfSeveredFate",
+                "Instructor"
+            ],
             "main": {
                 "sands": ["hpp", "atkp"],
                 "goblet": ["pyroDB", "atkp", "hpp"],
@@ -1716,6 +2165,11 @@
         "element": "cryo",
         "rarity": 4,
         "presets": ["生", "生精"],
+        "baseAttr": {
+            "hp": 12506,
+            "atk": 223.02,
+            "def": 713.23
+        },
         "build": {
             "set": ["NoblesseOblige", "EmblemOfSeveredFate", "s:hb", "s:hpp"],
             "main": {
@@ -1741,6 +2195,11 @@
         "element": "dendro",
         "rarity": 4,
         "presets": ["精充"],
+        "baseAttr": {
+            "hp": 11962,
+            "atk": 233.64,
+            "def": 750.77
+        },
         "build": {
             "set": ["s:em", "DeepwoodMemories"],
             "main": {
@@ -1766,6 +2225,11 @@
         "element": "dendro",
         "rarity": 5,
         "presets": ["生充"],
+        "baseAttr": {
+            "hp": 13348,
+            "atk": 192.54,
+            "def": 499.56
+        },
         "build": {
             "set": [
                 "s:hpp",
@@ -1798,6 +2262,11 @@
         "element": "anemo",
         "rarity": 4,
         "presets": ["攻双暴", "攻充双暴"],
+        "baseAttr": {
+            "hp": 12397,
+            "atk": 231.51,
+            "def": 711.87
+        },
         "build": {
             "set": ["MarechausseeHunter", "s:anemoDB"],
             "main": {
@@ -1823,8 +2292,18 @@
         "element": "pyro",
         "rarity": 5,
         "presets": ["攻双暴"],
+        "baseAttr": {
+            "hp": 11021,
+            "atk": 318.11,
+            "def": 537.99
+        },
         "build": {
-            "set": ["MarechausseeHunter", "CrimsonWitchOfFlames", "WanderersTroupe", "s:atkp"],
+            "set": [
+                "MarechausseeHunter",
+                "CrimsonWitchOfFlames",
+                "WanderersTroupe",
+                "s:atkp"
+            ],
             "main": {
                 "sands": ["atkp"],
                 "goblet": ["pyroDB"],
@@ -1848,8 +2327,18 @@
         "element": "cryo",
         "rarity": 4,
         "presets": ["攻双暴", "攻充双暴", "攻精充双暴"],
+        "baseAttr": {
+            "hp": 12071,
+            "atk": 254.88,
+            "def": 708.46
+        },
         "build": {
-            "set": ["PaleFlame", "BloodstainedChivalry", "s:atkp", "BlizzardStrayer"],
+            "set": [
+                "PaleFlame",
+                "BloodstainedChivalry",
+                "s:atkp",
+                "BlizzardStrayer"
+            ],
             "main": {
                 "sands": ["atkp"],
                 "goblet": ["physicalDB"],
@@ -1873,6 +2362,11 @@
         "element": "hydro",
         "rarity": 5,
         "presets": ["攻充双暴", "攻精充双暴"],
+        "baseAttr": {
+            "hp": 14695,
+            "atk": 208.32,
+            "def": 576.42
+        },
         "build": {
             "set": ["MarechausseeHunter"],
             "main": {
@@ -1898,8 +2392,18 @@
         "element": "cryo",
         "rarity": 5,
         "presets": ["攻双暴"],
+        "baseAttr": {
+            "hp": 13593,
+            "atk": 310.93,
+            "def": 763.17
+        },
         "build": {
-            "set": ["MarechausseeHunter", "EchoesOfAnOffering", "ShimenawasReminiscence", "BlizzardStrayer"],
+            "set": [
+                "MarechausseeHunter",
+                "EchoesOfAnOffering",
+                "ShimenawasReminiscence",
+                "BlizzardStrayer"
+            ],
             "main": {
                 "sands": ["atkp"],
                 "goblet": ["cryoDB"],
@@ -1923,6 +2427,11 @@
         "element": "hydro",
         "rarity": 5,
         "presets": ["攻充双暴"],
+        "baseAttr": {
+            "hp": 15307,
+            "atk": 243.96,
+            "def": 695.54
+        },
         "build": {
             "set": ["GoldenTroupe"],
             "main": {
@@ -1948,6 +2457,11 @@
         "element": "cryo",
         "rarity": 4,
         "presets": ["攻充双暴"],
+        "baseAttr": {
+            "hp": 10766,
+            "atk": 173.1,
+            "def": 546.02
+        },
         "build": {
             "set": ["NoblesseOblige", "TenacityOfTheMillelith"],
             "main": {
@@ -1973,6 +2487,11 @@
         "element": "pyro",
         "rarity": 4,
         "presets": ["生充"],
+        "baseAttr": {
+            "hp": 11962,
+            "atk": 193.28,
+            "def": 604.71
+        },
         "build": {
             "set": ["NoblesseOblige", "SongOfDaysPast"],
             "main": {
@@ -1998,6 +2517,11 @@
         "element": "geo",
         "rarity": 5,
         "presets": ["攻充双暴"],
+        "baseAttr": {
+            "hp": 12650,
+            "atk": 351.59,
+            "def": 793.15
+        },
         "build": {
             "set": ["NighttimeWhispersInTheEchoingWoods"],
             "main": {
@@ -2023,8 +2547,17 @@
         "element": "pyro",
         "rarity": 4,
         "presets": ["攻充双暴"],
+        "baseAttr": {
+            "hp": 11419,
+            "atk": 301.6,
+            "def": 703
+        },
         "build": {
-            "set": ["CrimsonWitchOfFlames", "MarechausseeHunter", "VermillionHereafter"],
+            "set": [
+                "CrimsonWitchOfFlames",
+                "MarechausseeHunter",
+                "VermillionHereafter"
+            ],
             "main": {
                 "sands": ["atkp", "em"],
                 "goblet": ["pyroDB"],
@@ -2048,12 +2581,47 @@
         "element": "anemo",
         "rarity": 5,
         "presets": ["攻充"],
+        "baseAttr": {
+            "hp": 10409,
+            "atk": 334.85,
+            "def": 572.57
+        },
         "build": {
             "set": ["SongOfDaysPast", "ViridescentVenerer"],
             "main": {
                 "sands": ["atkp", "er"],
                 "goblet": ["atkp"],
                 "circlet": ["atkp"]
+            },
+            "weight": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "hpp": 0,
+                "atkp": 1,
+                "defp": 0,
+                "em": 0,
+                "er": 0.75,
+                "cr": 1,
+                "cd": 1
+            }
+        }
+    },
+    "Chiori": {
+        "element": "geo",
+        "rarity": 5,
+        "presets": ["攻充"],
+        "baseAttr": {
+            "hp": 11438,
+            "atk": 322.89,
+            "def": 953.01
+        },
+        "build": {
+            "set": [],
+            "main": {
+                "sands": [],
+                "goblet": [],
+                "circlet": []
             },
             "weight": {
                 "hp": 0,

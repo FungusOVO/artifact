@@ -5,6 +5,7 @@ const props = defineProps<{
     options: any[];
     title?: string;
     persistant?: boolean;
+    desc?: string;
 }>();
 
 // 下拉菜单：位置、弹出收起
@@ -42,7 +43,7 @@ const click = (e: MouseEvent) => {
 // dom class
 const rootClass = computed(() => ({
     "drop-select": true,
-    show: show.value,
+    "show": show.value,
 }));
 const optionsClass = computed(() => ({
     options: true,
@@ -63,7 +64,16 @@ const optionsClass = computed(() => ({
             <slot name="selected" />
         </div>
         <img class="select-arrow" src="/assets/arrow.webp" />
-        <span class="title">{{ title }}</span>
+
+        <div v-if="desc">
+            <el-tooltip :content="desc" placement="top">
+                <span class="title">{{ title }}</span>
+            </el-tooltip>
+        </div>
+        <div v-else>
+            <span class="title">{{ title }}</span>
+        </div>
+
         <transition name="pop">
             <div
                 :class="optionsClass"

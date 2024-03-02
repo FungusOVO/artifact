@@ -25,6 +25,7 @@ export type IAffnumResult = {
 
 export type IAffnumResults = Map<Artifact, IAffnumResult>;
 
+/** 计算有效词条数量 */
 export function calcAffnumCur(art: Artifact, weight: IWeight): number {
     let result = 0,
         minorStats = art.minorStats;
@@ -40,7 +41,7 @@ export function calcAffnumCur(art: Artifact, weight: IWeight): number {
 export function calcAffnumFull(
     art: Artifact,
     weight: IWeight,
-    setBonus = 0
+    setBonus = 0,
 ): IAffnumResult {
     let _weight: IWeight = { ...weight },
         result = {
@@ -63,7 +64,7 @@ export function calcAffnumFull(
         art.mainKey,
         _weight,
         art.nMinorsToUpgrade,
-        art.minors.map((m) => m.key)
+        art.minors.map((m) => m.key),
     );
 
     result.min += increMinMaxAvg.min;
@@ -84,7 +85,7 @@ export function sort(
     arts: Artifact[],
     setBonusTable: ISetBonusTable,
     affixWeightTable: IAffixWeightTable,
-    sortBy: "avg" | "max" | "min" | "cur" = "avg"
+    sortBy: "avg" | "max" | "min" | "cur" = "avg",
 ): IAffnumResults {
     const results = new Map<Artifact, IAffnumResult>();
 

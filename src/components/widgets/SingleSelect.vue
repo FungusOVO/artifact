@@ -7,6 +7,7 @@ const props = defineProps<{
     options: IOption[];
     modelValue: string | number;
     title?: string;
+    desc?: string;
 }>();
 const emit = defineEmits<{
     (e: "update:modelValue", v: string | number): void;
@@ -25,7 +26,7 @@ const select = (key: string | number) => {
 </script>
 
 <template>
-    <single-select-base :title="title" :options="options">
+    <single-select-base :title="title" :desc="desc" :options="options">
         <template v-slot:selected>
             <div class="selected">{{ selectedLabel }}</div>
         </template>

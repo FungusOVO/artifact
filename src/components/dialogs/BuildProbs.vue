@@ -38,13 +38,19 @@ function updBuildProbsData() {
         probs.push({
             name: b ? b.name : i18n.global.t("ui.unknown"),
             prob: result.buildProbs[buildKey],
+            markScore: result.mark[buildKey].score,
+            markClass: result.mark[buildKey].class,
         });
     }
     probs.sort((a, b) => b.prob - a.prob);
+
     buildProbsData.value = probs.map((x) => ({
         name: x.name,
         prob: (x.prob * 100).toFixed(1) + "%",
+        markScore: x.markScore.toFixed(2),
+        markClass: x.markClass,
     }));
+
     return true;
 }
 
@@ -55,7 +61,7 @@ watch(
         if (!updBuildProbsData()) {
             show.value = false;
         }
-    }
+    },
 );
 </script>
 
@@ -64,6 +70,8 @@ watch(
         <el-table :data="buildProbsData">
             <el-table-column prop="name" :label="$t('ui.build_name')" />
             <el-table-column prop="prob" :label="$t('ui.build_prob')" />
+            <el-table-column prop="markScore" label="分数" />
+            <el-table-column prop="markClass" label="评级" />
         </el-table>
     </el-dialog>
 </template>

@@ -222,7 +222,8 @@
         "Chevreuse": "夏沃蕾",
         "Navia": "娜维娅",
         "Gaming": "嘉明",
-        "Xianyun": "闲云"
+        "Xianyun": "闲云",
+        "Chiori": "千织"
     },
     "element": {
         "pyro": "火元素",
@@ -391,8 +392,9 @@
         "database_imported": "数据导入成功，请手动刷新页面",
         "set_group": "组",
         "pbuild_sort_by": "排序方式",
+        "arti_weight_cal_type": "圣遗物权重计算方式",
+        "arti_prob_cal_type": "未满级圣遗物期望计算方式",
         "pbuild_ignore_individual": "忽略散件",
-        "pequip_ignore_individual": "忽略散件",
         "equip_probs_title": "装备提升概率",
         "equip_char_filter": "筛选角色",
         "quick_filter": "快速筛选",
@@ -443,7 +445,11 @@
             "name": "按套装排序"
         },
         "index": {
-            "name": "不排序"
+            "name": "不排序",
+            "calType": "计算方式",
+            "prob": "适配概率",
+            "mark": "评分",
+            "weight_cal_desc": "适配概率侧重于刷取难易度,评分侧重于契合权重本身。举例说明一下，当一个角色大攻击和双爆词条权重相同时，圣遗物A有1个大攻击词条，圣遗物B有1个暴击词条，按评分计算A=B，按概率计算则A<B(双爆词条比攻击词条更难刷到)"
         }
     },
     "onboarding": {

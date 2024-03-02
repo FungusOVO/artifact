@@ -104,8 +104,8 @@ const minors = computed(() => {
                 Math.round(
                     (a.value /
                         props.artifact.minorStats[a.key as IMinorAffixKey]) *
-                        10
-                ) / 10
+                        10,
+                ) / 10,
             ),
         });
     }
@@ -119,7 +119,7 @@ const lockImgSrc = computed(() => {
 const artifactCardClass = computed(() => ({
     "artifact-card": true,
     "select-mode": props.selectMode,
-    selected: props.selected,
+    "selected": props.selected,
 }));
 const select = (evt: MouseEvent) => {
     emit("flipSelect", evt.shiftKey);
@@ -159,7 +159,7 @@ const sortResultDisplayType = computed(() => {
     }
 });
 const affnumResult = computed(
-    () => artStore.sortResults!.get(props.artifact) as IAffnumResult
+    () => artStore.sortResults!.get(props.artifact) as IAffnumResult,
 );
 const formatAffnum = (n: number) => {
     n *= artStore.affnumMultiplier;
@@ -167,18 +167,35 @@ const formatAffnum = (n: number) => {
 };
 const pBuildResultStr = computed(() => {
     let result = artStore.sortResults!.get(props.artifact) as IPBuildResult;
-    let probs: [string, number][] = [];
+    let probs: [string, number, string?][] = [];
     for (let buildKey in result.buildProbs) {
         let b = artStore.builds.filter((b) => b.key == buildKey)[0];
-        probs.push([b ? b.name : "", result.buildProbs[buildKey]]);
+        if (artStore.calArtiWeightType == "prob") {
+            probs.push([b ? b.name : "", result.buildProbs[buildKey]]);
+        }
+        if (artStore.calArtiWeightType == "mark") {
+            probs.push([
+                b ? b.name : "",
+                result.mark[buildKey].score,
+                result.mark[buildKey].class,
+            ]);
+        }
     }
     // sort in descending order
     probs.sort((a, b) => b[1] - a[1]);
+
     // formatting
-    return (
-        probs.map((x) => x[0] + (x[1] * 100).toFixed(1) + "%").join(" ") ||
-        "<0.1%"
-    );
+    let resultStr = "";
+    if (artStore.calArtiWeightType == "prob") {
+        resultStr =
+            probs.map((x) => x[0] + (x[1] * 100).toFixed(1) + "%").join(" ") ||
+            "<0.1%";
+    }
+    if (artStore.calArtiWeightType == "mark") {
+        resultStr = probs.map((x) => x[0] + x[2]).join(" ") || "0";
+    }
+
+    return resultStr;
 });
 const pEquipResultStr = computed(() => {
     let result = artStore.sortResults!.get(props.artifact) as IPEquipResult;
