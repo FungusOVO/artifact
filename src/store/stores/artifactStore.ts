@@ -5,9 +5,11 @@ import { useUiStore } from "./uiStore";
 import {
     AffnumSort,
     PBuildSort,
+    POrder,
     DefeatSort,
     PEquipSort,
     NormalSort,
+    ISlotBestArt,
 } from "@/ys/sort";
 import type {
     IBuild,
@@ -19,6 +21,7 @@ import type {
     ICharKey,
     IPBuildSortBy,
     IPEquipResults,
+    IPOrderResults,
 } from "@/ys/types";
 import filterRules from "../filterRules";
 import { useLocalStorage } from "@vueuse/core";
@@ -38,6 +41,7 @@ export const SortByKeys = [
     "psingle",
     "pmulti",
     "pequip",
+    "porder",
     "defeat",
     "set",
     "index",
@@ -46,7 +50,12 @@ export const SortByKeys = [
 export type ISortBy = (typeof SortByKeys)[number];
 
 // 排序方式
-export type ISortResultType = "affnum" | "pbuild" | "defeat" | "pequip";
+export type ISortResultType =
+    | "affnum"
+    | "pbuild"
+    | "defeat"
+    | "pequip"
+    | "porder";
 
 export const useArtifactStore = defineStore("artifact", () => {
     const uiStore = useUiStore();
@@ -87,6 +96,11 @@ export const useArtifactStore = defineStore("artifact", () => {
     const pBuildIgnoreIndividual = ref(false); // TODO
     const pEquipCharKeys = ref<string[]>([]);
     const customizedBuilds = useLocalStorage<IBuild[]>("customized_builds", []);
+    const customizedBuildSorts = useLocalStorage<any[]>(
+        "customizedBuildSorts",
+        [],
+    );
+
     const builds = computed(() => {
         let ret: IBuild[] = [];
 
@@ -133,6 +147,7 @@ export const useArtifactStore = defineStore("artifact", () => {
     const sortResults = ref<
         IAffnumResults | IPBuildResults | IDefeatResults | IPEquipResults
     >();
+    const orderResults = ref<IPOrderResults>();
     const sortResultType = ref<ISortResultType>();
     const canExport = ref(false);
     const artMode = reactive({
@@ -194,7 +209,7 @@ export const useArtifactStore = defineStore("artifact", () => {
     /** filter and sort artifacts */
     function filterAndSort() {
         uiStore.run(() => {
-            const arts: Artifact[] = [];
+            let arts: Artifact[] = [];
             // build countByType
             setTypeCount.value = {};
             artifacts.value.forEach((a) => {
@@ -279,6 +294,31 @@ export const useArtifactStore = defineStore("artifact", () => {
                         },
                     );
                     sortResultType.value = "pbuild";
+                    break;
+                case "porder":
+                    let ret = POrder.sort(
+                        arts,
+                        builds.value,
+                        customizedBuildSorts.value,
+                        {
+                            calArtiWeightType: calArtiWeightType.value,
+                        },
+                    );
+                    sortResults.value = ret.sortResults;
+                    orderResults.value = ret.orderResults;
+                    arts = [];
+                    for (let orderResult of orderResults.value) {
+                        for (let setKey in orderResult.bestArt) {
+                            let art =
+                                orderResult.bestArt[
+                                    setKey as keyof ISlotBestArt
+                                ]?.art;
+                            if (art) {
+                                arts.push(art);
+                            }
+                        }
+                    }
+                    sortResultType.value = "porder";
                     break;
                 case "pequip":
                     sortResults.value = PEquipSort.sort(
@@ -421,5 +461,7 @@ export const useArtifactStore = defineStore("artifact", () => {
         setLocks,
         calArtiWeightType,
         calArtiProbType,
+        customizedBuildSorts,
+        orderResults,
     };
 });

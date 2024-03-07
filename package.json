@@ -23,10 +23,12 @@
         "pinia": "^2.0.33",
         "protobufjs": "^7.2.2",
         "sass": "^1.59.3",
+        "volar-service-vetur": "^0.0.31",
         "vue": "^3.2.47",
         "vue-echarts": "^6.5.4",
         "vue-i18n": "^9.2.2",
-        "vue-virtual-scroll-grid": "^1.10.1"
+        "vue-virtual-scroll-grid": "^1.10.1",
+        "vuedraggable": "^4.1.0"
     },
     "devDependencies": {
         "@types/node": "^18.15.3",

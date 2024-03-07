@@ -29,7 +29,11 @@ const buildProbsData = ref<
 function updBuildProbsData() {
     if (!props.art) return false;
     if (!artStore.sortResults) return false;
-    if (artStore.sortResultType !== "pbuild") return false;
+    if (
+        artStore.sortResultType !== "pbuild" &&
+        artStore.sortResultType !== "porder"
+    )
+        return false;
     const result = artStore.sortResults.get(props.art) as IPBuildResult;
     if (!result) return false;
     let probs = [];

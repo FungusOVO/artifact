@@ -335,7 +335,7 @@
         "build_name": "配装名称",
         "build_prob": "适配概率",
         "affix_weight": "词条权重",
-        "weight_json_help": "hp=小生命，atk=小攻击，def=小防御，hpp=大生命，atkp=大攻击，defp=大防御，em=精通，er=充能，cr=暴击，cd=爆伤",
+        "weight_json_help": "hp=小生命，atk=小攻击，def=小防御，hpp=大生命，atkp=大攻击，defp=大防御，em=精通，er=充能，cr=暴击，cd=爆伤，小生命/小攻击/小防御会根据大生命/大攻击/大防御自动计算",
         "reset": "重置",
         "save": "保存",
         "about_default_builds": "关于默认配装",
@@ -400,7 +400,11 @@
         "quick_filter": "快速筛选",
         "quick_filter_apply": "一键筛选",
         "count_hint": "（共{count}个）",
-        "other_sets": "其他套装"
+        "other_sets": "其他套装",
+        "char_sort": "配装优先级",
+        "porder_update_help": "目前修改的配置中,如仅存在一种套装,则搭配四件套;如存在多种套装则搭配最高分的2+2(按组选择攻击2精通2等,视为包含所属圣遗物的多种套装)",
+        "build_order_editor_tip1": "双击或拖动角色头像加入右侧计算列表",
+        "build_order_editor_tip2": "拖动头像进行排序(优先级越靠左越高,越靠上越高)"
     },
     "sort": {
         "avg": {
@@ -437,6 +441,7 @@
             "name": "按装备提升概率（beta)",
             "desc": "计算升到满级后词条数超过已装备圣遗物的概率，词条数按装备角色的配装中的副词条权重计。目前只支持五星圣遗物，且已装备圣遗物必须是满级。"
         },
+        "porder": { "name": "按角色配装" },
         "defeat": {
             "name": "按上位替代数",
             "desc": "圣遗物b是圣遗物a的上位替代，如果它们部位和主词条相同，且a的所有副词条（除小攻/小生/小防外）b都有而且数值更大。"

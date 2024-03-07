@@ -14,6 +14,8 @@ import QuickFilter from "@/components/dialogs/QuickFilter.vue";
 import Grid from "vue-virtual-scroll-grid";
 import { useArtifactStore, useUiStore } from "@/store";
 import { computed, ref, watch } from "vue";
+import { i18n } from "@/i18n";
+
 // import type { ElScrollbar } from "element-plus";
 import {
     View,
@@ -172,6 +174,7 @@ const showBuildProbs = ref(false);
 const showEquipProbs = ref(false);
 const stats = (art: Artifact) => {
     tgtArt.value = art;
+
     switch (artStore.sortResultType) {
         case "affnum":
             showAffnumDistr.value = true;
@@ -180,6 +183,9 @@ const stats = (art: Artifact) => {
             showDefeatList.value = true;
             break;
         case "pbuild":
+            showBuildProbs.value = true;
+            break;
+        case "porder":
             showBuildProbs.value = true;
             break;
         case "pequip":
@@ -315,28 +321,77 @@ const showDatabaseLoader = ref(false);
                     </div>
                 </div>
             </div>
-            <Grid
-                class="artifact-grid"
-                :key="uiStore.nReload"
-                :length="artifacts.length"
-                :page-size="50"
-                :page-provider="pageProvider"
-            >
-                <template v-slot:default="{ item, style, _index }">
-                    <div class="artifact-cell" :style="style">
-                        <artifact-card
-                            :artifact="item"
-                            :select-mode="selectMode"
-                            :selected="selected(item.data.index)"
-                            @flip-select="flipSelect(item.data.index, $event)"
-                            @flip-lock="flipLock(item.data.index)"
-                            @edit="edit(item.data.index)"
-                            @filter="filter(item)"
-                            @stats="stats(item)"
+            <div v-if="artStore.sort.by == 'porder'">
+                <div
+                    v-for="(ret, buildIndex) in artStore.orderResults"
+                    :key="ret.key"
+                >
+                    <div class="group-hdr">
+                        <img
+                            class="char-icon"
+                            :src="
+                                artStore.customizedBuildSorts[buildIndex]?.icon
+                            "
+                            v-if="
+                                artStore.customizedBuildSorts[buildIndex]?.icon
+                            "
                         />
+                        <div class="element-text">
+                            {{
+                                artStore.customizedBuildSorts[buildIndex]?.text
+                            }}
+                        </div>
+                        <div class="element-text">{{ ret.bestScoreDesc }}</div>
                     </div>
-                </template>
-            </Grid>
+                    <div
+                        v-if="artStore.orderResults"
+                        class="artifact-grid artifact-cell"
+                    >
+                        <div v-for="(o, index) in ret.bestArt" :key="index">
+                            <div v-if="o">
+                                <artifact-card
+                                    :artifact="o.art"
+                                    :select-mode="selectMode"
+                                    :selected="selected(o.art.data.index)"
+                                    @flip-select="
+                                        flipSelect(o.art.data.index, $event)
+                                    "
+                                    @flip-lock="flipLock(o.art.data.index)"
+                                    @edit="edit(o.art.data.index)"
+                                    @filter="filter(o.art)"
+                                    @stats="stats(o.art)"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div v-else>
+                <Grid
+                    class="artifact-grid"
+                    :key="uiStore.nReload"
+                    :length="artifacts.length"
+                    :page-size="50"
+                    :page-provider="pageProvider"
+                >
+                    <template v-slot:default="{ item, style, _index }">
+                        <div class="artifact-cell" :style="style">
+                            <artifact-card
+                                :artifact="item"
+                                :select-mode="selectMode"
+                                :selected="selected(item.data.index)"
+                                @flip-select="
+                                    flipSelect(item.data.index, $event)
+                                "
+                                @flip-lock="flipLock(item.data.index)"
+                                @edit="edit(item.data.index)"
+                                @filter="filter(item)"
+                                @stats="stats(item)"
+                            />
+                        </div>
+                    </template>
+                </Grid>
+            </div>
             <transition name="pop">
                 <div class="selection-bar" v-show="selectMode">
                     <div
@@ -439,6 +494,31 @@ const showDatabaseLoader = ref(false);
                 // box-shadow: 0 0 0 4px #409eff20;
                 // background-color: #409eff20;
             }
+        }
+    }
+
+    .group-hdr {
+        display: flex;
+        align-items: center;
+        margin: 20px;
+
+        background: rgb(255, 249, 238);
+        background: linear-gradient(
+            90deg,
+            rgba(255, 249, 238, 1) 0%,
+            rgba(255, 255, 255, 1) 100%
+        );
+
+        .element-icon {
+            width: 30px;
+        }
+
+        .element-text {
+            margin-left: 10px;
+        }
+
+        .char-icon {
+            width: 50px;
         }
     }
 

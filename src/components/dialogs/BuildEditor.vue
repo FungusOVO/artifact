@@ -3,7 +3,7 @@ import { ref, computed, watch, reactive } from "vue";
 import { ArtifactData, CharacterData } from "@/ys/data";
 import { useArtifactStore, useUiStore } from "@/store";
 import { i18n } from "@/i18n";
-import type { ICharKey } from "@/ys/types";
+import type { ICharKey, IAvatar } from "@/ys/types";
 
 const props = defineProps<{
     modelValue: boolean;
@@ -38,13 +38,7 @@ const elements = ["pyro", "hydro", "cryo", "electro", "anemo", "geo", "dendro"]
             text: i18n.global.t("ui.custom"),
         },
     ]);
-interface IAvatar {
-    key: string;
-    text: string;
-    icon: string;
-    rarity: number;
-    bg: string;
-}
+
 const avatars = computed(() => {
     let ret: { [e: string]: IAvatar[] } = {};
     for (let b of artStore.builds) {
@@ -187,7 +181,7 @@ const resetAllBuilds = () => {
         .popConfirm(i18n.global.t("ui.confirm_reset_builds"))
         .then(() => {
             Object.keys(CharacterData).forEach((key) =>
-                _delCustomizedBuild(key)
+                _delCustomizedBuild(key),
             );
             uiStore.alert(i18n.global.t("ui.reseted"), "success");
         })
@@ -198,7 +192,7 @@ const delCustomBuild = () => {
         .popConfirm(
             i18n.global.t("ui.confirm_del_custom_build", {
                 build_name: build.name,
-            })
+            }),
         )
         .then(() => {
             _delCustomizedBuild(selectedBuildKey.value);
@@ -212,7 +206,7 @@ const delCustomBuilds = () => {
         .popConfirm(i18n.global.t("ui.confirm_del_all_custom_builds"))
         .then(() => {
             artStore.customizedBuilds = artStore.customizedBuilds.filter(
-                (b) => !b.key.startsWith("0")
+                (b) => !b.key.startsWith("0"),
             );
             uiStore.alert(i18n.global.t("ui.deleted"), "success");
             if (selectedBuildKey.value.startsWith("0")) {

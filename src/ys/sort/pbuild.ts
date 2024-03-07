@@ -128,7 +128,7 @@ function calcPBuild(
         mark: {},
     };
 
-    for (const b of builds) {
+    for (const b of JSON.parse(JSON.stringify(builds))) {
         // if artifact type is not recommanded, skip
         if (
             ["sands", "goblet", "circlet"].includes(art.slot) &&
@@ -157,7 +157,12 @@ function calcPBuild(
         ret.maxProb = Math.max(ret.maxProb, prob);
         ret.buildProbs[b.key] = prob;
         // 计算评分
-        let score = MarkCalCache.get({ arti: art, itemBuild: b, attrs });
+        let score = MarkCalCache.get({
+            arti: art,
+            itemBuild: b,
+            attrs,
+            calProbType,
+        });
         ret.maxScore = Math.max(ret.maxScore, score);
         ret.mark[b.key] = {
             score: score,
@@ -203,6 +208,9 @@ export function sort(
         builds = allBuilds.filter((b) => selectedBuildKeys.includes(b.key));
     const artStore = useArtifactStore();
     calProbType = artStore.calArtiProbType as ICalProbType;
+    if (artStore.calArtiWeightType == "mark") {
+        threshold = 0;
+    }
 
     for (let art of arts) {
         let _builds = [...builds];
@@ -221,7 +229,6 @@ export function sort(
         });
         results.set(art, pbuild);
     }
-
     arts.sort((a, b) => {
         let pbuildA = results.get(a),
             pbuildB = results.get(b);
@@ -254,7 +261,7 @@ export function sort(
     return results;
 }
 
-function getMarkClass(mark: number) {
+export function getMarkClass(mark: number) {
     let scoreMap: Array<[string, number]> = [
         ["D", 7],
         ["C", 14],
@@ -398,10 +405,12 @@ const MarkCalCache = new SimpleCache(
         arti,
         itemBuild,
         attrs,
+        calProbType,
     }: {
         arti: Artifact;
         itemBuild: IBuild;
         attrs: IAttr;
+        calProbType: ICalProbType;
     }) => {
         let ret = 0;
         let mAttr = {

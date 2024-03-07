@@ -3,6 +3,7 @@ import SectionTitle from "@/components/sections/SectionTitle.vue";
 import SingleSelect from "@/components/widgets/SingleSelect.vue";
 import MultiSelect from "@/components/widgets/MultiSelect.vue";
 import CharSelect from "@/components/widgets/CharSelect.vue";
+import CharSort from "@/components/widgets/CharSort.vue";
 import PresetLoader from "@/components/dialogs/PresetLoader.vue";
 import BuildLoader from "@/components/dialogs/BuildLoader.vue";
 import BuildEditor from "@/components/dialogs/BuildEditor.vue";
@@ -12,7 +13,7 @@ import { computed, ref, watch } from "vue";
 import { useArtifactStore, SortByKeys } from "@/store";
 import { ArtifactData, CharacterData } from "@/ys/data";
 import { i18n } from "@/i18n";
-import type { IOption, ICharOption } from "@/store/types";
+import type { IOption, ICharOption, IAvatar } from "@/store/types";
 
 const artStore = useArtifactStore();
 
@@ -138,8 +139,19 @@ const openBuildEditor = () => (showBuildEditor.value = true);
 const showAffnumTable = ref(false);
 const openAffnumTable = () => (showAffnumTable.value = true);
 
+const showBuildOrderEditor = ref(false);
+const openBuildOrderEditor = () => (showBuildOrderEditor.value = true);
+
+const isShowIgnoreIndividual = computed(() => {
+    return ["pmulti", "psingle", "pequip"].includes(artStore.sort.by);
+});
+
+const isShowBuildEditor = computed(() => {
+    return ["pmulti"].includes(artStore.sort.by);
+});
+
 const isShowArtiWeightCalType = computed(() => {
-    return ["pmulti", "psingle"].includes(artStore.sort.by);
+    return ["pmulti", "psingle", "porder"].includes(artStore.sort.by);
 });
 </script>
 
@@ -216,12 +228,6 @@ const isShowArtiWeightCalType = computed(() => {
                         role="button"
                     />
                 </p>
-                <char-select
-                    class="row"
-                    :title="$t('ui.build')"
-                    :options="charOptions"
-                    v-model="artStore.sort.buildKeys"
-                />
                 <single-select
                     :title="$t('ui.pbuild_sort_by')"
                     :options="pBuildSortByOptions"
@@ -300,15 +306,35 @@ const isShowArtiWeightCalType = computed(() => {
                     :options="pEquipCharOptions"
                     v-model="artStore.pEquipCharKeys"
                 />
-                <p style="text-align: center">
-                    <el-checkbox
-                        v-model="artStore.pBuildIgnoreIndividual"
-                        :label="$t('ui.pbuild_ignore_individual')"
-                    />
-                </p>
             </div>
             <div v-else-if="artStore.sort.by == 'defeat'">
                 <p class="row small" v-text="$t('sort.defeat.desc')" />
+            </div>
+            <div v-show="isShowBuildEditor">
+                <char-select
+                    class="row"
+                    :title="$t('ui.build')"
+                    :options="charOptions"
+                    v-model="artStore.sort.buildKeys"
+                />
+            </div>
+            <div v-show="artStore.sort.by == 'porder'">
+                <div class="info" style="margin-top: 10px">
+                    {{ $t("ui.porder_update_help") }}
+                </div>
+                <p class="row small">
+                    <span
+                        class="text-btn"
+                        @click="openBuildEditor"
+                        v-text="$t('ui.edit_builds')"
+                        role="button"
+                    />
+                </p>
+                <char-sort
+                    class="row"
+                    @click="openBuildOrderEditor"
+                    v-model="artStore.customizedBuildSorts"
+                />
             </div>
             <div v-show="isShowArtiWeightCalType">
                 <single-select
@@ -327,7 +353,7 @@ const isShowArtiWeightCalType = computed(() => {
                     style="margin-top: 10px"
                 />
             </div>
-            <div v-show="isShowArtiWeightCalType">
+            <div v-show="isShowIgnoreIndividual">
                 <p style="text-align: center">
                     <el-checkbox
                         v-model="artStore.pBuildIgnoreIndividual"
@@ -341,6 +367,7 @@ const isShowArtiWeightCalType = computed(() => {
     <build-loader v-model="showBuildLoader" />
     <build-editor v-model="showBuildEditor" />
     <affnum-table v-model="showAffnumTable" />
+    <build-order-editor v-model="showBuildOrderEditor" />
 </template>
 
 <style lang="scss" scoped>

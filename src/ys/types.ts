@@ -19,6 +19,7 @@ export type {
     IDefeatResults,
     // pequip
     IPEquipResults,
+    IPOrderResults,
 } from "./sort";
 
 export type IMinorAffixKey =
@@ -39,3 +40,11 @@ export type ICharKey = keyof typeof CharacterData;
 export type ICharBaseAttr = keyof (typeof CharacterData)[ICharKey]["baseAttr"];
 
 export type IPresetKey = keyof typeof PresetData;
+
+export interface IAvatar {
+    key: string;
+    text: string;
+    icon: string;
+    rarity: number;
+    bg: string;
+}

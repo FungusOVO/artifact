@@ -50,7 +50,7 @@ const unequiped = computed(() => {
 // 排序分组后的选项
 const optionGroups = computed(() => {
     let omap = Object.fromEntries(
-            props.options.filter((o) => o.key).map((o) => [o.key, o])
+            props.options.filter((o) => o.key).map((o) => [o.key, o]),
         ),
         g: { [e: string]: ICharOption[] } = {};
     Object.keys(CharacterData)
@@ -58,7 +58,7 @@ const optionGroups = computed(() => {
         .sort(
             (k1, k2) =>
                 CharacterData[k2 as ICharKey].rarity -
-                CharacterData[k1 as ICharKey].rarity
+                CharacterData[k1 as ICharKey].rarity,
         )
         .forEach((key) => {
             let e = CharacterData[key as ICharKey].element;
@@ -138,9 +138,9 @@ const selectedOptions = computed(() => {
                     <el-checkbox :label="o.key">
                         <div class="option-content">
                             <img class="icon" :src="icon(o)" alt="" />
-                            <span :class="`label ${color(o)}`">{{
-                                text(o)
-                            }}</span>
+                            <span :class="`label ${color(o)}`">
+                                {{ text(o) }}
+                            </span>
                             <span class="tip">{{ o.tip }}</span>
                         </div>
                     </el-checkbox>
