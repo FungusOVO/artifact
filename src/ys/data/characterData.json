@@ -2617,21 +2617,25 @@
             "def": 953.01
         },
         "build": {
-            "set": [],
+            "set": [
+                "HuskOfOpulentDreams",
+                "GoldenTroupe",
+                "TenacityOfTheMillelith"
+            ],
             "main": {
-                "sands": [],
-                "goblet": [],
-                "circlet": []
+                "sands": ["defp"],
+                "goblet": ["geoDB"],
+                "circlet": ["cd", "cr"]
             },
             "weight": {
                 "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 1,
-                "defp": 0,
+                "atkp": 0.5,
+                "defp": 0.75,
                 "em": 0,
-                "er": 0.75,
+                "er": 0.55,
                 "cr": 1,
                 "cd": 1
             }
