@@ -2,8 +2,10 @@
 import { ref, computed, watch, reactive } from "vue";
 import { ArtifactData, CharacterData } from "@/ys/data";
 import { useArtifactStore, useUiStore } from "@/store";
+import { getSetOrderName } from "@/ys/sort/porder";
 import { i18n } from "@/i18n";
 import type { ICharKey, IAvatar } from "@/ys/types";
+import { Delete } from "@element-plus/icons-vue";
 
 const props = defineProps<{
     modelValue: boolean;
@@ -81,11 +83,26 @@ const avatarClass = (key: string) => ({
 const build = reactive({
     name: "",
     set: [] as string[],
+    setList: [[]] as string[][],
+    setDesc: [] as string[],
     sands: [] as string[],
     goblet: [] as string[],
     circlet: [] as string[],
     weightJson: "",
 });
+watch(
+    () => build.setList,
+    () => {
+        build.set = [];
+        build.setDesc = [];
+        for (let set of build.setList) {
+            build.set = [...build.set, ...set];
+            build.setDesc.push(getSetOrderName(set));
+        }
+    },
+    { deep: true },
+);
+
 /**
  * depends on key:
  * - null: select Diluc
@@ -100,6 +117,7 @@ const selectBuild = (key?: string) => {
         isNew.value = false;
         build.name = b.name;
         build.set = [...b.set];
+        build.setList = [...(b.setList as string[][])];
         build.sands = [...b.main.sands];
         build.goblet = [...b.main.goblet];
         build.circlet = [...b.main.circlet];
@@ -108,6 +126,7 @@ const selectBuild = (key?: string) => {
         isNew.value = true;
         build.name = "";
         build.set = [];
+        build.setList = [];
         build.sands = [];
         build.goblet = [];
         build.circlet = [];
@@ -138,6 +157,7 @@ const saveBuild = (formEl: any) => {
             builds[idx].main.goblet = [...build.goblet];
             builds[idx].main.circlet = [...build.circlet];
             builds[idx].set = [...build.set];
+            builds[idx].setList = [...build.setList];
             builds[idx].weight = JSON.parse(build.weightJson);
         } else {
             isNew.value = false;
@@ -145,6 +165,7 @@ const saveBuild = (formEl: any) => {
                 key: selectedBuildKey.value,
                 name: build.name,
                 set: [...build.set],
+                setList: [...build.setList],
                 main: {
                     sands: [...build.sands],
                     goblet: [...build.goblet],
@@ -214,6 +235,15 @@ const delCustomBuilds = () => {
             }
         })
         .catch(() => {});
+};
+const addSet = () => {
+    build.setList.push([]);
+};
+const deleteSet = (index: number) => {
+    build.setList.splice(index, 1);
+    if (build.setList.length < 1) {
+        build.setList.push([]);
+    }
 };
 </script>
 
@@ -285,15 +315,21 @@ const delCustomBuilds = () => {
                         <el-form-item :label="$t('ui.build_name')" prop="name">
                             <el-input v-model="build.name" />
                         </el-form-item>
-                        <el-form-item :label="$t('ui.art_set')">
+                        <el-form-item
+                            :label="$t('ui.art_set') + (index + 1)"
+                            class="build-set-select-group"
+                            :key="index"
+                            v-for="(set, index) in build.setList"
+                        >
                             <el-select
-                                v-model="build.set"
+                                v-model="build.setList[index]"
+                                class="build-set-select"
                                 multiple
-                                style="width: 100%"
                             >
                                 <el-option-group :label="$t('ui.set_group')">
                                     <el-option
                                         v-for="(_, k) in ArtifactData.setGroups"
+                                        :key="k"
                                         :value="k"
                                         :label="$t('artifact.set_group.' + k)"
                                     />
@@ -301,11 +337,25 @@ const delCustomBuilds = () => {
                                 <el-option-group :label="$t('ui.art_set')">
                                     <el-option
                                         v-for="k in ArtifactData.setKeys"
+                                        :key="k"
                                         :value="k"
                                         :label="$t('artifact.set.' + k)"
                                     />
                                 </el-option-group>
                             </el-select>
+                            <el-button
+                                @click="deleteSet(index)"
+                                :icon="Delete"
+                                circle
+                            />
+                            <el-text type="info" size="small">
+                                {{ build.setDesc[index] }}
+                            </el-text>
+                        </el-form-item>
+                        <el-form-item>
+                            <el-button @click="addSet">
+                                {{ $t("ui.art_add_set") }}
+                            </el-button>
                         </el-form-item>
                         <el-form-item :label="$t('artifact.slot.sands')">
                             <el-select
@@ -507,6 +557,13 @@ const delCustomBuilds = () => {
 
         .code {
             font-family: "Courier New", Courier, monospace;
+        }
+        .build-set-select-group {
+            margin-bottom: 0px;
+        }
+        .build-set-select {
+            width: calc(100% - 1rem - 32px);
+            margin-right: 0.5rem;
         }
     }
 }

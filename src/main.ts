@@ -13,13 +13,16 @@ import { CanvasRenderer } from "echarts/renderers";
 import { LineChart } from "echarts/charts";
 import { GridComponent, TooltipComponent } from "echarts/components";
 import { fixStorage } from "./store/fixStorage";
+import * as ElementPlusIconsVue from "@element-plus/icons-vue";
 
 use([CanvasRenderer, LineChart, GridComponent, TooltipComponent]);
 
 fixStorage();
 
-createApp(App)
-    .use(createPinia())
-    .use(i18n)
-    .component("v-chart", ECharts)
-    .mount("#app");
+const app = createApp(App);
+
+app.use(createPinia()).use(i18n).component("v-chart", ECharts).mount("#app");
+
+for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+    app.component(key, component);
+}

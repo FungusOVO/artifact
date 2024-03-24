@@ -12,6 +12,7 @@ export interface IBuild {
     key: string;
     name: string;
     set: string[];
+    setList?: string[][];
     main: {
         [slotKey: string]: string[];
     };

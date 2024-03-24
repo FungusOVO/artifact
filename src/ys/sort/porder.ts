@@ -14,6 +14,7 @@ import { getAffnumPdf } from "../gacha/reliq";
 import { toCDF } from "../gacha/utils";
 import lodash from "lodash";
 import { build } from "vite";
+import { i18n } from "@/i18n";
 
 interface IAvatar {
     key: string;
@@ -109,34 +110,28 @@ function getSlotSetBestArt(
                 score: score,
             };
         }
+
+        let lastOtherArt = ret[art.slot as keyof ISlotSetBestArt]["other"];
+        if (!lastOtherArt || lastOtherArt.score < score) {
+            ret[art.slot as keyof ISlotSetBestArt]["other"] = {
+                set: art.set,
+                art: art,
+                score: score,
+            };
+        }
     });
 
     return ret;
 }
 
 function calSlotBestArts(
-    sets: string[],
+    orderList: string[][],
     buildSlotSetBestArt: ISlotSetBestArt,
 ): {
     bestArt: ISlotBestArt;
     bestScore: number;
+    bestOrder: string[];
 } {
-    // 排列可能的套装组合
-    let searchObj: { [key: string]: number } = {};
-    if (sets.length == 0) {
-        searchObj = { other: 4 };
-    } else if (sets.length == 1) {
-        searchObj[sets[0]] = 4;
-        searchObj["other"] = 1;
-    } else if (sets.length > 1) {
-        for (let key of sets) {
-            searchObj[key] = 2;
-        }
-        searchObj["other"] = 1;
-    }
-
-    let orderList = permutation(searchObj);
-
     let bestScore = 0;
     let bestOrder: string[] = [];
 
@@ -184,18 +179,83 @@ function calSlotBestArts(
     for (let i = 0; i < bestOrder.length; i++) {
         let slotName = ArtifactData.slotKeys[i] as ISlotKey;
         bestArt[slotName] = buildSlotSetBestArt[slotName][bestOrder[i]];
-        if (bestOrder[i] == "other") {
-            for (let setName in buildSlotSetBestArt[slotName]) {
-                if (
-                    buildSlotSetBestArt[slotName][setName].score >
-                    (bestArt[slotName]?.score || 0)
-                ) {
-                    bestArt[slotName] = buildSlotSetBestArt[slotName][setName];
+    }
+    return { bestArt, bestScore, bestOrder };
+}
+
+// 通过配装信息获取每个部位可能的配装
+function getOrderListBySetList(setList: string[][]) {
+    let orderList: string[][] = [];
+
+    for (let sets of setList) {
+        // 如果仅有1种配置,且是相同的2+2时
+        if (
+            sets.length == 1 &&
+            Object.keys(ArtifactData.setGroups).includes(sets[0])
+        ) {
+            // 更新二件套别名的套装
+            let originSets = [...sets];
+            sets = [];
+            for (let set of originSets) {
+                if (Object.keys(ArtifactData.setGroups).includes(set)) {
+                    sets = [
+                        ...sets,
+                        ...ArtifactData.setGroups[
+                            set as keyof typeof ArtifactData.setGroups
+                        ],
+                    ];
+                } else {
+                    sets.push(set);
                 }
             }
         }
+
+        // 排列可能的套装组合
+        let searchObj: { [key: string]: number } = {};
+        if (sets.length == 0) {
+            searchObj = { other: 4 };
+        } else if (sets.length == 1) {
+            searchObj[sets[0]] = 4;
+            searchObj["other"] = 1;
+        } else if (sets.length > 1) {
+            for (let key of sets) {
+                searchObj[key] = 2;
+            }
+            searchObj["other"] = 1;
+        }
+
+        let curOrderList = permutation(searchObj);
+        // 将2件套组合的名称转换原始套装名
+        curOrderList = convertSetGroup(convertSetGroup(curOrderList));
+        orderList = curOrderList.concat(orderList);
     }
-    return { bestArt, bestScore };
+    return orderList;
+}
+
+function convertSetGroup(originList: string[][]) {
+    let setList: string[][] = [];
+    for (let sets of originList) {
+        let setGroup = sets.find((set) => {
+            return Object.keys(ArtifactData.setGroups).includes(set);
+        });
+        if (setGroup) {
+            for (let setName of ArtifactData.setGroups[
+                setGroup as keyof typeof ArtifactData.setGroups
+            ]) {
+                let newSets = sets.map((set) => {
+                    if (set == setGroup) {
+                        return setName;
+                    } else {
+                        return set;
+                    }
+                });
+                setList.push(newSets);
+            }
+        } else {
+            setList.push(sets);
+        }
+    }
+    return setList;
 }
 
 function permutation(
@@ -261,42 +321,31 @@ export function sort(
 
     lodash.forEach(buildOrder, (avator) => {
         let build = builds.filter((b) => b.key == avator.key)[0];
-
-        // 更新二件套别名的套装
-        let sets: string[] = [];
-        for (let set of build.set) {
-            if (set.startsWith("s:")) {
-                sets = [
-                    ...sets,
-                    ...ArtifactData.setGroups[
-                        set as keyof typeof ArtifactData.setGroups
-                    ],
-                ];
-            } else {
-                sets.push(set);
-            }
-        }
+        let orderList = getOrderListBySetList(build.setList || []);
 
         // 当前配置下,每个部位每个套装最佳的圣遗物
         let buildSlotSetBestArt = getSlotSetBestArt(
             build.key,
             artScoreMap,
-            sets,
+            build.set,
             {
                 calArtiWeightType,
             },
         );
         // 每个部位最佳的圣遗物
-        let { bestArt, bestScore } = calSlotBestArts(sets, buildSlotSetBestArt);
+        let { bestArt, bestScore, bestOrder } = calSlotBestArts(
+            orderList as string[][],
+            buildSlotSetBestArt,
+        );
 
-        let bestScoreDesc = "";
+        let bestScoreDesc = getOrderDesc(bestOrder) + " ";
         let avgScore = bestScore / 5;
         if (calArtiWeightType == "prob") {
-            bestScoreDesc = avgScore.toFixed(2) + "%";
+            bestScoreDesc += avgScore.toFixed(2) + "%";
         }
         if (calArtiWeightType == "mark") {
-            bestScoreDesc =
-                avgScore.toFixed(2) +
+            bestScoreDesc +=
+                bestScore.toFixed(2) +
                 " (" +
                 PBuildSort.getMarkClass(avgScore) +
                 ")";
@@ -313,4 +362,51 @@ export function sort(
         }
     });
     return { sortResults: artScoreResult, orderResults: ret };
+}
+
+export function getSetOrderName(set: string[]) {
+    if (set.length == 1) {
+        let key = set[0];
+        if (Object.keys(ArtifactData.setGroups).includes(key)) {
+            return (
+                i18n.global.t("artifact.set_group." + key) +
+                "+" +
+                i18n.global.t("artifact.set_group." + key)
+            );
+        } else {
+            return i18n.global.t("artifact.set." + key) + "4";
+        }
+    } else {
+        let ret = [];
+        for (let key of set) {
+            if (Object.keys(ArtifactData.setGroups).includes(key)) {
+                ret.push(i18n.global.t("artifact.set_group." + key));
+            } else {
+                ret.push(i18n.global.t("artifact.set." + key) + "2");
+            }
+        }
+        return ret.join("+");
+    }
+}
+
+export function getOrderDesc(order: string[]) {
+    let countMap: {
+        [key: string]: number;
+    } = {};
+    for (let set of order) {
+        countMap[set] = (countMap[set] || 0) + 1;
+    }
+    if (countMap["other"] > 1) {
+        return "散件";
+    }
+    let retArr: string[] = [];
+    for (let set in countMap) {
+        if (countMap[set] == 4) {
+            retArr.push(i18n.global.t("artifact.set." + set) + "4");
+        }
+        if (countMap[set] == 2) {
+            retArr.push(i18n.global.t("artifact.set." + set) + "2");
+        }
+    }
+    return retArr.join(" + ");
 }

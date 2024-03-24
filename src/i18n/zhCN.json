@@ -145,6 +145,7 @@
         "TravelerGeo": "岩主",
         "TravelerElectro": "雷主",
         "TravelerDendro": "草主",
+        "TravelerHydro": "水主",
         "KamisatoAyaka": "神里绫华",
         "Jean": "琴",
         "Lisa": "丽莎",
@@ -223,7 +224,8 @@
         "Navia": "娜维娅",
         "Gaming": "嘉明",
         "Xianyun": "闲云",
-        "Chiori": "千织"
+        "Chiori": "千织",
+        "Arlecchino": "阿蕾奇诺"
     },
     "element": {
         "pyro": "火元素",
@@ -404,7 +406,8 @@
         "char_sort": "配装优先级",
         "porder_update_help": "目前修改的配置中,如仅存在一种套装,则搭配四件套;如存在多种套装则搭配最高分的2+2(按组选择攻击2精通2等,视为包含所属圣遗物的多种套装)",
         "build_order_editor_tip1": "双击或拖动角色头像加入右侧计算列表",
-        "build_order_editor_tip2": "拖动头像进行排序(优先级越靠左越高,越靠上越高)"
+        "build_order_editor_tip2": "拖动头像进行排序(优先级越靠左越高,越靠上越高)",
+        "art_add_set": "添加新套装"
     },
     "sort": {
         "avg": {

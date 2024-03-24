@@ -13,7 +13,7 @@ import { computed, ref, watch } from "vue";
 import { useArtifactStore, SortByKeys } from "@/store";
 import { ArtifactData, CharacterData } from "@/ys/data";
 import { i18n } from "@/i18n";
-import type { IOption, ICharOption, IAvatar } from "@/store/types";
+import type { IOption, ICharOption } from "@/store/types";
 
 const artStore = useArtifactStore();
 

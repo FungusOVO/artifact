@@ -10,7 +10,10 @@ import {
     IDefeatResult,
     IPBuildResult,
     IPEquipResult,
+    IPOrderResults,
 } from "@/ys/sort";
+import { ISlotBestArt } from "@/ys/sort/porder";
+import * as PBuildSort from "@/ys/sort/pbuild";
 import { IMinorAffixKey } from "@/ys/types";
 
 const props = defineProps<{
@@ -154,6 +157,8 @@ const sortResultDisplayType = computed(() => {
             return "pequip";
         case "defeat":
             return "defeat";
+        case "porder":
+            return "porder";
         default:
             return "";
     }
@@ -196,6 +201,28 @@ const pBuildResultStr = computed(() => {
     }
 
     return resultStr;
+});
+const pOrderResultStr = computed(() => {
+    let orderList = artStore.orderResults as IPOrderResults;
+    for (let charOrder of orderList) {
+        for (let slotName in charOrder.bestArt) {
+            if (
+                charOrder.bestArt[slotName as keyof ISlotBestArt]?.art ==
+                props.artifact
+            ) {
+                let score =
+                    charOrder.bestArt[slotName as keyof ISlotBestArt]?.score ||
+                    0;
+                return (
+                    score.toFixed(2) +
+                    " (" +
+                    PBuildSort.getMarkClass(score) +
+                    ")"
+                );
+            }
+        }
+    }
+    return "";
 });
 const pEquipResultStr = computed(() => {
     let result = artStore.sortResults!.get(props.artifact) as IPEquipResult;
@@ -299,6 +326,9 @@ const typeCount = computed(() => {
                 </template>
                 <template v-else-if="sortResultDisplayType == 'defeat'">
                     <div class="defeat" v-text="defeatResultStr" />
+                </template>
+                <template v-else-if="sortResultDisplayType == 'porder'">
+                    <div class="porder" v-text="pOrderResultStr" />
                 </template>
             </div>
         </div>
@@ -540,7 +570,8 @@ const typeCount = computed(() => {
             }
 
             .pbuild,
-            .pequip {
+            .pequip,
+            .porder {
                 background: cornflowerblue;
                 width: 100%;
                 overflow: hidden;

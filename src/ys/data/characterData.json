@@ -9,7 +9,8 @@
             "def": 682.52
         },
         "build": {
-            "set": ["s:anemoDB"],
+            "set": [],
+            "setList": [["ViridescentVenerer"], ["s:em"], ["NoblesseOblige"]],
             "main": {
                 "sands": ["em", "atkp"],
                 "goblet": ["em", "anemoDB"],
@@ -20,12 +21,12 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.25,
+                "atkp": 0.75,
                 "defp": 0,
-                "em": 1,
-                "er": 1,
-                "cr": 0.5,
-                "cd": 0.25
+                "em": 0.75,
+                "er": 0.55,
+                "cr": 1,
+                "cd": 1
             }
         }
     },
@@ -39,7 +40,12 @@
             "def": 682.52
         },
         "build": {
-            "set": ["s:atkp", "ArchaicPetra", "NoblesseOblige"],
+            "set": [],
+            "setList": [
+                ["s:atkp", "ArchaicPetra", "GoldenTroupe"],
+                ["NighttimeWhispersInTheEchoingWoods"],
+                ["NoblesseOblige"]
+            ],
             "main": {
                 "sands": ["atkp"],
                 "goblet": ["geoDB"],
@@ -50,10 +56,10 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.5,
+                "atkp": 0.75,
                 "defp": 0,
                 "em": 0,
-                "er": 0.25,
+                "er": 0.55,
                 "cr": 1,
                 "cd": 1
             }
@@ -69,7 +75,12 @@
             "def": 682.52
         },
         "build": {
-            "set": ["s:atkp", "s:em", "EmblemOfSeveredFate", "NoblesseOblige"],
+            "set": [],
+            "setList": [
+                ["NoblesseOblige"],
+                ["EmblemOfSeveredFate"],
+                ["GladiatorsFinale"]
+            ],
             "main": {
                 "sands": ["er"],
                 "goblet": ["atkp", "em"],
@@ -80,10 +91,10 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.5,
+                "atkp": 0.75,
                 "defp": 0,
-                "em": 0.5,
-                "er": 0.5,
+                "em": 0.75,
+                "er": 0.75,
                 "cr": 1,
                 "cd": 1
             }
@@ -99,12 +110,8 @@
             "def": 682.52
         },
         "build": {
-            "set": [
-                "EmblemOfSeveredFate",
-                "DeepwoodMemories",
-                "s:em",
-                "NoblesseOblige"
-            ],
+            "set": [],
+            "setList": [["DeepwoodMemories"], ["EmblemOfSeveredFate"]],
             "main": {
                 "sands": ["er", "em"],
                 "goblet": ["dendroDB", "em"],
@@ -115,10 +122,45 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.5,
+                "atkp": 0.75,
                 "defp": 0,
-                "em": 0.5,
-                "er": 0.5,
+                "em": 0.75,
+                "er": 0.55,
+                "cr": 1,
+                "cd": 1
+            }
+        }
+    },
+    "TravelerHydro": {
+        "element": "hydro",
+        "rarity": 5,
+        "presets": ["精双暴", "精充双暴", "攻精双暴", "攻精充双暴"],
+        "baseAttr": {
+            "hp": 10875,
+            "atk": 212.4,
+            "def": 682.52
+        },
+        "build": {
+            "set": [],
+            "setList": [
+                ["GoldenTroupe", "s:hydroDB"],
+                ["s:hydroDB"],
+                ["NoblesseOblige"]
+            ],
+            "main": {
+                "sands": ["er", "atkp"],
+                "goblet": ["hydroDB", "atkp"],
+                "circlet": ["cr", "cd"]
+            },
+            "weight": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "hpp": 0.75,
+                "atkp": 0.75,
+                "defp": 0,
+                "em": 0.75,
+                "er": 0.55,
                 "cr": 1,
                 "cd": 1
             }
@@ -134,11 +176,11 @@
             "def": 783.93
         },
         "build": {
-            "set": [
-                "s:atkp",
-                "NoblesseOblige",
-                "EmblemOfSeveredFate",
-                "BlizzardStrayer"
+            "set": [],
+            "setList": [
+                ["BlizzardStrayer"],
+                ["BlizzardStrayer", "s:atkp"],
+                ["EmblemOfSeveredFate"]
             ],
             "main": {
                 "sands": ["atkp"],
@@ -150,10 +192,10 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.5,
+                "atkp": 0.75,
                 "defp": 0,
-                "em": 0.25,
-                "er": 0.5,
+                "em": 0,
+                "er": 0.3,
                 "cr": 1,
                 "cd": 1
             }
@@ -169,7 +211,12 @@
             "def": 768.55
         },
         "build": {
-            "set": ["s:atkp", "s:hb", "s:anemoDB", "NoblesseOblige"],
+            "set": [],
+            "setList": [
+                ["s:anemoDB", "s:atkp", "GoldenTroupe"],
+                ["ViridescentVenerer"],
+                ["NoblesseOblige"]
+            ],
             "main": {
                 "sands": ["atkp", "er"],
                 "goblet": ["anemoDB", "atkp"],
@@ -180,10 +227,10 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.5,
+                "atkp": 0.75,
                 "defp": 0,
-                "em": 0.25,
-                "er": 0.5,
+                "em": 0,
+                "er": 0.55,
                 "cr": 1,
                 "cd": 1
             }
@@ -199,7 +246,14 @@
             "def": 573.32
         },
         "build": {
-            "set": ["s:em", "EmblemOfSeveredFate", "ThunderingFury"],
+            "set": [],
+            "setList": [
+                ["ThunderingFury"],
+                ["s:em", "EmblemOfSeveredFate"],
+                ["GildedDreams"],
+                ["FlowerOfParadiseLost"],
+                ["s:em"]
+            ],
             "main": {
                 "sands": ["atkp", "em", "er"],
                 "goblet": ["electroDB", "atkp", "em"],
@@ -210,10 +264,10 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.5,
+                "atkp": 0.75,
                 "defp": 0,
-                "em": 0.5,
-                "er": 0.5,
+                "em": 0.75,
+                "er": 0,
                 "cr": 1,
                 "cd": 1
             }
@@ -229,9 +283,17 @@
             "def": 668.87
         },
         "build": {
-            "set": ["s:hpp", "s:hb", "NoblesseOblige"],
+            "set": [],
+            "setList": [
+                ["OceanHuedClam"],
+                ["SongOfDaysPast"],
+                ["MarechausseeHunter"],
+                ["WanderersTroupe"],
+                ["GildedDreams"],
+                ["s:hydroDB"]
+            ],
             "main": {
-                "sands": ["er", "hpp"],
+                "sands": ["hpp"],
                 "goblet": ["hpp"],
                 "circlet": ["hb", "hpp"]
             },
@@ -240,12 +302,12 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 1,
-                "atkp": 0.25,
-                "defp": 0,
-                "em": 0.25,
-                "er": 1,
+                "atkp": 0.5,
+                "defp": null,
+                "em": null,
+                "er": 0.55,
                 "cr": 0.5,
-                "cd": 0.25
+                "cd": 0.5
             }
         }
     },
@@ -259,13 +321,11 @@
             "def": 791.72
         },
         "build": {
-            "set": [
-                "NoblesseOblige",
-                "BloodstainedChivalry",
-                "EmblemOfSeveredFate",
-                "PaleFlame",
-                "s:atkp",
-                "BlizzardStrayer"
+            "set": [],
+            "setList": [
+                ["BlizzardStrayer", "s:atkp", "NoblesseOblige"],
+                ["NoblesseOblige"],
+                ["EmblemOfSeveredFate"]
             ],
             "main": {
                 "sands": ["atkp", "er"],
@@ -277,10 +337,10 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.5,
+                "atkp": 0.75,
                 "defp": 0,
-                "em": 0.25,
-                "er": 0.25,
+                "em": 0,
+                "er": 0.3,
                 "cr": 1,
                 "cd": 1
             }
@@ -296,7 +356,13 @@
             "def": 783.93
         },
         "build": {
-            "set": ["s:atkp", "s:em", "CrimsonWitchOfFlames"],
+            "set": [],
+            "setList": [
+                ["CrimsonWitchOfFlames"],
+                ["Lavawalker"],
+                ["FlowerOfParadiseLost"],
+                ["GildedDreams"]
+            ],
             "main": {
                 "sands": ["atkp", "em"],
                 "goblet": ["pyroDB"],
@@ -307,10 +373,10 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.5,
+                "atkp": 0.75,
                 "defp": 0,
-                "em": 0.5,
-                "er": 0.25,
+                "em": 0.75,
+                "er": 0,
                 "cr": 1,
                 "cd": 1
             }
@@ -326,10 +392,17 @@
             "def": 750.77
         },
         "build": {
-            "set": ["s:atkp", "BloodstainedChivalry", "PaleFlame"],
+            "set": [],
+            "setList": [
+                ["BloodstainedChivalry", "PaleFlame"],
+                ["GladiatorsFinale"],
+                ["FlowerOfParadiseLost"],
+                ["GildedDreams"],
+                ["s:em"]
+            ],
             "main": {
                 "sands": ["atkp"],
-                "goblet": ["physicalDB"],
+                "goblet": ["physicalDB", "atkp"],
                 "circlet": ["cr", "cd"]
             },
             "weight": {
@@ -337,10 +410,10 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.5,
+                "atkp": 0.75,
                 "defp": 0,
-                "em": 0.25,
-                "er": 0.25,
+                "em": 0,
+                "er": 0,
                 "cr": 1,
                 "cd": 1
             }
@@ -356,7 +429,14 @@
             "def": 600.62
         },
         "build": {
-            "set": ["CrimsonWitchOfFlames", "NoblesseOblige", "s:em"],
+            "set": [],
+            "setList": [
+                ["CrimsonWitchOfFlames", "s:em"],
+                ["WanderersTroupe"],
+                ["CrimsonWitchOfFlames", "MarechausseeHunter"],
+                ["CrimsonWitchOfFlames", "NoblesseOblige", "s:atkp"],
+                ["PaleFlame", "BloodstainedChivalry", "MarechausseeHunter"]
+            ],
             "main": {
                 "sands": ["atkp"],
                 "goblet": ["pyroDB"],
@@ -367,10 +447,10 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.5,
+                "atkp": 0.75,
                 "defp": 0,
-                "em": 0.25,
-                "er": 0.25,
+                "em": 0.75,
+                "er": 0,
                 "cr": 1,
                 "cd": 1
             }
@@ -386,7 +466,12 @@
             "def": 668.64
         },
         "build": {
-            "set": ["s:anemoDB"],
+            "set": [],
+            "setList": [
+                ["ViridescentVenerer"],
+                ["GildedDreams"],
+                ["NoblesseOblige"]
+            ],
             "main": {
                 "sands": ["atkp", "er", "em"],
                 "goblet": ["anemoDB", "em"],
@@ -397,10 +482,10 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.5,
+                "atkp": 0.75,
                 "defp": 0,
-                "em": 0.5,
-                "er": 0.5,
+                "em": 0.75,
+                "er": 0.55,
                 "cr": 1,
                 "cd": 1
             }
@@ -416,12 +501,11 @@
             "def": 668.87
         },
         "build": {
-            "set": [
-                "NoblesseOblige",
-                "s:atkp",
-                "s:em",
-                "EmblemOfSeveredFate",
-                "CrimsonWitchOfFlames"
+            "set": [],
+            "setList": [
+                ["EmblemOfSeveredFate"],
+                ["NoblesseOblige", "s:atkp", "s:em"],
+                ["CrimsonWitchOfFlames"]
             ],
             "main": {
                 "sands": ["em", "er", "atkp"],
@@ -433,10 +517,10 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.5,
+                "atkp": 0.75,
                 "defp": 0,
-                "em": 0.5,
-                "er": 0.5,
+                "em": 0.75,
+                "er": 0.55,
                 "cr": 1,
                 "cd": 1
             }
@@ -452,12 +536,8 @@
             "def": 648.4
         },
         "build": {
-            "set": [
-                "s:atkp",
-                "EmblemOfSeveredFate",
-                "NoblesseOblige",
-                "ThunderingFury"
-            ],
+            "set": [],
+            "setList": [["EmblemOfSeveredFate"], ["s:em"], ["ThunderingFury"]],
             "main": {
                 "sands": ["atkp", "er"],
                 "goblet": ["electroDB", "atkp"],
@@ -468,10 +548,10 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.5,
+                "atkp": 0.75,
                 "defp": 0,
-                "em": 0.25,
-                "er": 0.5,
+                "em": 0.75,
+                "er": 0.55,
                 "cr": 1,
                 "cd": 1
             }
@@ -487,11 +567,11 @@
             "def": 757.6
         },
         "build": {
-            "set": [
-                "s:atkp",
-                "NoblesseOblige",
-                "s:hydroDB",
-                "EmblemOfSeveredFate"
+            "set": [],
+            "setList": [
+                ["EmblemOfSeveredFate"],
+                ["s:hydroDB", "NoblesseOblige", "s:atkp"],
+                ["NoblesseOblige"]
             ],
             "main": {
                 "sands": ["atkp", "er"],
@@ -503,10 +583,10 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.5,
+                "atkp": 0.75,
                 "defp": 0,
-                "em": 0.5,
-                "er": 0.5,
+                "em": 0,
+                "er": 0.75,
                 "cr": 1,
                 "cd": 1
             }
@@ -522,7 +602,12 @@
             "def": 799.3
         },
         "build": {
-            "set": ["s:anemoDB", "s:atkp"],
+            "set": [],
+            "setList": [
+                ["VermillionHereafter"],
+                ["DesertPavilionChronicle"],
+                ["s:anemoDB", "s:atkp"]
+            ],
             "main": {
                 "sands": ["atkp"],
                 "goblet": ["anemoDB", "atkp"],
@@ -533,10 +618,10 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.5,
+                "atkp": 0.75,
                 "defp": 0,
-                "em": 0.25,
-                "er": 0.25,
+                "em": 0,
+                "er": 0.55,
                 "cr": 1,
                 "cd": 1
             }
@@ -552,7 +637,11 @@
             "def": 573.32
         },
         "build": {
-            "set": ["ArchaicPetra", "s:atkp", "NoblesseOblige"],
+            "set": [],
+            "setList": [
+                ["NighttimeWhispersInTheEchoingWoods"],
+                ["ArchaicPetra", "s:atkp"]
+            ],
             "main": {
                 "sands": ["atkp"],
                 "goblet": ["geoDB"],
@@ -563,10 +652,10 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.5,
+                "atkp": 0.75,
                 "defp": 0,
                 "em": 0,
-                "er": 0.25,
+                "er": 0.3,
                 "cr": 1,
                 "cd": 1
             }
@@ -582,12 +671,12 @@
             "def": 614.84
         },
         "build": {
-            "set": [
-                "s:atkp",
-                "s:em",
-                "RetracingBolide",
-                "Lavawalker",
-                "CrimsonWitchOfFlames"
+            "set": [],
+            "setList": [
+                ["CrimsonWitchOfFlames"],
+                ["WanderersTroupe"],
+                ["ShimenawasReminiscence"],
+                ["CrimsonWitchOfFlames", "s:atkp", "s:em", "MarechausseeHunter"]
             ],
             "main": {
                 "sands": ["atkp"],
@@ -599,10 +688,10 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.5,
+                "atkp": 0.75,
                 "defp": 0,
-                "em": 0.25,
-                "er": 0.25,
+                "em": 0.75,
+                "er": 0.3,
                 "cr": 1,
                 "cd": 1
             }
@@ -618,7 +707,17 @@
             "def": 737.81
         },
         "build": {
-            "set": ["ArchaicPetra", "s:atkp", "NoblesseOblige", "s:hpp"],
+            "set": [],
+            "setList": [
+                ["ArchaicPetra", "s:hpp", "NoblesseOblige", "s:atkp"],
+                ["TenacityOfTheMillelith"],
+                ["s:hpp"],
+                ["EmblemOfSeveredFate"],
+                ["GladiatorsFinale"],
+                ["PaleFlame"],
+                ["EchoesOfAnOffering"],
+                ["ShimenawasReminiscence"]
+            ],
             "main": {
                 "sands": ["hpp", "atkp", "er"],
                 "goblet": ["geoDB", "hpp"],
@@ -628,11 +727,11 @@
                 "hp": 0,
                 "atk": 0,
                 "def": 0,
-                "hpp": 0.5,
-                "atkp": 0.5,
+                "hpp": 0.8,
+                "atkp": 0.75,
                 "defp": 0,
                 "em": 0,
-                "er": 0.25,
+                "er": 0.55,
                 "cr": 1,
                 "cd": 1
             }
@@ -648,13 +747,12 @@
             "def": 593.79
         },
         "build": {
-            "set": [
-                "PaleFlame",
-                "ThunderingFury",
-                "s:atkp",
-                "BloodstainedChivalry",
-                "Thundersoother",
-                "s:hpp"
+            "set": [],
+            "setList": [
+                ["GoldenTroupe"],
+                ["GildedDreams"],
+                ["ThunderingFury"],
+                ["PaleFlame"]
             ],
             "main": {
                 "sands": ["atkp"],
@@ -666,10 +764,10 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.5,
+                "atkp": 0.75,
                 "defp": 0,
-                "em": 0.5,
-                "er": 0.5,
+                "em": 0.75,
+                "er": 0,
                 "cr": 1,
                 "cd": 1
             }
@@ -685,7 +783,12 @@
             "def": 771.25
         },
         "build": {
-            "set": ["NoblesseOblige", "Instructor"],
+            "set": [],
+            "setList": [
+                ["NoblesseOblige"],
+                ["CrimsonWitchOfFlames"],
+                ["Lavawalker"]
+            ],
             "main": {
                 "sands": ["er", "hpp"],
                 "goblet": ["hpp"],
@@ -696,12 +799,12 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 1,
-                "atkp": 0.25,
+                "atkp": 0.5,
                 "defp": 0,
-                "em": 0.25,
-                "er": 1,
-                "cr": 0.25,
-                "cd": 0.25
+                "em": 0,
+                "er": 0.55,
+                "cr": 1,
+                "cd": 1
             }
         }
     },
@@ -715,7 +818,12 @@
             "def": 814.67
         },
         "build": {
-            "set": ["s:atkp", "NoblesseOblige", "s:em", "s:hydroDB"],
+            "set": [],
+            "setList": [
+                ["NymphsDream"],
+                ["HeartOfDepth"],
+                ["s:hydroDB", "s:em"]
+            ],
             "main": {
                 "sands": ["atkp", "er", "em"],
                 "goblet": ["hydroDB"],
@@ -726,10 +834,10 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.5,
+                "atkp": 0.75,
                 "defp": 0,
-                "em": 0.5,
-                "er": 0.25,
+                "em": 0.75,
+                "er": 0.3,
                 "cr": 1,
                 "cd": 1
             }
@@ -745,7 +853,8 @@
             "def": 798.55
         },
         "build": {
-            "set": ["RetracingBolide", "s:atkp", "HuskOfOpulentDreams"],
+            "set": [],
+            "setList": [["HuskOfOpulentDreams"], ["GladiatorsFinale"]],
             "main": {
                 "sands": ["defp"],
                 "goblet": ["geoDB", "defp"],
@@ -756,10 +865,10 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.25,
-                "defp": 0.5,
+                "atkp": 0.5,
+                "defp": 0.9,
                 "em": 0,
-                "er": 0.5,
+                "er": 0.7,
                 "cr": 1,
                 "cd": 1
             }
@@ -775,7 +884,12 @@
             "def": 922.27
         },
         "build": {
-            "set": ["EmblemOfSeveredFate", "s:hb", "NoblesseOblige", "s:hpp"],
+            "set": [],
+            "setList": [
+                ["OceanHuedClam"],
+                ["SongOfDaysPast"],
+                ["TenacityOfTheMillelith"]
+            ],
             "main": {
                 "sands": ["er", "atkp"],
                 "goblet": ["atkp"],
@@ -786,12 +900,12 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 1,
+                "atkp": 0.75,
                 "defp": 0,
                 "em": 0,
-                "er": 1,
-                "cr": 0.25,
-                "cd": 0.25
+                "er": 0.55,
+                "cr": 1,
+                "cd": 1
             }
         }
     },
@@ -805,11 +919,11 @@
             "def": 648.4
         },
         "build": {
-            "set": [
-                "BlizzardStrayer",
-                "EmblemOfSeveredFate",
-                "Lavawalker",
-                "NoblesseOblige"
+            "set": [],
+            "setList": [
+                ["NoblesseOblige"],
+                ["BlizzardStrayer", "NoblesseOblige", "s:atkp"],
+                ["BlizzardStrayer"]
             ],
             "main": {
                 "sands": ["atkp"],
@@ -821,10 +935,10 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.5,
+                "atkp": 0.75,
                 "defp": 0,
-                "em": 0.5,
-                "er": 0.25,
+                "em": 0.75,
+                "er": 0.55,
                 "cr": 1,
                 "cd": 1
             }
@@ -840,12 +954,12 @@
             "def": 630.21
         },
         "build": {
-            "set": [
-                "NoblesseOblige",
-                "s:atkp",
-                "EmblemOfSeveredFate",
-                "BlizzardStrayer",
-                "s:em"
+            "set": [],
+            "setList": [
+                ["BlizzardStrayer"],
+                ["WanderersTroupe"],
+                ["BlizzardStrayer", "MarechausseeHunter"],
+                ["EmblemOfSeveredFate"]
             ],
             "main": {
                 "sands": ["atkp"],
@@ -856,11 +970,11 @@
                 "hp": 0,
                 "atk": 0,
                 "def": 0,
-                "hpp": 0,
-                "atkp": 0.5,
-                "defp": 0,
-                "em": 0.25,
-                "er": 0.25,
+                "hpp": null,
+                "atkp": 0.75,
+                "defp": null,
+                "em": 0.75,
+                "er": null,
                 "cr": 1,
                 "cd": 1
             }
@@ -876,7 +990,13 @@
             "def": 876.15
         },
         "build": {
-            "set": ["ArchaicPetra", "HuskOfOpulentDreams", "s:hpp"],
+            "set": [],
+            "setList": [
+                ["HuskOfOpulentDreams"],
+                ["GoldenTroupe"],
+                ["ArchaicPetra"],
+                ["TenacityOfTheMillelith"]
+            ],
             "main": {
                 "sands": ["defp"],
                 "goblet": ["geoDB"],
@@ -887,10 +1007,10 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.25,
-                "defp": 0.5,
+                "atkp": 0,
+                "defp": 1,
                 "em": 0,
-                "er": 0.25,
+                "er": 0,
                 "cr": 1,
                 "cd": 1
             }
@@ -906,7 +1026,12 @@
             "def": 600.62
         },
         "build": {
-            "set": ["s:hb", "s:hpp", "NoblesseOblige"],
+            "set": [],
+            "setList": [
+                ["NoblesseOblige"],
+                ["s:hpp", "EmblemOfSeveredFate"],
+                ["GoldenTroupe", "BlizzardStrayer"]
+            ],
             "main": {
                 "sands": ["hpp", "er"],
                 "goblet": ["hpp"],
@@ -917,12 +1042,12 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 1,
-                "atkp": 0,
+                "atkp": 0.5,
                 "defp": 0,
                 "em": 0,
-                "er": 1,
+                "er": 0.9,
                 "cr": 0.5,
-                "cd": 0.25
+                "cd": 0.5
             }
         }
     },
@@ -936,12 +1061,11 @@
             "def": 653.27
         },
         "build": {
-            "set": [
-                "s:hydroDB",
-                "s:em",
-                "EmblemOfSeveredFate",
-                "NoblesseOblige",
-                "s:hpp"
+            "set": [],
+            "setList": [
+                ["NoblesseOblige"],
+                ["TenacityOfTheMillelith"],
+                ["EmblemOfSeveredFate"]
             ],
             "main": {
                 "sands": ["er"],
@@ -953,10 +1077,10 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.5,
+                "atkp": 0.75,
                 "defp": 0,
-                "em": 0.25,
-                "er": 0.5,
+                "em": 0.75,
+                "er": 0.75,
                 "cr": 1,
                 "cd": 1
             }
@@ -972,14 +1096,8 @@
             "def": 799.3
         },
         "build": {
-            "set": [
-                "s:atkp",
-                "NoblesseOblige",
-                "BloodstainedChivalry",
-                "PaleFlame",
-                "Thundersoother",
-                "ThunderingFury"
-            ],
+            "set": [],
+            "setList": [["ThunderingFury"], ["GildedDreams"], ["PaleFlame"]],
             "main": {
                 "sands": ["atkp"],
                 "goblet": ["electroDB", "physicalDB"],
@@ -990,10 +1108,10 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.5,
+                "atkp": 0.75,
                 "defp": 0,
-                "em": 0.25,
-                "er": 0.25,
+                "em": 0.75,
+                "er": 0,
                 "cr": 1,
                 "cd": 1
             }
@@ -1009,7 +1127,8 @@
             "def": 703
         },
         "build": {
-            "set": ["s:atkp", "NoblesseOblige", "s:anemoDB"],
+            "set": [],
+            "setList": [["ViridescentVenerer"], ["NoblesseOblige"]],
             "main": {
                 "sands": ["em", "er", "atkp"],
                 "goblet": ["em", "anemoDB"],
@@ -1020,12 +1139,12 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.25,
+                "atkp": 0.75,
                 "defp": 0,
                 "em": 1,
-                "er": 0.5,
-                "cr": 0.5,
-                "cd": 0.25
+                "er": 0.55,
+                "cr": 1,
+                "cd": 1
             }
         }
     },
@@ -1039,13 +1158,10 @@
             "def": 798.55
         },
         "build": {
-            "set": [
-                "PaleFlame",
-                "s:atkp",
-                "RetracingBolide",
-                "HuskOfOpulentDreams",
-                "s:hpp",
-                "BloodstainedChivalry"
+            "set": [],
+            "setList": [
+                ["BloodstainedChivalry"],
+                ["BloodstainedChivalry", "PaleFlame"]
             ],
             "main": {
                 "sands": ["defp", "atkp"],
@@ -1057,10 +1173,10 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.5,
-                "defp": 0.5,
+                "atkp": 0.75,
+                "defp": 0.75,
                 "em": 0,
-                "er": 0.5,
+                "er": 0,
                 "cr": 1,
                 "cd": 1
             }
@@ -1076,13 +1192,11 @@
             "def": 709.82
         },
         "build": {
-            "set": [
-                "s:atkp",
-                "BlizzardStrayer",
-                "BloodstainedChivalry",
-                "EmblemOfSeveredFate",
-                "PaleFlame",
-                "NoblesseOblige"
+            "set": [],
+            "setList": [
+                ["BlizzardStrayer"],
+                ["EmblemOfSeveredFate"],
+                ["NoblesseOblige"]
             ],
             "main": {
                 "sands": ["atkp", "er"],
@@ -1094,10 +1208,10 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.5,
+                "atkp": 0.75,
                 "defp": 0,
-                "em": 0.25,
-                "er": 0.5,
+                "em": 0,
+                "er": 0.3,
                 "cr": 1,
                 "cd": 1
             }
@@ -1113,12 +1227,12 @@
             "def": 876.15
         },
         "build": {
-            "set": [
-                "s:hpp",
-                "s:em",
-                "RetracingBolide",
-                "s:atkp",
-                "CrimsonWitchOfFlames"
+            "set": [],
+            "setList": [
+                ["CrimsonWitchOfFlames"],
+                ["GildedDreams"],
+                ["ShimenawasReminiscence"],
+                ["MarechausseeHunter"]
             ],
             "main": {
                 "sands": ["hpp", "em"],
@@ -1129,11 +1243,11 @@
                 "hp": 0,
                 "atk": 0,
                 "def": 0,
-                "hpp": 0.5,
-                "atkp": 0.25,
+                "hpp": 0.8,
+                "atkp": 0.5,
                 "defp": 0,
-                "em": 0.5,
-                "er": 0.25,
+                "em": 0.75,
+                "er": 0,
                 "cr": 1,
                 "cd": 1
             }
@@ -1149,7 +1263,12 @@
             "def": 806.98
         },
         "build": {
-            "set": ["s:anemoDB"],
+            "set": [],
+            "setList": [
+                ["ViridescentVenerer"],
+                ["s:anemoDB", "GoldenTroupe"],
+                ["DesertPavilionChronicle"]
+            ],
             "main": {
                 "sands": ["em", "atkp"],
                 "goblet": ["anemoDB", "em", "atkp"],
@@ -1160,12 +1279,12 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.5,
+                "atkp": 0.75,
                 "defp": 0,
                 "em": 1,
-                "er": 0.5,
-                "cr": 0.5,
-                "cd": 0.5
+                "er": 0.55,
+                "cr": 1,
+                "cd": 1
             }
         }
     },
@@ -1179,7 +1298,13 @@
             "def": 586.97
         },
         "build": {
-            "set": ["RetracingBolide", "CrimsonWitchOfFlames", "s:em"],
+            "set": [],
+            "setList": [
+                ["CrimsonWitchOfFlames"],
+                ["WanderersTroupe"],
+                ["MarechausseeHunter"],
+                ["GildedDreams"]
+            ],
             "main": {
                 "sands": ["atkp"],
                 "goblet": ["pyroDB"],
@@ -1190,10 +1315,10 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.5,
+                "atkp": 0.75,
                 "defp": 0,
-                "em": 0.5,
-                "er": 0.25,
+                "em": 0.75,
+                "er": 0.3,
                 "cr": 1,
                 "cd": 1
             }
@@ -1209,11 +1334,12 @@
             "def": 614.84
         },
         "build": {
-            "set": [
-                "s:atkp",
-                "CrimsonWitchOfFlames",
-                "RetracingBolide",
-                "Lavawalker"
+            "set": [],
+            "setList": [
+                ["ShimenawasReminiscence"],
+                ["EchoesOfAnOffering"],
+                ["CrimsonWitchOfFlames"],
+                ["CrimsonWitchOfFlames", "MarechausseeHunter"]
             ],
             "main": {
                 "sands": ["atkp"],
@@ -1225,10 +1351,10 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.5,
+                "atkp": 0.75,
                 "defp": 0,
-                "em": 0.5,
-                "er": 0.25,
+                "em": 0.75,
+                "er": 0,
                 "cr": 1,
                 "cd": 1
             }
@@ -1244,7 +1370,13 @@
             "def": 750.77
         },
         "build": {
-            "set": ["s:hpp", "EmblemOfSeveredFate", "s:em"],
+            "set": [],
+            "setList": [
+                ["FlowerOfParadiseLost"],
+                ["GladiatorsFinale"],
+                ["NoblesseOblige"],
+                ["TenacityOfTheMillelith", "EmblemOfSeveredFate"]
+            ],
             "main": {
                 "sands": ["er", "hpp", "em"],
                 "goblet": ["hpp", "em"],
@@ -1254,13 +1386,13 @@
                 "hp": 0,
                 "atk": 0,
                 "def": 0,
-                "hpp": 0.25,
-                "atkp": 0,
+                "hpp": 0.9,
+                "atkp": 0.55,
                 "defp": 0,
-                "em": 1,
-                "er": 0.5,
-                "cr": 0.25,
-                "cd": 0
+                "em": 0.75,
+                "er": 0.55,
+                "cr": 0.9,
+                "cd": 0.9
             }
         }
     },
@@ -1274,7 +1406,12 @@
             "def": 750.88
         },
         "build": {
-            "set": ["s:atkp", "BloodstainedChivalry", "PaleFlame"],
+            "set": [],
+            "setList": [
+                ["PaleFlame"],
+                ["s:atkp"],
+                ["PaleFlame", "BloodstainedChivalry"]
+            ],
             "main": {
                 "sands": ["atkp"],
                 "goblet": ["physicalDB"],
@@ -1285,10 +1422,10 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.5,
+                "atkp": 0.75,
                 "defp": 0,
                 "em": 0,
-                "er": 0.5,
+                "er": 0.55,
                 "cr": 1,
                 "cd": 1
             }
@@ -1304,7 +1441,13 @@
             "def": 789.31
         },
         "build": {
-            "set": ["EmblemOfSeveredFate"],
+            "set": [],
+            "setList": [
+                ["EmblemOfSeveredFate"],
+                ["s:em"],
+                ["GildedDreams"],
+                ["FlowerOfParadiseLost"]
+            ],
             "main": {
                 "sands": ["er", "atkp"],
                 "goblet": ["electroDB", "atkp"],
@@ -1314,11 +1457,11 @@
                 "hp": 0,
                 "atk": 0,
                 "def": 0,
-                "hpp": 0,
-                "atkp": 0.5,
-                "defp": 0,
-                "em": 0.25,
-                "er": 0.5,
+                "hpp": null,
+                "atkp": 0.75,
+                "defp": null,
+                "em": 0,
+                "er": 0.9,
                 "cr": 1,
                 "cd": 1
             }
@@ -1334,7 +1477,8 @@
             "def": 744.63
         },
         "build": {
-            "set": ["s:atkp", "s:hb", "s:anemoDB"],
+            "set": [],
+            "setList": [["ViridescentVenerer"], ["NoblesseOblige"]],
             "main": {
                 "sands": ["em", "er", "atkp"],
                 "goblet": ["em", "anemoDB"],
@@ -1345,12 +1489,12 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 1,
+                "atkp": 0.75,
                 "defp": 0,
-                "em": 0.5,
-                "er": 1,
-                "cr": 0.5,
-                "cd": 0.25
+                "em": 1,
+                "er": 0.55,
+                "cr": 1,
+                "cd": 1
             }
         }
     },
@@ -1364,7 +1508,13 @@
             "def": 657.11
         },
         "build": {
-            "set": ["s:hb", "s:hpp", "s:hydroDB"],
+            "set": [],
+            "setList": [
+                ["OceanHuedClam"],
+                ["SongOfDaysPast"],
+                ["TenacityOfTheMillelith"],
+                ["FlowerOfParadiseLost"]
+            ],
             "main": {
                 "sands": ["hpp", "er"],
                 "goblet": ["hydroDB", "hpp"],
@@ -1377,8 +1527,8 @@
                 "hpp": 1,
                 "atkp": 0.5,
                 "defp": 0,
-                "em": 0.5,
-                "er": 0.5,
+                "em": 0.75,
+                "er": 0.55,
                 "cr": 0,
                 "cd": 0
             }
@@ -1394,12 +1544,11 @@
             "def": 648.4
         },
         "build": {
-            "set": [
-                "HuskOfOpulentDreams",
-                "EmblemOfSeveredFate",
-                "s:hb",
-                "ArchaicPetra",
-                "NoblesseOblige"
+            "set": [],
+            "setList": [
+                ["HuskOfOpulentDreams"],
+                ["NoblesseOblige"],
+                ["ArchaicPetra"]
             ],
             "main": {
                 "sands": ["er"],
@@ -1411,12 +1560,12 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.25,
+                "atkp": 0.75,
                 "defp": 1,
-                "em": 0.25,
-                "er": 1,
+                "em": 0,
+                "er": 0.75,
                 "cr": 0.5,
-                "cd": 0.25
+                "cd": 0.5
             }
         }
     },
@@ -1430,11 +1579,11 @@
             "def": 627.92
         },
         "build": {
-            "set": [
-                "s:atkp",
-                "ThunderingFury",
-                "EmblemOfSeveredFate",
-                "NoblesseOblige"
+            "set": [],
+            "setList": [
+                ["EmblemOfSeveredFate"],
+                ["NoblesseOblige"],
+                ["TenacityOfTheMillelith"]
             ],
             "main": {
                 "sands": ["er", "atkp"],
@@ -1446,10 +1595,10 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.5,
+                "atkp": 0.75,
                 "defp": 0,
-                "em": 0.25,
-                "er": 0.5,
+                "em": 0,
+                "er": 0.55,
                 "cr": 1,
                 "cd": 1
             }
@@ -1465,7 +1614,8 @@
             "def": 959.16
         },
         "build": {
-            "set": ["ArchaicPetra", "HuskOfOpulentDreams"],
+            "set": [],
+            "setList": [["HuskOfOpulentDreams"], ["RetracingBolide"]],
             "main": {
                 "sands": ["defp"],
                 "goblet": ["geoDB"],
@@ -1477,9 +1627,9 @@
                 "def": 0,
                 "hpp": 0,
                 "atkp": 0.5,
-                "defp": 0.5,
+                "defp": 1,
                 "em": 0,
-                "er": 0.5,
+                "er": 0.3,
                 "cr": 1,
                 "cd": 1
             }
@@ -1495,7 +1645,8 @@
             "def": 568.73
         },
         "build": {
-            "set": ["s:atkp", "ThunderingFury", "Thundersoother", "s:hpp"],
+            "set": [],
+            "setList": [["GildedDreams"], ["GoldenTroupe"]],
             "main": {
                 "sands": ["atkp"],
                 "goblet": ["electroDB"],
@@ -1506,10 +1657,10 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.5,
+                "atkp": 0.75,
                 "defp": 0,
-                "em": 0.5,
-                "er": 0.5,
+                "em": 0.75,
+                "er": 0.55,
                 "cr": 1,
                 "cd": 1
             }
@@ -1525,7 +1676,12 @@
             "def": 683.89
         },
         "build": {
-            "set": ["s:anemoDB", "s:atkp"],
+            "set": [],
+            "setList": [
+                ["ViridescentVenerer"],
+                ["s:anemoDB", "GoldenTroupe"],
+                ["DesertPavilionChronicle"]
+            ],
             "main": {
                 "sands": ["atkp"],
                 "goblet": ["anemoDB"],
@@ -1536,10 +1692,10 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.5,
+                "atkp": 0.75,
                 "defp": 0,
-                "em": 0.25,
-                "er": 0,
+                "em": 0.75,
+                "er": 0.3,
                 "cr": 1,
                 "cd": 1
             }
@@ -1555,11 +1711,10 @@
             "def": 547.98
         },
         "build": {
-            "set": [
-                "EmblemOfSeveredFate",
-                "s:hydroDB",
-                "NoblesseOblige",
-                "s:hpp"
+            "set": [],
+            "setList": [
+                ["EmblemOfSeveredFate"],
+                ["s:hydroDB", "s:hpp", "NoblesseOblige"]
             ],
             "main": {
                 "sands": ["hpp", "er"],
@@ -1570,11 +1725,11 @@
                 "hp": 0,
                 "atk": 0,
                 "def": 0,
-                "hpp": 1,
+                "hpp": 0.8,
                 "atkp": 0,
                 "defp": 0,
                 "em": 0,
-                "er": 1,
+                "er": 0.55,
                 "cr": 1,
                 "cd": 1
             }
@@ -1590,7 +1745,8 @@
             "def": 546.02
         },
         "build": {
-            "set": ["Instructor", "s:hpp", "DeepwoodMemories"],
+            "set": [],
+            "setList": [["s:hpp"], ["DeepwoodMemories"], ["NoblesseOblige"]],
             "main": {
                 "sands": ["hpp"],
                 "goblet": ["hpp"],
@@ -1601,12 +1757,12 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 1,
-                "atkp": 0,
+                "atkp": 0.75,
                 "defp": 0,
                 "em": 0,
-                "er": 1,
-                "cr": 0,
-                "cd": 0
+                "er": 0,
+                "cr": 1,
+                "cd": 1
             }
         }
     },
@@ -1620,11 +1776,12 @@
             "def": 676.33
         },
         "build": {
-            "set": [
-                "s:atkp",
-                "EmblemOfSeveredFate",
-                "NoblesseOblige",
-                "BlizzardStrayer"
+            "set": [],
+            "setList": [
+                ["ShimenawasReminiscence"],
+                ["EchoesOfAnOffering"],
+                ["MarechausseeHunter", "BlizzardStrayer"],
+                ["BlizzardStrayer"]
             ],
             "main": {
                 "sands": ["atkp", "er", "em"],
@@ -1636,10 +1793,10 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.5,
+                "atkp": 0.75,
                 "defp": 0,
-                "em": 0.25,
-                "er": 0.25,
+                "em": 0,
+                "er": 0,
                 "cr": 1,
                 "cd": 1
             }
@@ -1655,7 +1812,12 @@
             "def": 830.04
         },
         "build": {
-            "set": ["s:atkp", "NoblesseOblige"],
+            "set": [],
+            "setList": [
+                ["s:atkp"],
+                ["NoblesseOblige"],
+                ["EmblemOfSeveredFate"]
+            ],
             "main": {
                 "sands": ["atkp", "er"],
                 "goblet": ["atkp"],
@@ -1668,10 +1830,10 @@
                 "hpp": 0,
                 "atkp": 1,
                 "defp": 0,
-                "em": 0.25,
-                "er": 0.5,
-                "cr": 0.5,
-                "cd": 0.25
+                "em": 0,
+                "er": 0.55,
+                "cr": 1,
+                "cd": 1
             }
         }
     },
@@ -1685,10 +1847,11 @@
             "def": 734.39
         },
         "build": {
-            "set": [
-                "EmblemOfSeveredFate",
-                "NoblesseOblige",
-                "HuskOfOpulentDreams"
+            "set": [],
+            "setList": [
+                ["HuskOfOpulentDreams"],
+                ["HuskOfOpulentDreams", "EmblemOfSeveredFate"],
+                ["NoblesseOblige"]
             ],
             "main": {
                 "sands": ["defp", "er"],
@@ -1700,12 +1863,12 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.25,
+                "atkp": 0.75,
                 "defp": 1,
-                "em": 0.25,
-                "er": 1,
-                "cr": 0.5,
-                "cd": 0.25
+                "em": 0,
+                "er": 0.8,
+                "cr": 0.8,
+                "cd": 0.8
             }
         }
     },
@@ -1719,7 +1882,12 @@
             "def": 750.77
         },
         "build": {
-            "set": ["s:hpp", "s:hb"],
+            "set": [],
+            "setList": [
+                ["GildedDreams"],
+                ["FlowerOfParadiseLost"],
+                ["TenacityOfTheMillelith"]
+            ],
             "main": {
                 "sands": ["em", "hpp"],
                 "goblet": ["em", "hpp"],
@@ -1730,12 +1898,12 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 1,
-                "atkp": 0,
+                "atkp": 0.5,
                 "defp": 0,
                 "em": 1,
-                "er": 0,
-                "cr": 0.5,
-                "cd": 0
+                "er": 0.55,
+                "cr": 1,
+                "cd": 1
             }
         }
     },
@@ -1749,7 +1917,15 @@
             "def": 768.55
         },
         "build": {
-            "set": ["s:atkp", "s:hydroDB"],
+            "set": [],
+            "setList": [
+                ["EchoesOfAnOffering"],
+                ["GladiatorsFinale"],
+                ["HeartOfDepth"],
+                ["ShimenawasReminiscence"],
+                ["MarechausseeHunter"],
+                ["EmblemOfSeveredFate"]
+            ],
             "main": {
                 "sands": ["atkp"],
                 "goblet": ["hydroDB"],
@@ -1759,11 +1935,11 @@
                 "hp": 0,
                 "atk": 0,
                 "def": 0,
-                "hpp": 0.25,
-                "atkp": 0.5,
+                "hpp": 0.5,
+                "atkp": 0.75,
                 "defp": 0,
                 "em": 0,
-                "er": 0,
+                "er": 0.3,
                 "cr": 1,
                 "cd": 1
             }
@@ -1779,11 +1955,12 @@
             "def": 600.62
         },
         "build": {
-            "set": [
-                "DeepwoodMemories",
-                "s:em",
-                "EmblemOfSeveredFate",
-                "NoblesseOblige"
+            "set": [],
+            "setList": [
+                ["DeepwoodMemories"],
+                ["s:em"],
+                ["EmblemOfSeveredFate"],
+                ["NoblesseOblige"]
             ],
             "main": {
                 "sands": ["atkp", "er"],
@@ -1795,10 +1972,10 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.5,
+                "atkp": 0.75,
                 "defp": 0,
-                "em": 0.5,
-                "er": 0.5,
+                "em": 0.75,
+                "er": 0.3,
                 "cr": 1,
                 "cd": 1
             }
@@ -1814,7 +1991,12 @@
             "def": 723.47
         },
         "build": {
-            "set": ["s:hb", "NoblesseOblige", "EmblemOfSeveredFate"],
+            "set": [],
+            "setList": [
+                ["NoblesseOblige"],
+                ["MaidenBeloved"],
+                ["OceanHuedClam"]
+            ],
             "main": {
                 "sands": ["hpp", "er"],
                 "goblet": ["hpp"],
@@ -1824,13 +2006,13 @@
                 "hp": 0,
                 "atk": 0,
                 "def": 0,
-                "hpp": 1,
-                "atkp": 0,
+                "hpp": 0.75,
+                "atkp": 0.75,
                 "defp": 0,
                 "em": 0,
-                "er": 1,
-                "cr": 0,
-                "cd": 0
+                "er": 0.55,
+                "cr": 1,
+                "cd": 1
             }
         }
     },
@@ -1844,7 +2026,13 @@
             "def": 630.21
         },
         "build": {
-            "set": ["DeepwoodMemories", "s:em"],
+            "set": [],
+            "setList": [
+                ["GildedDreams"],
+                ["DeepwoodMemories", "MarechausseeHunter"],
+                ["WanderersTroupe"],
+                ["DeepwoodMemories"]
+            ],
             "main": {
                 "sands": ["em"],
                 "goblet": ["dendroDB"],
@@ -1855,10 +2043,10 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.5,
+                "atkp": 0.75,
                 "defp": 0,
-                "em": 0.5,
-                "er": 0,
+                "em": 0.9,
+                "er": 0.3,
                 "cr": 1,
                 "cd": 1
             }
@@ -1874,8 +2062,18 @@
             "def": 728.59
         },
         "build": {
-            "set": ["s:em", "s:hpp"],
-            "main": { "sands": ["hpp"], "goblet": ["hpp"], "circlet": ["hpp"] },
+            "set": [],
+            "setList": [
+                ["s:em", "s:hpp"],
+                ["GildedDreams"],
+                ["VourukashasGlow"],
+                ["s:hpp", "s:hydroDB"]
+            ],
+            "main": {
+                "sands": ["hpp"],
+                "goblet": ["hpp"],
+                "circlet": ["hpp"]
+            },
             "weight": {
                 "hp": 0,
                 "atk": 0,
@@ -1883,10 +2081,10 @@
                 "hpp": 1,
                 "atkp": 0,
                 "defp": 0,
-                "em": 1,
-                "er": 0,
-                "cr": 0,
-                "cd": 0
+                "em": 0.8,
+                "er": 0.3,
+                "cr": 1,
+                "cd": 1
             }
         }
     },
@@ -1900,7 +2098,12 @@
             "def": 859.24
         },
         "build": {
-            "set": ["s:em", "s:atkp", "ThunderingFury"],
+            "set": [],
+            "setList": [
+                ["ThunderingFury"],
+                ["s:em", "ThunderingFury", "s:atkp"],
+                ["GladiatorsFinale"]
+            ],
             "main": {
                 "sands": ["em", "atkp"],
                 "goblet": ["electroDB"],
@@ -1911,10 +2114,10 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.25,
+                "atkp": 0.75,
                 "defp": 0,
-                "em": 0.5,
-                "er": 0,
+                "em": 0.75,
+                "er": 0.55,
                 "cr": 1,
                 "cd": 1
             }
@@ -1930,7 +2133,13 @@
             "def": 682.52
         },
         "build": {
-            "set": ["EmblemOfSeveredFate", "NoblesseOblige", "s:hpp"],
+            "set": [],
+            "setList": [
+                ["EmblemOfSeveredFate", "s:hpp"],
+                ["NoblesseOblige"],
+                ["GladiatorsFinale"],
+                ["HeartOfDepth"]
+            ],
             "main": {
                 "sands": ["er", "hpp"],
                 "goblet": ["hpp", "hydroDB"],
@@ -1940,13 +2149,13 @@
                 "hp": 0,
                 "atk": 0,
                 "def": 0,
-                "hpp": 1,
-                "atkp": 0,
+                "hpp": 0.75,
+                "atkp": 0.75,
                 "defp": 0,
                 "em": 0,
-                "er": 1,
-                "cr": 0,
-                "cd": 0
+                "er": 0.55,
+                "cr": 1,
+                "cd": 1
             }
         }
     },
@@ -1960,7 +2169,13 @@
             "def": 630.21
         },
         "build": {
-            "set": ["s:em", "DeepwoodMemories"],
+            "set": [],
+            "setList": [
+                ["GildedDreams"],
+                ["s:em"],
+                ["DeepwoodMemories"],
+                ["GoldenTroupe"]
+            ],
             "main": {
                 "sands": ["em"],
                 "goblet": ["em", "dendroDB"],
@@ -1971,12 +2186,12 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.25,
+                "atkp": 0.55,
                 "defp": 0,
                 "em": 1,
-                "er": 0,
-                "cr": 0.5,
-                "cd": 0.5
+                "er": 0.55,
+                "cr": 1,
+                "cd": 1
             }
         }
     },
@@ -1990,19 +2205,30 @@
             "def": 655.22
         },
         "build": {
-            "set": ["NoblesseOblige", "s:hpp"],
-            "main": { "sands": ["hpp"], "goblet": ["hpp"], "circlet": ["hpp"] },
+            "set": [],
+            "setList": [
+                ["TenacityOfTheMillelith"],
+                ["s:hpp"],
+                ["NoblesseOblige"],
+                ["BlizzardStrayer"],
+                ["BlizzardStrayer", "GoldenTroupe"]
+            ],
+            "main": {
+                "sands": ["hpp"],
+                "goblet": ["hpp"],
+                "circlet": ["hpp"]
+            },
             "weight": {
                 "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "hpp": 1,
-                "atkp": 0,
+                "atkp": 0.75,
                 "defp": 0,
                 "em": 0,
-                "er": 1,
-                "cr": 0,
-                "cd": 0
+                "er": 0.35,
+                "cr": 1,
+                "cd": 1
             }
         }
     },
@@ -2016,7 +2242,13 @@
             "def": 607.16
         },
         "build": {
-            "set": ["s:anemoDB", "s:atkp"],
+            "set": [],
+            "setList": [
+                ["DesertPavilionChronicle"],
+                ["EchoesOfAnOffering"],
+                ["ShimenawasReminiscence"],
+                ["s:anemoDB", "MarechausseeHunter"]
+            ],
             "main": {
                 "sands": ["atkp"],
                 "goblet": ["anemoDB", "atkp"],
@@ -2027,10 +2259,10 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.5,
+                "atkp": 0.8,
                 "defp": 0,
                 "em": 0,
-                "er": 0,
+                "er": 0.35,
                 "cr": 1,
                 "cd": 1
             }
@@ -2046,7 +2278,12 @@
             "def": 627.92
         },
         "build": {
-            "set": ["NoblesseOblige", "s:hpp", "s:anemoDB"],
+            "set": [],
+            "setList": [
+                ["TenacityOfTheMillelith"],
+                ["NoblesseOblige"],
+                ["ViridescentVenerer"]
+            ],
             "main": {
                 "sands": ["er", "atkp"],
                 "goblet": ["anemoDB", "atkp"],
@@ -2057,10 +2294,10 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 1,
+                "atkp": 0.75,
                 "defp": 0,
                 "em": 0,
-                "er": 1,
+                "er": 0.75,
                 "cr": 1,
                 "cd": 1
             }
@@ -2076,7 +2313,12 @@
             "def": 750.77
         },
         "build": {
-            "set": ["s:hb", "s:hpp", "DeepwoodMemories"],
+            "set": [],
+            "setList": [
+                ["DeepwoodMemories"],
+                ["OceanHuedClam"],
+                ["SongOfDaysPast"]
+            ],
             "main": {
                 "sands": ["hpp", "em"],
                 "goblet": ["hpp"],
@@ -2087,12 +2329,12 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 1,
-                "atkp": 0,
+                "atkp": 0.75,
                 "defp": 0,
-                "em": 0,
-                "er": 1,
-                "cr": 0.25,
-                "cd": 0
+                "em": 0.75,
+                "er": 0.75,
+                "cr": 1,
+                "cd": 1
             }
         }
     },
@@ -2106,7 +2348,8 @@
             "def": 781.62
         },
         "build": {
-            "set": ["s:em", "DeepwoodMemories"],
+            "set": [],
+            "setList": [["GildedDreams"], ["DeepwoodMemories"]],
             "main": {
                 "sands": ["em"],
                 "goblet": ["dendroDB", "em"],
@@ -2117,10 +2360,10 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.5,
+                "atkp": 0.75,
                 "defp": 0,
                 "em": 1,
-                "er": 0,
+                "er": 0.35,
                 "cr": 1,
                 "cd": 1
             }
@@ -2136,11 +2379,12 @@
             "def": 627.91
         },
         "build": {
-            "set": [
-                "s:hpp",
-                "CrimsonWitchOfFlames",
-                "EmblemOfSeveredFate",
-                "Instructor"
+            "set": [],
+            "setList": [
+                ["EmblemOfSeveredFate"],
+                ["FlowerOfParadiseLost"],
+                ["GildedDreams"],
+                ["VourukashasGlow"]
             ],
             "main": {
                 "sands": ["hpp", "atkp"],
@@ -2151,11 +2395,11 @@
                 "hp": 0,
                 "atk": 0,
                 "def": 0,
-                "hpp": 0.5,
-                "atkp": 0.5,
+                "hpp": 0.75,
+                "atkp": 0.75,
                 "defp": 0,
-                "em": 0.5,
-                "er": 0,
+                "em": 1,
+                "er": 0.55,
                 "cr": 1,
                 "cd": 1
             }
@@ -2171,7 +2415,12 @@
             "def": 713.23
         },
         "build": {
-            "set": ["NoblesseOblige", "EmblemOfSeveredFate", "s:hb", "s:hpp"],
+            "set": [],
+            "setList": [
+                ["NoblesseOblige"],
+                ["OceanHuedClam"],
+                ["SongOfDaysPast"]
+            ],
             "main": {
                 "sands": ["hpp", "er"],
                 "goblet": ["hpp"],
@@ -2181,13 +2430,13 @@
                 "hp": 0,
                 "atk": 0,
                 "def": 0,
-                "hpp": 1,
-                "atkp": 0,
+                "hpp": 0.75,
+                "atkp": 0.55,
                 "defp": 0,
                 "em": 0,
-                "er": 1,
-                "cr": 0.25,
-                "cd": 0
+                "er": 0.55,
+                "cr": 1,
+                "cd": 1
             }
         }
     },
@@ -2201,7 +2450,12 @@
             "def": 750.77
         },
         "build": {
-            "set": ["s:em", "DeepwoodMemories"],
+            "set": [],
+            "setList": [
+                ["FlowerOfParadiseLost"],
+                ["DeepwoodMemories"],
+                ["s:em"]
+            ],
             "main": {
                 "sands": ["er"],
                 "goblet": ["em"],
@@ -2212,12 +2466,12 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0,
+                "atkp": 0.75,
                 "defp": 0,
-                "em": 1,
-                "er": 1,
-                "cr": 0,
-                "cd": 0
+                "em": 0.75,
+                "er": 0.75,
+                "cr": 1,
+                "cd": 1
             }
         }
     },
@@ -2231,13 +2485,11 @@
             "def": 499.56
         },
         "build": {
-            "set": [
-                "s:hpp",
-                "s:hb",
-                "EmblemOfSeveredFate",
-                "TenacityOfTheMillelith",
-                "NoblesseOblige",
-                "DeepwoodMemories"
+            "set": [],
+            "setList": [
+                ["SongOfDaysPast"],
+                ["DeepwoodMemories"],
+                ["s:hpp", "EmblemOfSeveredFate"]
             ],
             "main": {
                 "sands": ["hpp", "er"],
@@ -2251,10 +2503,10 @@
                 "hpp": 1,
                 "atkp": 0,
                 "defp": 0,
-                "em": 0.25,
-                "er": 1,
-                "cr": 0.25,
-                "cd": 0
+                "em": 0.75,
+                "er": 0.75,
+                "cr": 1,
+                "cd": 1
             }
         }
     },
@@ -2268,7 +2520,12 @@
             "def": 711.87
         },
         "build": {
-            "set": ["MarechausseeHunter", "s:anemoDB"],
+            "set": [],
+            "setList": [
+                ["ViridescentVenerer"],
+                ["NoblesseOblige"],
+                ["GladiatorsFinale"]
+            ],
             "main": {
                 "sands": ["er", "atkp"],
                 "goblet": ["anemoDB", "atkp"],
@@ -2279,10 +2536,10 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.5,
+                "atkp": 0.75,
                 "defp": 0,
                 "em": 0,
-                "er": 0.5,
+                "er": 0.55,
                 "cr": 1,
                 "cd": 1
             }
@@ -2298,11 +2555,11 @@
             "def": 537.99
         },
         "build": {
-            "set": [
-                "MarechausseeHunter",
-                "CrimsonWitchOfFlames",
-                "WanderersTroupe",
-                "s:atkp"
+            "set": [],
+            "setList": [
+                ["MarechausseeHunter"],
+                ["WanderersTroupe"],
+                ["RetracingBolide"]
             ],
             "main": {
                 "sands": ["atkp"],
@@ -2314,10 +2571,10 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.5,
+                "atkp": 0.75,
                 "defp": 0,
                 "em": 0,
-                "er": 0,
+                "er": 0.55,
                 "cr": 1,
                 "cd": 1
             }
@@ -2333,11 +2590,11 @@
             "def": 708.46
         },
         "build": {
-            "set": [
-                "PaleFlame",
-                "BloodstainedChivalry",
-                "s:atkp",
-                "BlizzardStrayer"
+            "set": [],
+            "setList": [
+                ["PaleFlame"],
+                ["PaleFlame", "BloodstainedChivalry"],
+                ["BlizzardStrayer", "GoldenTroupe"]
             ],
             "main": {
                 "sands": ["atkp"],
@@ -2349,10 +2606,10 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.5,
+                "atkp": 0.75,
                 "defp": 0,
-                "em": 0.25,
-                "er": 0.25,
+                "em": 0,
+                "er": 0.55,
                 "cr": 1,
                 "cd": 1
             }
@@ -2368,7 +2625,8 @@
             "def": 576.42
         },
         "build": {
-            "set": ["MarechausseeHunter"],
+            "set": [],
+            "setList": [["MarechausseeHunter"], ["HeartOfDepth"]],
             "main": {
                 "sands": ["hpp"],
                 "goblet": ["hydroDB"],
@@ -2398,11 +2656,11 @@
             "def": 763.17
         },
         "build": {
-            "set": [
-                "MarechausseeHunter",
-                "EchoesOfAnOffering",
-                "ShimenawasReminiscence",
-                "BlizzardStrayer"
+            "set": [],
+            "setList": [
+                ["MarechausseeHunter"],
+                ["BlizzardStrayer", "MarechausseeHunter"],
+                ["EchoesOfAnOffering"]
             ],
             "main": {
                 "sands": ["atkp"],
@@ -2433,7 +2691,8 @@
             "def": 695.54
         },
         "build": {
-            "set": ["GoldenTroupe"],
+            "set": [],
+            "setList": [["GoldenTroupe"]],
             "main": {
                 "sands": ["hpp"],
                 "goblet": ["hydroDB"],
@@ -2463,7 +2722,13 @@
             "def": 546.02
         },
         "build": {
-            "set": ["NoblesseOblige", "TenacityOfTheMillelith"],
+            "set": [],
+            "setList": [
+                ["s:hpp", "s:atk", "EmblemOfSeveredFate"],
+                ["NoblesseOblige"],
+                ["BlizzardStrayer"],
+                ["MarechausseeHunter"]
+            ],
             "main": {
                 "sands": ["hpp"],
                 "goblet": ["hydroDB"],
@@ -2493,7 +2758,8 @@
             "def": 604.71
         },
         "build": {
-            "set": ["NoblesseOblige", "SongOfDaysPast"],
+            "set": [],
+            "setList": [["NoblesseOblige"], ["SongOfDaysPast"]],
             "main": {
                 "sands": ["hpp", "er"],
                 "goblet": ["hpp"],
@@ -2507,9 +2773,9 @@
                 "atkp": 0,
                 "defp": 0,
                 "em": 0,
-                "er": 1,
-                "cr": 0,
-                "cd": 0
+                "er": 0.75,
+                "cr": 1,
+                "cd": 1
             }
         }
     },
@@ -2523,7 +2789,11 @@
             "def": 793.15
         },
         "build": {
-            "set": ["NighttimeWhispersInTheEchoingWoods"],
+            "set": [],
+            "setList": [
+                ["NighttimeWhispersInTheEchoingWoods"],
+                ["GoldenTroupe"]
+            ],
             "main": {
                 "sands": ["atkp"],
                 "goblet": ["geoDB"],
@@ -2553,10 +2823,11 @@
             "def": 703
         },
         "build": {
-            "set": [
-                "CrimsonWitchOfFlames",
-                "MarechausseeHunter",
-                "VermillionHereafter"
+            "set": [],
+            "setList": [
+                ["CrimsonWitchOfFlames"],
+                ["VermillionHereafter"],
+                ["MarechausseeHunter"]
             ],
             "main": {
                 "sands": ["atkp", "em"],
@@ -2570,7 +2841,7 @@
                 "hpp": 0,
                 "atkp": 0.75,
                 "defp": 0,
-                "em": 0,
+                "em": 0.75,
                 "er": 0.55,
                 "cr": 1,
                 "cd": 1
@@ -2587,7 +2858,12 @@
             "def": 572.57
         },
         "build": {
-            "set": ["SongOfDaysPast", "ViridescentVenerer"],
+            "set": [],
+            "setList": [
+                ["SongOfDaysPast"],
+                ["ViridescentVenerer"],
+                ["NoblesseOblige"]
+            ],
             "main": {
                 "sands": ["atkp", "er"],
                 "goblet": ["atkp"],
@@ -2617,10 +2893,11 @@
             "def": 953.01
         },
         "build": {
-            "set": [
-                "HuskOfOpulentDreams",
-                "GoldenTroupe",
-                "TenacityOfTheMillelith"
+            "set": [],
+            "setList": [
+                ["HuskOfOpulentDreams"],
+                ["GoldenTroupe"],
+                ["TenacityOfTheMillelith"]
             ],
             "main": {
                 "sands": ["defp"],
@@ -2636,6 +2913,37 @@
                 "defp": 0.75,
                 "em": 0,
                 "er": 0.55,
+                "cr": 1,
+                "cd": 1
+            }
+        }
+    },
+    "Arlecchino": {
+        "element": "pyro",
+        "rarity": 5,
+        "presets": ["攻充"],
+        "baseAttr": {
+            "hp": 13103,
+            "atk": 342.03,
+            "def": 764.71
+        },
+        "build": {
+            "set": [],
+            "setList": [[]],
+            "main": {
+                "sands": [],
+                "goblet": [],
+                "circlet": []
+            },
+            "weight": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "hpp": 0,
+                "atkp": 0.75,
+                "defp": 0,
+                "em": 0,
+                "er": 0,
                 "cr": 1,
                 "cd": 1
             }

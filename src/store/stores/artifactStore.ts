@@ -112,20 +112,29 @@ export const useArtifactStore = defineStore("artifact", () => {
         // default builds from data, some replaced by customized builds
         for (let key in CharacterData) {
             if (cbuildMap.has(key)) {
-                ret.push(cbuildMap.get(key)!);
+                ret.push(convertSetSingleToMuti(cbuildMap.get(key)!));
             } else {
                 let c = CharacterData[key as ICharKey];
-                ret.push({
-                    key,
-                    name: i18n.global.t(`character.${key}`),
-                    set: [...c.build.set],
-                    main: {
-                        sands: [...c.build.main.sands],
-                        goblet: [...c.build.main.goblet],
-                        circlet: [...c.build.main.circlet],
-                    },
-                    weight: { ...c.build.weight },
-                });
+                let charBuild = c.build as {
+                    set: string[];
+                    setList: string[][];
+                    main: any;
+                    weight: any;
+                };
+                ret.push(
+                    convertSetSingleToMuti({
+                        key,
+                        name: i18n.global.t(`character.${key}`),
+                        set: [...charBuild.set],
+                        setList: charBuild.setList,
+                        main: {
+                            sands: [...charBuild.main.sands],
+                            goblet: [...charBuild.main.goblet],
+                            circlet: [...charBuild.main.circlet],
+                        },
+                        weight: { ...charBuild.weight },
+                    }),
+                );
             }
         }
 
@@ -133,7 +142,6 @@ export const useArtifactStore = defineStore("artifact", () => {
         for (let b of customizedBuilds.value) {
             if (b.key.startsWith("0")) ret.push(b);
         }
-
         return ret;
     });
     const setBonusTable = useLocalStorage<ISetBonusTable>(
@@ -280,6 +288,7 @@ export const useArtifactStore = defineStore("artifact", () => {
                                 key: "",
                                 name: "",
                                 set: sort.value.set,
+                                setList: [],
                                 main: {
                                     sands: sort.value.sands,
                                     goblet: sort.value.goblet,
@@ -465,3 +474,23 @@ export const useArtifactStore = defineStore("artifact", () => {
         orderResults,
     };
 });
+
+// 将配装中单套的配装转换成多套
+function convertSetSingleToMuti(build: IBuild): IBuild {
+    if (!build.setList || build.setList.length < 1) {
+        let setList: string[][] = [];
+        if (build.set) {
+            setList.push(build.set);
+        } else {
+            setList.push([]);
+        }
+        build.setList = setList;
+    } else {
+        build.set = [];
+        for (let sets of build.setList) {
+            build.set = [...build.set, ...sets];
+        }
+        build.setList = [...build.setList];
+    }
+    return build;
+}
