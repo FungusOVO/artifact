@@ -2618,7 +2618,7 @@
     "Neuvillette": {
         "element": "hydro",
         "rarity": 5,
-        "presets": ["攻充双暴", "攻精充双暴"],
+        "presets": ["生充双暴", "生精充双暴"],
         "baseAttr": {
             "hp": 14695,
             "atk": 208.32,
@@ -2684,7 +2684,7 @@
     "Furina": {
         "element": "hydro",
         "rarity": 5,
-        "presets": ["攻充双暴"],
+        "presets": ["生充双暴"],
         "baseAttr": {
             "hp": 15307,
             "atk": 243.96,
@@ -2886,7 +2886,7 @@
     "Chiori": {
         "element": "geo",
         "rarity": 5,
-        "presets": ["攻充"],
+        "presets": ["攻双暴", "攻防双暴", "攻防充双暴", "防双暴"],
         "baseAttr": {
             "hp": 11438,
             "atk": 322.89,
