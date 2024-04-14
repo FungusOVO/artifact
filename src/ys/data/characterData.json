@@ -2731,7 +2731,7 @@
             ],
             "main": {
                 "sands": ["hpp"],
-                "goblet": ["hydroDB"],
+                "goblet": ["cyroDB"],
                 "circlet": ["cr", "cd"]
             },
             "weight": {
