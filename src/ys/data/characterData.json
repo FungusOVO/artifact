@@ -2724,14 +2724,14 @@
         "build": {
             "set": [],
             "setList": [
-                ["s:hpp", "s:atk", "EmblemOfSeveredFate"],
+                ["s:hpp", "s:atkp", "EmblemOfSeveredFate"],
                 ["NoblesseOblige"],
                 ["BlizzardStrayer"],
                 ["MarechausseeHunter"]
             ],
             "main": {
                 "sands": ["hpp"],
-                "goblet": ["cyroDB"],
+                "goblet": ["cryoDB"],
                 "circlet": ["cr", "cd"]
             },
             "weight": {
