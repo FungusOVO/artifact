@@ -48,10 +48,13 @@ const keymap = {
         FlowerOfParadiseLost: "flower_of_paradise_lost",
         NymphsDream: "nymphs_dream",
         VourukashasGlow: "vourukashas_glow",
-        MarechausseeHunter: "MarechausseeHunter",
-        GoldenTroupe: "GoldenTroupe",
+        MarechausseeHunter: "hunter",
+        GoldenTroupe: "golden_troupe",
         SongOfDaysPast: "song_of_days_past",
-        NighttimeWhispersInTheEchoingWoods: "nighttime_whispers_in_the_echoing_woods",
+        NighttimeWhispersInTheEchoingWoods:
+            "nighttime_whispers_in_the_echoing_woods",
+            FragmentOfHarmonicWhimsy: "fragment_of_harmonic_whimsy",
+        UnfinishedReverie: "unfinished_reverie",
     },
     affix: <{ [key: string]: string }>{
         hp: "flatHP",

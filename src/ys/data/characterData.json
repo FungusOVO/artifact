@@ -303,8 +303,8 @@
                 "def": 0,
                 "hpp": 1,
                 "atkp": 0.5,
-                "defp": null,
-                "em": null,
+                "defp": 0,
+                "em": 0,
                 "er": 0.55,
                 "cr": 0.5,
                 "cd": 0.5
@@ -970,11 +970,11 @@
                 "hp": 0,
                 "atk": 0,
                 "def": 0,
-                "hpp": null,
+                "hpp": 0,
                 "atkp": 0.75,
-                "defp": null,
+                "defp": 0,
                 "em": 0.75,
-                "er": null,
+                "er": 0,
                 "cr": 1,
                 "cd": 1
             }
@@ -1457,9 +1457,9 @@
                 "hp": 0,
                 "atk": 0,
                 "def": 0,
-                "hpp": null,
+                "hpp": 0,
                 "atkp": 0.75,
-                "defp": null,
+                "defp": 0,
                 "em": 0,
                 "er": 0.9,
                 "cr": 1,
@@ -2929,11 +2929,11 @@
         },
         "build": {
             "set": [],
-            "setList": [[]],
+            "setList": [["FragmentOfHarmonicWhimsy"], ["EchoesOfAnOffering"]],
             "main": {
-                "sands": [],
-                "goblet": [],
-                "circlet": []
+                "sands": ["atkp"],
+                "goblet": ["pyroDB"],
+                "circlet": ["cd", "cr"]
             },
             "weight": {
                 "hp": 0,
@@ -2942,8 +2942,8 @@
                 "hpp": 0,
                 "atkp": 0.75,
                 "defp": 0,
-                "em": 0,
-                "er": 0,
+                "em": 0.75,
+                "er": 0.35,
                 "cr": 1,
                 "cd": 1
             }

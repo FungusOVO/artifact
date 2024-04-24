@@ -62,6 +62,8 @@ const keymap = {
         SongOfDaysPast: "SongOfDaysPast",
         NighttimeWhispersInTheEchoingWoods:
             "NighttimeWhispersInTheEchoingWoods",
+        FragmentOfHarmonicWhimsy: "FragmentOfHarmonicWhimsy",
+        UnfinishedReverie: "UnfinishedReverie",
     },
     affix: <{ [key: string]: string }>{
         hp: "lifeStatic",
@@ -122,7 +124,7 @@ export default {
                 let set = whatis(a.setName, keymap.set);
                 if (!set) {
                     console.warn(
-                        `Ignoring unrecognized artifact: ${a.setName}`
+                        `Ignoring unrecognized artifact: ${a.setName}`,
                     );
                     return;
                 }

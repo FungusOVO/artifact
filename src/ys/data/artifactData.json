@@ -94,7 +94,9 @@
         "MarechausseeHunter",
         "GoldenTroupe",
         "SongOfDaysPast",
-        "NighttimeWhispersInTheEchoingWoods"
+        "NighttimeWhispersInTheEchoingWoods",
+        "FragmentOfHarmonicWhimsy",
+        "UnfinishedReverie"
     ],
     "setKeysR4": ["Instructor"],
     "setGroups": {
@@ -102,10 +104,12 @@
             "GladiatorsFinale",
             "ShimenawasReminiscence",
             "VermillionHereafter",
-            "NighttimeWhispersInTheEchoingWoods"
+            "NighttimeWhispersInTheEchoingWoods",
+            "FragmentOfHarmonicWhimsy",
+            "UnfinishedReverie"
         ],
         "s:em": ["WanderersTroupe", "GildedDreams", "FlowerOfParadiseLost"],
-        "s:hb": ["MaidenBeloved", "OceanHuedClam","SongOfDaysPast"],
+        "s:hb": ["MaidenBeloved", "OceanHuedClam", "SongOfDaysPast"],
         "s:anemoDB": ["ViridescentVenerer", "DesertPavilionChronicle"],
         "s:hpp": ["TenacityOfTheMillelith", "VourukashasGlow"],
         "s:hydroDB": ["NymphsDream", "HeartOfDepth"]
