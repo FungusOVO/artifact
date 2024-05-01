@@ -7,9 +7,9 @@ import RangeSlider from "@/components/widgets/RangeSlider.vue";
 import { i18n } from "@/i18n";
 import { computed, watch } from "vue";
 import { useArtifactStore } from "@/store";
-import { Artifact } from "@/ys/artifact";
-import { ArtifactData, CharacterData } from "@/ys/data";
+import { Artifact } from "@/game/base/artifact";
 import filterRules from "@/store/filterRules";
+import { IArtifactData } from "@/game/base/data/type";
 
 const artStore = useArtifactStore();
 
@@ -33,35 +33,42 @@ function countArtifactAttr(key: keyof Artifact) {
 // 套装
 const setOptions = computed(() => {
     let c = countArtifactAttr("set");
-    return ArtifactData.setKeys
+    let artifactData = artStore.artifactData as IArtifactData;
+    let game = artStore.game as string;
+    let defaultSlot = artifactData.slotKeys[0];
+    return artifactData.setKeys
         .filter((key) => key in c)
         .map((key) => ({
             key,
-            label: i18n.global.t("artifact.set." + key),
-            icon: `./assets/artifacts/${key}/flower.webp`,
+            label: i18n.global.t(`artifact.${game}.set.${key}`),
+            icon: `./assets/artifacts/${game}/${key}/flower.webp`,
             tip: c[key].toString(),
         }));
 });
 // 部位
 const slotOptions = computed(() => {
     let c = countArtifactAttr("slot");
-    return ArtifactData.slotKeys
+    let artifactData = artStore.artifactData as IArtifactData;
+    let game = artStore.game as string;
+    return artifactData.slotKeys
         .filter((key) => key in c)
         .map((key) => ({
             key,
-            label: i18n.global.t("artifact.slot." + key),
-            icon: `./assets/game_icons/${key}.webp`,
+            label: i18n.global.t(`artifact.${game}.slot.${key}`),
+            icon: `./assets/game_icons/${artStore.game}/${key}.webp`,
             tip: c[key].toString(),
         }));
 });
 // 主词条
 const mainOptions = computed(() => {
     let c = countArtifactAttr("mainKey");
-    return ArtifactData.mainKeys.all
+    let artifactData = artStore.artifactData as IArtifactData;
+    let game = artStore.game as string;
+    return artifactData.mainKeys.all
         .filter((key) => key in c)
         .map((key) => ({
             key,
-            label: i18n.global.t("artifact.affix." + key),
+            label: i18n.global.t(`artifact.${game}.affix.${key}`),
             tip: c[key].toString(),
         }));
 });
@@ -83,7 +90,7 @@ const lockOptions = computed(() => {
 const charOptions = computed(() => {
     let c = countArtifactAttr("location");
     return ["", "Traveler"]
-        .concat(Object.keys(CharacterData))
+        .concat(Object.keys(artStore.characterData))
         .filter((key) => key in c)
         .map((key) => ({
             key,

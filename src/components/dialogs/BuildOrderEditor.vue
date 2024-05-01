@@ -1,9 +1,7 @@
 <script lang="ts" setup>
 import { ref, computed, watch, reactive } from "vue";
-import { CharacterData } from "@/ys/data";
 import { useArtifactStore, useUiStore } from "@/store";
 import { i18n } from "@/i18n";
-import type { ICharKey } from "@/ys/types";
 import draggable from "vuedraggable";
 
 const props = defineProps<{
@@ -36,19 +34,23 @@ const show = computed<boolean>({
     },
 });
 
-const elements = ["pyro", "hydro", "cryo", "electro", "anemo", "geo", "dendro"]
-    .map((e) => ({
-        element: e,
-        icon: `./assets/game_icons/${e}.webp`,
-        text: i18n.global.t("element." + e),
-    }))
-    .concat([
-        {
-            element: "custom",
-            icon: "",
-            text: i18n.global.t("ui.custom"),
-        },
-    ]);
+const elements = computed(() => {
+    return artStore.artifactData.elementKeys
+        .map((e) => ({
+            element: e,
+            icon: `./assets/game_icons/${artStore.game}/${e}.webp`,
+            text: i18n.global.t(
+                `artifact.${artStore.game}.${artStore.elementType}.${e}`,
+            ),
+        }))
+        .concat([
+            {
+                element: "custom",
+                icon: "",
+                text: i18n.global.t("ui.custom"),
+            },
+        ]);
+});
 
 interface IAvatar {
     key: string;
@@ -59,7 +61,7 @@ interface IAvatar {
     bg: string;
 }
 
-function getAvatars() {
+const avatars = computed(() => {
     let ret: { [e: string]: IAvatar[] } = {};
     let sotrageKeys = [];
     for (let a of artStore.customizedBuildSorts) {
@@ -70,14 +72,14 @@ function getAvatars() {
         let element, icon, rarity, data;
         if (b.key.startsWith("0")) {
             element = "custom";
-            icon = "./assets/char_faces/default.webp";
+            icon = `./assets/char_faces/${artStore.game}/default.webp`;
             rarity = 1;
         } else {
-            data = CharacterData[b.key as ICharKey];
+            data = artStore.characterData[b.key];
             element = data.element;
             icon = b.key.startsWith("Traveler")
-                ? "./assets/char_faces/Traveler.webp"
-                : `./assets/char_faces/${b.key}.webp`;
+                ? `./assets/char_faces/${artStore.game}/Traveler.webp`
+                : `./assets/char_faces/${artStore.game}/${b.key}.webp`;
             rarity = data.rarity;
         }
         if (!(element in ret)) ret[element] = [] as IAvatar[];
@@ -98,18 +100,23 @@ function getAvatars() {
         ret[e].sort((a: any, b: any) => b.rarity - a.rarity);
     }
     return ret;
-}
-
-const avatars = ref(getAvatars());
+});
 let a: any[] = [];
-const outputAvatars = ref(artStore.customizedBuildSorts);
 
+const outputAvatars = ref<any>([]);
 watch(
-    outputAvatars,
-    (newVal, oldVal) => {
-        artStore.customizedBuildSorts = outputAvatars.value;
+    artStore.customizedBuildSorts,
+    (val) => {
+        val.forEach((char) => {
+            char.icon = char.key.startsWith("Traveler")
+                ? `./assets/char_faces/${artStore.game}/Traveler.webp`
+                : `./assets/char_faces/${artStore.game}/${char.key}.webp`;
+        });
+        outputAvatars.value = val;
     },
-    { deep: true },
+    {
+        immediate: true,
+    },
 );
 
 const itemDbClick = (avatar: IAvatar) => {

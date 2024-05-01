@@ -1,13 +1,13 @@
 <script lang="ts" setup>
 import { computed, ref } from "vue";
-import { Artifact } from "@/ys/artifact";
 import { ElInput } from "element-plus";
 import { Download, CopyDocument } from "@element-plus/icons-vue";
-import mona from "@/ys/ext/mona";
-import genmo from "@/ys/ext/genmo";
-import good from "@/ys/ext/good";
 import { i18n } from "@/i18n";
 import { useUiStore } from "@/store";
+import mona from "@/game/gs/ext/mona";
+import genmo from "@/game/gs/ext/genmo";
+import good from "@/game/gs/ext/good";
+import { Artifact } from "@/game/base/artifact";
 
 const props = defineProps<{
     modelValue: boolean;
@@ -50,7 +50,7 @@ const copy = () => {
         },
         () => {
             uiStore.alert(i18n.global.t("ui.copy_failed"), "error");
-        }
+        },
     );
 };
 </script>
@@ -74,11 +74,11 @@ const copy = () => {
             />
         </div>
         <div style="margin-top: 10px; text-align: center">
-            <el-button :icon="Download" @click="downloadJson">{{
-                $t("ui.download")
-            }}</el-button>
-            <el-button :icon="CopyDocument" type="primary" @click="copy"
-                >{{ $t("ui.copy") }}
+            <el-button :icon="Download" @click="downloadJson">
+                {{ $t("ui.download") }}
+            </el-button>
+            <el-button :icon="CopyDocument" type="primary" @click="copy">
+                {{ $t("ui.copy") }}
             </el-button>
         </div>
     </el-dialog>

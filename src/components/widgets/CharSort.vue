@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import type { ICharOption } from "@/store/types";
-import { i18n } from "@/i18n";
-import { CharacterData } from "@/ys/data";
-import { computed } from "vue";
-import type { ICharKey, IAvatar } from "@/ys/types";
+import { IAvatar } from "@/game/base/types";
+import { useArtifactStore } from "@/store";
+
+const artStore = useArtifactStore();
 
 const props = defineProps<{
     modelValue: IAvatar[];
@@ -17,11 +17,11 @@ const icon = (o: ICharOption) => {
     if (o.key == "") {
         return "./assets/forbidden.webp";
     } else if (o.key.startsWith("0")) {
-        return "./assets/char_faces/default.webp";
+        return `./assets/char_faces/${artStore.game}/default.webp`;
     } else if (o.key.startsWith("Traveler")) {
-        return `./assets/char_faces/Traveler.webp`;
+        return `./assets/char_faces/${artStore.game}/Traveler.webp`;
     } else {
-        return `./assets/char_faces/${o.key}.webp`;
+        return `./assets/char_faces/${artStore.game}/${o.key}.webp`;
     }
 };
 </script>

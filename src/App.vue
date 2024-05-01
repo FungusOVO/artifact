@@ -13,7 +13,7 @@ const uiStore = useUiStore();
 const loadingSrc = "./assets/loading.gif";
 
 yasStore.setSocket(
-    new URLSearchParams(window.location.hash.slice(1)).get("ws")
+    new URLSearchParams(window.location.hash.slice(1)).get("ws"),
 );
 
 const showUpdateDialog = ref(false);
@@ -28,7 +28,7 @@ const updYas = () => {
     claim();
     window.open(
         "https://github.com/FungusOVO/yas-lock/releases/latest/download/yas-lock.exe",
-        "_blank"
+        "_blank",
     );
 };
 
@@ -76,12 +76,12 @@ onMounted(() => {
         <div class="update-content">
             <p>{{ message }}</p>
             <p>
-                <el-button :icon="Download" type="primary" @click="updYas"
-                    >下载 yas-lock {{ yasVersion }}</el-button
-                >
-                <el-button @click="claim" style="margin-left: 10px"
-                    >我已有此版本</el-button
-                >
+                <el-button :icon="Download" type="primary" @click="updYas">
+                    下载 yas-lock {{ yasVersion }}
+                </el-button>
+                <el-button @click="claim" style="margin-left: 10px">
+                    我已有此版本
+                </el-button>
             </p>
             <p>
                 <b>更新日志：</b>

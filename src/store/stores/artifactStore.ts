@@ -1,37 +1,38 @@
-import { Affix, Artifact } from "@/ys/artifact";
+import { ISrElementType } from "./../../game/sr/data/index";
+import { IArtifactData, ICharacterData } from "@/game/base/data/type";
+import { NormalSort } from "@/game/base/sort/normal";
+import { IElementType, IGameKey, gameManager } from "@/game/GameManager";
+import { Affix, Artifact } from "@/game/base/artifact";
 import { defineStore } from "pinia";
-import { computed, reactive, ref } from "vue";
+import { computed, reactive, ref, watch } from "vue";
 import { useUiStore } from "./uiStore";
+import filterRules from "../filterRules";
+import { useLocalStorage } from "@vueuse/core";
+import { i18n } from "@/i18n";
 import {
-    AffnumSort,
-    PBuildSort,
-    POrder,
-    DefeatSort,
-    PEquipSort,
-    NormalSort,
-    ISlotBestArt,
-} from "@/ys/sort";
-import type {
-    IBuild,
-    ISetBonusTable,
     IAffixWeightTable,
     IAffnumResults,
-    IPBuildResults,
-    IDefeatResults,
+    IBuild,
     ICharKey,
+    IDefeatResults,
+    IPBuildResults,
     IPBuildSortBy,
     IPEquipResults,
     IPOrderResults,
-} from "@/ys/types";
-import filterRules from "../filterRules";
-import { useLocalStorage } from "@vueuse/core";
+    ISetBonusTable,
+} from "@/game/base/types";
+import { DefaultAffixWeightTable, DefaultSetBonusTable } from "@/game/gs/data";
 import {
-    ArtifactData,
-    CharacterData,
-    DefaultAffixWeightTable,
-    DefaultSetBonusTable,
-} from "@/ys/data";
-import { i18n } from "@/i18n";
+    AffnumSort,
+    DefeatSort,
+    ICalProbType,
+    ICalWeightType,
+    ISlotBestArt,
+    PBuildSort,
+    PEquipSort,
+    POrder,
+} from "@/game/base/sort";
+import { gameLocalStorage } from "../utils";
 
 export const SortByKeys = [
     "avg",
@@ -72,37 +73,73 @@ export const useArtifactStore = defineStore("artifact", () => {
         location: [] as string[],
         ruleId: 0,
     });
-    const sort = useLocalStorage("sort", {
-        by: "avg" as ISortBy,
-        weight: {
-            hp: 0,
-            atk: 0,
-            def: 0,
-            hpp: 0,
-            atkp: 0.5,
-            defp: 0,
-            em: 0.5,
-            er: 0.5,
-            cr: 1,
-            cd: 1,
+
+    type ISort = {
+        by: ISortBy;
+        weight: { [key: string]: number };
+        buildKeys: string[];
+        set: string[];
+        mainKey: {
+            [slotKey: string]: string[];
+        };
+    };
+
+    const sort = gameLocalStorage<ISort>("sort", {
+        gs: {
+            by: "avg" as ISortBy,
+            weight: {
+                hp: 0,
+                atk: 0,
+                def: 0,
+                hpp: 0,
+                atkp: 0.75,
+                defp: 0,
+                em: 0.75,
+                er: 0.55,
+                cr: 1,
+                cd: 1,
+            },
+            buildKeys: [] as string[],
+            set: [] as string[],
+            mainKey: { sands: [], goblet: [], circlet: [] },
         },
-        buildKeys: [] as string[],
-        set: [] as string[],
-        sands: [] as string[],
-        goblet: [] as string[],
-        circlet: [] as string[],
+        sr: {
+            by: "avg" as ISortBy,
+            weight: {
+                hp: 0,
+                hpp: 0,
+                atk: 0,
+                atkp: 0.75,
+                def: 0,
+                defp: 0,
+                spd: 0.75,
+                cr: 1,
+                cd: 1,
+                be: 0,
+                er: 0.5,
+                eh: 0,
+                eres: 0,
+            },
+            buildKeys: [] as string[],
+            set: [] as string[],
+            mainKey: { Body: [], Feet: [], PlanarSphere: [], LinkRope: [] },
+        },
     });
-    const pBuildSortBy = ref<IPBuildSortBy>("max"); // TODO
-    const pBuildIgnoreIndividual = ref(false); // TODO
+    const pBuildSortBy = ref<IPBuildSortBy>("max"); // 未满级圣遗物计算方式
+    const pBuildIgnoreIndividual = ref(false); // 是否忽略散件
     const pEquipCharKeys = ref<string[]>([]);
-    const customizedBuilds = useLocalStorage<IBuild[]>("customized_builds", []);
-    const customizedBuildSorts = useLocalStorage<any[]>(
+    const customizedBuilds = gameLocalStorage<IBuild[]>(
+        "customized_builds",
+        [],
+    );
+    const customizedBuildSorts = gameLocalStorage<any[]>(
         "customizedBuildSorts",
         [],
     );
 
     const builds = computed(() => {
         let ret: IBuild[] = [];
+        let CharacterData = gameManager.getCharacterData();
 
         let cbuildMap = new Map<string, IBuild>();
         for (let b of customizedBuilds.value) {
@@ -112,29 +149,30 @@ export const useArtifactStore = defineStore("artifact", () => {
         // default builds from data, some replaced by customized builds
         for (let key in CharacterData) {
             if (cbuildMap.has(key)) {
-                ret.push(convertSetSingleToMuti(cbuildMap.get(key)!));
+                ret.push(cbuildMap.get(key)!);
             } else {
-                let c = CharacterData[key as ICharKey];
+                let c = CharacterData[key];
                 let charBuild = c.build as {
                     set: string[];
                     setList: string[][];
                     main: any;
                     weight: any;
                 };
-                ret.push(
-                    convertSetSingleToMuti({
-                        key,
-                        name: i18n.global.t(`character.${key}`),
-                        set: [...charBuild.set],
-                        setList: charBuild.setList,
-                        main: {
-                            sands: [...charBuild.main.sands],
-                            goblet: [...charBuild.main.goblet],
-                            circlet: [...charBuild.main.circlet],
-                        },
-                        weight: { ...charBuild.weight },
-                    }),
-                );
+                let mainKey: {
+                    [key: string]: string[];
+                } = {};
+                for (let slotKey of gameManager.getArtifactData()
+                    .adjustSlotKeys) {
+                    mainKey[slotKey] = [...charBuild.main[slotKey]];
+                }
+                ret.push({
+                    key,
+                    name: i18n.global.t(`character.${game.value}.${key}`),
+                    set: charBuild.setList.flat(),
+                    setList: charBuild.setList,
+                    main: mainKey,
+                    weight: { ...charBuild.weight },
+                });
             }
         }
 
@@ -181,8 +219,42 @@ export const useArtifactStore = defineStore("artifact", () => {
     });
     const setTypeCount = ref<{ [key: string]: number }>({});
 
-    const calArtiWeightType = useLocalStorage("calArtiWeightType", "prob");
-    const calArtiProbType = useLocalStorage("calArtiProbType", "avg");
+    const calArtiWeightType = gameLocalStorage<ICalWeightType>(
+        "calArtiWeightType",
+        "prob",
+    ); // 按概率计算还是评分
+    const calArtiProbType = gameLocalStorage<ICalProbType>(
+        "calArtiProbType",
+        "avg",
+    ); // 未满级圣遗物计算方式
+
+    const game = ref<IGameKey>(gameManager.getGame());
+    const artifactData = ref<IArtifactData>(gameManager.getArtifactData());
+    const characterData = ref<ICharacterData>(gameManager.getCharacterData());
+    const elementType = gameLocalStorage<IElementType>(
+        "elementType",
+        "element",
+    );
+
+    watch(
+        gameManager.getGameRef(),
+        () => {
+            game.value = gameManager.getGame();
+            artifactData.value = gameManager.getArtifactData();
+            characterData.value = gameManager.getCharacterData();
+        },
+        { immediate: true },
+    );
+
+    watch(
+        elementType,
+        (val) => {
+            gameManager.updateElementType(val);
+            artifactData.value = gameManager.getArtifactData();
+            characterData.value = gameManager.getCharacterData();
+        },
+        { immediate: true },
+    );
 
     /** reset filter */
     function resetFilter() {
@@ -207,7 +279,13 @@ export const useArtifactStore = defineStore("artifact", () => {
     }
 
     /** set artifacts, filter & sort them automatically */
-    function setArtifacts(_artifacts: Artifact[], _canExport: boolean) {
+    function setArtifacts(
+        _artifacts: Artifact[],
+        _canExport: boolean,
+        game: string,
+    ) {
+        artifacts.value = []; // TODO
+        gameManager.setGame(game);
         artifacts.value = _artifacts;
         canExport.value = _canExport;
         resetFilter();
@@ -217,6 +295,13 @@ export const useArtifactStore = defineStore("artifact", () => {
     /** filter and sort artifacts */
     function filterAndSort() {
         uiStore.run(() => {
+            let affnumSort = gameManager.getSort<AffnumSort>(AffnumSort);
+            let pBuildSort = gameManager.getSort<PBuildSort>(PBuildSort);
+            let pOrder = gameManager.getSort<POrder>(POrder);
+            let pEquipSort = gameManager.getSort<PEquipSort>(PEquipSort);
+            let defeatSort = gameManager.getSort<DefeatSort>(DefeatSort);
+            let normalSort = gameManager.getSort<NormalSort>(NormalSort);
+
             let arts: Artifact[] = [];
             // build countByType
             setTypeCount.value = {};
@@ -245,7 +330,7 @@ export const useArtifactStore = defineStore("artifact", () => {
                 case "avg":
                 case "min":
                 case "max":
-                    sortResults.value = AffnumSort.sort(
+                    sortResults.value = affnumSort.sort(
                         arts,
                         {},
                         [
@@ -261,7 +346,7 @@ export const useArtifactStore = defineStore("artifact", () => {
                     sortResultType.value = "affnum";
                     break;
                 case "avgpro":
-                    sortResults.value = AffnumSort.sort(
+                    sortResults.value = affnumSort.sort(
                         arts,
                         setBonusTable.value,
                         affixWeightTable.value,
@@ -269,19 +354,21 @@ export const useArtifactStore = defineStore("artifact", () => {
                     sortResultType.value = "affnum";
                     break;
                 case "pmulti":
-                    sortResults.value = PBuildSort.sort(
+                    sortResults.value = pBuildSort.sort(
                         arts,
                         builds.value,
                         sort.value.buildKeys,
                         {
                             sortBy: pBuildSortBy.value,
+                            calProbType: calArtiProbType.value,
+                            calArtiWeightType: calArtiWeightType.value,
                             ignoreIndividual: pBuildIgnoreIndividual.value,
                         },
                     );
                     sortResultType.value = "pbuild";
                     break;
                 case "psingle":
-                    sortResults.value = PBuildSort.sort(
+                    sortResults.value = pBuildSort.sort(
                         arts,
                         [
                             {
@@ -289,28 +376,27 @@ export const useArtifactStore = defineStore("artifact", () => {
                                 name: "",
                                 set: sort.value.set,
                                 setList: [],
-                                main: {
-                                    sands: sort.value.sands,
-                                    goblet: sort.value.goblet,
-                                    circlet: sort.value.circlet,
-                                },
+                                main: sort.value.mainKey,
                                 weight: sort.value.weight,
                             },
                         ],
                         [""],
                         {
+                            calProbType: calArtiProbType.value,
+                            calArtiWeightType: calArtiWeightType.value,
                             ignoreIndividual: pBuildIgnoreIndividual.value,
                         },
                     );
                     sortResultType.value = "pbuild";
                     break;
                 case "porder":
-                    let ret = POrder.sort(
+                    let ret = pOrder.sort(
                         arts,
                         builds.value,
                         customizedBuildSorts.value,
                         {
                             calArtiWeightType: calArtiWeightType.value,
+                            calProbType: calArtiProbType.value,
                         },
                     );
                     sortResults.value = ret.sortResults;
@@ -330,7 +416,7 @@ export const useArtifactStore = defineStore("artifact", () => {
                     sortResultType.value = "porder";
                     break;
                 case "pequip":
-                    sortResults.value = PEquipSort.sort(
+                    sortResults.value = pEquipSort.sort(
                         arts,
                         artifacts.value,
                         builds.value,
@@ -342,11 +428,11 @@ export const useArtifactStore = defineStore("artifact", () => {
                     sortResultType.value = "pequip";
                     break;
                 case "defeat":
-                    sortResults.value = DefeatSort.sort(arts);
+                    sortResults.value = defeatSort.sort(arts);
                     sortResultType.value = "defeat";
                     break;
                 case "set":
-                    NormalSort.sort(arts);
+                    normalSort.sort(arts);
                     sortResults.value = undefined;
                     sortResultType.value = undefined;
                     break;
@@ -441,6 +527,10 @@ export const useArtifactStore = defineStore("artifact", () => {
         }
     }
 
+    function changeElementType() {
+        elementType.value = gameManager.changeElementType(elementType.value);
+    }
+
     return {
         artifacts,
         processedArtifacts,
@@ -472,25 +562,10 @@ export const useArtifactStore = defineStore("artifact", () => {
         calArtiProbType,
         customizedBuildSorts,
         orderResults,
+        game,
+        artifactData,
+        characterData,
+        elementType,
+        changeElementType,
     };
 });
-
-// 将配装中单套的配装转换成多套
-function convertSetSingleToMuti(build: IBuild): IBuild {
-    if (!build.setList || build.setList.length < 1) {
-        let setList: string[][] = [];
-        if (build.set) {
-            setList.push(build.set);
-        } else {
-            setList.push([]);
-        }
-        build.setList = setList;
-    } else {
-        build.set = [];
-        for (let sets of build.setList) {
-            build.set = [...build.set, ...sets];
-        }
-        build.setList = [...build.setList];
-    }
-    return build;
-}

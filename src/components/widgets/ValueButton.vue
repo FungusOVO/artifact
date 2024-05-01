@@ -29,7 +29,7 @@ let startX = 0,
 const btnClass = computed(() => {
     return {
         "value-button": true,
-        dragging: dragging.value,
+        "dragging": dragging.value,
     };
 });
 const mousemove = (e: MouseEvent) => {

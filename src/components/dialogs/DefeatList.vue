@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import { useArtifactStore } from "@/store";
 import { computed, ref, watch } from "vue";
-import { Artifact } from "@/ys/artifact";
-import { IDefeatResult } from "@/ys/sort";
 import ArtifactList from "@/components/widgets/ArtifactList.vue";
+import { Artifact } from "@/game/base/artifact";
+import { IDefeatResult } from "@/game/base/sort";
 
 const props = defineProps<{
     modelValue: boolean;
@@ -44,7 +44,7 @@ watch(
         if (!updDefeatByList()) {
             show.value = false;
         }
-    }
+    },
 );
 </script>
 

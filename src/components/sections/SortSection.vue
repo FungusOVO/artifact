@@ -4,28 +4,31 @@ import SingleSelect from "@/components/widgets/SingleSelect.vue";
 import MultiSelect from "@/components/widgets/MultiSelect.vue";
 import CharSelect from "@/components/widgets/CharSelect.vue";
 import CharSort from "@/components/widgets/CharSort.vue";
-import PresetLoader from "@/components/dialogs/PresetLoader.vue";
 import BuildLoader from "@/components/dialogs/BuildLoader.vue";
 import BuildEditor from "@/components/dialogs/BuildEditor.vue";
 import ValueButton from "@/components/widgets/ValueButton.vue";
 import AffnumTable from "../dialogs/AffnumTable.vue";
 import { computed, ref, watch } from "vue";
 import { useArtifactStore, SortByKeys } from "@/store";
-import { ArtifactData, CharacterData } from "@/ys/data";
 import { i18n } from "@/i18n";
 import type { IOption, ICharOption } from "@/store/types";
 
 const artStore = useArtifactStore();
 
 // 排序方式
-const sortByOptions = SortByKeys.map((key) => ({
+const sortByOptions = SortByKeys.filter((key) => {
+    if (artStore.game == "sr") {
+        if (["avgpro"].includes(key)) {
+            return false;
+        }
+    }
+    return true;
+}).map((key) => ({
     key,
     label: i18n.global.t(`sort.${key}.name`),
 }));
 
 // 按满级期望词条数
-const showPresetLoader = ref(false);
-const openPresetLoader = () => (showPresetLoader.value = true);
 const multiplierOptions = [
     {
         key: "1",
@@ -76,30 +79,36 @@ const artiProbCalTypeOptions = [
 ];
 
 // 按角色适配概率（单人）
-const setsOptions: IOption[] = Object.keys(ArtifactData.setGroups)
-    .map((key) => ({
-        key,
-        label: i18n.global.t("artifact.set_group." + key),
-    }))
-    .concat(
-        ArtifactData.setKeys.map((key) => ({
+const setsOptions = computed(() => {
+    return Object.keys(artStore.artifactData.setGroups)
+        .map((key) => ({
             key,
-            label: i18n.global.t("artifact.set." + key),
-            icon: `./assets/artifacts/${key}/flower.webp`,
-        })),
-    );
-const sandsOptions = ArtifactData.mainKeys.sands.map((m) => ({
-    key: m,
-    label: i18n.global.t("artifact.affix." + m),
-}));
-const gobletOptions = ArtifactData.mainKeys.goblet.map((m) => ({
-    key: m,
-    label: i18n.global.t("artifact.affix." + m),
-}));
-const circletOptions = ArtifactData.mainKeys.circlet.map((m) => ({
-    key: m,
-    label: i18n.global.t("artifact.affix." + m),
-}));
+            label: i18n.global.t(`artifact.${artStore.game}.set_group.${key}`),
+        }))
+        .concat(
+            artStore.artifactData.setKeys.map((key: string) => ({
+                key,
+                label: i18n.global.t(`artifact.${artStore.game}.set.${key}`),
+                icon: `./assets/artifacts/${artStore.game}/${key}/flower.webp`,
+            })),
+        );
+});
+
+const adjustSlotOptions = computed(() => {
+    let options: {
+        [slotKey: string]: IOption[];
+    } = {};
+    artStore.artifactData.adjustSlotKeys.map((slotKey) => {
+        options[slotKey] = artStore.artifactData.mainKeys[slotKey].map(
+            (m: any) => ({
+                key: m,
+                label: i18n.global.t(`artifact.${artStore.game}.affix.${m}`),
+            }),
+        );
+    });
+    return options;
+});
+
 // 按上位替代数
 // 按装备提升概率
 const pEquipCharOptions = ref<ICharOption[]>([]);
@@ -108,24 +117,35 @@ watch(
     () => {
         const options: ICharOption[] = [],
             equipCount = new Map<string, number>();
-        artStore.artifacts.forEach((a) => {
-            if (a.rarity != 5 || a.level != 20) return;
-            if (!a.location || !(a.location in CharacterData)) return;
-            if (!equipCount.has(a.location)) {
-                equipCount.set(a.location, 0);
-            }
-            equipCount.set(a.location, equipCount.get(a.location)! + 1);
-        });
+        artStore.artifacts.forEach(
+            (a: { rarity: number; level: number; location: string }) => {
+                if (a.rarity != 5) {
+                    if (artStore.game == "gs" && a.level != 20) {
+                        return;
+                    }
+                    if (artStore.game == "sr" && a.level != 15) {
+                        return;
+                    }
+                }
+                if (!a.location || !(a.location in artStore.characterData))
+                    return;
+                if (!equipCount.has(a.location)) {
+                    equipCount.set(a.location, 0);
+                }
+                equipCount.set(a.location, equipCount.get(a.location)! + 1);
+            },
+        );
         equipCount.forEach((count, charKey) => {
             options.push({
                 key: charKey,
-                name: i18n.global.t("character." + charKey),
+                name: i18n.global.t(`character.${artStore.game}.${charKey}`),
                 tip: count.toString(),
             });
         });
         pEquipCharOptions.value = options;
         artStore.pEquipCharKeys = options.map((o) => o.key);
     },
+    { immediate: true },
 );
 // 不排序
 
@@ -176,7 +196,7 @@ const isShowArtiWeightCalType = computed(() => {
                 <p class="row small">
                     <span
                         class="text-btn"
-                        @click="openPresetLoader"
+                        @click="openBuildLoader"
                         v-text="$t('ui.load_preset')"
                         role="button"
                     />
@@ -191,7 +211,7 @@ const isShowArtiWeightCalType = computed(() => {
                     v-for="(_, key) in artStore.sort.weight"
                     v-model="artStore.sort.weight[key]"
                 >
-                    {{ $t("artifact.affix." + key) }}
+                    {{ $t(`artifact.${artStore.game}.affix.${key}`) }}
                 </value-button>
                 <single-select
                     :title="$t('ui.multiplier')"
@@ -260,9 +280,10 @@ const isShowArtiWeightCalType = computed(() => {
                 <value-button
                     class="weight-button"
                     v-for="(_, key) in artStore.sort.weight"
+                    :key="key"
                     v-model="artStore.sort.weight[key]"
                 >
-                    {{ $t("artifact.affix." + key) }}
+                    {{ $t(`artifact.${artStore.game}.affix.${key}`) }}
                 </value-button>
                 <multi-select
                     class="row"
@@ -272,21 +293,14 @@ const isShowArtiWeightCalType = computed(() => {
                 />
                 <multi-select
                     class="row"
-                    v-model="artStore.sort.sands"
-                    :options="sandsOptions"
-                    :title="$t('sort.psingle.sands')"
-                />
-                <multi-select
-                    class="row"
-                    v-model="artStore.sort.goblet"
-                    :options="gobletOptions"
-                    :title="$t('sort.psingle.goblet')"
-                />
-                <multi-select
-                    class="row"
-                    v-model="artStore.sort.circlet"
-                    :options="circletOptions"
-                    :title="$t('sort.psingle.circlet')"
+                    v-for="slotKey in artStore.artifactData.adjustSlotKeys"
+                    :key="slotKey"
+                    v-model="artStore.sort.mainKey[slotKey]"
+                    :options="adjustSlotOptions[slotKey]"
+                    :title="
+                        $t(`artifact.${artStore.game}.slot.${slotKey}`) +
+                        $t(`sort.psingle.set`)
+                    "
                 />
             </div>
             <div v-else-if="artStore.sort.by == 'pequip'">
@@ -363,7 +377,6 @@ const isShowArtiWeightCalType = computed(() => {
             </div>
         </div>
     </div>
-    <preset-loader v-model="showPresetLoader" />
     <build-loader v-model="showBuildLoader" />
     <build-editor v-model="showBuildEditor" />
     <affnum-table v-model="showAffnumTable" />

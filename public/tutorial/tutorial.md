@@ -1,21 +1,21 @@
 [TOC]
 
-> 自2.8起，米哈游加强了数据包加密，暂不支持抓包及pcap文件的解析
+> 自 2.8 起，米哈游加强了数据包加密，暂不支持抓包及 pcap 文件的解析
 
 # 0. 关于
 
 圣遗物强化助手专注于辅助玩家强化圣遗物。通过本助手及相关工具，你可以：
 
- 👁️‍🗨️ 快速导出游戏内的圣遗物数据：
- - ~~通过抓包（使用自带tcpdump或安装wireshark，推荐）~~
- - 通过OCR（需安装yas/天目/yas-lock等）
+👁️‍🗨️ 快速导出游戏内的圣遗物数据：
+
+-   ~~通过抓包（使用自带 tcpdump 或安装 wireshark，推荐）~~
+-   通过 OCR（需安装 yas/天目/yas-lock 等）
 
 🔀 更便捷地对圣遗物进行筛选、排序、修改（在浏览器中完成）
 
-🔒 快速修改游戏内圣遗物的加解锁状态（需安装yas-lock）
+🔒 快速修改游戏内圣遗物的加解锁状态（需安装 yas-lock）
 
-
-反馈：[NGA分享贴](https://bbs.nga.cn/read.php?tid=29551863) | [Issue](https://github.com/fungusovo/artifact/issues) （都是小号，不经常看）
+反馈：[NGA 分享贴](https://bbs.nga.cn/read.php?tid=29551863) | [Issue](https://github.com/fungusovo/artifact/issues) （都是小号，不经常看）
 
 # 1. 圣遗物导出
 
@@ -120,25 +120,25 @@ sudo tcpdump -i wlo1 udp port 22101 or udp port 22102 -w test.pcap
 
 导出工具有（仅列出部分）：
 
-- [yas](https://github.com/wormtql/yas)（速度快）
-- [天目]()
-- [yas-lock](https://github.com/fungusovo/yas-lock)
+-   [yas](https://github.com/wormtql/yas)（速度快）
+-   [天目]()
+-   [yas-lock](https://github.com/fungusovo/yas-lock)
 
-这里推荐yas-lock，因为它包含了yas的扫描功能，同时支持加解锁。
+这里推荐 yas-lock，因为它包含了 yas 的扫描功能，同时支持加解锁。
 
 圣遗物强化助手支持的数据格式有：
 
-- [莫娜占卜铺](https://www.mona-uranai.com)格式，文件名通常是`mona.json`
-- [原魔计算器](https://genshin.mingyulab.com/)格式，文件名通常是`mingyulab.json`，`genmo.json`
-- [Genshin Optimizor](https://frzyc.github.io/genshin-optimizer/)格式，文件名通常是`good.json`
+-   [莫娜占卜铺](https://www.mona-uranai.com)格式，文件名通常是`mona.json`
+-   [原魔计算器](https://genshin.mingyulab.com/)格式，文件名通常是`mingyulab.json`，`genmo.json`
+-   [Genshin Optimizor](https://frzyc.github.io/genshin-optimizer/)格式，文件名通常是`good.json`
 
 ### 1.1 yas-lock
 
-yas-lock是一个圣遗物扫描、加解锁的Windows端程序。
+yas-lock 是一个圣遗物扫描、加解锁的 Windows 端程序。
 
-yas-lock是由我对wormtql的 [yas](https://github.com/wormtql/yas) 的代码做少量改动（增加加解锁功能、修复bug等），并在个人电脑上编译的，主要版权归于wormtql，仅供学习交流之用。
+yas-lock 是由我对 wormtql 的 [yas](https://github.com/wormtql/yas) 的代码做少量改动（增加加解锁功能、修复 bug 等），并在个人电脑上编译的，主要版权归于 wormtql，仅供学习交流之用。
 
-[下载地址（约23MB）](https://github.com/fungusovo/yas-lock/releases/latest/download/yas-lock.exe) | [项目地址](https://github.com/fungusovo/yas-lock)
+[下载地址（约 23MB）](https://github.com/fungusovo/yas-lock/releases/latest/download/yas-lock.exe) | [项目地址](https://github.com/fungusovo/yas-lock)
 
 下载后最好放在一个单独的文件夹内，后续产生的数据文件都位于此文件夹内。
 
@@ -148,44 +148,44 @@ yas-lock是由我对wormtql的 [yas](https://github.com/wormtql/yas) 的代码�
 
 ![](img/3136.png)
 
-打开背包的圣遗物界面，并翻到最上面（截图已过时，现在是一行8个，但我懒得更新截图了）：
+打开背包的圣遗物界面，并翻到最上面（截图已过时，现在是一行 8 个，但我懒得更新截图了）：
 
 ![](img/3604.png)
 
-右键以管理员身份运行yas-lock：
+右键以管理员身份运行 yas-lock：
 
 ![](img/3749.png)
 
-此时yas-lock应当自动开始扫描背包了，不要操作键鼠，耐心等待一会即可（1500个圣遗物约3-4分钟）。**按鼠标右键可以提前终止扫描**。扫描完成后会生成3个文件：mona.json, genmo.json, good.json。它们分别是[莫娜占卜铺](https://www.mona-uranai.com)、[原魔计算器](https://genshin.mingyulab.com/)和[Genshin Optimizor](https://frzyc.github.io/genshin-optimizer/)三个工具的圣遗物数据格式。
+此时 yas-lock 应当自动开始扫描背包了，不要操作键鼠，耐心等待一会即可（1500 个圣遗物约 3-4 分钟）。**按鼠标右键可以提前终止扫描**。扫描完成后会生成 3 个文件：mona.json, genmo.json, good.json。它们分别是[莫娜占卜铺](https://www.mona-uranai.com)、[原魔计算器](https://genshin.mingyulab.com/)和[Genshin Optimizor](https://frzyc.github.io/genshin-optimizer/)三个工具的圣遗物数据格式。
 
 ![](img/5201.png)
 
 # 2. 圣遗物加解锁
 
-在圣遗物强化助手中修改加解锁状态，导出更新文件(lock.json)，由yas-lock应用到游戏中。
+在圣遗物强化助手中修改加解锁状态，导出更新文件(lock.json)，由 yas-lock 应用到游戏中。
 
 只有特定的导入数据支持加解锁，其他数据导入后，圣遗物强化助手的“导出”按钮会变成灰色无法选中：
 
-- yas-lock导出的good.json
-- pcap文件
+-   yas-lock 导出的 good.json
+-   pcap 文件
 
 在圣遗物强化助手中修改加解锁状态，有两种方式：
 
-- 逐个加解锁，操作方式同游戏
-- 批量加解锁。鼠标左键选中（或取消选中）某圣遗物后，**Shift+鼠标左键**点击另一个圣遗物的多选框以进行区间选中（或取消选中）。
+-   逐个加解锁，操作方式同游戏
+-   批量加解锁。鼠标左键选中（或取消选中）某圣遗物后，**Shift+鼠标左键**点击另一个圣遗物的多选框以进行区间选中（或取消选中）。
 
 注意事项：
 
-- 确保导出圣遗物到修改加解锁状态之间，各个圣遗物的位置不要变动，换句话说不要对背包进行任何操作
+-   确保导出圣遗物到修改加解锁状态之间，各个圣遗物的位置不要变动，换句话说不要对背包进行任何操作
 
 ## 2.1 yas-lock
 
-修改完后点击导出，浏览器会开始下载lock文件，文件名为"lock.json"。下载完后，将它放在yas-lock同级文件夹下：
+修改完后点击导出，浏览器会开始下载 lock 文件，文件名为"lock.json"。下载完后，将它放在 yas-lock 同级文件夹下：
 
 ![](img/3308.png)
 
 再次打开游戏圣遗物背包界面，并翻到最**顶部**。
 
-以管理员身份运行yas-lock，此时yas-lock不会自动开始扫描圣遗物，而是询问是否进行加解锁操作，输入y并回车：
+以管理员身份运行 yas-lock，此时 yas-lock 不会自动开始扫描圣遗物，而是询问是否进行加解锁操作，输入 y 并回车：
 
 ![](img/3603.png)

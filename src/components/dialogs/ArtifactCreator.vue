@@ -1,11 +1,12 @@
 <script lang="ts" setup>
 import { ref, computed, watch } from "vue";
-import { ArtifactData } from "@/ys/data";
 import { i18n } from "@/i18n";
 import { useArtifactStore } from "@/store";
-import { Affix, Artifact } from "@/ys/artifact";
 import ArtifactCard from "@/components/widgets/ArtifactCard.vue";
-import type { ISlotKey } from "@/ys/types";
+import { Affix, Artifact } from "@/game/base/artifact";
+import { GsArtifact } from "@/game/gs/artifact";
+import { SrArtifact } from "@/game/sr/artifact";
+import { gameManager } from "@/game/GameManager";
 
 const props = defineProps<{
     modelValue: boolean;
@@ -24,27 +25,31 @@ const show = computed({
         emit("update:modelValue", value);
     },
 });
-const affixes = ArtifactData.minorKeys.map((key) => ({
-    value: key,
-    label: i18n.global.t("artifact.affix." + key),
-}));
+const affixes = computed(() => {
+    return artStore.artifactData.minorKeys.map((key) => ({
+        value: key,
+        label: i18n.global.t(`artifact.${artStore.game}.affix.${key}`),
+    }));
+});
+
 // 圣遗物对象
-const art = ref<Artifact>(
-    new Artifact({
-        slot: "flower",
-        mainKey: "hp",
-    })
-);
+let defaultArt = new GsArtifact();
+const art = ref<Artifact>(defaultArt);
+
 // 套装
-const sets = ArtifactData.setKeys.map((key) => ({
-    value: key,
-    label: i18n.global.t("artifact.set." + key),
-}));
+const sets = computed(() => {
+    return artStore.artifactData.setKeys.map((key) => ({
+        value: key,
+        label: i18n.global.t(`artifact.${artStore.game}.set.${key}`),
+    }));
+});
 // 部位
-const slots = ArtifactData.slotKeys.map((key) => ({
-    value: key,
-    label: i18n.global.t("artifact.slot." + key),
-}));
+const slots = computed(() => {
+    return artStore.artifactData.slotKeys.map((key) => ({
+        value: key,
+        label: i18n.global.t(`artifact.${artStore.game}.slot.${key}`),
+    }));
+});
 const slot = computed({
     get() {
         return art.value.slot;
@@ -53,22 +58,20 @@ const slot = computed({
         art.value.slot = newSlot;
         // 自动纠正主词条
         if (
-            !ArtifactData.mainKeys[newSlot as ISlotKey].includes(
-                art.value.mainKey
-            )
+            !artStore.artifactData.mainKeys[newSlot].includes(art.value.mainKey)
         ) {
-            art.value.mainKey = ArtifactData.mainKeys[newSlot as ISlotKey][0];
+            art.value.mainKey = artStore.artifactData.mainKeys[newSlot][0];
         }
     },
 });
 // 主词条（可选项依赖部位）
 const mains = computed(() => {
-    if (art.value.slot in ArtifactData.mainKeys) {
-        return ArtifactData.mainKeys[art.value.slot as ISlotKey].map(
+    if (art.value.slot in artStore.artifactData.mainKeys) {
+        return artStore.artifactData.mainKeys[art.value.slot].map(
             (key: string) => ({
                 value: key,
-                label: i18n.global.t("artifact.affix." + key),
-            })
+                label: i18n.global.t(`artifact.${artStore.game}.affix.${key}`),
+            }),
         );
     } else {
         return [];
@@ -157,13 +160,15 @@ const minor4value = computed<number>({
 // 简单检查圣遗物合法性，如果合法就添加该圣遗物
 const valid = computed(() => {
     return (
-        ArtifactData.setKeys.includes(art.value.set) &&
+        artStore.artifactData.setKeys.includes(art.value.set) &&
         art.value.minors.length >= 3
     );
 });
 const save = () => {
     // 必须新建一个对象
-    let artifact = new Artifact({
+    let artifact;
+    let artifactObj = gameManager.getArtifactObj();
+    artifact = new artifactObj({
         set: art.value.set,
         slot: art.value.slot,
         level: art.value.level,

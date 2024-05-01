@@ -1,24 +1,24 @@
 <script lang="ts" setup>
-import { computed } from "vue"
+import { computed } from "vue";
 
 const props = defineProps<{
-    disabled?: boolean
-}>()
+    disabled?: boolean;
+}>();
 const emit = defineEmits<{
-    (e: 'click'): void
-}>()
+    (e: "click"): void;
+}>();
 
 const btnClass = computed(() => {
     return {
-        'text-button': true,
-        disabled: props.disabled
-    }
-})
+        "text-button": true,
+        "disabled": props.disabled,
+    };
+});
 const click = () => {
     if (!props.disabled) {
-        emit('click')
+        emit("click");
     }
-}
+};
 </script>
 
 <template>

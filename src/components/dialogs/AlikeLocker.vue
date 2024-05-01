@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { computed, ref, watch } from "vue";
-import { Artifact } from "@/ys/artifact";
 import { useArtifactStore } from "@/store";
 import ArtifactList from "@/components/widgets/ArtifactList.vue";
+import { Artifact } from "@/game/base/artifact";
 
 const props = defineProps<{
     modelValue: boolean;
@@ -45,7 +45,7 @@ const updArtLike = () => {
     if (target == undefined) return false;
     targetLock.value = target.lock;
     let tm = new Set(
-        target.minors.map((x) => x.key).filter((x) => !ignored.has(x))
+        target.minors.map((x) => x.key).filter((x) => !ignored.has(x)),
     );
     /* 更新artAlike */
     artAlike.value = [];
@@ -62,7 +62,7 @@ const updArtLike = () => {
         }
         /* 忽略小攻/生/防 */
         let am = new Set(
-            a.minors.map((x) => x.key).filter((x) => !ignored.has(x))
+            a.minors.map((x) => x.key).filter((x) => !ignored.has(x)),
         );
         if (target.lock) {
             if (isSubset(tm, am)) {
@@ -85,14 +85,14 @@ watch(
         if (!updArtLike()) {
             show.value = false;
         }
-    }
+    },
 );
 // 加/解锁
 const targetLock = ref(false);
 const click = () => {
     artStore.setLocks(
         artAlike.value.map((a) => a.data.index),
-        targetLock.value
+        targetLock.value,
     );
     emit("update:modelValue", false);
 };

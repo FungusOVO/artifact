@@ -64,7 +64,6 @@ declare module '@vue/runtime-core' {
     MultiSelect: typeof import('./src/components/widgets/MultiSelect.vue')['default']
     MultiSelectBase: typeof import('./src/components/widgets/MultiSelectBase.vue')['default']
     PartialExport: typeof import('./src/components/dialogs/PartialExport.vue')['default']
-    PresetLoader: typeof import('./src/components/dialogs/PresetLoader.vue')['default']
     QuickFilter: typeof import('./src/components/dialogs/QuickFilter.vue')['default']
     RangeSlider: typeof import('./src/components/widgets/RangeSlider.vue')['default']
     SectionTitle: typeof import('./src/components/sections/SectionTitle.vue')['default']

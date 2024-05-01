@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import { ref, computed, watch } from "vue";
 import ArtifactList from "@/components/widgets/ArtifactList.vue";
-import { Artifact } from "@/ys/artifact";
 import { useArtifactStore } from "@/store";
 import { i18n } from "@/i18n";
+import { Artifact } from "@/game/base/artifact";
 
 const props = defineProps<{
     modelValue: boolean;
@@ -31,16 +31,16 @@ const sameTypeSameSetList = computed(() => {
                 a.slot == b.slot &&
                 a.mainKey == b.mainKey
             );
-        })
+        }),
     );
 });
 const sameTypeSameSetTitle = computed(() => {
     if (!props.art) return i18n.global.t("ui.unknown");
     const a = props.art;
     return (
-        i18n.global.t(`artifact.set.${a.set}`) +
+        i18n.global.t(`artifact.${artStore.game}.set.${a.set}`) +
         "·" +
-        i18n.global.t(`artifact.type.${a.slot}_${a.mainKey}`) +
+        i18n.global.t(`artifact.${artStore.game}.type.${a.slot}_${a.mainKey}`) +
         i18n.global.t("ui.count_hint", {
             count: sameTypeSameSetList.value.length,
         })
@@ -66,7 +66,7 @@ const sameTypeDiffSetTitle = computed(() => {
     return (
         i18n.global.t("ui.other_sets") +
         "·" +
-        i18n.global.t(`artifact.type.${a.slot}_${a.mainKey}`) +
+        i18n.global.t(`artifact.${artStore.game}.type.${a.slot}_${a.mainKey}`) +
         i18n.global.t("ui.count_hint", {
             count: sameTypeDiffSetList.value.length,
         })
@@ -97,18 +97,26 @@ const filterLabel = (key: FilterKey) => {
     } else {
         switch (key) {
             case "set":
-                return i18n.global.t("artifact.set." + props.art.set);
+                return i18n.global.t(
+                    `artifact.${artStore.game}.set.${props.art.set}`,
+                );
             case "slot":
-                return i18n.global.t("artifact.slot." + props.art.slot);
+                return i18n.global.t(
+                    `artifact.${artStore.game}.slot.${props.art.slot}`,
+                );
             case "mainKey":
-                return i18n.global.t("artifact.affix." + props.art.mainKey);
+                return i18n.global.t(
+                    `artifact.${artStore.game}.affix.${props.art.mainKey}`,
+                );
             case "lock":
                 return props.art.lock
                     ? i18n.global.t("ui.locked")
                     : i18n.global.t("ui.unlocked");
             case "location":
                 return props.art.location
-                    ? i18n.global.t("character." + props.art.location)
+                    ? i18n.global.t(
+                          `character.${artStore.game}.${props.art.location}`,
+                      )
                     : i18n.global.t("ui.unequiped");
         }
     }

@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 import { useArtifactStore } from "./artifactStore";
 import { useUiStore } from "./uiStore";
-import { GoodFormat } from "@/ys/ext";
+import { GoodFormat } from "@/game/gs/ext";
 import { i18n } from "@/i18n";
 import { assign } from "../utils";
 import { useLocalStorage } from "@vueuse/core";
@@ -85,18 +85,19 @@ export const useYasStore = defineStore("yas", () => {
                         if (pkt.data.success === true) {
                             uiStore.alert(
                                 i18n.global.t("yas.scan.success"),
-                                "success"
+                                "success",
                             );
                             artStore.setArtifacts(
                                 GoodFormat.loads(pkt.data.good_json),
-                                true
+                                true,
+                                "gs",
                             );
                         } else {
                             uiStore.alert(
                                 i18n.global.t("yas.scan.error") +
                                     ": " +
                                     pkt.data.message,
-                                "error"
+                                "error",
                             );
                         }
                         break;
@@ -105,14 +106,14 @@ export const useYasStore = defineStore("yas", () => {
                         if (pkt.data.success === true) {
                             uiStore.alert(
                                 i18n.global.t("yas.lock.success"),
-                                "success"
+                                "success",
                             );
                         } else {
                             uiStore.alert(
                                 i18n.global.t("yas.lock.error") +
                                     ": " +
                                     pkt.data.message,
-                                "error"
+                                "error",
                             );
                         }
                         break;
@@ -142,7 +143,7 @@ export const useYasStore = defineStore("yas", () => {
                 data: {
                     argv: config.value.toArgv(),
                 },
-            })
+            }),
         );
     }
 
@@ -163,7 +164,7 @@ export const useYasStore = defineStore("yas", () => {
                     argv: config.value.toArgv(),
                     ...data,
                 },
-            })
+            }),
         );
     }
 

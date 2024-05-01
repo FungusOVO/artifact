@@ -1,7 +1,6 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
 import { i18n } from "@/i18n";
-import { ArtifactData } from "@/ys/data";
 import { ElMessageBox, ElMessage } from "element-plus";
 import type { FormItemRule } from "element-plus";
 import { useLocalStorage } from "@vueuse/core";
@@ -72,53 +71,10 @@ export const useUiStore = defineStore("ui", () => {
         }
     }
 
-    /** ElForm validator for affix weight json */
-    function affixWeightJsonValidator(
-        rule: never,
-        value: string,
-        callback: any,
-    ) {
-        const minorKeys = ArtifactData.minorKeys;
-        try {
-            let w = JSON.parse(value);
-            if (typeof w != "object")
-                return callback(new Error(i18n.global.t("ui.format_err")));
-            if (minorKeys.length != Object.keys(w).length)
-                return callback(
-                    new Error(i18n.global.t("ui.key_missing_or_redunt")),
-                );
-            for (let key in w) {
-                if (!minorKeys.includes(key))
-                    return callback(
-                        new Error(i18n.global.t("ui.key_not_exist", { key })),
-                    );
-                if (typeof w[key] != "number")
-                    return callback(
-                        new Error(
-                            i18n.global.t("ui.valofkey_not_num", {
-                                key,
-                            }),
-                        ),
-                    );
-                if (w[key] < 0 || w[key] > 1)
-                    return callback(
-                        new Error(
-                            i18n.global.t("ui.valofkey_not_between_0_1", {
-                                key,
-                            }),
-                        ),
-                    );
-            }
-            callback();
-        } catch {
-            callback(new Error(i18n.global.t("ui.syntax_err")));
-        }
-    }
-
     /** pop onboarding dialog */
     function popOnboardingDialog(key: string) {
         if (!(key in onboarding.value) || !(onboarding.value as any)[key])
-            return;
+            return Promise.resolve();
         return ElMessageBox.confirm(i18n.global.t("onboarding." + key), "", {
             confirmButtonText: i18n.global.t("ui.do_not_show_again"),
             showCancelButton: false,
@@ -183,7 +139,6 @@ export const useUiStore = defineStore("ui", () => {
         alert,
         popConfirm,
         getFormRule,
-        affixWeightJsonValidator,
         popOnboardingDialog,
         importFile,
         exportFile,

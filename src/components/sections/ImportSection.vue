@@ -4,14 +4,14 @@ import TextButton from "@/components/widgets/TextButton.vue";
 import ExportPreview from "@/components/dialogs/ExportPreview.vue";
 import YasConfigurator from "../dialogs/YasConfigurator.vue";
 import { nextTick, ref } from "vue";
-import mona from "@/ys/ext/mona";
-import good from "@/ys/ext/good";
-import genmo from "@/ys/ext/genmo";
 import { useArtifactStore, useUiStore, useYasStore } from "@/store";
-import { Artifact } from "@/ys/artifact";
-// import pparser from "@/ys/p2p/pparser";
+import { Artifact } from "@/game/base/artifact";
 import { testArts } from "@/store/test";
 import { i18n } from "@/i18n";
+import * as GsFormat from "@/game/gs/ext";
+import * as SrFormat from "@/game/sr/ext";
+import { gameManager } from "@/game/GameManager";
+import { ElMessageBox } from "element-plus";
 
 const artStore = useArtifactStore();
 const yasStore = useYasStore();
@@ -28,29 +28,46 @@ const importArts = async () => {
     }
     if (!onboardingImportArtsShowed) {
         onboardingImportArtsShowed = true;
-        await uiStore.popOnboardingDialog("importArts");
+        await uiStore.popOnboardingDialog("importArts").then(() => {
+            return ElMessageBox.confirm(
+                `<div>${i18n.global.t("onboarding.supportStarRail", {
+                    link: '<a href="https://nightly.link/YCR160/yas/workflows/modification/modification" target="primary">点击跳转下载</a>',
+                })}<div>`,
+                "HTML String",
+                {
+                    title: "现已支持崩坏星穹铁道",
+                    showCancelButton: false,
+                    dangerouslyUseHTMLString: true,
+                    type: "info",
+                },
+            );
+        });
     }
 
     try {
         let text = (await uiStore.importFile("text")) as string;
         let artifacts: Artifact[] = [],
-            canExport = false;
+            canExport = false,
+            game = "gs";
         try {
-            artifacts = good.loads(text);
-            canExport =
-                artifacts.length > 0 &&
-                artifacts[0].data.source == "yas-lock/good";
+            artifacts = GsFormat.GoodFormat.loads(text);
+            canExport = artifacts.length > 0;
         } catch (e) {
             try {
-                artifacts = mona.loads(text);
+                artifacts = GsFormat.MonaFormat.loads(text);
             } catch (e) {
                 try {
-                    artifacts = genmo.loads(text);
+                    artifacts = GsFormat.GenmoFormat.loads(text);
                 } catch (e: any) {
-                    console.error(e);
-                    msg.value = String(e);
-                    ok.value = false;
-                    return;
+                    try {
+                        artifacts = SrFormat.MonaFormat.loads(text);
+                        game = "sr";
+                    } catch (e: any) {
+                        console.error(e);
+                        msg.value = String(e);
+                        ok.value = false;
+                        return;
+                    }
                 }
             }
         }
@@ -58,7 +75,7 @@ const importArts = async () => {
             count: artifacts.length,
         });
         ok.value = true;
-        artStore.setArtifacts(artifacts, canExport);
+        artStore.setArtifacts(artifacts, canExport, game);
     } catch (e) {
         msg.value = String(e);
         ok.value = false;
@@ -73,7 +90,7 @@ const showPreview = ref(false);
 const showYasConfig = ref(false);
 // 测试
 nextTick(() => {
-    artStore.setArtifacts(testArts, false);
+    artStore.setArtifacts(testArts, false, "gs");
 });
 </script>
 

@@ -12,8 +12,8 @@ const artStore = useArtifactStore();
     <div class="layout-right">
         <el-scrollbar>
             <import-section />
-            <filter-section />
-            <sort-section />
+            <filter-section :key="artStore.game" />
+            <sort-section :key="artStore.game" />
             <div class="start-container">
                 <text-button
                     @click="artStore.filterAndSort()"

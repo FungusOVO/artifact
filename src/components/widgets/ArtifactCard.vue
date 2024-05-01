@@ -1,9 +1,7 @@
 <script lang="ts" setup>
 import { computed } from "vue";
 import { Edit, Histogram } from "@element-plus/icons-vue";
-import { Affix, Artifact } from "@/ys/artifact";
 import { i18n } from "@/i18n";
-import { ArtifactData, CharacterData } from "@/ys/data";
 import { useArtifactStore } from "@/store";
 import {
     IAffnumResult,
@@ -11,10 +9,10 @@ import {
     IPBuildResult,
     IPEquipResult,
     IPOrderResults,
-} from "@/ys/sort";
-import { ISlotBestArt } from "@/ys/sort/porder";
-import * as PBuildSort from "@/ys/sort/pbuild";
-import { IMinorAffixKey } from "@/ys/types";
+    ISlotBestArt,
+    PBuildSort,
+} from "@/game/base/sort";
+import { Artifact } from "@/game/base/artifact";
 
 const props = defineProps<{
     artifact: Artifact;
@@ -35,25 +33,29 @@ const artStore = useArtifactStore();
 
 const pieceName = computed(() => {
     if (
-        ArtifactData.setKeys.includes(props.artifact.set) &&
-        ArtifactData.slotKeys.includes(props.artifact.slot)
+        artStore.artifactData.setKeys.includes(props.artifact.set) &&
+        artStore.artifactData.slotKeys.includes(props.artifact.slot)
     ) {
-        let name = i18n.global.t("artifact.set." + props.artifact.set);
-        let slot = i18n.global.t("artifact.slot_short." + props.artifact.slot);
+        let name = i18n.global.t(
+            `artifact.${artStore.game}.set.${props.artifact.set}`,
+        );
+        let slot = i18n.global.t(
+            `artifact.${artStore.game}.slot_short.${props.artifact.slot}`,
+        );
         return `${name} · ${slot}`;
     } else {
         return i18n.global.t("ui.unknown");
     }
 });
 const pieceImgSrc = computed(() => {
-    if (ArtifactData.setKeys.includes(props.artifact.set)) {
-        return `./assets/artifacts/${props.artifact.set}/${props.artifact.slot}.webp`;
+    if (artStore.artifactData.setKeys.includes(props.artifact.set)) {
+        return `./assets/artifacts/${artStore.game}/${props.artifact.set}/${props.artifact.slot}.webp`;
     } else {
         return "";
     }
 });
 const affixName = (key: string) => {
-    let name = i18n.global.t("artifact.affix." + key);
+    let name = i18n.global.t(`artifact.${artStore.game}.affix.${key}`);
     if (name.endsWith("%")) {
         name = name.substring(0, name.length - 1);
     }
@@ -63,10 +65,17 @@ const main = computed(() => {
     let mainStats = props.artifact.mainStats;
     if (mainStats) {
         let key = props.artifact.mainKey,
-            value = mainStats[props.artifact.level];
+            value = mainStats[props.artifact.level],
+            valueStr = "";
+        if (["hp", "atk", "def", "em"].includes(key)) {
+            valueStr = value.toFixed(0);
+        } else {
+            valueStr = value.toFixed(1) + "%";
+        }
+
         return {
-            name: i18n.global.t("artifact.affix." + key),
-            value: new Affix({ key, value }).valueString(),
+            name: i18n.global.t(`artifact.${artStore.game}.affix.${key}`),
+            value: valueStr,
         };
     } else {
         return { name: i18n.global.t("ui.unknown"), value: "0" };
@@ -85,8 +94,7 @@ const minors = computed(() => {
             if (["atkp", "defp", "hpp"].includes(a.key)) {
                 name += "%";
             }
-            value =
-                a.value / props.artifact.minorStats[a.key as IMinorAffixKey];
+            value = a.value / props.artifact.minorStats[a.key];
             value = value.toFixed(1);
         } else {
             value = a.valueString();
@@ -96,7 +104,7 @@ const minors = computed(() => {
             opacity = 0.5;
         } else if (
             ["avg", "psingle"].includes(artStore.sort.by) &&
-            !artStore.sort.weight[a.key as "hpp"]
+            !artStore.sort.weight[a.key]
         ) {
             opacity = 0.5;
         }
@@ -104,11 +112,8 @@ const minors = computed(() => {
             text: `${name}+${value}`,
             style: { opacity },
             count: Math.ceil(
-                Math.round(
-                    (a.value /
-                        props.artifact.minorStats[a.key as IMinorAffixKey]) *
-                        10,
-                ) / 10,
+                Math.round((a.value / props.artifact.minorStats[a.key]) * 10) /
+                    10,
             ),
         });
     }
@@ -131,9 +136,9 @@ const starImgSrc = "./assets/stars.webp";
 const charSrc = computed<string>(() => {
     if (
         props.artifact.location == "Traveler" ||
-        props.artifact.location in CharacterData
+        props.artifact.location in artStore.characterData
     ) {
-        return `./assets/char_sides/${props.artifact.location}.webp`;
+        return `./assets/char_sides/${artStore.game}/${props.artifact.location}.webp`;
     } else {
         return "";
     }
@@ -210,15 +215,8 @@ const pOrderResultStr = computed(() => {
                 charOrder.bestArt[slotName as keyof ISlotBestArt]?.art ==
                 props.artifact
             ) {
-                let score =
-                    charOrder.bestArt[slotName as keyof ISlotBestArt]?.score ||
-                    0;
-                return (
-                    score.toFixed(2) +
-                    " (" +
-                    PBuildSort.getMarkClass(score) +
-                    ")"
-                );
+                return charOrder.bestArt[slotName as keyof ISlotBestArt]
+                    ?.scoreDesc;
             }
         }
     }
@@ -600,6 +598,7 @@ const typeCount = computed(() => {
 
         img {
             height: 44px;
+            margin-left: 10px;
         }
     }
 

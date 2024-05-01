@@ -2,9 +2,10 @@
 import MultiSelectBase from "@/components/widgets/MultiSelectBase.vue";
 import type { ICharOption } from "@/store/types";
 import { i18n } from "@/i18n";
-import { CharacterData } from "@/ys/data";
 import { computed } from "vue";
-import type { ICharKey } from "@/ys/types";
+import { useArtifactStore } from "@/store";
+
+const artStore = useArtifactStore();
 
 const props = defineProps<{
     options: ICharOption[];
@@ -20,25 +21,27 @@ const text = (o: ICharOption) => {
     if (o.name) return o.name;
     else
         return o.key
-            ? i18n.global.t("character." + o.key) || o.key
+            ? i18n.global.t(`character.${artStore.game}.${o.key}`) || o.key
             : i18n.global.t("ui.unequiped");
 };
+
 const icon = (o: ICharOption) => {
     if (o.key == "") {
         return "./assets/forbidden.webp";
     } else if (o.key.startsWith("0")) {
-        return "./assets/char_faces/default.webp";
+        return `./assets/char_faces/${artStore.game}/default.webp`;
     } else if (o.key.startsWith("Traveler")) {
-        return `./assets/char_faces/Traveler.webp`;
+        return `./assets/char_faces/${artStore.game}/Traveler.webp`;
     } else {
-        return `./assets/char_faces/${o.key}.webp`;
+        return `./assets/char_faces/${artStore.game}/${o.key}.webp`;
     }
 };
+
 const color = (o: ICharOption) => {
     if (o.key == "" || o.key.startsWith("0")) {
         return "black";
     } else {
-        return CharacterData[o.key as ICharKey].rarity == 5 ? "gold" : "purple";
+        return artStore.characterData[o.key].rarity == 5 ? "gold" : "purple";
     }
 };
 
@@ -53,26 +56,28 @@ const optionGroups = computed(() => {
             props.options.filter((o) => o.key).map((o) => [o.key, o]),
         ),
         g: { [e: string]: ICharOption[] } = {};
-    Object.keys(CharacterData)
+    Object.keys(artStore.characterData)
         .filter((key) => key in omap)
         .sort(
             (k1, k2) =>
-                CharacterData[k2 as ICharKey].rarity -
-                CharacterData[k1 as ICharKey].rarity,
+                artStore.characterData[k2].rarity -
+                artStore.characterData[k1].rarity,
         )
         .forEach((key) => {
-            let e = CharacterData[key as ICharKey].element;
+            let e = artStore.characterData[key].element;
             if (e in g) {
                 g[e].push(omap[key]);
             } else {
                 g[e] = [omap[key]];
             }
         });
-    let ret = ["pyro", "hydro", "cryo", "electro", "anemo", "geo", "dendro"]
+    let ret = artStore.artifactData.elementKeys
         .filter((e) => e in g)
         .map((e) => ({
-            icon: `./assets/game_icons/${e}.webp`,
-            text: i18n.global.t("element." + e),
+            icon: `./assets/game_icons/${artStore.game}/${e}.webp`,
+            text: i18n.global.t(
+                `artifact.${artStore.game}.${artStore.elementType}.${e}`,
+            ),
             options: g[e],
         }));
     // 自定义角色

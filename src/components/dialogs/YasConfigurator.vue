@@ -75,30 +75,30 @@ const confirm = () => {
             <el-divider>{{ $t("ui.general") }}</el-divider>
             <el-form-item :label="$t('yas.config.default_stop')">
                 <el-input-number v-model="config.default_stop" :min="0" />
-                <el-tag style="margin-left: 10px">{{
-                    $t("ui.millisecond")
-                }}</el-tag>
+                <el-tag style="margin-left: 10px">
+                    {{ $t("ui.millisecond") }}
+                </el-tag>
             </el-form-item>
             <el-form-item :label="$t('yas.config.scroll_stop')">
                 <el-input-number v-model="config.scroll_stop" :min="0" />
-                <el-tag style="margin-left: 10px">{{
-                    $t("ui.millisecond")
-                }}</el-tag>
+                <el-tag style="margin-left: 10px">
+                    {{ $t("ui.millisecond") }}
+                </el-tag>
             </el-form-item>
             <el-form-item :label="$t('yas.config.max_wait_switch_artifact')">
                 <el-input-number
                     v-model="config.max_wait_switch_artifact"
                     :min="0"
                 />
-                <el-tag style="margin-left: 10px">{{
-                    $t("ui.millisecond")
-                }}</el-tag>
+                <el-tag style="margin-left: 10px">
+                    {{ $t("ui.millisecond") }}
+                </el-tag>
             </el-form-item>
             <el-form-item :label="$t('yas.config.max_wait_scroll')">
                 <el-input-number v-model="config.max_wait_scroll" :min="0" />
-                <el-tag style="margin-left: 10px">{{
-                    $t("ui.millisecond")
-                }}</el-tag>
+                <el-tag style="margin-left: 10px">
+                    {{ $t("ui.millisecond") }}
+                </el-tag>
             </el-form-item>
             <el-form-item :label="$t('yas.config.no_check')">
                 <el-switch v-model="config.no_check" />

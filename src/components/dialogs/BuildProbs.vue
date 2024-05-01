@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import { computed, watch, ref } from "vue";
 import { useArtifactStore } from "@/store";
-import { Artifact } from "@/ys/artifact";
-import { IPBuildResult } from "@/ys/types";
 import { i18n } from "@/i18n";
+import { Artifact } from "@/game/base/artifact";
+import { IPBuildResult } from "@/game/base/sort";
 
 const props = defineProps<{
     modelValue: boolean;

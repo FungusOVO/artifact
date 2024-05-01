@@ -1,20 +1,20 @@
 <script lang="ts" setup>
-import { computed } from 'vue';
+import { computed } from "vue";
 
 const props = defineProps<{
-    modelValue: number[]
-}>()
+    modelValue: number[];
+}>();
 const emit = defineEmits<{
-    (e: 'update:modelValue', range: number[]): void
-}>()
+    (e: "update:modelValue", range: number[]): void;
+}>();
 const range = computed({
     get() {
-        return props.modelValue
+        return props.modelValue;
     },
     set(r: number[]) {
-        emit('update:modelValue', r)
-    }
-})
+        emit("update:modelValue", r);
+    },
+});
 </script>
 
 <template>

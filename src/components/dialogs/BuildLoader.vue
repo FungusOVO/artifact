@@ -1,8 +1,6 @@
 <script lang="ts" setup>
-import { ref, computed } from "vue";
+import { ref, computed, watch } from "vue";
 import { useArtifactStore } from "@/store";
-import { CharacterData, MiscData } from "@/ys/data";
-import type { ICharKey } from "@/ys/types";
 
 const artStore = useArtifactStore();
 
@@ -27,13 +25,19 @@ const show = computed<boolean>({
 });
 const element = ref("");
 const character = ref("");
+watch(
+    () => artStore.game,
+    () => {
+        character.value = "";
+    },
+);
 const characters = computed<IOption[]>(() => {
     let ret = [];
     for (let b of artStore.builds) {
         if (
             (b.key.startsWith("0") && element.value == "custom") ||
-            (b.key in CharacterData &&
-                CharacterData[b.key as ICharKey].element == element.value)
+            (b.key in artStore.characterData &&
+                artStore.characterData[b.key].element == element.value)
         ) {
             ret.push({
                 value: b.key,
@@ -53,9 +57,9 @@ const apply = () => {
     let b = artStore.builds.find((b) => b.key == character.value);
     if (b) {
         artStore.sort.set = [...b.set];
-        artStore.sort.sands = [...b.main.sands];
-        artStore.sort.goblet = [...b.main.goblet];
-        artStore.sort.circlet = [...b.main.circlet];
+        artStore.artifactData.adjustSlotKeys.forEach((slotKey) => {
+            artStore.sort.mainKey[slotKey] = [...b!.main[slotKey]];
+        });
         artStore.sort.weight = { ...b.weight } as any;
     }
     emit("update:modelValue", false);
@@ -66,12 +70,16 @@ const apply = () => {
     <el-dialog :title="$t('ui.build_loader_title')" v-model="show">
         <p class="info" v-html="$t('ui.default_builds_source')" />
         <el-row justify="space-between">
-            <el-col :span="8" v-text="$t('ui.element')" />
+            <el-col :span="8" v-text="$t(`ui.${artStore.elementType}`)" />
             <el-col :span="8">
                 <el-select v-model="element" @change="changeElement">
                     <el-option
-                        v-for="e in MiscData.elementKeys"
-                        :label="$t('element.' + e)"
+                        v-for="e in artStore.artifactData.elementKeys"
+                        :label="
+                            $t(
+                                `artifact.${artStore.game}.${artStore.elementType}.${e}`,
+                            )
+                        "
                         :value="e"
                     />
                     <el-option :label="$t('ui.custom')" value="custom" />

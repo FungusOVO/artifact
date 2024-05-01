@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { computed, ref, watch } from "vue";
-import { Artifact } from "@/ys/artifact";
 import { useArtifactStore, useYasStore, useUiStore } from "@/store";
 import ArtifactList from "@/components/widgets/ArtifactList.vue";
+import { Artifact } from "@/game/base/artifact";
 
 const props = defineProps<{
     modelValue: boolean;
@@ -40,7 +40,7 @@ watch(
             if (a.lock && !a.data.lock) artToLock.value.push(a);
             if (!a.lock && a.data.lock) artToUnlock.value.push(a);
         }
-    }
+    },
 );
 // 导出
 const remember = ref(true);
@@ -113,16 +113,16 @@ const exportArts = () => {
         />
         <artifact-list :arts="artToUnlock" />
         <div style="margin-top: 10px" v-show="!yasStore.connected">
-            <el-checkbox v-model="remember">{{
-                $t("ui.remember_lock_change")
-            }}</el-checkbox>
+            <el-checkbox v-model="remember">
+                {{ $t("ui.remember_lock_change") }}
+            </el-checkbox>
             <br />
-            <el-checkbox v-model="useLockV2">{{
-                $t("ui.use_lock_v2")
-            }}</el-checkbox>
-            <el-checkbox v-model="exportValidation" :disabled="!useLockV2">{{
-                $t("ui.export_lock_validation")
-            }}</el-checkbox>
+            <el-checkbox v-model="useLockV2">
+                {{ $t("ui.use_lock_v2") }}
+            </el-checkbox>
+            <el-checkbox v-model="exportValidation" :disabled="!useLockV2">
+                {{ $t("ui.export_lock_validation") }}
+            </el-checkbox>
         </div>
         <div style="margin-top: 10px; text-align: center">
             <el-button

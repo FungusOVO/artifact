@@ -1,4 +1,4 @@
-import { Artifact } from "@/ys/artifact";
+import { Artifact } from "@/game/base/artifact";
 
 export default [
     {

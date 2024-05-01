@@ -1,13 +1,12 @@
 <script lang="ts" setup>
 import { graphic } from "echarts";
-import { Artifact } from "@/ys/artifact";
-import { getAffnumPdf, getIncreAffnumPdf } from "@/ys/gacha/reliq";
 import { computed, ref, watch } from "vue";
 import { useArtifactStore } from "@/store";
-import { moment, toCDF, toPDF, zeros } from "@/ys/gacha/utils";
-import { ArtifactData } from "@/ys/data";
-import { IAffnumResult } from "@/ys/sort";
 import { i18n } from "@/i18n";
+import { Artifact } from "@/game/base/artifact";
+import { moment, toCDF, toPDF, zeros } from "@/game/gacha/utils";
+import { getAffnumPdf, getIncreAffnumPdf } from "@/game/gacha/reliq";
+import { IAffnumResult } from "@/game/base/types";
 
 const props = defineProps<{
     modelValue: boolean;
@@ -142,8 +141,8 @@ const setCount = (c: string) => {
                 prob.value = fmtProb(
                     pdfs.value[pdfs.value.length - 1].data.reduce(
                         (a, b, c) => a + b * cdf2[c],
-                        0
-                    )
+                        0,
+                    ),
                 );
             }
             return;
@@ -226,17 +225,19 @@ const updPlots = () => {
             props.art.mainKey,
             result.weight,
             i - curLv,
-            props.art.minors.map((m) => m.key)
+            props.art.minors.map((m) => m.key),
         );
         data = zeros(cur).concat(data);
         pdfs.value.push({ label, data });
     }
     // calc pdfs2
     cdf2 = toCDF(
-        getAffnumPdf(props.art.mainKey, result.weight, props.art.rarity)
+        getAffnumPdf(props.art.mainKey, result.weight, props.art.rarity),
     );
     let p =
-        (ArtifactData.mainProbs as any)[props.art.slot][props.art.mainKey] / 5;
+        (artStore.artifactData.mainProbs as any)[props.art.slot][
+            props.art.mainKey
+        ] / 5;
     pdfs2 = counts.map((c) => {
         let n = parseInt(c);
         return {
@@ -275,7 +276,7 @@ watch(
         if (!updPlots()) {
             show.value = false;
         }
-    }
+    },
 );
 </script>
 

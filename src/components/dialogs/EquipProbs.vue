@@ -1,10 +1,10 @@
 <script lang="ts" setup>
 import { computed, watch, ref } from "vue";
 import { useArtifactStore } from "@/store";
-import { Artifact } from "@/ys/artifact";
 import { i18n } from "@/i18n";
-import { IPEquipResult } from "@/ys/sort";
 import ArtifactCard from "../widgets/ArtifactCard.vue";
+import { Artifact } from "@/game/base/artifact";
+import { IPEquipResult } from "@/game/base/sort";
 
 const props = defineProps<{
     modelValue: boolean;
@@ -57,7 +57,7 @@ watch(
         if (!updEquipProbsData()) {
             show.value = false;
         }
-    }
+    },
 );
 </script>
 

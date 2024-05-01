@@ -1,11 +1,13 @@
-import type { IBuild, ICharKey } from "@/ys/types";
-import { CharacterData } from "@/ys/data";
+import { CharacterData } from "@/game/gs/data";
+import type { IBuild, ICharKey } from "@/game/base/types";
 import { isSame } from "./utils";
 import { i18n } from "@/i18n";
+import { ICharacterData } from "@/game/base/data/type";
 
 function createBuildFromData(key: string) {
     if (!(key in CharacterData)) return undefined;
-    let c = CharacterData[key as ICharKey].build;
+    let characterData: ICharacterData = CharacterData;
+    let c = characterData[key as ICharKey].build;
     return {
         key,
         name: i18n.global.t("character." + key),
@@ -64,7 +66,7 @@ export function fixStorage() {
         }
         if (localStorage.getItem("sort.buildKeys") !== null) {
             sort.buildKeys = JSON.parse(
-                localStorage.getItem("sort.buildKeys")!
+                localStorage.getItem("sort.buildKeys")!,
             );
             localStorage.removeItem("sort.buildKeys");
         }
@@ -101,7 +103,7 @@ export function fixStorage() {
     if (localStorage.getItem("yas_version") !== null) {
         localStorage.setItem(
             "yas.version",
-            localStorage.getItem("yas_version")!
+            localStorage.getItem("yas_version")!,
         );
         localStorage.removeItem("yas_version");
     }
@@ -136,7 +138,7 @@ export function fixStorage() {
         if (localStorage.getItem("artMode.useMaxAsUnit") !== null) {
             localStorage.setItem(
                 "affnum_multiplier_key",
-                localStorage.getItem("artMode.useMaxAsUnit")! ? "1/0.85" : "1"
+                localStorage.getItem("artMode.useMaxAsUnit")! ? "1/0.85" : "1",
             );
             localStorage.removeItem("artMode.useMaxAsUnit");
         }
@@ -148,8 +150,37 @@ export function fixStorage() {
         let customizedBuilds = builds.filter(isCustomizedBuild);
         localStorage.setItem(
             "customized_builds",
-            JSON.stringify(customizedBuilds)
+            JSON.stringify(customizedBuilds),
         );
         localStorage.removeItem("builds");
+    }
+
+    if (localStorage.getItem("customized_builds") !== null) {
+        let customizedBuilds = JSON.parse(
+            localStorage.getItem("customized_builds")!,
+        );
+        let characterData: ICharacterData = CharacterData;
+        for (let key in characterData) {
+            let build = characterData[key as ICharKey];
+            if (!build.setList || build.setList.length < 1) {
+                let setList: string[][] = [];
+                if (build.set) {
+                    setList.push(build.set);
+                } else {
+                    setList.push([]);
+                }
+                build.setList = setList;
+            } else {
+                build.set = [];
+                for (let sets of build.setList) {
+                    build.set = [...build.set, ...sets];
+                }
+                build.setList = [...build.setList];
+            }
+        }
+        localStorage.setItem(
+            "customized_builds",
+            JSON.stringify(customizedBuilds),
+        );
     }
 }

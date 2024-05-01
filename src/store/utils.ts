@@ -1,3 +1,6 @@
+import { RemovableRef, useLocalStorage } from "@vueuse/core";
+import { gameManager } from "@/game/GameManager";
+import { ComputedRef, ReactiveEffect, Ref, ref, UnwrapRef, watch } from "vue";
 export function assign(a: { [k: string]: any }, b: any) {
     if (!b || typeof b != "object") return false;
     Object.keys(b).forEach((key) => {
@@ -36,4 +39,72 @@ export function isSame(a: any, b: any) {
         return isSameObject(a, b);
     }
     return false;
+}
+
+export function gameLocalStorage<T>(
+    key: string,
+    defaultValue: T | { [key: string]: T },
+): Ref<T> {
+    let getDefaultValue = function (
+        game: string,
+        defaultValue: T | { [key: string]: T },
+    ): T {
+        if (
+            defaultValue instanceof Object &&
+            defaultValue.hasOwnProperty(game)
+        ) {
+            return (defaultValue as { [key: string]: T })[game] as T;
+        } else {
+            return defaultValue as T;
+        }
+    };
+
+    let ret: Ref<T> = ref(defaultValue) as Ref<T>;
+    let gameList: string[] = gameManager.getGameList();
+    const storageList: Ref<T>[] = [];
+    for (let game of gameList) {
+        let fixKey = key;
+        if (game != "gs") {
+            fixKey = game + "." + key;
+        }
+        let storage;
+        let fixDefaultVal = getDefaultValue(game, defaultValue) as T;
+        storage = useLocalStorage(fixKey, fixDefaultVal);
+
+        let curGame = gameManager.getGame();
+        if (curGame == game) {
+            ret.value = storage.value;
+            for (let key in fixDefaultVal) {
+                if (!ret.value[key] && fixDefaultVal[key]) {
+                    ret.value[key] = fixDefaultVal[key];
+                }
+            }
+        }
+        storageList.push(storage);
+    }
+
+    watch(
+        ret,
+        (val) => {
+            let curGame = gameManager.getGame();
+            let storageIndex = gameList.indexOf(curGame);
+            if (storageIndex > -1) {
+                storageList[storageIndex].value = val;
+            }
+        },
+        { immediate: true, deep: true },
+    );
+
+    watch(
+        gameManager.getGameRef(),
+        (curGame) => {
+            let storageIndex = gameList.indexOf(curGame);
+            if (storageIndex > -1) {
+                ret.value = storageList[storageIndex].value;
+            }
+        },
+        { immediate: true },
+    );
+
+    return ret;
 }

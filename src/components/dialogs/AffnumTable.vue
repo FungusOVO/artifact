@@ -2,9 +2,9 @@
 import { computed, ref, reactive } from "vue";
 import { useArtifactStore, useUiStore } from "@/store";
 import { Delete, Edit, Plus, InfoFilled } from "@element-plus/icons-vue";
-import { ArtifactData } from "@/ys/data";
 import { i18n } from "@/i18n";
-import type { ISlotKey } from "@/ys/types";
+import { gameUtils } from "@/game/GameUtils";
+import { gameManager } from "@/game/GameManager";
 
 const props = defineProps<{
     modelValue: boolean;
@@ -43,9 +43,9 @@ const setBonusSetKeys = computed(() => {
     if (setBonusActiveSet.value) return [setBonusActiveSet.value];
     else
         return ["*"].concat(
-            ArtifactData.setKeys.filter(
-                (key) => !(key in artStore.setBonusTable)
-            )
+            artStore.artifactData.setKeys.filter(
+                (key) => !(key in artStore.setBonusTable),
+            ),
         );
 });
 function editSetBonusRule(setKey: string) {
@@ -90,7 +90,7 @@ const affixWeightFormRules = {
     set: uiStore.getFormRule(),
     type: uiStore.getFormRule(),
     label: uiStore.getFormRule(false),
-    weightJson: uiStore.getFormRule(true, uiStore.affixWeightJsonValidator),
+    weightJson: uiStore.getFormRule(true, gameUtils.affixWeightJsonValidator),
 };
 const affixWeightActiveIdx = ref(-1);
 function editAffixWeightRule(idx: number) {
@@ -99,7 +99,7 @@ function editAffixWeightRule(idx: number) {
     affixWeightForm.type = artStore.affixWeightTable[idx].type;
     affixWeightForm.label = artStore.affixWeightTable[idx].label;
     affixWeightForm.weightJson = JSON.stringify(
-        artStore.affixWeightTable[idx].weight
+        artStore.affixWeightTable[idx].weight,
     );
     showAffixWeightEditor.value = true;
 }
@@ -116,9 +116,8 @@ function addAffixWeightRule() {
     affixWeightForm.set = "";
     affixWeightForm.type = "";
     affixWeightForm.label = "";
-    affixWeightForm.weightJson =
-        '{"hp":0,"atk":0,"def":0,"hpp":0,"atkp":0,"defp":0,"em":0,"er":0,"cr":0,"cd":0}';
     showAffixWeightEditor.value = true;
+    affixWeightForm.weightJson = gameManager.getDefaultWeightJsonStr();
 }
 function submitAffixWeightForm(formEl: any) {
     formEl.validate((valid: boolean) => {
@@ -143,25 +142,28 @@ function submitAffixWeightForm(formEl: any) {
     });
 }
 
-let typeKeys = [] as string[];
-ArtifactData.slotKeys.forEach((slotKey) => {
-    typeKeys = typeKeys.concat(
-        ArtifactData.mainKeys[slotKey as ISlotKey].map(
-            (mainKey) => `${slotKey}_${mainKey}`
-        )
-    );
+let typeKeys = computed(() => {
+    let keys: string[] = [];
+    artStore.artifactData.slotKeys.forEach((slotKey) => {
+        keys = keys.concat(
+            artStore.artifactData.mainKeys[slotKey].map(
+                (mainKey) => `${slotKey}_${mainKey}`,
+            ),
+        );
+    });
+    return keys;
 });
 
 // fmt
 function fmtSet(set: string) {
     return set == "*"
         ? i18n.global.t("ui.any")
-        : i18n.global.t("artifact.set." + set);
+        : i18n.global.t(`artifact.${artStore.game}.set.${set}`);
 }
 function fmtType(type: string) {
     return type == "*"
         ? i18n.global.t("ui.any")
-        : i18n.global.t("artifact.type." + type);
+        : i18n.global.t(`artifact.${artStore.game}.type.${type}`);
 }
 function fmtSetAndType(set: string, type: string) {
     return fmtSet(set) + " - " + fmtType(type);
@@ -260,7 +262,13 @@ function fmtSetAndType(set: string, type: string) {
                         <template #default="scope">
                             <template v-for="(v, k) in scope.row.weight">
                                 <el-tag class="sp-tag" v-if="v">
-                                    {{ $t("artifact.affix." + k) + "×" + v }}
+                                    {{
+                                        $t(
+                                            `artifact.${artStore.game}.affix.${k}`,
+                                        ) +
+                                        "×" +
+                                        v
+                                    }}
                                 </el-tag>
                             </template>
                         </template>
@@ -329,7 +337,7 @@ function fmtSetAndType(set: string, type: string) {
                     >
                         <el-option
                             v-for="k in typeKeys"
-                            :label="$t('artifact.type.' + k)"
+                            :label="$t(`artifact.${artStore.game}.type.${k}`)"
                             :value="k"
                         />
                     </el-select>
@@ -359,8 +367,8 @@ function fmtSetAndType(set: string, type: string) {
                     <el-select v-model="affixWeightForm.set">
                         <el-option :label="$t('ui.any')" value="*" />
                         <el-option
-                            v-for="s in ArtifactData.setKeys"
-                            :label="$t('artifact.set.' + s)"
+                            v-for="s in artStore.artifactData.setKeys"
+                            :label="$t(`artifact.${artStore.game}.set.${s}`)"
                             :value="s"
                         />
                     </el-select>
@@ -370,7 +378,7 @@ function fmtSetAndType(set: string, type: string) {
                         <el-option :label="$t('ui.any')" value="*" />
                         <el-option
                             v-for="k in typeKeys"
-                            :label="$t('artifact.type.' + k)"
+                            :label="$t(`artifact.${artStore.game}.type.${k}`)"
                             :value="k"
                         />
                     </el-select>
@@ -392,7 +400,9 @@ function fmtSetAndType(set: string, type: string) {
                         show-icon
                         :closable="false"
                         style="line-height: 1.4"
-                        :description="$t('ui.weight_json_help')"
+                        :description="
+                            $t(`ui.${artStore.game}.weight_json_help`)
+                        "
                     />
                 </el-form-item>
             </el-form>

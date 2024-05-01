@@ -1,11 +1,10 @@
 <script lang="ts" setup>
 import { ref, computed, watch } from "vue";
-import { ArtifactData } from "@/ys/data";
 import { useArtifactStore } from "@/store";
-import { Artifact } from "@/ys/artifact";
 import { i18n } from "@/i18n";
-import { choice } from "@/ys/utils";
-import type { ISlotKey } from "@/ys/types";
+import { choice } from "@/utils";
+import { gameUtils } from "@/game/GameUtils";
+import { Artifact } from "@/game/base/artifact";
 
 const props = defineProps<{
     modelValue: boolean;
@@ -25,24 +24,24 @@ const show = computed({
     },
 });
 // 套装
-const sets = ArtifactData.setKeys.map((key) => ({
-    value: key,
-    label: i18n.global.t("artifact.set." + key),
-}));
+const sets = computed(() => {
+    return artStore.artifactData.setKeys.map((key) => ({
+        value: key,
+        label: i18n.global.t(`artifact.${artStore.game}.set.${key}`),
+    }));
+});
 const setCands = ref<string[]>([]);
 // 部位
-const slots = ArtifactData.slotKeys.map((key) => ({
-    value: key,
-    label: i18n.global.t("artifact.slot." + key),
-}));
+const slots = computed(() => {
+    return artStore.artifactData.slotKeys.map((key) => ({
+        value: key,
+        label: i18n.global.t(`artifact.${artStore.game}.slot.${key}`),
+    }));
+});
 const slot = ref(""); // ''表示任意部位
 watch(slot, () => {
-    if (slot.value in ArtifactData.mainKeys) {
-        if (
-            !ArtifactData.mainKeys[slot.value as ISlotKey].includes(
-                mainKey.value
-            )
-        )
+    if (slot.value in artStore.artifactData.mainKeys) {
+        if (!artStore.artifactData.mainKeys[slot.value].includes(mainKey.value))
             mainKey.value = "";
     } else {
         mainKey.value = "";
@@ -50,12 +49,12 @@ watch(slot, () => {
 });
 // 主词条（可选项依赖部位）
 const mains = computed(() => {
-    if (slot.value in ArtifactData.mainKeys) {
-        return ArtifactData.mainKeys[slot.value as ISlotKey].map(
+    if (slot.value in artStore.artifactData.mainKeys) {
+        return artStore.artifactData.mainKeys[slot.value].map(
             (key: string) => ({
                 value: key,
-                label: i18n.global.t("artifact.affix." + key),
-            })
+                label: i18n.global.t(`artifact.${artStore.game}.affix.${key}`),
+            }),
         );
     } else {
         return [];
@@ -74,15 +73,15 @@ const save = () => {
     let artifacts: Artifact[] = [];
     for (let i = 0; i < count.value; ++i) {
         let set = choice(setCands.value),
-            rarity = ArtifactData.setKeysR4.includes(set) ? 4 : 5;
+            rarity = artStore.artifactData.setKeysR4?.includes(set) ? 4 : 5;
         artifacts.push(
-            Artifact.rand({
+            gameUtils.randArtifact({
                 set,
                 slot: slot.value,
                 mainKey: mainKey.value,
                 rarity,
                 level: level.value,
-            })
+            }),
         );
     }
     artStore.addArtifacts(artifacts);

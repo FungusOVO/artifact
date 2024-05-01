@@ -1,0 +1,311 @@
+{
+    "slotKeys": ["Head", "Hands", "Body", "Feet", "PlanarSphere", "LinkRope"],
+    "adjustSlotKeys": ["Body", "Feet", "PlanarSphere", "LinkRope"],
+    "mainKeys": {
+        "all": [
+            "atk",
+            "hp",
+            "atkp",
+            "hpp",
+            "defp",
+            "cr",
+            "cd",
+            "hb",
+            "spd",
+            "eh",
+            "iceDB",
+            "windDB",
+            "fireDB",
+            "imaginaryDB",
+            "lightningDB",
+            "quantumDB",
+            "physicalDB",
+            "be",
+            "er"
+        ],
+        "Head": ["hp"],
+        "Hands": ["atk"],
+        "Body": ["hpp", "atkp", "defp", "cr", "cd", "hb", "eh"],
+        "Feet": ["hpp", "atkp", "defp", "spd"],
+        "PlanarSphere": [
+            "hpp",
+            "atkp",
+            "defp",
+            "iceDB",
+            "windDB",
+            "fireDB",
+            "imaginaryDB",
+            "lightningDB",
+            "quantumDB",
+            "physicalDB"
+        ],
+        "LinkRope": ["hpp", "atkp", "defp", "be", "er"]
+    },
+    "elementDBKeys": [
+        "iceDB",
+        "windDB",
+        "fireDB",
+        "imaginaryDB",
+        "lightningDB",
+        "quantumDB",
+        "physicalDB"
+    ],
+    "elementKeys": [
+        "Ice",
+        "Wind",
+        "Fire",
+        "Imaginary",
+        "Lightning",
+        "Quantum",
+        "Physical"
+    ],
+    "pathKeys": [
+        "Preservation",
+        "TheHunt",
+        "Erudition",
+        "Nihility",
+        "Harmony",
+        "Destruction",
+        "Abundance"
+    ],
+    "minorKeys": [
+        "atk",
+        "hp",
+        "def",
+        "atkp",
+        "hpp",
+        "defp",
+        "cr",
+        "cd",
+        "er",
+        "eh",
+        "eres",
+        "spd",
+        "be"
+    ],
+    "setKeysGroup4": [
+        "PasserbyofWanderingCloud",
+        "MusketeerofWildWheat",
+        "KnightofPurityPalace",
+        "HunterofGlacialForest",
+        "ChampionofStreetwiseBoxing",
+        "GuardofWutheringSnow",
+        "FiresmithofLavaForging",
+        "GeniusofBrilliantStars",
+        "BandofSizzlingThunder",
+        "EagleofTwilightLine",
+        "ThiefofShootingMeteor",
+        "WastelanderofBanditryDesert",
+        "LongevousDisciple",
+        "MessengerTraversingHackerspace",
+        "TheAshblazingGrandDuke",
+        "PrisonerinDeepConfinement",
+        "PioneerDiverofDeadWaters",
+        "WatchmakerMasterofDreamMachinations"
+    ],
+    "setKeysGroup2": [
+        "SpaceSealingStation",
+        "FleetoftheAgeless",
+        "PanCosmicCommercialEnterprise",
+        "BelobogoftheArchitects",
+        "CelestialDifferentiator",
+        "InertSalsotto",
+        "TaliaKingdomofBanditry",
+        "SprightlyVonwacq",
+        "RutilantArena",
+        "BrokenKeel",
+        "FirmamentFrontlineGlamoth",
+        "PenaconyLandoftheDreams",
+        "SigoniatheUnclaimedDesolation",
+        "IzumoGenseiandTakamaDivineRealm"
+    ],
+    "setKeysR4": [],
+    "setGroups": {
+        "s:eh": [
+            "ThiefofShootingMeteor",
+            "WatchmakerMasterofDreamMachinations"
+        ],
+        "s:atkp": ["MusketeerofWildWheat", "TheAshblazingGrandDuke"]
+    },
+    "mainStatsR5": {
+        "atk": [
+            56, 76, 95.9, 115.7, 135, 155, 174.9, 194.7, 214.5, 234, 254, 273.7,
+            293.5, 313, 333, 352.7
+        ],
+        "hp": [
+            112, 152, 191, 231, 270, 310, 349, 389, 429, 468, 508, 547, 587,
+            626, 666, 705
+        ],
+        "atkp": [
+            6.9, 9.3, 11.7, 14.1, 16.5, 19, 21.4, 23.8, 26.2, 28.6, 31.1, 33.5,
+            35.9, 38.3, 40.7, 43.2
+        ],
+        "hpp": [
+            6.9, 9.3, 11.7, 14.1, 16.5, 19, 21.4, 23.8, 26.2, 28.6, 31.1, 33.5,
+            35.9, 38.3, 40.7, 43.2
+        ],
+        "defp": [
+            8.6, 11.6, 14.6, 17.7, 20.7, 23.7, 26.7, 29.8, 32.8, 35.8, 38.8,
+            41.9, 44.9, 47.9, 50.9, 54
+        ],
+        "cr": [
+            5.2, 7, 8.8, 10.6, 12.4, 14.2, 16, 17.8, 19.6, 21.5, 23.3, 25.1,
+            26.9, 28.7, 30.5, 32.4
+        ],
+        "cd": [
+            10.4, 14, 17.6, 21.2, 24.8, 28.5, 32.1, 35.7, 39.3, 43, 46.6, 50.2,
+            53.9, 57.5, 61.1, 64.8
+        ],
+        "hb": [
+            5.5, 7.4, 9.4, 11.3, 13.2, 15.2, 17.1, 19, 21, 22.9, 24.8, 26.8,
+            28.7, 30.6, 32.6, 34.5
+        ],
+        "eh": [
+            6.9, 9.3, 11.7, 14.1, 16.5, 19, 21.4, 23.8, 26.2, 28.6, 31.1, 33.5,
+            35.9, 38.3, 40.7, 43.2
+        ],
+        "spd": [4, 5, 6, 8, 9, 11, 12, 13, 15, 16, 18, 19, 20, 22, 23, 25],
+        "elementalDB": [
+            6.2, 8.3, 10.5, 12.7, 14.9, 17.1, 19.2, 21.4, 23.6, 25.8, 27.9,
+            30.1, 32.3, 34.5, 36.7, 38.8
+        ],
+        "be": [
+            10.3, 13.9, 17.6, 21.2, 24.8, 28.5, 32.1, 35.7, 39.3, 43, 46.6,
+            50.2, 53.9, 57.5, 61.1, 64.8
+        ],
+        "er": [
+            3.1, 4.1, 5.2, 6.3, 7.4, 8.5, 9.6, 10.7, 11.8, 12.9, 13.9, 15, 16.1,
+            17.2, 18.3, 19.4
+        ]
+    },
+    "mainStatsR4": {
+        "atk": [45, 60, 76, 92, 108, 124, 139, 155, 171, 187, 203, 219, 234],
+        "hp": [90, 121, 153, 185, 216, 248, 279, 311, 343, 374, 406, 438, 469],
+        "atkp": [
+            5.5, 7.4, 9.4, 11.3, 13.2, 15.2, 17.1, 19, 21, 22.9, 24.8, 26.8,
+            28.7
+        ],
+        "hpp": [
+            5.5, 7.4, 9.4, 11.3, 13.2, 15.2, 17.1, 19, 21, 22.9, 24.8, 26.8,
+            28.7
+        ],
+        "defp": [
+            6.9, 9.3, 11.7, 14.1, 16.5, 19, 21.4, 23.8, 26.2, 28.6, 31.1, 33.5,
+            35.9
+        ],
+        "cr": [
+            4.1, 5.5, 7, 8.5, 9.9, 11.4, 12.8, 14.3, 15.7, 17.2, 18.6, 20.1,
+            21.5
+        ],
+        "cd": [
+            8.2, 11.1, 14.1, 17, 19.9, 22.8, 25.7, 28.6, 31.5, 34.4, 37.3, 40.2,
+            43.1
+        ],
+        "hb": [
+            4.4, 5.9, 7.5, 9, 10.6, 12.1, 13.7, 15.2, 16.8, 18.3, 19.9, 21.4, 23
+        ],
+        "eh": [
+            5.5, 7.4, 9.4, 11.3, 13.2, 15.2, 17.1, 19, 21, 22.9, 24.8, 26.8,
+            28.7
+        ],
+        "spd": [3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 16],
+        "elementalDB": [
+            4.9, 6.7, 8.4, 10.2, 11.9, 13.6, 15.4, 17.1, 18.9, 20.6, 22.3, 24.1,
+            25.8
+        ],
+        "be": [
+            8.2, 11.1, 14.1, 17, 19.9, 22.8, 25.7, 28.6, 31.5, 34.4, 37.3, 40.2,
+            43.1
+        ],
+        "er": [
+            2.4, 3.3, 4.2, 5.1, 5.9, 6.8, 7.7, 8.5, 9.4, 10.3, 11.1, 12, 12.9
+        ]
+    },
+    "minorStatsR5": {
+        "atk": 21.6,
+        "hp": 42.33,
+        "def": 21.6,
+        "atkp": 4.32,
+        "hpp": 4.32,
+        "defp": 5.4,
+        "cr": 3.24,
+        "cd": 6.48,
+        "eh": 4.32,
+        "eres": 4.32,
+        "spd": 2.6,
+        "be": 6.48,
+        "er": 3.11,
+        "elementalDB": 6.22,
+        "hb": 4.78
+    },
+    "minorStatsR4": {
+        "atk": 16,
+        "hp": 33,
+        "def": 16,
+        "atkp": 3.4,
+        "hpp": 3.4,
+        "defp": 4.3,
+        "cr": 2.5,
+        "cd": 5.1,
+        "eh": 1.4,
+        "eres": 3.4,
+        "spd": 1,
+        "be": 5.1
+    },
+    "mainProbs": {
+        "Head": {
+            "hp": 1
+        },
+        "Hands": {
+            "atk": 1
+        },
+        "Body": {
+            "hpp": 0.2,
+            "atkp": 0.2,
+            "defp": 0.2,
+            "cr": 0.1,
+            "cd": 0.1,
+            "hb": 0.1,
+            "eh": 0.1
+        },
+        "Feet": {
+            "hpp": 0.2917,
+            "atkp": 0.2917,
+            "defp": 0.2917,
+            "spd": 0.125
+        },
+        "PlanarSphere": {
+            "hpp": 0.1233,
+            "atkp": 0.1233,
+            "defp": 0.1233,
+            "iceDB": 0.09,
+            "windDB": 0.09,
+            "fireDB": 0.09,
+            "imaginaryDB": 0.09,
+            "lightningDB": 0.09,
+            "quantumDB": 0.09,
+            "physicalDB": 0.09
+        },
+        "LinkRope": {
+            "hpp": 0.2633,
+            "atkp": 0.2633,
+            "defp": 0.2633,
+            "be": 0.15,
+            "er": 0.06
+        }
+    },
+    "minorPickWeights": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "hpp": 10,
+        "atkp": 10,
+        "defp": 10,
+        "spd": 4,
+        "cr": 6,
+        "cd": 6,
+        "eh": 8,
+        "eres": 8,
+        "be": 8
+    }
+}

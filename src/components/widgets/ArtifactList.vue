@@ -1,6 +1,6 @@
 <script lang="ts" setup>
+import { Artifact } from "@/game/base/artifact";
 import ArtifactCard from "./ArtifactCard.vue";
-import { Artifact } from "@/ys/artifact";
 import { ref, computed, watch } from "vue";
 
 const props = defineProps<{
@@ -13,7 +13,7 @@ const loadMore = () => {
     if (loadedCount.value < props.arts.length) {
         loadedCount.value = Math.min(
             props.arts.length,
-            loadedCount.value + BATCH_SIZE
+            loadedCount.value + BATCH_SIZE,
         );
     }
 };
@@ -55,7 +55,7 @@ function init() {
 
 watch(
     () => props.arts,
-    () => init()
+    () => init(),
 );
 
 init();

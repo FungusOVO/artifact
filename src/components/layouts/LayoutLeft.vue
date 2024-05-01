@@ -25,7 +25,7 @@ import {
     Stopwatch,
     Coin,
 } from "@element-plus/icons-vue";
-import { Artifact } from "@/ys/artifact";
+import { Artifact } from "@/game/base/artifact";
 
 const artStore = useArtifactStore();
 const uiStore = useUiStore();
@@ -253,6 +253,14 @@ const showDatabaseLoader = ref(false);
                 <div class="count" v-text="$t('ui.art_count', count)" />
                 <div class="btns">
                     <div
+                        v-show="artStore.game == 'sr'"
+                        :class="{ btn: true, checked: true }"
+                        @click="artStore.changeElementType()"
+                        role="button"
+                    >
+                        <span v-text="$t(`ui.${artStore.elementType}`)" />
+                    </div>
+                    <div
                         :class="{ btn: true, checked: reverseOrder }"
                         @click="reverseOrder = !reverseOrder"
                         role="button"
@@ -358,8 +366,8 @@ const showDatabaseLoader = ref(false);
                                     "
                                     @flip-lock="flipLock(o.art.data.index)"
                                     @edit="edit(o.art.data.index)"
-                                    @filter="filter(o.art)"
-                                    @stats="stats(o.art)"
+                                    @filter="filter(o.art as Artifact)"
+                                    @stats="stats(o.art as Artifact)"
                                 />
                             </div>
                         </div>

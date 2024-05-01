@@ -1,11 +1,12 @@
 <script lang="ts" setup>
 import { ref, computed, watch, reactive } from "vue";
-import { ArtifactData, CharacterData } from "@/ys/data";
 import { useArtifactStore, useUiStore } from "@/store";
-import { getSetOrderName } from "@/ys/sort/porder";
 import { i18n } from "@/i18n";
-import type { ICharKey, IAvatar } from "@/ys/types";
 import { Delete } from "@element-plus/icons-vue";
+import { IAvatar, IBuild } from "@/game/base/types";
+import { gameManager } from "@/game/GameManager";
+import { POrder } from "@/game/base/sort";
+import { gameUtils } from "@/game/GameUtils";
 
 const props = defineProps<{
     modelValue: boolean;
@@ -27,19 +28,23 @@ const show = computed<boolean>({
 });
 
 // left
-const elements = ["pyro", "hydro", "cryo", "electro", "anemo", "geo", "dendro"]
-    .map((e) => ({
-        element: e,
-        icon: `./assets/game_icons/${e}.webp`,
-        text: i18n.global.t("element." + e),
-    }))
-    .concat([
-        {
-            element: "custom",
-            icon: "",
-            text: i18n.global.t("ui.custom"),
-        },
-    ]);
+const elements = computed(() => {
+    return artStore.artifactData.elementKeys
+        .map((e) => ({
+            element: e,
+            icon: `./assets/game_icons/${artStore.game}/${e}.webp`,
+            text: i18n.global.t(
+                `artifact.${artStore.game}.${artStore.elementType}.${e}`,
+            ),
+        }))
+        .concat([
+            {
+                element: "custom",
+                icon: "",
+                text: i18n.global.t("ui.custom"),
+            },
+        ]);
+});
 
 const avatars = computed(() => {
     let ret: { [e: string]: IAvatar[] } = {};
@@ -47,14 +52,14 @@ const avatars = computed(() => {
         let element, icon, rarity, data;
         if (b.key.startsWith("0")) {
             element = "custom";
-            icon = "./assets/char_faces/default.webp";
+            icon = `./assets/char_faces/${artStore.game}/default.webp`;
             rarity = 1;
         } else {
-            data = CharacterData[b.key as ICharKey];
-            element = data.element;
+            data = artStore.characterData[b.key];
+            element = data[artStore.elementType];
             icon = b.key.startsWith("Traveler")
-                ? "./assets/char_faces/Traveler.webp"
-                : `./assets/char_faces/${b.key}.webp`;
+                ? `./assets/char_faces/${artStore.game}/Traveler.webp`
+                : `./assets/char_faces/${artStore.game}/${b.key}.webp`;
             rarity = data.rarity;
         }
         if (!(element in ret)) ret[element] = [] as IAvatar[];
@@ -80,24 +85,34 @@ const avatarClass = (key: string) => ({
     avatar: true,
     selected: key == selectedBuildKey.value,
 });
+
 const build = reactive({
     name: "",
     set: [] as string[],
     setList: [[]] as string[][],
     setDesc: [] as string[],
-    sands: [] as string[],
-    goblet: [] as string[],
-    circlet: [] as string[],
     weightJson: "",
+    main: {},
+} as {
+    name: string;
+    set: string[];
+    setList: string[][];
+    setDesc: string[];
+    weightJson: string;
+    main: {
+        [adjustSlotKey: string]: string[];
+    };
 });
+
 watch(
     () => build.setList,
     () => {
         build.set = [];
         build.setDesc = [];
+        let pOrder = gameManager.getSort(POrder) as POrder;
         for (let set of build.setList) {
             build.set = [...build.set, ...set];
-            build.setDesc.push(getSetOrderName(set));
+            build.setDesc.push(pOrder.getSetOrderName(set));
         }
     },
     { deep: true },
@@ -110,7 +125,7 @@ watch(
  * - non-existing key: select blank build to edit
  */
 const selectBuild = (key?: string) => {
-    if (!key) key = "Diluc";
+    if (!key) key = artStore.builds[0].key;
     selectedBuildKey.value = key;
     let b = artStore.builds.filter((b) => b.key == key)[0];
     if (b) {
@@ -118,26 +133,30 @@ const selectBuild = (key?: string) => {
         build.name = b.name;
         build.set = [...b.set];
         build.setList = [...(b.setList as string[][])];
-        build.sands = [...b.main.sands];
-        build.goblet = [...b.main.goblet];
-        build.circlet = [...b.main.circlet];
+        artStore.artifactData.adjustSlotKeys.forEach((adjustSlotKey) => {
+            build.main[adjustSlotKey] = [...b.main[adjustSlotKey]];
+        });
         build.weightJson = JSON.stringify(b.weight);
     } else {
         isNew.value = true;
         build.name = "";
         build.set = [];
         build.setList = [];
-        build.sands = [];
-        build.goblet = [];
-        build.circlet = [];
-        build.weightJson =
-            '{"hp":0,"atk":0,"def":0,"hpp":0,"atkp":0,"defp":0,"em":0,"er":0,"cr":0,"cd":0}';
+        artStore.artifactData.adjustSlotKeys.forEach((adjustSlotKey) => {
+            build.main[adjustSlotKey] = [];
+        });
+        build.weightJson = gameManager.getDefaultWeightJsonStr();
     }
 };
 selectBuild();
-const rules = reactive({
-    name: uiStore.getFormRule(),
-    weightJson: uiStore.getFormRule(true, uiStore.affixWeightJsonValidator),
+const rules = computed(() => {
+    return {
+        name: uiStore.getFormRule(),
+        weightJson: uiStore.getFormRule(
+            true,
+            gameUtils.affixWeightJsonValidator,
+        ),
+    };
 });
 const formEl = ref<any>(null);
 
@@ -153,26 +172,30 @@ const saveBuild = (formEl: any) => {
         });
         if (idx >= 0) {
             builds[idx].name = build.name;
-            builds[idx].main.sands = [...build.sands];
-            builds[idx].main.goblet = [...build.goblet];
-            builds[idx].main.circlet = [...build.circlet];
+            artStore.artifactData.adjustSlotKeys.forEach((adjustSlotKey) => {
+                builds[idx].main[adjustSlotKey] = [
+                    ...build.main[adjustSlotKey],
+                ];
+            });
             builds[idx].set = [...build.set];
             builds[idx].setList = [...build.setList];
             builds[idx].weight = JSON.parse(build.weightJson);
         } else {
             isNew.value = false;
-            builds.push({
+            let customerBuild: IBuild = {
                 key: selectedBuildKey.value,
                 name: build.name,
                 set: [...build.set],
                 setList: [...build.setList],
-                main: {
-                    sands: [...build.sands],
-                    goblet: [...build.goblet],
-                    circlet: [...build.circlet],
-                },
+                main: {},
                 weight: JSON.parse(build.weightJson),
+            };
+            artStore.artifactData.adjustSlotKeys.forEach((adjustSlotKey) => {
+                customerBuild.main[adjustSlotKey] = [
+                    ...build.main[adjustSlotKey],
+                ];
             });
+            builds.push(customerBuild);
         }
         uiStore.alert(i18n.global.t("ui.saved"), "success");
     });
@@ -181,7 +204,7 @@ const addBuild = () => {
     selectBuild(Math.random().toString());
 };
 const _delCustomizedBuild = (key: string) => {
-    if (!(key in CharacterData)) return;
+    if (!(key in artStore.characterData)) return;
     let idx = -1;
     artStore.customizedBuilds.forEach((b, i) => {
         if (b.key == key) idx = i;
@@ -201,7 +224,7 @@ const resetAllBuilds = () => {
     uiStore
         .popConfirm(i18n.global.t("ui.confirm_reset_builds"))
         .then(() => {
-            Object.keys(CharacterData).forEach((key) =>
+            Object.keys(artStore.characterData).forEach((key) =>
                 _delCustomizedBuild(key),
             );
             uiStore.alert(i18n.global.t("ui.reseted"), "success");
@@ -328,18 +351,28 @@ const deleteSet = (index: number) => {
                             >
                                 <el-option-group :label="$t('ui.set_group')">
                                     <el-option
-                                        v-for="(_, k) in ArtifactData.setGroups"
+                                        v-for="(_, k) in artStore.artifactData
+                                            .setGroups"
                                         :key="k"
                                         :value="k"
-                                        :label="$t('artifact.set_group.' + k)"
+                                        :label="
+                                            $t(
+                                                `artifact.${artStore.game}.set_group.${k}`,
+                                            )
+                                        "
                                     />
                                 </el-option-group>
                                 <el-option-group :label="$t('ui.art_set')">
                                     <el-option
-                                        v-for="k in ArtifactData.setKeys"
+                                        v-for="k in artStore.artifactData
+                                            .setKeys"
                                         :key="k"
                                         :value="k"
-                                        :label="$t('artifact.set.' + k)"
+                                        :label="
+                                            $t(
+                                                `artifact.${artStore.game}.set.${k}`,
+                                            )
+                                        "
                                     />
                                 </el-option-group>
                             </el-select>
@@ -357,45 +390,33 @@ const deleteSet = (index: number) => {
                                 {{ $t("ui.art_add_set") }}
                             </el-button>
                         </el-form-item>
-                        <el-form-item :label="$t('artifact.slot.sands')">
+
+                        <el-form-item
+                            v-for="slotKey in artStore.artifactData
+                                .adjustSlotKeys"
+                            :label="
+                                $t(`artifact.${artStore.game}.slot.${slotKey}`)
+                            "
+                        >
                             <el-select
-                                v-model="build.sands"
+                                v-model="build.main[slotKey]"
                                 multiple
                                 style="width: 100%"
                             >
                                 <el-option
-                                    v-for="k in ArtifactData.mainKeys.sands"
+                                    v-for="k in artStore.artifactData.mainKeys[
+                                        slotKey
+                                    ]"
                                     :value="k"
-                                    :label="$t('artifact.affix.' + k)"
+                                    :label="
+                                        $t(
+                                            `artifact.${artStore.game}.affix.${k}`,
+                                        )
+                                    "
                                 />
                             </el-select>
                         </el-form-item>
-                        <el-form-item :label="$t('artifact.slot.goblet')">
-                            <el-select
-                                v-model="build.goblet"
-                                multiple
-                                style="width: 100%"
-                            >
-                                <el-option
-                                    v-for="k in ArtifactData.mainKeys.goblet"
-                                    :value="k"
-                                    :label="$t('artifact.affix.' + k)"
-                                />
-                            </el-select>
-                        </el-form-item>
-                        <el-form-item :label="$t('artifact.slot.circlet')">
-                            <el-select
-                                v-model="build.circlet"
-                                multiple
-                                style="width: 100%"
-                            >
-                                <el-option
-                                    v-for="k in ArtifactData.mainKeys.circlet"
-                                    :value="k"
-                                    :label="$t('artifact.affix.' + k)"
-                                />
-                            </el-select>
-                        </el-form-item>
+
                         <el-form-item
                             :label="$t('ui.affix_weight')"
                             prop="weightJson"
@@ -413,7 +434,9 @@ const deleteSet = (index: number) => {
                                 show-icon
                                 :closable="false"
                                 style="line-height: 1.4"
-                                :description="$t('ui.weight_json_help')"
+                                :description="
+                                    $t(`ui.${artStore.game}.weight_json_help`)
+                                "
                             />
                         </el-form-item>
                         <el-form-item>

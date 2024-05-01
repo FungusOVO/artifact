@@ -20,7 +20,7 @@ const isAll = computed<boolean>({
     set(v) {
         emit(
             "update:modelValue",
-            props.options.map((o) => o.key)
+            props.options.map((o) => o.key),
         );
     },
 });
@@ -42,7 +42,7 @@ const onSelectAllChange = (v: boolean) => {
     if (v)
         emit(
             "update:modelValue",
-            props.options.map((o) => o.key)
+            props.options.map((o) => o.key),
         );
     else emit("update:modelValue", []);
 };

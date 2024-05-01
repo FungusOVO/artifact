@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 const props = defineProps<{
-    title: string
-}>()
+    title: string;
+}>();
 </script>
 
 <template>
@@ -35,7 +35,7 @@ const props = defineProps<{
     }
 
     .section-opts {
-        >:deep(*) {
+        > :deep(*) {
             color: $primary-color;
             cursor: pointer;
             font-size: 12px;

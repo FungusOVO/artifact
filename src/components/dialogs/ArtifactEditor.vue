@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 import { ref, computed, watch } from "vue";
 import { useArtifactStore } from "@/store";
-import { Affix, Artifact } from "@/ys/artifact";
 import ArtifactCard from "@/components/widgets/ArtifactCard.vue";
-import { ArtifactData, CharacterData } from "@/ys/data";
 import { i18n } from "@/i18n";
-import type { ICharKey } from "@/ys/types";
+import { Affix, Artifact } from "@/game/base/artifact";
+import { GsArtifact } from "@/game/gs/artifact";
+import { SrArtifact } from "@/game/sr/artifact";
 
 const props = defineProps<{
     modelValue: boolean;
@@ -27,13 +27,13 @@ const show = computed({
 });
 const characters = computed(() => {
     let tmp: { [key: string]: string[] } = {};
-    for (let c in CharacterData) {
+    for (let c in artStore.characterData) {
         if (c.startsWith("Traveler")) continue;
-        let data = CharacterData[c as ICharKey];
-        if (data.element in tmp) {
-            tmp[data.element].push(c);
+        let data = artStore.characterData[c];
+        if (data[artStore.elementType] in tmp) {
+            tmp[data[artStore.elementType]].push(c);
         } else {
-            tmp[data.element] = [c];
+            tmp[data[artStore.elementType]] = [c];
         }
     }
     let ret = [
@@ -43,48 +43,62 @@ const characters = computed(() => {
                 { value: "", label: i18n.global.t("ui.unequiped") },
                 {
                     value: "Traveler",
-                    label: i18n.global.t("character.Traveler"),
+                    label: i18n.global.t(`character.${artStore.game}.Traveler`),
                 },
             ],
         },
     ];
     for (let element in tmp) {
         ret.push({
-            label: i18n.global.t("element." + element),
+            label: i18n.global.t(
+                `artifact.${artStore.game}.${artStore.elementType}.${element}`,
+            ),
             options: tmp[element].map((key) => ({
                 value: key,
-                label: i18n.global.t("character." + key),
+                label: i18n.global.t(`character.${artStore.game}.${key}`),
             })),
         });
     }
     return ret;
 });
-const affixes = ArtifactData.minorKeys.map((key) => ({
-    value: key,
-    label: i18n.global.t("artifact.affix." + key),
-}));
+const affixes = computed(() => {
+    return artStore.artifactData.minorKeys.map((key) => ({
+        value: key,
+        label: i18n.global.t(`artifact.${artStore.game}.affix.${key}`),
+    }));
+});
 let equiped: { [key: string]: { [key: string]: boolean } } = {};
 const modified = ref(false);
-const newArt = ref<Artifact>(new Artifact());
-const oldArt = ref<Artifact>(new Artifact());
+let artifactObj = GsArtifact;
+watch(
+    () => artStore.game,
+    (val) => {
+        if (val == "gs") {
+            artifactObj = GsArtifact;
+        }
+        if (val == "sr") {
+            artifactObj = SrArtifact;
+        }
+    },
+);
+
+const newArt = ref<Artifact>(new artifactObj());
+const oldArt = ref<Artifact>(new artifactObj());
 watch(
     () => show.value,
     () => {
         if (!show.value) return;
         // reset equiped
-        for (let c in CharacterData) {
+        for (let c in artStore.characterData) {
             if (c.startsWith("Traveler")) c = "Traveler";
-            equiped[c] = {
-                flower: false,
-                plume: false,
-                sands: false,
-                goblet: false,
-                circlet: false,
-            };
+            equiped[c] = {};
+            artStore.artifactData.slotKeys.forEach((slotKey) => {
+                equiped[c][slotKey] = false;
+            });
         }
         for (let a of artStore.artifacts) {
             if (a.data.index === props.index) {
-                newArt.value = new Artifact(a);
+                newArt.value = new artifactObj(a);
                 oldArt.value = a;
             }
             if (a.location in equiped) {
@@ -92,7 +106,7 @@ watch(
             }
         }
         modified.value = false;
-    }
+    },
 );
 const location = computed<string>({
     get() {
@@ -229,7 +243,9 @@ const toSwap = computed(() => {
 });
 const equipMsg = computed<string>(() => {
     if (toSwap.value) {
-        let char_name = i18n.global.t("character." + newArt.value.location);
+        let char_name = i18n.global.t(
+            `character.${artStore.game}.${newArt.value.location}`,
+        );
         if (oldArt.value.location) {
             return i18n.global.t("ui.swap_art_of", { char_name });
         } else {
