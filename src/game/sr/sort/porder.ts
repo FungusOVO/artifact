@@ -1,6 +1,7 @@
 import { POrder } from "@/game/base/sort/porder";
 import { ArtifactData } from "@/game/sr/data";
 import * as ArtifactDataOrigin from "@/game/sr/data/artifactData.json";
+import { i18n } from "@/i18n";
 
 export class SrPOrder extends POrder {
     game = "sr";
@@ -79,5 +80,66 @@ export class SrPOrder extends POrder {
             orderList = curOrderList.concat(orderList);
         }
         return orderList;
+    }
+
+    // 获取预设中的套装中文名
+    getSetOrderName(set: string[]) {
+        let setGroup4 = set.filter((s) => {
+            return (
+                ArtifactDataOrigin.setKeysGroup4.includes(s) ||
+                Object.keys(this.ArtifactData.setGroups).includes(s)
+            );
+        });
+        let setGroup2 = set.filter((s) => {
+            return ArtifactDataOrigin.setKeysGroup2.includes(s);
+        });
+
+        let ret4 = [];
+        if (setGroup4.length == 1) {
+            let key = setGroup4[0];
+            if (Object.keys(this.ArtifactData.setGroups).includes(key)) {
+                ret4.push(
+                    i18n.global.t(`artifact.${this.game}.set_group.${key}`),
+                );
+                ret4.push(
+                    i18n.global.t(`artifact.${this.game}.set_group.${key}`),
+                );
+            } else {
+                ret4.push(
+                    i18n.global.t(`artifact.${this.game}.set.${key}`) + "4",
+                );
+            }
+        } else {
+            for (let key of setGroup4) {
+                if (Object.keys(this.ArtifactData.setGroups).includes(key)) {
+                    ret4.push(
+                        i18n.global.t(`artifact.${this.game}.set_group.${key}`),
+                    );
+                } else {
+                    ret4.push(
+                        i18n.global.t(`artifact.${this.game}.set.${key}`) + "2",
+                    );
+                }
+            }
+        }
+
+        let ret2 = [];
+        for (let key of setGroup2) {
+            if (Object.keys(this.ArtifactData.setGroups).includes(key)) {
+                ret2.push(
+                    i18n.global.t(`artifact.${this.game}.set_group.${key}`),
+                );
+            } else {
+                ret2.push(i18n.global.t(`artifact.${this.game}.set.${key}`));
+            }
+        }
+        if (ret4.length < 1) {
+            ret4.push("散件");
+        }
+        if (ret2.length < 1) {
+            ret2.push("散件");
+        }
+
+        return ret4.join("/") + "+" + ret2.join("/");
     }
 }
