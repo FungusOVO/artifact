@@ -829,7 +829,11 @@
         },
         "build": {
             "set": [],
-            "setList": [["HuskOfOpulentDreams"], ["GladiatorsFinale"]],
+            "setList": [
+                ["HuskOfOpulentDreams"],
+                ["GladiatorsFinale"],
+                ["MarechausseeHunter"]
+            ],
             "main": {
                 "sands": ["defp"],
                 "goblet": ["geoDB", "defp"],
@@ -1600,7 +1604,7 @@
             "set": [],
             "setList": [["GildedDreams"], ["GoldenTroupe"]],
             "main": {
-                "sands": ["atkp"],
+                "sands": ["atkp", "em"],
                 "goblet": ["electroDB"],
                 "circlet": ["cr", "cd"]
             },
@@ -2679,7 +2683,7 @@
         },
         "build": {
             "set": [],
-            "setList": [["NoblesseOblige"], ["SongOfDaysPast"]],
+            "setList": [["NoblesseOblige"], ["SongOfDaysPast"], ["s:hb"]],
             "main": {
                 "sands": ["hpp", "er"],
                 "goblet": ["hpp"],
@@ -2779,7 +2783,8 @@
             "setList": [
                 ["SongOfDaysPast"],
                 ["ViridescentVenerer"],
-                ["NoblesseOblige"]
+                ["NoblesseOblige"],
+                ["s:hb"]
             ],
             "main": {
                 "sands": ["atkp", "er"],
@@ -2837,7 +2842,6 @@
     "Arlecchino": {
         "element": "pyro",
         "rarity": 5,
-        "presets": ["攻充"],
         "baseAttr": {
             "hp": 13103,
             "atk": 342.03,
@@ -2862,6 +2866,96 @@
                 "er": 0.35,
                 "cr": 1,
                 "cd": 1
+            }
+        }
+    },
+    "Sigewinne": {
+        "element": "hydro",
+        "rarity": 5,
+        "baseAttr": {
+            "hp": 13348,
+            "atk": 192.54,
+            "def": 499.56
+        },
+        "build": {
+            "set": [],
+            "setList": [[]],
+            "main": {
+                "sands": [],
+                "goblet": [],
+                "circlet": []
+            },
+            "weight": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "hpp": 0,
+                "atkp": 0,
+                "defp": 0,
+                "em": 0,
+                "er": 0,
+                "cr": 0,
+                "cd": 0
+            }
+        }
+    },
+    "Sethos": {
+        "element": "electro",
+        "rarity": 4,
+        "baseAttr": {
+            "hp": 9787,
+            "atk": 227.26,
+            "def": 559.67
+        },
+        "build": {
+            "set": [],
+            "setList": [[]],
+            "main": {
+                "sands": [],
+                "goblet": [],
+                "circlet": []
+            },
+            "weight": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "hpp": 0,
+                "atkp": 0,
+                "defp": 0,
+                "em": 0,
+                "er": 0,
+                "cr": 0,
+                "cd": 0
+            }
+        }
+    },
+    "Clorinde": {
+        "element": "electro",
+        "rarity": 5,
+        "baseAttr": {
+            "hp": 12956,
+            "atk": 337.24,
+            "def": 783.93
+        },
+        "build": {
+            "set": [],
+            "setList": [[]],
+            "main": {
+                "sands": [],
+                "goblet": [],
+                "circlet": []
+            },
+            "weight": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "hpp": 0,
+                "atkp": 0,
+                "defp": 0,
+                "em": 0,
+                "er": 0,
+                "cr": 0,
+                "cd": 0
             }
         }
     }

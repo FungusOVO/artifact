@@ -96,6 +96,51 @@
             }
         }
     },
+    "Trailblazer_Harmony": {
+        "element": "Imaginary",
+        "path": "Harmony",
+        "rarity": "5",
+        "baseAttr": {
+            "atk": 446.29,
+            "hp": 1087,
+            "def": 679.14,
+            "speed": 105,
+            "cpct": 5,
+            "cdmg": 50,
+            "aggro": 100
+        },
+        "build": {
+            "set": [],
+            "setList": [
+                [
+                    "WatchmakerMasterofDreamMachinations",
+                    "TaliaKingdomofBanditry"
+                ],
+                ["ThiefofShootingMeteor", "TaliaKingdomofBanditry"]
+            ],
+            "main": {
+                "Body": ["hpp", "defp"],
+                "Feet": ["spd"],
+                "PlanarSphere": ["hpp", "defp"],
+                "LinkRope": ["er", "be"]
+            },
+            "weight": {
+                "hp": 0,
+                "hpp": 0,
+                "atk": 0,
+                "atkp": 0.75,
+                "def": 0,
+                "defp": 0,
+                "spd": 1,
+                "cr": 0.75,
+                "cd": 0.75,
+                "be": 1,
+                "er": 1,
+                "eh": 0,
+                "eres": 0
+            }
+        }
+    },
     "March7th": {
         "element": "Ice",
         "path": "Preservation",
@@ -2344,6 +2389,126 @@
                 "cd": 1,
                 "be": 0,
                 "er": 0.75,
+                "eh": 0,
+                "eres": 0
+            }
+        }
+    },
+    "Robin": {
+        "element": "Physical",
+        "path": "Harmony",
+        "rarity": "5",
+        "baseAttr": {
+            "atk": 640.33,
+            "hp": 1281,
+            "def": 485.1,
+            "speed": 102,
+            "cpct": 5,
+            "cdmg": 50,
+            "aggro": 100
+        },
+        "build": {
+            "set": [],
+            "setList": [
+                ["s:atkp", "PrisonerinDeepConfinement", "SprightlyVonwacq"],
+                ["s:atkp", "MessengerTraversingHackerspace", "SprightlyVonwacq"]
+            ],
+            "main": {
+                "Body": ["atkp"],
+                "Feet": ["atkp"],
+                "PlanarSphere": ["atkp"],
+                "LinkRope": ["er"]
+            },
+            "weight": {
+                "hp": 0,
+                "hpp": 0.75,
+                "atk": 0,
+                "atkp": 1,
+                "def": 0,
+                "defp": 0.75,
+                "spd": 0.5,
+                "cr": 0,
+                "cd": 0,
+                "be": 0,
+                "er": 1,
+                "eh": 0,
+                "eres": 0.5
+            }
+        }
+    },
+    "Firefly": {
+        "element": "Fire",
+        "path": "Destruction",
+        "rarity": "5",
+        "baseAttr": {
+            "atk": 756.76,
+            "hp": 815,
+            "def": 776.16,
+            "speed": 92,
+            "cpct": 5,
+            "cdmg": 50,
+            "aggro": 125
+        },
+        "build": {
+            "set": [],
+            "setList": [[]],
+            "main": {
+                "Body": [],
+                "Feet": [],
+                "PlanarSphere": [],
+                "LinkRope": []
+            },
+            "weight": {
+                "hp": 0,
+                "hpp": 0,
+                "atk": 0,
+                "atkp": 0,
+                "def": 0,
+                "defp": 0,
+                "spd": 0,
+                "cr": 0,
+                "cd": 0,
+                "be": 0,
+                "er": 0,
+                "eh": 0,
+                "eres": 0
+            }
+        }
+    },
+    "Jade": {
+        "element": "Quantum",
+        "path": "Erudition",
+        "rarity": "5",
+        "baseAttr": {
+            "atk": 659.74,
+            "hp": 1087,
+            "def": 509.36,
+            "speed": 103,
+            "cpct": 5,
+            "cdmg": 50,
+            "aggro": 75
+        },
+        "build": {
+            "set": [],
+            "setList": [[]],
+            "main": {
+                "Body": [],
+                "Feet": [],
+                "PlanarSphere": [],
+                "LinkRope": []
+            },
+            "weight": {
+                "hp": 0,
+                "hpp": 0,
+                "atk": 0,
+                "atkp": 0,
+                "def": 0,
+                "defp": 0,
+                "spd": 0,
+                "cr": 0,
+                "cd": 0,
+                "be": 0,
+                "er": 0,
                 "eh": 0,
                 "eres": 0
             }

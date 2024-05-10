@@ -3,7 +3,7 @@ import { ArtifactData } from "./data";
 
 export class SrAffix extends Affix {
     valueString() {
-        if (["hp", "atk", "def"].includes(this.key)) {
+        if (["hp", "atk", "def", "spd"].includes(this.key)) {
             return this.value.toFixed(0);
         } else {
             return this.value.toFixed(1) + "%";

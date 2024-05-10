@@ -337,11 +337,15 @@
             "Gaming": "嘉明",
             "Xianyun": "闲云",
             "Chiori": "千织",
-            "Arlecchino": "阿蕾奇诺"
+            "Arlecchino": "阿蕾奇诺",
+            "Sigewinne": "希格雯",
+            "Sethos": "赛索斯",
+            "Clorinde": "克洛琳德"
         },
         "sr": {
             "Trailblazer_Destruction": "物理主",
             "Trailblazer_Preservation": "火主",
+            "Trailblazer_Harmony": "同谐主",
             "March7th": "三月七",
             "DanHeng": "丹恒",
             "Himeko": "姬子",
@@ -390,7 +394,9 @@
             "Acheron": "黄泉",
             "Robin": "知更鸟",
             "Misha": "米沙",
-            "Boothill": "波提欧"
+            "Boothill": "波提欧",
+            "Firefly": "流萤",
+            "Jade": "翡翠"
         }
     },
 
