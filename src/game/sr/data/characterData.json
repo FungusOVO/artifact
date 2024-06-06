@@ -2436,6 +2436,45 @@
             }
         }
     },
+    "Boothill": {
+        "element": "Physical",
+        "path": "TheHunt",
+        "rarity": "5",
+        "baseAttr": {
+            "atk": 620.93,
+            "hp": 1203,
+            "def": 436.59,
+            "speed": 107,
+            "cpct": 5,
+            "cdmg": 50,
+            "aggro": 75
+        },
+        "build": {
+            "set": [],
+            "setList": [["ThiefofShootingMeteor", "TaliaKingdomofBanditry"]],
+            "main": {
+                "Body": ["cr", "cd"],
+                "Feet": ["spd"],
+                "PlanarSphere": ["physicalDB"],
+                "LinkRope": ["be"]
+            },
+            "weight": {
+                "hp": 0,
+                "hpp": 0.5,
+                "atk": 0,
+                "atkp": 0.5,
+                "def": 0,
+                "defp": 0.5,
+                "spd": 1,
+                "cr": 0.5,
+                "cd": 0.5,
+                "be": 1,
+                "er": 0.5,
+                "eh": 0,
+                "eres": 0
+            }
+        }
+    },
     "Firefly": {
         "element": "Fire",
         "path": "Destruction",

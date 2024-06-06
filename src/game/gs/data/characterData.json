@@ -2889,13 +2889,13 @@
                 "hp": 0,
                 "atk": 0,
                 "def": 0,
-                "hpp": 0,
+                "hpp": 1,
                 "atkp": 0,
                 "defp": 0,
                 "em": 0,
-                "er": 0,
-                "cr": 0,
-                "cd": 0
+                "er": 0.3,
+                "cr": 1,
+                "cd": 1
             }
         }
     },
@@ -2909,23 +2909,23 @@
         },
         "build": {
             "set": [],
-            "setList": [[]],
+            "setList": [["WanderersTroupe"], ["s:em"], ["GildedDreams"]],
             "main": {
-                "sands": [],
-                "goblet": [],
-                "circlet": []
+                "sands": ["em"],
+                "goblet": ["electroDB"],
+                "circlet": ["cr", "cd"]
             },
             "weight": {
                 "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0,
+                "atkp": 0.75,
                 "defp": 0,
                 "em": 0,
                 "er": 0,
-                "cr": 0,
-                "cd": 0
+                "cr": 1,
+                "cd": 1
             }
         }
     },
@@ -2936,6 +2936,36 @@
             "hp": 12956,
             "atk": 337.24,
             "def": 783.93
+        },
+        "build": {
+            "set": [],
+            "setList": [["FragmentOfHarmonicWhimsy"], ["ThunderingFury"]],
+            "main": {
+                "sands": ["atkp"],
+                "goblet": ["electroDB"],
+                "circlet": ["cr", "cd"]
+            },
+            "weight": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "hpp": 0,
+                "atkp": 0.75,
+                "defp": 0,
+                "em": 0,
+                "er": 0,
+                "cr": 1,
+                "cd": 1
+            }
+        }
+    },
+    "Emilie": {
+        "element": "dendro",
+        "rarity": 5,
+        "baseAttr": {
+            "hp": 13568,
+            "atk": 334.85,
+            "def": 730.13
         },
         "build": {
             "set": [],
@@ -2950,12 +2980,12 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0,
+                "atkp": 0.75,
                 "defp": 0,
                 "em": 0,
                 "er": 0,
-                "cr": 0,
-                "cd": 0
+                "cr": 1,
+                "cd": 1
             }
         }
     }
