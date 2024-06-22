@@ -189,6 +189,9 @@
                 "PrisonerinDeepConfinement": "幽锁深牢的系囚",
                 "PioneerDiverofDeadWaters": "死水深潜的先驱",
                 "WatchmakerMasterofDreamMachinations": "机心戏梦的钟表匠",
+                "IronCavalryAgainsttheScourge": "荡除蠹灾的铁骑",
+                "TheWindSoaringValorous": "风举云飞的勇烈",
+
                 "SpaceSealingStation": "太空封印站",
                 "FleetoftheAgeless": "不老者的仙舟",
                 "PanCosmicCommercialEnterprise": "泛银河商业公司",
@@ -202,7 +205,9 @@
                 "FirmamentFrontlineGlamoth": "苍穹战线格拉默",
                 "PenaconyLandoftheDreams": "梦想之地匹诺康尼",
                 "SigoniatheUnclaimedDesolation": "无主荒星茨冈尼亚",
-                "IzumoGenseiandTakamaDivineRealm": "出云显世与高天神国"
+                "IzumoGenseiandTakamaDivineRealm": "出云显世与高天神国",
+                "DuranDynastyofRunningWolves": "奔狼的都蓝王朝",
+                "ForgeoftheKalpagniLantern": "劫火莲灯铸炼宫"
             },
             "set_group": {
                 "s:atkp": "攻击2",
@@ -380,7 +385,7 @@
             "Guinaifen": "桂乃芬",
             "Bailu": "白露",
             "Jingliu": "镜流",
-            "DanHeng•ImbibitorLunae": "丹恒•饮月",
+            "DanHengImbibitorLunae": "丹恒•饮月",
             "Xueyi": "雪衣",
             "Hanya": "寒鸦",
             "Huohuo": "藿藿",
@@ -388,8 +393,7 @@
             "Argenti": "银枝",
             "RuanMei": "阮•梅",
             "Aventurine": "砂金",
-            "Dr.Ratio": "真理医生",
-            "Dr": { "Ratio": "真理医生" },
+            "DrRatio": "真理医生",
             "Sparkle": "花火",
             "BlackSwan": "黑天鹅",
             "Acheron": "黄泉",
@@ -397,7 +401,10 @@
             "Misha": "米沙",
             "Boothill": "波提欧",
             "Firefly": "流萤",
-            "Jade": "翡翠"
+            "Jade": "翡翠",
+            "Jiaoqiu": "椒丘",
+            "Yunli": "云璃",
+            "March7th_TheHunt": "三月七"
         }
     },
 

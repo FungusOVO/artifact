@@ -51,7 +51,7 @@ char_configs = [
     {"id": "guinaifen-character", "key": "Guinaifen"},
     {"id": "bailu-character", "key": "Bailu"},
     {"id": "jingliu-character", "key": "Jingliu"},
-    {"id": "dan-heng-imbibitor-lunae-character", "key": "DanHeng•ImbibitorLunae"},
+    {"id": "dan-heng-imbibitor-lunae-character", "key": "DanHengImbibitorLunae"},
     {"id": "xueyi-character", "key": "Xueyi"},
     {"id": "hanya-character", "key": "Hanya"},
     {"id": "huohuo-character", "key": "Huohuo"},
@@ -59,7 +59,7 @@ char_configs = [
     {"id": "argenti-character", "key": "Argenti"},
     {"id": "ruan-mei-character", "key": "RuanMei"},
     {"id": "aventurine-character", "key": "Aventurine"},
-    {"id": "dr-ratio-character", "key": "Dr.Ratio"},
+    {"id": "dr-ratio-character", "key": "DrRatio"},
     {"id": "sparkle-character", "key": "Sparkle"},
     {"id": "black-swan-character", "key": "BlackSwan"},
     {"id": "acheron-character", "key": "Acheron"},
@@ -68,6 +68,9 @@ char_configs = [
     {"id": "boothill-character", "key": "Boothill"},
     {"id": "firefly-character", "key": "Firefly"},
     {"id": "jade-character", "key": "Jade"},
+    {"id": "jiaoqiu-character", "key": "Jiaoqiu"},
+    {"id": "yunli-character", "key": "Yunli"},
+    {"id": "march-7th-character-2", "key": "March7th_TheHunt"},
 ]
 
 

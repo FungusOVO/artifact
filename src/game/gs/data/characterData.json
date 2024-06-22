@@ -2939,7 +2939,11 @@
         },
         "build": {
             "set": [],
-            "setList": [["FragmentOfHarmonicWhimsy"], ["ThunderingFury"]],
+            "setList": [
+                ["FragmentOfHarmonicWhimsy"],
+                ["ThunderingFury"],
+                ["EchoesOfAnOffering"]
+            ],
             "main": {
                 "sands": ["atkp"],
                 "goblet": ["electroDB"],

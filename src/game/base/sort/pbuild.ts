@@ -337,7 +337,6 @@ export abstract class PBuildSort {
         if (calArtiWeightType == "mark") {
             threshold = 0;
         }
-
         for (let art of arts) {
             let _builds = [...builds];
             // 拼接有装备的配装

@@ -91,7 +91,7 @@
                 "cd": 0,
                 "be": 0,
                 "er": 1,
-                "eh": 0.5,
+                "eh": 1,
                 "eres": 0.5
             }
         }
@@ -126,16 +126,16 @@
             },
             "weight": {
                 "hp": 0,
-                "hpp": 0,
+                "hpp": 0.75,
                 "atk": 0,
-                "atkp": 0.75,
+                "atkp": 0,
                 "def": 0,
-                "defp": 0,
+                "defp": 0.75,
                 "spd": 1,
-                "cr": 0.75,
-                "cd": 0.75,
+                "cr": 0,
+                "cd": 0,
                 "be": 1,
-                "er": 1,
+                "er": 0.75,
                 "eh": 0,
                 "eres": 0
             }
@@ -1750,7 +1750,7 @@
             }
         }
     },
-    "DanHeng•ImbibitorLunae": {
+    "DanHengImbibitorLunae": {
         "element": "Imaginary",
         "path": "Destruction",
         "rarity": "5",
@@ -1816,16 +1816,9 @@
         "build": {
             "set": [],
             "setList": [
-                [
-                    "GeniusofBrilliantStars",
-                    "TaliaKingdomofBanditry",
-                    "InertSalsotto"
-                ],
-                [
-                    "ThiefofShootingMeteor",
-                    "TaliaKingdomofBanditry",
-                    "InertSalsotto"
-                ]
+                ["GeniusofBrilliantStars", "InertSalsotto"],
+                ["TheWindSoaringValorous", "InertSalsotto"],
+                ["IronCavalryAgainsttheScourge", "TaliaKingdomofBanditry"]
             ],
             "main": {
                 "Body": ["cr", "cd"],
@@ -1964,11 +1957,11 @@
             "set": [],
             "setList": [
                 [
+                    "ThiefofShootingMeteor",
                     "PasserbyofWanderingCloud",
-                    "MessengerTraversingHackerspace",
-                    "BrokenKeel"
+                    "ForgeoftheKalpagniLantern"
                 ],
-                ["PasserbyofWanderingCloud", "BrokenKeel"]
+                ["PasserbyofWanderingCloud", "BrokenKeel", "FleetoftheAgeless"]
             ],
             "main": {
                 "Body": ["hb"],
@@ -2141,7 +2134,7 @@
             }
         }
     },
-    "Dr.Ratio": {
+    "DrRatio": {
         "element": "Imaginary",
         "path": "TheHunt",
         "rarity": "5",
@@ -2359,18 +2352,7 @@
         },
         "build": {
             "set": [],
-            "setList": [
-                [
-                    "HunterofGlacialForest",
-                    "InertSalsotto",
-                    "FirmamentFrontlineGlamoth"
-                ],
-                [
-                    "PioneerDiverofDeadWaters",
-                    "InertSalsotto",
-                    "FirmamentFrontlineGlamoth"
-                ]
-            ],
+            "setList": [["HunterofGlacialForest", "InertSalsotto"]],
             "main": {
                 "Body": ["cr", "cd"],
                 "Feet": ["atkp"],
@@ -2490,25 +2472,25 @@
         },
         "build": {
             "set": [],
-            "setList": [[]],
+            "setList": [["IronCavalryAgainsttheScourge", "ForgeoftheKalpagniLantern"]],
             "main": {
-                "Body": [],
-                "Feet": [],
-                "PlanarSphere": [],
-                "LinkRope": []
+                "Body": ["atkp"],
+                "Feet": ["spd"],
+                "PlanarSphere": ["atkp"],
+                "LinkRope": ["be"]
             },
             "weight": {
                 "hp": 0,
-                "hpp": 0,
+                "hpp": 0.3,
                 "atk": 0,
-                "atkp": 0,
+                "atkp": 1,
                 "def": 0,
-                "defp": 0,
-                "spd": 0,
+                "defp": 0.3,
+                "spd": 1,
                 "cr": 0,
                 "cd": 0,
-                "be": 0,
-                "er": 0,
+                "be": 1,
+                "er": 0.5,
                 "eh": 0,
                 "eres": 0
             }
@@ -2540,14 +2522,131 @@
                 "hp": 0,
                 "hpp": 0,
                 "atk": 0,
-                "atkp": 0,
+                "atkp": 0.75,
                 "def": 0,
                 "defp": 0,
-                "spd": 0,
-                "cr": 0,
-                "cd": 0,
+                "spd": 0.75,
+                "cr": 1,
+                "cd": 1,
                 "be": 0,
-                "er": 0,
+                "er": 0.5,
+                "eh": 0,
+                "eres": 0
+            }
+        }
+    },
+    "Jiaoqiu": {
+        "element": "Fire",
+        "path": "Nihility",
+        "rarity": "5",
+        "baseAttr": {
+            "atk": 601.52,
+            "hp": 1358,
+            "def": 509.36,
+            "speed": 98,
+            "cpct": 5,
+            "cdmg": 50,
+            "aggro": 100
+        },
+        "build": {
+            "set": [],
+            "setList": [[]],
+            "main": {
+                "Body": [],
+                "Feet": [],
+                "PlanarSphere": [],
+                "LinkRope": []
+            },
+            "weight": {
+                "hp": 0,
+                "hpp": 0,
+                "atk": 0,
+                "atkp": 0.75,
+                "def": 0,
+                "defp": 0,
+                "spd": 0.75,
+                "cr": 1,
+                "cd": 1,
+                "be": 0,
+                "er": 0.5,
+                "eh": 0,
+                "eres": 0
+            }
+        }
+    },
+    "Yunli": {
+        "element": "Physical",
+        "path": "Destruction",
+        "rarity": "5",
+        "baseAttr": {
+            "atk": 679.14,
+            "hp": 1358,
+            "def": 460.85,
+            "speed": 94,
+            "cpct": 5,
+            "cdmg": 50,
+            "aggro": 125
+        },
+        "build": {
+            "set": [],
+            "setList": [[]],
+            "main": {
+                "Body": [],
+                "Feet": [],
+                "PlanarSphere": [],
+                "LinkRope": []
+            },
+            "weight": {
+                "hp": 0,
+                "hpp": 0,
+                "atk": 0,
+                "atkp": 0.75,
+                "def": 0,
+                "defp": 0,
+                "spd": 0.75,
+                "cr": 1,
+                "cd": 1,
+                "be": 0,
+                "er": 0.5,
+                "eh": 0,
+                "eres": 0
+            }
+        }
+    },
+    "March7th_TheHunt": {
+        "element": "Imaginary",
+        "path": "TheHunt",
+        "rarity": "5",
+        "baseAttr": {
+            "atk": 465.48,
+            "hp": 917,
+            "def": 418.95,
+            "speed": 107,
+            "cpct": 5,
+            "cdmg": 50,
+            "aggro": 75
+        },
+        "build": {
+            "set": [],
+            "setList": [[]],
+            "main": {
+                "Body": [],
+                "Feet": [],
+                "PlanarSphere": [],
+                "LinkRope": []
+            },
+            "weight": {
+                "hp": 0,
+                "hpp": 0,
+                "atk": 0,
+                "atkp": 0.75,
+                "def": 0,
+                "defp": 0,
+                "spd": 0.75,
+                "cr": 1,
+                "cd": 1,
+                "be": 0,
+                "er": 0.5,
                 "eh": 0,
                 "eres": 0
             }

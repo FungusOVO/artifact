@@ -187,7 +187,7 @@ class GameUtils {
         }
         for (let s of set.filter((v) => v.startsWith("s:"))) {
             if (
-                s in gameManager.getArtifactData() &&
+                s in gameManager.getArtifactData().setGroups &&
                 gameManager.getArtifactData().setGroups[s].includes(target)
             )
                 return true;
