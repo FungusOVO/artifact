@@ -2879,11 +2879,16 @@
         },
         "build": {
             "set": [],
-            "setList": [[]],
+            "setList": [
+                ["SongOfDaysPast"],
+                ["OceanHuedClam"],
+                ["TenacityOfTheMillelith"],
+                ["s:hpp"]
+            ],
             "main": {
-                "sands": [],
-                "goblet": [],
-                "circlet": []
+                "sands": ["hpp"],
+                "goblet": ["hpp"],
+                "circlet": ["hpp"]
             },
             "weight": {
                 "hp": 0,
@@ -2970,6 +2975,96 @@
             "hp": 13568,
             "atk": 334.85,
             "def": 730.13
+        },
+        "build": {
+            "set": [],
+            "setList": [[]],
+            "main": {
+                "sands": [],
+                "goblet": [],
+                "circlet": []
+            },
+            "weight": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "hpp": 0,
+                "atkp": 0.75,
+                "defp": 0,
+                "em": 0,
+                "er": 0,
+                "cr": 1,
+                "cd": 1
+            }
+        }
+    },
+    "Kachina": {
+        "element": "geo",
+        "rarity": 4,
+        "baseAttr": {
+            "hp": 11799,
+            "atk": 216.65,
+            "def": 792.41
+        },
+        "build": {
+            "set": [],
+            "setList": [[]],
+            "main": {
+                "sands": [],
+                "goblet": [],
+                "circlet": []
+            },
+            "weight": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "hpp": 0,
+                "atkp": 0.75,
+                "defp": 0,
+                "em": 0,
+                "er": 0,
+                "cr": 1,
+                "cd": 1
+            }
+        }
+    },
+    "Kinich": {
+        "element": "dendro",
+        "rarity": 5,
+        "baseAttr": {
+            "hp": 12858,
+            "atk": 332.46,
+            "def": 801.6
+        },
+        "build": {
+            "set": [],
+            "setList": [[]],
+            "main": {
+                "sands": [],
+                "goblet": [],
+                "circlet": []
+            },
+            "weight": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "hpp": 0,
+                "atkp": 0.75,
+                "defp": 0,
+                "em": 0,
+                "er": 0,
+                "cr": 1,
+                "cd": 1
+            }
+        }
+    },
+    "Mualani": {
+        "element": "hydro",
+        "rarity": 5,
+        "baseAttr": {
+            "hp": 15185,
+            "atk": 181.78,
+            "def": 570.27
         },
         "build": {
             "set": [],

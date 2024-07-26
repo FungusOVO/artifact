@@ -2,6 +2,7 @@ import { Affix, Artifact } from "@/game/base/artifact";
 import { GsAffix, GsArtifact } from "../artifact";
 import { assert, whatis } from "@/utils";
 import { ArtifactData } from "../data";
+import zhCN from "@/i18n/zhCN.json";
 
 interface IGoodFormat {
     format: "GOOD";
@@ -46,6 +47,8 @@ const keymap = {
     },
 };
 
+const locationName = zhCN.character.gs;
+
 export default {
     loads(json: string) {
         let good = JSON.parse(json) as IGoodFormat;
@@ -65,7 +68,11 @@ export default {
                 slot: a.slotKey,
                 level: a.level,
                 rarity: a.rarity,
-                location: a.location,
+                location:
+                    whatis(a.location, locationName) ||
+                    (Object.keys(locationName).includes(a.location)
+                        ? a.location
+                        : ""),
                 lock: a.lock,
                 mainKey: whatis(a.mainStatKey, keymap.affix) as string,
                 minors: a.substats.map(

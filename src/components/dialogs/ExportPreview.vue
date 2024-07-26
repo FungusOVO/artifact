@@ -27,7 +27,12 @@ const show = computed<boolean>({
 const artToLock = ref<Artifact[]>([]);
 const artToUnlock = ref<Artifact[]>([]);
 function exportable(a: Artifact) {
-    return a.data.source == "yas-lock/good" || a.data.source == "pcap/good";
+    return (
+        a.data.source == "yas-lock/good" ||
+        a.data.source == "yas/good" ||
+        a.data.source == "pcap/good" ||
+        a.data.source == "reliquary/hsr"
+    );
 }
 watch(
     () => props.modelValue,

@@ -67,7 +67,7 @@ const main = computed(() => {
         let key = props.artifact.mainKey,
             value = mainStats[props.artifact.level],
             valueStr = "";
-        if (["hp", "atk", "def", "em"].includes(key)) {
+        if (["hp", "atk", "def", "em", "spd"].includes(key)) {
             valueStr = value.toFixed(0);
         } else {
             valueStr = value.toFixed(1) + "%";

@@ -19,29 +19,11 @@ const uiStore = useUiStore();
 
 const msg = ref("");
 const ok = ref(false);
-let onboardingImportArtsShowed = false;
 
 const importArts = async () => {
     if (yasStore.connected) {
         yasStore.sendScanReq();
         return;
-    }
-    if (!onboardingImportArtsShowed) {
-        onboardingImportArtsShowed = true;
-        await uiStore.popOnboardingDialog("importArts").then(() => {
-            return ElMessageBox.confirm(
-                `<div>${i18n.global.t("onboarding.supportStarRail", {
-                    link: '<a href="https://nightly.link/YCR160/yas/workflows/modification/modification" target="primary">点击跳转下载</a>',
-                })}<div>`,
-                "HTML String",
-                {
-                    title: "现已支持崩坏星穹铁道",
-                    showCancelButton: false,
-                    dangerouslyUseHTMLString: true,
-                    type: "info",
-                },
-            );
-        });
     }
 
     try {
@@ -63,10 +45,16 @@ const importArts = async () => {
                         artifacts = SrFormat.MonaFormat.loads(text);
                         game = "sr";
                     } catch (e: any) {
-                        console.error(e);
-                        msg.value = String(e);
-                        ok.value = false;
-                        return;
+                        try {
+                            artifacts = SrFormat.HsrFormat.loads(text);
+                            canExport = artifacts.length > 0;
+                            game = "sr";
+                        } catch (e: any) {
+                            console.error(e);
+                            msg.value = String(e);
+                            ok.value = false;
+                            return;
+                        }
                     }
                 }
             }
