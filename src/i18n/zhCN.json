@@ -579,6 +579,7 @@
         "arti_weight_cal_type": "@.artifact:{'ui.artifact'}权重计算方式",
         "arti_prob_cal_type": "未满级@.artifact:{'ui.artifact'}期望计算方式",
         "pbuild_ignore_individual": "忽略散件",
+        "pbuild_ignore_update_small_weight": "不更新小词条权重",
         "equip_probs_title": "装备提升概率",
         "equip_char_filter": "筛选角色",
         "quick_filter": "快速筛选",

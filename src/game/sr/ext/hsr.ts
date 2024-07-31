@@ -125,7 +125,7 @@ function getAffix(key: string, value: number) {
 export default {
     loads(json: string) {
         let hsrObj = JSON.parse(json);
-        assert(hsrObj.source == "reliquary_archiver");
+        assert(["reliquary_archiver", "yas-scanner"].includes(hsrObj.source));
         let hsrRelicArr: relics[] = hsrObj.relics;
         assert(hsrRelicArr instanceof Object);
         let result: Artifact[] = [];
@@ -150,7 +150,7 @@ export default {
                 location: a.location || "",
                 lock: a.lock,
             });
-            artifact.data.source = "reliquary/hsr";
+            artifact.data.source = "*/hsr";
             artifact.data.index = i;
             result.push(artifact);
         });

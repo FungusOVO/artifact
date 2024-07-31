@@ -235,12 +235,14 @@ export abstract class PBuildSort {
             numInSet = 100,
             numIndividual = 200,
             ignoreIndividual = false,
+            pBuildIgnoreSmallWeight = false,
             calProbType = "avg",
         }: {
             threshold?: number;
             numInSet?: number;
             numIndividual?: number;
             ignoreIndividual?: boolean;
+            pBuildIgnoreSmallWeight?: boolean;
             calProbType?: ICalProbType;
         },
     ) {
@@ -264,10 +266,12 @@ export abstract class PBuildSort {
             // 更新小词条weight
             let attrs = this.MarkAttrCache.get(b);
 
-            for (let key in b.weight) {
-                b.weight[key] = attrs[key]
-                    ? attrs[key].weight / 100
-                    : b.weight[key];
+            if (!pBuildIgnoreSmallWeight) {
+                for (let key in b.weight) {
+                    b.weight[key] = attrs[key]
+                        ? attrs[key].weight / 100
+                        : b.weight[key];
+                }
             }
 
             // set factor
@@ -319,6 +323,7 @@ export abstract class PBuildSort {
             numInSet = 100,
             numIndividual = 200,
             ignoreIndividual = false,
+            pBuildIgnoreSmallWeight = false,
             calArtiWeightType = "prob",
             calProbType = "avg",
         }: {
@@ -327,6 +332,7 @@ export abstract class PBuildSort {
             numInSet?: number;
             numIndividual?: number;
             ignoreIndividual?: boolean;
+            pBuildIgnoreSmallWeight?: boolean;
             calArtiWeightType?: ICalWeightType;
             calProbType?: ICalProbType;
         },
@@ -351,6 +357,7 @@ export abstract class PBuildSort {
                 numInSet,
                 numIndividual,
                 ignoreIndividual,
+                pBuildIgnoreSmallWeight,
                 calProbType,
             });
             results.set(art, pbuild);

@@ -127,6 +127,7 @@ export const useArtifactStore = defineStore("artifact", () => {
     });
     const pBuildSortBy = ref<IPBuildSortBy>("max"); // 未满级圣遗物计算方式
     const pBuildIgnoreIndividual = ref(false); // 是否忽略散件
+    const pBuildIgnoreSmallWeight = ref(false); // 是否忽略自动更新小词条
     const pEquipCharKeys = ref<string[]>([]);
     const customizedBuilds = gameLocalStorage<IBuild[]>(
         "customized_builds",
@@ -363,6 +364,8 @@ export const useArtifactStore = defineStore("artifact", () => {
                             calProbType: calArtiProbType.value,
                             calArtiWeightType: calArtiWeightType.value,
                             ignoreIndividual: pBuildIgnoreIndividual.value,
+                            pBuildIgnoreSmallWeight:
+                                pBuildIgnoreSmallWeight.value,
                         },
                     );
                     sortResultType.value = "pbuild";
@@ -385,6 +388,8 @@ export const useArtifactStore = defineStore("artifact", () => {
                             calProbType: calArtiProbType.value,
                             calArtiWeightType: calArtiWeightType.value,
                             ignoreIndividual: pBuildIgnoreIndividual.value,
+                            pBuildIgnoreSmallWeight:
+                                pBuildIgnoreSmallWeight.value,
                         },
                     );
                     sortResultType.value = "pbuild";
@@ -397,6 +402,8 @@ export const useArtifactStore = defineStore("artifact", () => {
                         {
                             calArtiWeightType: calArtiWeightType.value,
                             calProbType: calArtiProbType.value,
+                            pBuildIgnoreSmallWeight:
+                                pBuildIgnoreSmallWeight.value,
                         },
                     );
                     sortResults.value = ret.sortResults;
@@ -538,6 +545,7 @@ export const useArtifactStore = defineStore("artifact", () => {
         sort,
         pBuildSortBy,
         pBuildIgnoreIndividual,
+        pBuildIgnoreSmallWeight,
         pEquipCharKeys,
         customizedBuilds,
         builds,

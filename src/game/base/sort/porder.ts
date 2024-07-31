@@ -282,9 +282,11 @@ export abstract class POrder {
         {
             calArtiWeightType = "prob",
             calProbType = "avg",
+            pBuildIgnoreSmallWeight = false,
         }: {
             calArtiWeightType?: ICalWeightType;
             calProbType?: ICalProbType;
+            pBuildIgnoreSmallWeight?: boolean;
         },
     ) {
         let selectedBuildKeys = buildOrder.map((b) => b.key);
@@ -297,6 +299,7 @@ export abstract class POrder {
                 ignoreIndividual: false,
                 calArtiWeightType,
                 calProbType,
+                pBuildIgnoreSmallWeight
             },
         );
         let artScoreMap = new Map(artScoreResult);

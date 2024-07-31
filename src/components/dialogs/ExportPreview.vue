@@ -31,7 +31,7 @@ function exportable(a: Artifact) {
         a.data.source == "yas-lock/good" ||
         a.data.source == "yas/good" ||
         a.data.source == "pcap/good" ||
-        a.data.source == "reliquary/hsr"
+        a.data.source == "*/hsr"
     );
 }
 watch(

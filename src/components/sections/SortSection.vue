@@ -375,6 +375,14 @@ const isShowArtiWeightCalType = computed(() => {
                     />
                 </p>
             </div>
+            <div v-show="isShowArtiWeightCalType">
+                <p style="text-align: center">
+                    <el-checkbox
+                        v-model="artStore.pBuildIgnoreSmallWeight"
+                        :label="$t('ui.pbuild_ignore_update_small_weight')"
+                    />
+                </p>
+            </div>
         </div>
     </div>
     <build-loader v-model="showBuildLoader" />
