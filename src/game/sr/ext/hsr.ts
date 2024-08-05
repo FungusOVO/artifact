@@ -17,7 +17,7 @@ interface relics {
     location: string;
     lock: boolean;
     discard: boolean;
-    _id: number;
+    _id: string;
 }
 
 const keymap = {
@@ -60,6 +60,9 @@ const keymap = {
         IzumoGenseiandTakamaDivineRealm: "Izumo Gensei and Takama Divine Realm",
         DuranDynastyofRunningWolves: "Duran, Dynasty of Running Wolves",
         ForgeoftheKalpagniLantern: "Forge of the Kalpagni Lantern",
+    },
+    yasSet: <{ [key: string]: string }>{
+        BelobogoftheArchitects: "Belobog's Fortress of Preservation",
     },
     affix: <{ [key: string]: string }>{
         hp: "HP",
@@ -115,6 +118,63 @@ const keymap = {
         PlanarSphere: "Planar Sphere",
         LinkRope: "Link Rope",
     },
+    characterName: <{ [key: string]: string }>{
+        "March 7th": "March7th",
+        "Dan Heng": "DanHeng",
+        "Himeko": "Himeko",
+        "Welt": "Welt",
+        "Kafka": "Kafka",
+        "Silver Wolf": "SilverWolf",
+        "Arlan": "Arlan",
+        "Asta": "Asta",
+        "Herta": "Herta",
+        "Bronya": "Bronya",
+        "Seele": "Seele",
+        "Serval": "Serval",
+        "Gepard": "Gepard",
+        "Natasha": "Natasha",
+        "Pela": "Pela",
+        "Clara": "Clara",
+        "Sampo": "Sampo",
+        "Hook": "Hook",
+        "Lynx": "Lynx",
+        "Luka": "Luka",
+        "Topaz & Numby": "Topaz&Numby",
+        "Qingque": "Qingque",
+        "Tingyun": "Tingyun",
+        "Luocha": "Luocha",
+        "Jing Yuan": "JingYuan",
+        "Blade": "Blade",
+        "Sushang": "Sushang",
+        "Yukong": "Yukong",
+        "Fu Xuan": "FuXuan",
+        "Yanqing": "Yanqing",
+        "Guinaifen": "Guinaifen",
+        "Bailu": "Bailu",
+        "Jingliu": "Jingliu",
+        "Dan Heng • Imbibitor Lunae": "DanHengImbibitorLunae",
+        "Xueyi": "Xueyi",
+        "Hanya": "Hanya",
+        "Huohuo": "Huohuo",
+        "Jiaoqiu": "Jiaoqiu",
+        "Yunli": "Yunli",
+        "Gallagher": "Gallagher",
+        "Argenti": "Argenti",
+        "Ruan Mei": "RuanMei",
+        "Aventurine": "Aventurine",
+        "Dr. Ratio": "DrRatio",
+        "Sparkle": "Sparkle",
+        "Black Swan": "BlackSwan",
+        "Acheron": "Acheron",
+        "Robin": "Robin",
+        "Firefly": "Firefly",
+        "Misha": "Misha",
+        "Jade": "Jade",
+        "Boothill": "Boothill",
+        "TrailblazerDestruction": "Trailblazer_Destruction",
+        "TrailblazerPreservation": "Trailblazer_Preservation",
+        "TrailblazerHarmony": "Trailblazer_Harmony",
+    },
 };
 
 function getAffix(key: string, value: number) {
@@ -125,12 +185,19 @@ function getAffix(key: string, value: number) {
 export default {
     loads(json: string) {
         let hsrObj = JSON.parse(json);
-        assert(["reliquary_archiver", "yas-scanner"].includes(hsrObj.source));
+        assert(
+            ["reliquary_archiver", "yas-scanner", "HSR-Scanner"].includes(
+                hsrObj.source,
+            ),
+        );
         let hsrRelicArr: relics[] = hsrObj.relics;
         assert(hsrRelicArr instanceof Object);
         let result: Artifact[] = [];
         hsrRelicArr.sort((a, b) => {
-            return b._id - a._id;
+            return (
+                Number(a._id.replaceAll(/[^\d]/g, "")) -
+                Number(b._id.replaceAll(/[^\d]/g, ""))
+            );
         });
 
         hsrRelicArr.forEach((a, i) => {
@@ -141,18 +208,21 @@ export default {
                 }
             }
             let artifact = new SrArtifact({
-                set: whatis(a.set, keymap.set) as string,
+                set:
+                    whatis(a.set, keymap.set) ||
+                    (whatis(a.set, keymap.yasSet) as string),
                 slot: whatis(a.slot, keymap.slot) as string,
                 mainKey: whatis(a.mainstat, keymap.mainKey) as string,
                 minors: a.substats.map((t) => getAffix(t.key, t.value)),
                 level: a.level,
                 rarity: a.rarity,
-                location: a.location || "",
+                location: whatis(a.location, keymap.characterName) || "",
                 lock: a.lock,
             });
             artifact.data.source = "*/hsr";
             artifact.data.index = i;
             result.push(artifact);
+            console.log(a._id);
         });
         console.log(result);
 
