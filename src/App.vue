@@ -27,7 +27,7 @@ const claim = () => {
 const updYas = () => {
     claim();
     window.open(
-        "https://github.com/FungusOVO/yas-lock/releases/latest/download/yas-lock.exe",
+        "https://github.com/FungusOVO/yas-lock/releases/",
         "_blank",
     );
 };

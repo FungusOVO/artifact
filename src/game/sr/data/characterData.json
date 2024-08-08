@@ -35,18 +35,18 @@
             },
             "weight": {
                 "hp": 0,
-                "hpp": 0.5,
+                "hpp": 0,
                 "atk": 0,
-                "atkp": 0,
+                "atkp": 0.75,
                 "def": 0,
-                "defp": 1,
-                "spd": 1,
-                "cr": 0,
-                "cd": 0,
+                "defp": 0,
+                "spd": 0.75,
+                "cr": 1,
+                "cd": 1,
                 "be": 0,
-                "er": 1,
-                "eh": 0.5,
-                "eres": 0.5
+                "er": 0.5,
+                "eh": 0,
+                "eres": 0
             }
         }
     },
@@ -90,7 +90,7 @@
                 "cr": 0,
                 "cd": 0,
                 "be": 0,
-                "er": 1,
+                "er": 0,
                 "eh": 1,
                 "eres": 0.5
             }
@@ -608,18 +608,18 @@
             },
             "weight": {
                 "hp": 0,
-                "hpp": 0,
+                "hpp": 0.75,
                 "atk": 0,
-                "atkp": 0.75,
+                "atkp": 0,
                 "def": 0,
-                "defp": 0,
+                "defp": 0.75,
                 "spd": 1,
-                "cr": 0.75,
+                "cr": 0,
                 "cd": 1,
                 "be": 0,
                 "er": 1,
                 "eh": 0,
-                "eres": 0
+                "eres": 0.5
             }
         }
     },
@@ -1790,7 +1790,7 @@
                 "atkp": 0.75,
                 "def": 0,
                 "defp": 0,
-                "spd": 1,
+                "spd": 0.5,
                 "cr": 1,
                 "cd": 1,
                 "be": 0,
@@ -2472,7 +2472,9 @@
         },
         "build": {
             "set": [],
-            "setList": [["IronCavalryAgainsttheScourge", "ForgeoftheKalpagniLantern"]],
+            "setList": [
+                ["IronCavalryAgainsttheScourge", "ForgeoftheKalpagniLantern"]
+            ],
             "main": {
                 "Body": ["atkp"],
                 "Feet": ["spd"],
@@ -2490,9 +2492,9 @@
                 "cr": 0,
                 "cd": 0,
                 "be": 1,
-                "er": 0.5,
+                "er": 0,
                 "eh": 0,
-                "eres": 0
+                "eres": 0.3
             }
         }
     },
@@ -2511,12 +2513,27 @@
         },
         "build": {
             "set": [],
-            "setList": [[]],
+            "setList": [
+                [
+                    "TheAshblazingGrandDuke",
+                    "DuranDynastyofRunningWolves",
+                    "InertSalsotto",
+                    "SigoniatheUnclaimedDesolation",
+                    "IzumoGenseiandTakamaDivineRealm"
+                ],
+                [
+                    "GeniusofBrilliantStars",
+                    "DuranDynastyofRunningWolves",
+                    "InertSalsotto",
+                    "SigoniatheUnclaimedDesolation",
+                    "IzumoGenseiandTakamaDivineRealm"
+                ]
+            ],
             "main": {
-                "Body": [],
-                "Feet": [],
-                "PlanarSphere": [],
-                "LinkRope": []
+                "Body": ["cd", "cr"],
+                "Feet": ["atkp", "spd"],
+                "PlanarSphere": ["quantumDB"],
+                "LinkRope": ["atkp", "er"]
             },
             "weight": {
                 "hp": 0,
@@ -2564,11 +2581,11 @@
                 "atkp": 0.75,
                 "def": 0,
                 "defp": 0,
-                "spd": 0.75,
+                "spd": 1,
                 "cr": 1,
                 "cd": 1,
                 "be": 0,
-                "er": 0.5,
+                "er": 0,
                 "eh": 0,
                 "eres": 0
             }
@@ -2589,12 +2606,18 @@
         },
         "build": {
             "set": [],
-            "setList": [[]],
+            "setList": [
+                [
+                    "TheWindSoaringValorous",
+                    "InertSalsotto",
+                    "DuranDynastyofRunningWolves"
+                ]
+            ],
             "main": {
-                "Body": [],
-                "Feet": [],
-                "PlanarSphere": [],
-                "LinkRope": []
+                "Body": ["cd", "cr"],
+                "Feet": ["atkp"],
+                "PlanarSphere": ["physicalDB"],
+                "LinkRope": ["er", "atkp"]
             },
             "weight": {
                 "hp": 0,
@@ -2603,11 +2626,11 @@
                 "atkp": 0.75,
                 "def": 0,
                 "defp": 0,
-                "spd": 0.75,
+                "spd": 1,
                 "cr": 1,
                 "cd": 1,
                 "be": 0,
-                "er": 0.5,
+                "er": 0,
                 "eh": 0,
                 "eres": 0
             }
@@ -2628,6 +2651,51 @@
         },
         "build": {
             "set": [],
+            "setList": [
+                [
+                    "MusketeerofWildWheat",
+                    "RutilantArena",
+                    "IzumoGenseiandTakamaDivineRealm"
+                ]
+            ],
+            "main": {
+                "Body": ["cd", "cr"],
+                "Feet": ["atkp", "spd"],
+                "PlanarSphere": ["imaginaryDB"],
+                "LinkRope": ["atkp", "er"]
+            },
+            "weight": {
+                "hp": 0,
+                "hpp": 0,
+                "atk": 0,
+                "atkp": 1,
+                "def": 0,
+                "defp": 0,
+                "spd": 1,
+                "cr": 1,
+                "cd": 1,
+                "be": 0,
+                "er": 0,
+                "eh": 0,
+                "eres": 0
+            }
+        }
+    },
+    "Feixiao": {
+        "element": "Wind",
+        "path": "TheHunt",
+        "rarity": "5",
+        "baseAttr": {
+            "atk": 601.52,
+            "hp": 1048,
+            "def": 388.8,
+            "speed": 125,
+            "cpct": 5,
+            "cdmg": 50,
+            "aggro": 75
+        },
+        "build": {
+            "set": [],
             "setList": [[]],
             "main": {
                 "Body": [],
@@ -2642,11 +2710,89 @@
                 "atkp": 0.75,
                 "def": 0,
                 "defp": 0,
-                "spd": 0.75,
+                "spd": 1,
                 "cr": 1,
                 "cd": 1,
                 "be": 0,
-                "er": 0.5,
+                "er": 0,
+                "eh": 0,
+                "eres": 0
+            }
+        }
+    },
+    "Lingsha": {
+        "element": "Fire",
+        "path": "Abundance",
+        "rarity": "5",
+        "baseAttr": {
+            "atk": 679.14,
+            "hp": 158,
+            "def": 436.59,
+            "speed": 98,
+            "cpct": 5,
+            "cdmg": 50,
+            "aggro": 100
+        },
+        "build": {
+            "set": [],
+            "setList": [[]],
+            "main": {
+                "Body": [],
+                "Feet": [],
+                "PlanarSphere": [],
+                "LinkRope": []
+            },
+            "weight": {
+                "hp": 0,
+                "hpp": 0,
+                "atk": 0,
+                "atkp": 0.75,
+                "def": 0,
+                "defp": 0,
+                "spd": 1,
+                "cr": 1,
+                "cd": 1,
+                "be": 0,
+                "er": 0,
+                "eh": 0,
+                "eres": 0
+            }
+        }
+    },
+    "Moze": {
+        "element": "Lightning",
+        "path": "TheHunt",
+        "rarity": "4",
+        "baseAttr": {
+            "atk": 546.84,
+            "hp": 811,
+            "def": 352.8,
+            "speed": 125,
+            "cpct": 5,
+            "cdmg": 50,
+            "aggro": 75
+        },
+        "build": {
+            "set": [],
+            "setList": [[]],
+            "main": {
+                "Body": [],
+                "Feet": [],
+                "PlanarSphere": [],
+                "LinkRope": []
+            },
+            "weight": {
+                "hp": 0,
+                "hpp": 0,
+                "atk": 0,
+                "atkp": 0.75,
+                "def": 0,
+                "defp": 0,
+                "spd": 1,
+                "cr": 1,
+                "cd": 1,
+                "be": 0,
+                "er": 0,
                 "eh": 0,
                 "eres": 0
             }

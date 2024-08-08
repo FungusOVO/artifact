@@ -222,9 +222,7 @@ export default {
             artifact.data.source = "*/hsr";
             artifact.data.index = i;
             result.push(artifact);
-            console.log(a._id);
         });
-        console.log(result);
 
         return result;
     },
