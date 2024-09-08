@@ -77,7 +77,9 @@
                 "SongOfDaysPast": "昔时之歌",
                 "NighttimeWhispersInTheEchoingWoods": "回声之林夜话",
                 "FragmentOfHarmonicWhimsy": "谐律异想断章",
-                "UnfinishedReverie": "未竟的遐思"
+                "UnfinishedReverie": "未竟的遐思",
+                "ObsidianCodex": "黑曜秘典",
+                "ScrolloftheHeroofCinderCity": "烬城勇者绘卷"
             },
             "set_group": {
                 "s:atkp": "攻击2",
@@ -349,7 +351,8 @@
             "Emilie": "艾梅莉埃",
             "Kachina": "卡齐娜",
             "Kinich": "基尼奇",
-            "Mualani": "玛拉妮"
+            "Mualani": "玛拉妮",
+            "Xilonen": "希诺宁"
         },
         "sr": {
             "Trailblazer_Destruction": "物理主",

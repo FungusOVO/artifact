@@ -2,11 +2,7 @@
     "TravelerAnemo": {
         "element": "anemo",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 10875,
-            "atk": 212.4,
-            "def": 682.52
-        },
+        "baseAttr": { "hp": 10875, "atk": 212.4, "def": 682.52 },
         "build": {
             "set": [],
             "setList": [["ViridescentVenerer"], ["s:em"], ["NoblesseOblige"]],
@@ -32,11 +28,7 @@
     "TravelerGeo": {
         "element": "geo",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 10875,
-            "atk": 212.4,
-            "def": 682.52
-        },
+        "baseAttr": { "hp": 10875, "atk": 212.4, "def": 682.52 },
         "build": {
             "set": [],
             "setList": [
@@ -66,11 +58,7 @@
     "TravelerElectro": {
         "element": "electro",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 10875,
-            "atk": 212.4,
-            "def": 682.52
-        },
+        "baseAttr": { "hp": 10875, "atk": 212.4, "def": 682.52 },
         "build": {
             "set": [],
             "setList": [
@@ -100,11 +88,7 @@
     "TravelerDendro": {
         "element": "dendro",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 10875,
-            "atk": 212.4,
-            "def": 682.52
-        },
+        "baseAttr": { "hp": 10875, "atk": 212.4, "def": 682.52 },
         "build": {
             "set": [],
             "setList": [["DeepwoodMemories"], ["EmblemOfSeveredFate"]],
@@ -120,8 +104,8 @@
                 "hpp": 0,
                 "atkp": 0.75,
                 "defp": 0,
-                "em": 0.75,
-                "er": 0.55,
+                "em": 0,
+                "er": 0,
                 "cr": 1,
                 "cd": 1
             }
@@ -130,11 +114,7 @@
     "TravelerHydro": {
         "element": "hydro",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 10875,
-            "atk": 212.4,
-            "def": 682.52
-        },
+        "baseAttr": { "hp": 10875, "atk": 212.4, "def": 682.52 },
         "build": {
             "set": [],
             "setList": [
@@ -164,11 +144,7 @@
     "KamisatoAyaka": {
         "element": "cryo",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 12858,
-            "atk": 342.03,
-            "def": 783.93
-        },
+        "baseAttr": { "hp": 12858, "atk": 342.03, "def": 783.93 },
         "build": {
             "set": [],
             "setList": [
@@ -198,11 +174,7 @@
     "Jean": {
         "element": "anemo",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 14695,
-            "atk": 239.18,
-            "def": 768.55
-        },
+        "baseAttr": { "hp": 14695, "atk": 239.18, "def": 768.55 },
         "build": {
             "set": [],
             "setList": [
@@ -232,11 +204,7 @@
     "Lisa": {
         "element": "electro",
         "rarity": 4,
-        "baseAttr": {
-            "hp": 9570,
-            "atk": 231.51,
-            "def": 573.32
-        },
+        "baseAttr": { "hp": 9570, "atk": 231.51, "def": 573.32 },
         "build": {
             "set": [],
             "setList": [
@@ -268,11 +236,7 @@
     "Barbara": {
         "element": "hydro",
         "rarity": 4,
-        "baseAttr": {
-            "hp": 9787,
-            "atk": 159.3,
-            "def": 668.87
-        },
+        "baseAttr": { "hp": 9787, "atk": 159.3, "def": 668.87 },
         "build": {
             "set": [],
             "setList": [
@@ -305,11 +269,7 @@
     "Kaeya": {
         "element": "cryo",
         "rarity": 4,
-        "baseAttr": {
-            "hp": 11636,
-            "atk": 223.02,
-            "def": 791.72
-        },
+        "baseAttr": { "hp": 11636, "atk": 223.02, "def": 791.72 },
         "build": {
             "set": [],
             "setList": [
@@ -339,11 +299,7 @@
     "Diluc": {
         "element": "pyro",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 12981,
-            "atk": 334.85,
-            "def": 783.93
-        },
+        "baseAttr": { "hp": 12981, "atk": 334.85, "def": 783.93 },
         "build": {
             "set": [],
             "setList": [
@@ -374,11 +330,7 @@
     "Razor": {
         "element": "electro",
         "rarity": 4,
-        "baseAttr": {
-            "hp": 11962,
-            "atk": 233.64,
-            "def": 750.77
-        },
+        "baseAttr": { "hp": 11962, "atk": 233.64, "def": 750.77 },
         "build": {
             "set": [],
             "setList": [
@@ -410,11 +362,7 @@
     "Amber": {
         "element": "pyro",
         "rarity": 4,
-        "baseAttr": {
-            "hp": 9461,
-            "atk": 223.02,
-            "def": 600.62
-        },
+        "baseAttr": { "hp": 9461, "atk": 223.02, "def": 600.62 },
         "build": {
             "set": [],
             "setList": [
@@ -446,11 +394,7 @@
     "Venti": {
         "element": "anemo",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 10531,
-            "atk": 263.1,
-            "def": 668.64
-        },
+        "baseAttr": { "hp": 10531, "atk": 263.1, "def": 668.64 },
         "build": {
             "set": [],
             "setList": [
@@ -480,11 +424,7 @@
     "Xiangling": {
         "element": "pyro",
         "rarity": 4,
-        "baseAttr": {
-            "hp": 10875,
-            "atk": 225.14,
-            "def": 668.87
-        },
+        "baseAttr": { "hp": 10875, "atk": 225.14, "def": 668.87 },
         "build": {
             "set": [],
             "setList": [
@@ -514,11 +454,7 @@
     "Beidou": {
         "element": "electro",
         "rarity": 4,
-        "baseAttr": {
-            "hp": 13050,
-            "atk": 225.14,
-            "def": 648.4
-        },
+        "baseAttr": { "hp": 13050, "atk": 225.14, "def": 648.4 },
         "build": {
             "set": [],
             "setList": [["EmblemOfSeveredFate"], ["s:em"], ["ThunderingFury"]],
@@ -544,11 +480,7 @@
     "Xingqiu": {
         "element": "hydro",
         "rarity": 4,
-        "baseAttr": {
-            "hp": 10222,
-            "atk": 201.78,
-            "def": 757.6
-        },
+        "baseAttr": { "hp": 10222, "atk": 201.78, "def": 757.6 },
         "build": {
             "set": [],
             "setList": [
@@ -578,11 +510,7 @@
     "Xiao": {
         "element": "anemo",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 12736,
-            "atk": 349.2,
-            "def": 799.3
-        },
+        "baseAttr": { "hp": 12736, "atk": 349.2, "def": 799.3 },
         "build": {
             "set": [],
             "setList": [
@@ -612,11 +540,7 @@
     "Ningguang": {
         "element": "geo",
         "rarity": 4,
-        "baseAttr": {
-            "hp": 9787,
-            "atk": 212.4,
-            "def": 573.32
-        },
+        "baseAttr": { "hp": 9787, "atk": 212.4, "def": 573.32 },
         "build": {
             "set": [],
             "setList": [
@@ -645,11 +569,7 @@
     "Klee": {
         "element": "pyro",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 10287,
-            "atk": 310.93,
-            "def": 614.84
-        },
+        "baseAttr": { "hp": 10287, "atk": 310.93, "def": 614.84 },
         "build": {
             "set": [],
             "setList": [
@@ -680,11 +600,7 @@
     "Zhongli": {
         "element": "geo",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 14695,
-            "atk": 251.14,
-            "def": 737.81
-        },
+        "baseAttr": { "hp": 14695, "atk": 251.14, "def": 737.81 },
         "build": {
             "set": [],
             "setList": [
@@ -719,11 +635,7 @@
     "Fischl": {
         "element": "electro",
         "rarity": 4,
-        "baseAttr": {
-            "hp": 9189,
-            "atk": 244.26,
-            "def": 593.79
-        },
+        "baseAttr": { "hp": 9189, "atk": 244.26, "def": 593.79 },
         "build": {
             "set": [],
             "setList": [
@@ -754,11 +666,7 @@
     "Bennett": {
         "element": "pyro",
         "rarity": 4,
-        "baseAttr": {
-            "hp": 12397,
-            "atk": 191.16,
-            "def": 771.25
-        },
+        "baseAttr": { "hp": 12397, "atk": 191.16, "def": 771.25 },
         "build": {
             "set": [],
             "setList": [
@@ -788,11 +696,7 @@
     "Tartaglia": {
         "element": "hydro",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 13103,
-            "atk": 301.36,
-            "def": 814.67
-        },
+        "baseAttr": { "hp": 13103, "atk": 301.36, "def": 814.67 },
         "build": {
             "set": [],
             "setList": [
@@ -822,11 +726,7 @@
     "Noelle": {
         "element": "geo",
         "rarity": 4,
-        "baseAttr": {
-            "hp": 12071,
-            "atk": 191.16,
-            "def": 798.55
-        },
+        "baseAttr": { "hp": 12071, "atk": 191.16, "def": 798.55 },
         "build": {
             "set": [],
             "setList": [
@@ -856,11 +756,7 @@
     "Qiqi": {
         "element": "cryo",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 12368,
-            "atk": 287.01,
-            "def": 922.27
-        },
+        "baseAttr": { "hp": 12368, "atk": 287.01, "def": 922.27 },
         "build": {
             "set": [],
             "setList": [
@@ -890,11 +786,7 @@
     "Chongyun": {
         "element": "cryo",
         "rarity": 4,
-        "baseAttr": {
-            "hp": 10984,
-            "atk": 223.02,
-            "def": 648.4
-        },
+        "baseAttr": { "hp": 10984, "atk": 223.02, "def": 648.4 },
         "build": {
             "set": [],
             "setList": [
@@ -924,11 +816,7 @@
     "Ganyu": {
         "element": "cryo",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 9797,
-            "atk": 334.85,
-            "def": 630.21
-        },
+        "baseAttr": { "hp": 9797, "atk": 334.85, "def": 630.21 },
         "build": {
             "set": [],
             "setList": [
@@ -959,11 +847,7 @@
     "Albedo": {
         "element": "geo",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 13226,
-            "atk": 251.14,
-            "def": 876.15
-        },
+        "baseAttr": { "hp": 13226, "atk": 251.14, "def": 876.15 },
         "build": {
             "set": [],
             "setList": [
@@ -994,11 +878,7 @@
     "Diona": {
         "element": "cryo",
         "rarity": 4,
-        "baseAttr": {
-            "hp": 9570,
-            "atk": 212.4,
-            "def": 600.62
-        },
+        "baseAttr": { "hp": 9570, "atk": 212.4, "def": 600.62 },
         "build": {
             "set": [],
             "setList": [
@@ -1028,11 +908,7 @@
     "Mona": {
         "element": "hydro",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 10409,
-            "atk": 287.01,
-            "def": 653.27
-        },
+        "baseAttr": { "hp": 10409, "atk": 287.01, "def": 653.27 },
         "build": {
             "set": [],
             "setList": [
@@ -1062,11 +938,7 @@
     "Keqing": {
         "element": "electro",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 13103,
-            "atk": 322.89,
-            "def": 799.3
-        },
+        "baseAttr": { "hp": 13103, "atk": 322.89, "def": 799.3 },
         "build": {
             "set": [],
             "setList": [["ThunderingFury"], ["GildedDreams"], ["PaleFlame"]],
@@ -1092,11 +964,7 @@
     "Sucrose": {
         "element": "anemo",
         "rarity": 4,
-        "baseAttr": {
-            "hp": 9244,
-            "atk": 169.92,
-            "def": 703
-        },
+        "baseAttr": { "hp": 9244, "atk": 169.92, "def": 703 },
         "build": {
             "set": [],
             "setList": [["ViridescentVenerer"], ["NoblesseOblige"]],
@@ -1122,11 +990,7 @@
     "Xinyan": {
         "element": "pyro",
         "rarity": 4,
-        "baseAttr": {
-            "hp": 11201,
-            "atk": 248.5,
-            "def": 798.55
-        },
+        "baseAttr": { "hp": 11201, "atk": 248.5, "def": 798.55 },
         "build": {
             "set": [],
             "setList": [
@@ -1155,11 +1019,7 @@
     "Rosaria": {
         "element": "cryo",
         "rarity": 4,
-        "baseAttr": {
-            "hp": 12289,
-            "atk": 240.01,
-            "def": 709.82
-        },
+        "baseAttr": { "hp": 12289, "atk": 240.01, "def": 709.82 },
         "build": {
             "set": [],
             "setList": [
@@ -1189,11 +1049,7 @@
     "HuTao": {
         "element": "pyro",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 15552,
-            "atk": 106.43,
-            "def": 876.15
-        },
+        "baseAttr": { "hp": 15552, "atk": 106.43, "def": 876.15 },
         "build": {
             "set": [],
             "setList": [
@@ -1224,11 +1080,7 @@
     "KaedeharaKazuha": {
         "element": "anemo",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 13348,
-            "atk": 296.58,
-            "def": 806.98
-        },
+        "baseAttr": { "hp": 13348, "atk": 296.58, "def": 806.98 },
         "build": {
             "set": [],
             "setList": [
@@ -1258,11 +1110,7 @@
     "Yanfei": {
         "element": "pyro",
         "rarity": 4,
-        "baseAttr": {
-            "hp": 9352,
-            "atk": 240.01,
-            "def": 586.97
-        },
+        "baseAttr": { "hp": 9352, "atk": 240.01, "def": 586.97 },
         "build": {
             "set": [],
             "setList": [
@@ -1293,11 +1141,7 @@
     "Yoimiya": {
         "element": "pyro",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 10164,
-            "atk": 322.89,
-            "def": 614.84
-        },
+        "baseAttr": { "hp": 10164, "atk": 322.89, "def": 614.84 },
         "build": {
             "set": [],
             "setList": [
@@ -1328,11 +1172,7 @@
     "Thoma": {
         "element": "pyro",
         "rarity": 4,
-        "baseAttr": {
-            "hp": 10331,
-            "atk": 201.78,
-            "def": 750.77
-        },
+        "baseAttr": { "hp": 10331, "atk": 201.78, "def": 750.77 },
         "build": {
             "set": [],
             "setList": [
@@ -1363,11 +1203,7 @@
     "Eula": {
         "element": "cryo",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 13226,
-            "atk": 342.03,
-            "def": 750.88
-        },
+        "baseAttr": { "hp": 13226, "atk": 342.03, "def": 750.88 },
         "build": {
             "set": [],
             "setList": [
@@ -1397,11 +1233,7 @@
     "RaidenShogun": {
         "element": "electro",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 12907,
-            "atk": 337.24,
-            "def": 789.31
-        },
+        "baseAttr": { "hp": 12907, "atk": 337.24, "def": 789.31 },
         "build": {
             "set": [],
             "setList": [
@@ -1432,11 +1264,7 @@
     "Sayu": {
         "element": "anemo",
         "rarity": 4,
-        "baseAttr": {
-            "hp": 11854,
-            "atk": 244.26,
-            "def": 744.63
-        },
+        "baseAttr": { "hp": 11854, "atk": 244.26, "def": 744.63 },
         "build": {
             "set": [],
             "setList": [["ViridescentVenerer"], ["NoblesseOblige"]],
@@ -1462,11 +1290,7 @@
     "SangonomiyaKokomi": {
         "element": "hydro",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 13471,
-            "atk": 234.39,
-            "def": 657.11
-        },
+        "baseAttr": { "hp": 13471, "atk": 234.39, "def": 657.11 },
         "build": {
             "set": [],
             "setList": [
@@ -1497,11 +1321,7 @@
     "Gorou": {
         "element": "geo",
         "rarity": 4,
-        "baseAttr": {
-            "hp": 9570,
-            "atk": 182.66,
-            "def": 648.4
-        },
+        "baseAttr": { "hp": 9570, "atk": 182.66, "def": 648.4 },
         "build": {
             "set": [],
             "setList": [
@@ -1531,11 +1351,7 @@
     "KujouSara": {
         "element": "electro",
         "rarity": 4,
-        "baseAttr": {
-            "hp": 9570,
-            "atk": 195.41,
-            "def": 627.92
-        },
+        "baseAttr": { "hp": 9570, "atk": 195.41, "def": 627.92 },
         "build": {
             "set": [],
             "setList": [
@@ -1557,19 +1373,15 @@
                 "defp": 0,
                 "em": 0,
                 "er": 1,
-                "cr": 0.5,
-                "cd": 0.5
+                "cr": 1,
+                "cd": 1
             }
         }
     },
     "AratakiItto": {
         "element": "geo",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 12858,
-            "atk": 227.22,
-            "def": 959.16
-        },
+        "baseAttr": { "hp": 12858, "atk": 227.22, "def": 959.16 },
         "build": {
             "set": [],
             "setList": [["HuskOfOpulentDreams"], ["RetracingBolide"]],
@@ -1595,11 +1407,7 @@
     "YaeMiko": {
         "element": "electro",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 10372,
-            "atk": 339.63,
-            "def": 568.73
-        },
+        "baseAttr": { "hp": 10372, "atk": 339.63, "def": 568.73 },
         "build": {
             "set": [],
             "setList": [["GildedDreams"], ["GoldenTroupe"]],
@@ -1625,11 +1433,7 @@
     "ShikanoinHeizou": {
         "element": "anemo",
         "rarity": 4,
-        "baseAttr": {
-            "hp": 10657,
-            "atk": 225.14,
-            "def": 683.89
-        },
+        "baseAttr": { "hp": 10657, "atk": 225.14, "def": 683.89 },
         "build": {
             "set": [],
             "setList": [
@@ -1659,11 +1463,7 @@
     "Yelan": {
         "element": "hydro",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 14450,
-            "atk": 243.96,
-            "def": 547.98
-        },
+        "baseAttr": { "hp": 14450, "atk": 243.96, "def": 547.98 },
         "build": {
             "set": [],
             "setList": [
@@ -1692,19 +1492,11 @@
     "Kirara": {
         "element": "dendro",
         "rarity": 4,
-        "baseAttr": {
-            "hp": 12180,
-            "atk": 223.02,
-            "def": 546.02
-        },
+        "baseAttr": { "hp": 12180, "atk": 223.02, "def": 546.02 },
         "build": {
             "set": [],
             "setList": [["s:hpp"], ["DeepwoodMemories"], ["NoblesseOblige"]],
-            "main": {
-                "sands": ["hpp"],
-                "goblet": ["hpp"],
-                "circlet": ["hpp"]
-            },
+            "main": { "sands": ["hpp"], "goblet": ["hpp"], "circlet": ["hpp"] },
             "weight": {
                 "hp": 0,
                 "atk": 0,
@@ -1722,11 +1514,7 @@
     "Aloy": {
         "element": "cryo",
         "rarity": 4,
-        "baseAttr": {
-            "hp": 10899,
-            "atk": 233.92,
-            "def": 676.33
-        },
+        "baseAttr": { "hp": 10899, "atk": 233.92, "def": 676.33 },
         "build": {
             "set": [],
             "setList": [
@@ -1757,11 +1545,7 @@
     "Shenhe": {
         "element": "cryo",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 12993,
-            "atk": 303.76,
-            "def": 830.04
-        },
+        "baseAttr": { "hp": 12993, "atk": 303.76, "def": 830.04 },
         "build": {
             "set": [],
             "setList": [
@@ -1791,11 +1575,7 @@
     "YunJin": {
         "element": "geo",
         "rarity": 4,
-        "baseAttr": {
-            "hp": 10657,
-            "atk": 191.16,
-            "def": 734.39
-        },
+        "baseAttr": { "hp": 10657, "atk": 191.16, "def": 734.39 },
         "build": {
             "set": [],
             "setList": [
@@ -1825,11 +1605,7 @@
     "KukiShinobu": {
         "element": "electro",
         "rarity": 4,
-        "baseAttr": {
-            "hp": 12289,
-            "atk": 212.4,
-            "def": 750.77
-        },
+        "baseAttr": { "hp": 12289, "atk": 212.4, "def": 750.77 },
         "build": {
             "set": [],
             "setList": [
@@ -1859,11 +1635,7 @@
     "KamisatoAyato": {
         "element": "hydro",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 13715,
-            "atk": 298.97,
-            "def": 768.55
-        },
+        "baseAttr": { "hp": 13715, "atk": 298.97, "def": 768.55 },
         "build": {
             "set": [],
             "setList": [
@@ -1896,11 +1668,7 @@
     "Collei": {
         "element": "dendro",
         "rarity": 4,
-        "baseAttr": {
-            "hp": 9787,
-            "atk": 199.65,
-            "def": 600.62
-        },
+        "baseAttr": { "hp": 9787, "atk": 199.65, "def": 600.62 },
         "build": {
             "set": [],
             "setList": [
@@ -1931,11 +1699,7 @@
     "Dori": {
         "element": "electro",
         "rarity": 4,
-        "baseAttr": {
-            "hp": 12397,
-            "atk": 223.02,
-            "def": 723.47
-        },
+        "baseAttr": { "hp": 12397, "atk": 223.02, "def": 723.47 },
         "build": {
             "set": [],
             "setList": [
@@ -1965,11 +1729,7 @@
     "Tighnari": {
         "element": "dendro",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 10850,
-            "atk": 267.88,
-            "def": 630.21
-        },
+        "baseAttr": { "hp": 10850, "atk": 267.88, "def": 630.21 },
         "build": {
             "set": [],
             "setList": [
@@ -2000,11 +1760,7 @@
     "Nilou": {
         "element": "hydro",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 15185,
-            "atk": 229.61,
-            "def": 728.59
-        },
+        "baseAttr": { "hp": 15185, "atk": 229.61, "def": 728.59 },
         "build": {
             "set": [],
             "setList": [
@@ -2013,11 +1769,7 @@
                 ["VourukashasGlow"],
                 ["s:hpp", "s:hydroDB"]
             ],
-            "main": {
-                "sands": ["hpp"],
-                "goblet": ["hpp"],
-                "circlet": ["hpp"]
-            },
+            "main": { "sands": ["hpp"], "goblet": ["hpp"], "circlet": ["hpp"] },
             "weight": {
                 "hp": 0,
                 "atk": 0,
@@ -2035,11 +1787,7 @@
     "Cyno": {
         "element": "electro",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 12491,
-            "atk": 318.11,
-            "def": 859.24
-        },
+        "baseAttr": { "hp": 12491, "atk": 318.11, "def": 859.24 },
         "build": {
             "set": [],
             "setList": [
@@ -2069,11 +1817,7 @@
     "Candace": {
         "element": "hydro",
         "rarity": 4,
-        "baseAttr": {
-            "hp": 10875,
-            "atk": 212.4,
-            "def": 682.52
-        },
+        "baseAttr": { "hp": 10875, "atk": 212.4, "def": 682.52 },
         "build": {
             "set": [],
             "setList": [
@@ -2104,11 +1848,7 @@
     "Nahida": {
         "element": "dendro",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 10360,
-            "atk": 298.97,
-            "def": 630.21
-        },
+        "baseAttr": { "hp": 10360, "atk": 298.97, "def": 630.21 },
         "build": {
             "set": [],
             "setList": [
@@ -2139,11 +1879,7 @@
     "Layla": {
         "element": "cryo",
         "rarity": 4,
-        "baseAttr": {
-            "hp": 11092,
-            "atk": 216.65,
-            "def": 655.22
-        },
+        "baseAttr": { "hp": 11092, "atk": 216.65, "def": 655.22 },
         "build": {
             "set": [],
             "setList": [
@@ -2153,11 +1889,7 @@
                 ["BlizzardStrayer"],
                 ["BlizzardStrayer", "GoldenTroupe"]
             ],
-            "main": {
-                "sands": ["hpp"],
-                "goblet": ["hpp"],
-                "circlet": ["hpp"]
-            },
+            "main": { "sands": ["hpp"], "goblet": ["hpp"], "circlet": ["hpp"] },
             "weight": {
                 "hp": 0,
                 "atk": 0,
@@ -2175,11 +1907,7 @@
     "Wanderer": {
         "element": "anemo",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 10164,
-            "atk": 327.67,
-            "def": 607.16
-        },
+        "baseAttr": { "hp": 10164, "atk": 327.67, "def": 607.16 },
         "build": {
             "set": [],
             "setList": [
@@ -2210,11 +1938,7 @@
     "Faruzan": {
         "element": "anemo",
         "rarity": 4,
-        "baseAttr": {
-            "hp": 9570,
-            "atk": 196.47,
-            "def": 627.92
-        },
+        "baseAttr": { "hp": 9570, "atk": 196.47, "def": 627.92 },
         "build": {
             "set": [],
             "setList": [
@@ -2244,11 +1968,7 @@
     "Yaoyao": {
         "element": "dendro",
         "rarity": 4,
-        "baseAttr": {
-            "hp": 12289,
-            "atk": 212.4,
-            "def": 750.77
-        },
+        "baseAttr": { "hp": 12289, "atk": 212.4, "def": 750.77 },
         "build": {
             "set": [],
             "setList": [
@@ -2278,11 +1998,7 @@
     "Alhaitham": {
         "element": "dendro",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 13348,
-            "atk": 313.32,
-            "def": 781.62
-        },
+        "baseAttr": { "hp": 13348, "atk": 313.32, "def": 781.62 },
         "build": {
             "set": [],
             "setList": [["GildedDreams"], ["DeepwoodMemories"]],
@@ -2308,11 +2024,7 @@
     "Dehya": {
         "element": "pyro",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 15675,
-            "atk": 265.49,
-            "def": 627.91
-        },
+        "baseAttr": { "hp": 15675, "atk": 265.49, "def": 627.91 },
         "build": {
             "set": [],
             "setList": [
@@ -2343,11 +2055,7 @@
     "Mika": {
         "element": "cryo",
         "rarity": 4,
-        "baseAttr": {
-            "hp": 12506,
-            "atk": 223.02,
-            "def": 713.23
-        },
+        "baseAttr": { "hp": 12506, "atk": 223.02, "def": 713.23 },
         "build": {
             "set": [],
             "setList": [
@@ -2377,11 +2085,7 @@
     "Kaveh": {
         "element": "dendro",
         "rarity": 4,
-        "baseAttr": {
-            "hp": 11962,
-            "atk": 233.64,
-            "def": 750.77
-        },
+        "baseAttr": { "hp": 11962, "atk": 233.64, "def": 750.77 },
         "build": {
             "set": [],
             "setList": [
@@ -2411,11 +2115,7 @@
     "Baizhu": {
         "element": "dendro",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 13348,
-            "atk": 192.54,
-            "def": 499.56
-        },
+        "baseAttr": { "hp": 13348, "atk": 192.54, "def": 499.56 },
         "build": {
             "set": [],
             "setList": [
@@ -2435,8 +2135,8 @@
                 "hpp": 1,
                 "atkp": 0,
                 "defp": 0,
-                "em": 0.75,
-                "er": 0.75,
+                "em": 0.5,
+                "er": 1,
                 "cr": 0.3,
                 "cd": 0.3
             }
@@ -2445,11 +2145,7 @@
     "Lynette": {
         "element": "anemo",
         "rarity": 4,
-        "baseAttr": {
-            "hp": 12397,
-            "atk": 231.51,
-            "def": 711.87
-        },
+        "baseAttr": { "hp": 12397, "atk": 231.51, "def": 711.87 },
         "build": {
             "set": [],
             "setList": [
@@ -2479,11 +2175,7 @@
     "Lyney": {
         "element": "pyro",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 11021,
-            "atk": 318.11,
-            "def": 537.99
-        },
+        "baseAttr": { "hp": 11021, "atk": 318.11, "def": 537.99 },
         "build": {
             "set": [],
             "setList": [
@@ -2513,11 +2205,7 @@
     "Freminet": {
         "element": "cryo",
         "rarity": 4,
-        "baseAttr": {
-            "hp": 12071,
-            "atk": 254.88,
-            "def": 708.46
-        },
+        "baseAttr": { "hp": 12071, "atk": 254.88, "def": 708.46 },
         "build": {
             "set": [],
             "setList": [
@@ -2547,11 +2235,7 @@
     "Neuvillette": {
         "element": "hydro",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 14695,
-            "atk": 208.32,
-            "def": 576.42
-        },
+        "baseAttr": { "hp": 14695, "atk": 208.32, "def": 576.42 },
         "build": {
             "set": [],
             "setList": [["MarechausseeHunter"], ["HeartOfDepth"]],
@@ -2577,11 +2261,7 @@
     "Wriothesley": {
         "element": "cryo",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 13593,
-            "atk": 310.93,
-            "def": 763.17
-        },
+        "baseAttr": { "hp": 13593, "atk": 310.93, "def": 763.17 },
         "build": {
             "set": [],
             "setList": [
@@ -2611,11 +2291,7 @@
     "Furina": {
         "element": "hydro",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 15307,
-            "atk": 243.96,
-            "def": 695.54
-        },
+        "baseAttr": { "hp": 15307, "atk": 243.96, "def": 695.54 },
         "build": {
             "set": [],
             "setList": [["GoldenTroupe"]],
@@ -2631,7 +2307,7 @@
                 "hpp": 1,
                 "atkp": 0,
                 "defp": 0,
-                "em": 0.45,
+                "em": 0,
                 "er": 0.75,
                 "cr": 1,
                 "cd": 1
@@ -2641,11 +2317,7 @@
     "Charlotte": {
         "element": "cryo",
         "rarity": 4,
-        "baseAttr": {
-            "hp": 10766,
-            "atk": 173.1,
-            "def": 546.02
-        },
+        "baseAttr": { "hp": 10766, "atk": 173.1, "def": 546.02 },
         "build": {
             "set": [],
             "setList": [
@@ -2676,11 +2348,7 @@
     "Chevreuse": {
         "element": "pyro",
         "rarity": 4,
-        "baseAttr": {
-            "hp": 11962,
-            "atk": 193.28,
-            "def": 604.71
-        },
+        "baseAttr": { "hp": 11962, "atk": 193.28, "def": 604.71 },
         "build": {
             "set": [],
             "setList": [["NoblesseOblige"], ["SongOfDaysPast"], ["s:hb"]],
@@ -2706,11 +2374,7 @@
     "Navia": {
         "element": "geo",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 12650,
-            "atk": 351.59,
-            "def": 793.15
-        },
+        "baseAttr": { "hp": 12650, "atk": 351.59, "def": 793.15 },
         "build": {
             "set": [],
             "setList": [
@@ -2739,11 +2403,7 @@
     "Gaming": {
         "element": "pyro",
         "rarity": 4,
-        "baseAttr": {
-            "hp": 11419,
-            "atk": 301.6,
-            "def": 703
-        },
+        "baseAttr": { "hp": 11419, "atk": 301.6, "def": 703 },
         "build": {
             "set": [],
             "setList": [
@@ -2773,11 +2433,7 @@
     "Xianyun": {
         "element": "anemo",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 10409,
-            "atk": 334.85,
-            "def": 572.57
-        },
+        "baseAttr": { "hp": 10409, "atk": 334.85, "def": 572.57 },
         "build": {
             "set": [],
             "setList": [
@@ -2808,11 +2464,7 @@
     "Chiori": {
         "element": "geo",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 11438,
-            "atk": 322.89,
-            "def": 953.01
-        },
+        "baseAttr": { "hp": 11438, "atk": 322.89, "def": 953.01 },
         "build": {
             "set": [],
             "setList": [
@@ -2842,11 +2494,7 @@
     "Arlecchino": {
         "element": "pyro",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 13103,
-            "atk": 342.03,
-            "def": 764.71
-        },
+        "baseAttr": { "hp": 13103, "atk": 342.03, "def": 764.71 },
         "build": {
             "set": [],
             "setList": [["FragmentOfHarmonicWhimsy"], ["EchoesOfAnOffering"]],
@@ -2872,11 +2520,7 @@
     "Sigewinne": {
         "element": "hydro",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 13348,
-            "atk": 192.54,
-            "def": 499.56
-        },
+        "baseAttr": { "hp": 13348, "atk": 192.54, "def": 499.56 },
         "build": {
             "set": [],
             "setList": [
@@ -2885,11 +2529,7 @@
                 ["TenacityOfTheMillelith"],
                 ["s:hpp"]
             ],
-            "main": {
-                "sands": ["hpp"],
-                "goblet": ["hpp"],
-                "circlet": ["hpp"]
-            },
+            "main": { "sands": ["hpp"], "goblet": ["hpp"], "circlet": ["hpp"] },
             "weight": {
                 "hp": 0,
                 "atk": 0,
@@ -2907,11 +2547,7 @@
     "Sethos": {
         "element": "electro",
         "rarity": 4,
-        "baseAttr": {
-            "hp": 9787,
-            "atk": 227.26,
-            "def": 559.67
-        },
+        "baseAttr": { "hp": 9787, "atk": 227.26, "def": 559.67 },
         "build": {
             "set": [],
             "setList": [["WanderersTroupe"], ["s:em"], ["GildedDreams"]],
@@ -2937,11 +2573,7 @@
     "Clorinde": {
         "element": "electro",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 12956,
-            "atk": 337.24,
-            "def": 783.93
-        },
+        "baseAttr": { "hp": 12956, "atk": 337.24, "def": 783.93 },
         "build": {
             "set": [],
             "setList": [
@@ -2971,28 +2603,20 @@
     "Emilie": {
         "element": "dendro",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 13568,
-            "atk": 334.85,
-            "def": 730.13
-        },
+        "baseAttr": { "hp": 13568, "atk": 334.85, "def": 730.13 },
         "build": {
             "set": [],
             "setList": [[]],
-            "main": {
-                "sands": [],
-                "goblet": [],
-                "circlet": []
-            },
+            "main": { "sands": [], "goblet": [], "circlet": [] },
             "weight": {
                 "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.75,
+                "atkp": 1,
                 "defp": 0,
-                "em": 0,
-                "er": 0,
+                "em": 0.3,
+                "er": 0.55,
                 "cr": 1,
                 "cd": 1
             }
@@ -3001,28 +2625,24 @@
     "Kachina": {
         "element": "geo",
         "rarity": 4,
-        "baseAttr": {
-            "hp": 11799,
-            "atk": 216.65,
-            "def": 792.41
-        },
+        "baseAttr": { "hp": 11799, "atk": 216.65, "def": 792.41 },
         "build": {
             "set": [],
-            "setList": [[]],
+            "setList": [["ScrolloftheHeroofCinderCity"]],
             "main": {
-                "sands": [],
-                "goblet": [],
-                "circlet": []
+                "sands": ["er", "defp"],
+                "goblet": ["em"],
+                "circlet": ["em"]
             },
             "weight": {
                 "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.75,
-                "defp": 0,
+                "atkp": 0,
+                "defp": 1,
                 "em": 0,
-                "er": 0,
+                "er": 0.55,
                 "cr": 1,
                 "cd": 1
             }
@@ -3031,18 +2651,14 @@
     "Kinich": {
         "element": "dendro",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 12858,
-            "atk": 332.46,
-            "def": 801.6
-        },
+        "baseAttr": { "hp": 12858, "atk": 332.46, "def": 801.6 },
         "build": {
             "set": [],
-            "setList": [[]],
+            "setList": [["ObsidianCodex"]],
             "main": {
-                "sands": [],
-                "goblet": [],
-                "circlet": []
+                "sands": ["hpp"],
+                "goblet": ["hydroDB"],
+                "circlet": ["cd"]
             },
             "weight": {
                 "hp": 0,
@@ -3061,28 +2677,42 @@
     "Mualani": {
         "element": "hydro",
         "rarity": 5,
-        "baseAttr": {
-            "hp": 15185,
-            "atk": 181.78,
-            "def": 570.27
-        },
+        "baseAttr": { "hp": 15185, "atk": 181.78, "def": 570.27 },
         "build": {
             "set": [],
             "setList": [[]],
-            "main": {
-                "sands": [],
-                "goblet": [],
-                "circlet": []
-            },
+            "main": { "sands": [], "goblet": [], "circlet": [] },
             "weight": {
                 "hp": 0,
                 "atk": 0,
                 "def": 0,
-                "hpp": 0,
-                "atkp": 0.75,
+                "hpp": 1,
+                "atkp": 0,
                 "defp": 0,
-                "em": 0,
-                "er": 0,
+                "em": 0.75,
+                "er": 0.55,
+                "cr": 1,
+                "cd": 1
+            }
+        }
+    },
+    "Xilonen": {
+        "element": "geo",
+        "rarity": 5,
+        "baseAttr": { "hp": 12405, "atk": 275.06, "def": 929.95 },
+        "build": {
+            "set": [],
+            "setList": [[]],
+            "main": { "sands": [], "goblet": [], "circlet": [] },
+            "weight": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "hpp": 1,
+                "atkp": 0,
+                "defp": 0,
+                "em": 0.75,
+                "er": 0.55,
                 "cr": 1,
                 "cd": 1
             }
