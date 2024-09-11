@@ -2628,7 +2628,7 @@
         "baseAttr": { "hp": 11799, "atk": 216.65, "def": 792.41 },
         "build": {
             "set": [],
-            "setList": [["ScrolloftheHeroofCinderCity"]],
+            "setList": [["ScrollOfTheHeroOfCinderCity"]],
             "main": {
                 "sands": ["er", "defp"],
                 "goblet": ["em"],
