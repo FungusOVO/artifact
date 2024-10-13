@@ -193,6 +193,8 @@
                 "WatchmakerMasterofDreamMachinations": "机心戏梦的钟表匠",
                 "IronCavalryAgainsttheScourge": "荡除蠹灾的铁骑",
                 "TheWindSoaringValorous": "风举云飞的勇烈",
+                "SacerdosRelivedOrdeal": "重循苦旅的司铎",
+                "ScholarLostinErudition": "识海迷坠的学者",
 
                 "SpaceSealingStation": "太空封印站",
                 "FleetoftheAgeless": "不老者的仙舟",
@@ -209,7 +211,9 @@
                 "SigoniatheUnclaimedDesolation": "无主荒星茨冈尼亚",
                 "IzumoGenseiandTakamaDivineRealm": "出云显世与高天神国",
                 "DuranDynastyofRunningWolves": "奔狼的都蓝王朝",
-                "ForgeoftheKalpagniLantern": "劫火莲灯铸炼宫"
+                "ForgeoftheKalpagniLantern": "劫火莲灯铸炼宫",
+                "LushakatheSunkenSeas": "沉陆海域露莎卡",
+                "TheWondrousBananAmusementPark": "奇想蕉乐园"
             },
             "set_group": {
                 "s:atkp": "攻击2",
@@ -352,7 +356,9 @@
             "Kachina": "卡齐娜",
             "Kinich": "基尼奇",
             "Mualani": "玛拉妮",
-            "Xilonen": "希诺宁"
+            "Xilonen": "希诺宁",
+            "Chasca": "恰斯卡",
+            "Ororon": "欧洛伦"
         },
         "sr": {
             "Trailblazer_Destruction": "物理主",
@@ -413,7 +419,8 @@
             "March7th_TheHunt": "三月七·巡猎",
             "Feixiao": "飞霄",
             "Lingsha": "灵砂",
-            "Moze": "貊泽"
+            "Moze": "貊泽",
+            "Rappa": "乱破"
         }
     },
 

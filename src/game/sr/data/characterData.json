@@ -2626,11 +2626,11 @@
                 "atkp": 0.75,
                 "def": 0,
                 "defp": 0,
-                "spd": 1,
+                "spd": 0,
                 "cr": 1,
                 "cd": 1,
                 "be": 0,
-                "er": 0,
+                "er": 1,
                 "eh": 0,
                 "eres": 0
             }
@@ -2696,12 +2696,23 @@
         },
         "build": {
             "set": [],
-            "setList": [[]],
+            "setList": [
+                [
+                    "EagleofTwilightLine",
+                    "DuranDynastyofRunningWolves",
+                    "InertSalsotto"
+                ],
+                [
+                    "TheWindSoaringValorous",
+                    "DuranDynastyofRunningWolves",
+                    "InertSalsotto"
+                ]
+            ],
             "main": {
-                "Body": [],
-                "Feet": [],
-                "PlanarSphere": [],
-                "LinkRope": []
+                "Body": ["cd", "cr"],
+                "Feet": ["spd"],
+                "PlanarSphere": ["windDB"],
+                "LinkRope": ["atkp"]
             },
             "weight": {
                 "hp": 0,
@@ -2710,11 +2721,11 @@
                 "atkp": 0.75,
                 "def": 0,
                 "defp": 0,
-                "spd": 1,
+                "spd": 0.75,
                 "cr": 1,
                 "cd": 1,
                 "be": 0,
-                "er": 0,
+                "er": 1,
                 "eh": 0,
                 "eres": 0
             }
@@ -2735,12 +2746,31 @@
         },
         "build": {
             "set": [],
-            "setList": [[]],
+            "setList": [
+                [
+                    "IronCavalryAgainsttheScourge",
+                    "ForgeoftheKalpagniLantern",
+                    "TaliaKingdomofBanditry",
+                    "FleetoftheAgeless"
+                ],
+                [
+                    "ThiefofShootingMeteor",
+                    "ForgeoftheKalpagniLantern",
+                    "TaliaKingdomofBanditry",
+                    "FleetoftheAgeless"
+                ],
+                [
+                    "PasserbyofWanderingCloud",
+                    "ForgeoftheKalpagniLantern",
+                    "TaliaKingdomofBanditry",
+                    "FleetoftheAgeless"
+                ]
+            ],
             "main": {
-                "Body": [],
-                "Feet": [],
-                "PlanarSphere": [],
-                "LinkRope": []
+                "Body": ["hb"],
+                "Feet": ["spd"],
+                "PlanarSphere": ["atkp"],
+                "LinkRope": ["er"]
             },
             "weight": {
                 "hp": 0,
@@ -2750,10 +2780,10 @@
                 "def": 0,
                 "defp": 0,
                 "spd": 1,
-                "cr": 1,
-                "cd": 1,
-                "be": 0,
-                "er": 0,
+                "cr": 0,
+                "cd": 0,
+                "be": 1,
+                "er": 1,
                 "eh": 0,
                 "eres": 0
             }
@@ -2768,6 +2798,66 @@
             "hp": 811,
             "def": 352.8,
             "speed": 125,
+            "cpct": 5,
+            "cdmg": 50,
+            "aggro": 75
+        },
+        "build": {
+            "set": [],
+            "setList": [
+                [
+                    "PioneerDiverofDeadWaters",
+                    "DuranDynastyofRunningWolves",
+                    "InertSalsotto"
+                ],
+                [
+                    "TheAshblazingGrandDuke",
+                    "DuranDynastyofRunningWolves",
+                    "InertSalsotto"
+                ],
+                [
+                    "TheWindSoaringValorous",
+                    "DuranDynastyofRunningWolves",
+                    "InertSalsotto"
+                ],
+                [
+                    "EagleofTwilightLine",
+                    "DuranDynastyofRunningWolves",
+                    "InertSalsotto"
+                ]
+            ],
+            "main": {
+                "Body": ["cd", "cr"],
+                "Feet": ["spd", "atkp"],
+                "PlanarSphere": ["lightningDB"],
+                "LinkRope": ["atkp"]
+            },
+            "weight": {
+                "hp": 0,
+                "hpp": 0,
+                "atk": 0,
+                "atkp": 0.75,
+                "def": 0,
+                "defp": 0,
+                "spd": 0.5,
+                "cr": 1,
+                "cd": 1,
+                "be": 0,
+                "er": 1,
+                "eh": 0,
+                "eres": 0
+            }
+        }
+    },
+    "Rappa": {
+        "element": "Imaginary",
+        "path": "Erudition",
+        "rarity": "5",
+        "baseAttr": {
+            "atk": 717.95,
+            "hp": 1087,
+            "def": 460.85,
+            "speed": 96,
             "cpct": 5,
             "cdmg": 50,
             "aggro": 75

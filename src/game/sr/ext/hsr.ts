@@ -60,6 +60,8 @@ const keymap = {
         IzumoGenseiandTakamaDivineRealm: "Izumo Gensei and Takama Divine Realm",
         DuranDynastyofRunningWolves: "Duran, Dynasty of Running Wolves",
         ForgeoftheKalpagniLantern: "Forge of the Kalpagni Lantern",
+        LushakatheSunkenSeas: "The Wondrous BananAmusement Park",
+        TheWondrousBananAmusementPark: "The Wondrous BananAmusement Park",
     },
     yasSet: <{ [key: string]: string }>{
         BelobogoftheArchitects: "Belobog's Fortress of Preservation",

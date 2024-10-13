@@ -195,7 +195,7 @@
                 "atkp": 0.85,
                 "defp": 0,
                 "em": 0,
-                "er": 0.55,
+                "er": 0.75,
                 "cr": 0.5,
                 "cd": 0.5
             }
@@ -470,8 +470,8 @@
                 "hpp": 0,
                 "atkp": 0.75,
                 "defp": 0,
-                "em": 0.75,
-                "er": 0.55,
+                "em": 0.45,
+                "er": 1,
                 "cr": 1,
                 "cd": 1
             }
@@ -1453,7 +1453,7 @@
                 "hpp": 0,
                 "atkp": 0.75,
                 "defp": 0,
-                "em": 0.75,
+                "em": 0.3,
                 "er": 0.3,
                 "cr": 1,
                 "cd": 1
@@ -1505,7 +1505,7 @@
                 "atkp": 0.5,
                 "defp": 0,
                 "em": 0,
-                "er": 0,
+                "er": 0.3,
                 "cr": 0.5,
                 "cd": 0.5
             }
@@ -1690,9 +1690,9 @@
                 "atkp": 0.75,
                 "defp": 0,
                 "em": 0.75,
-                "er": 0.3,
-                "cr": 0.5,
-                "cd": 0.5
+                "er": 0.75,
+                "cr": 1,
+                "cd": 1
             }
         }
     },
@@ -1835,11 +1835,11 @@
                 "hp": 0,
                 "atk": 0,
                 "def": 0,
-                "hpp": 0.75,
-                "atkp": 0.75,
+                "hpp": 1,
+                "atkp": 0.5,
                 "defp": 0,
                 "em": 0,
-                "er": 0.55,
+                "er": 0.75,
                 "cr": 1,
                 "cd": 1
             }
@@ -2166,7 +2166,7 @@
                 "atkp": 0.75,
                 "defp": 0,
                 "em": 0,
-                "er": 0.55,
+                "er": 0.75,
                 "cr": 1,
                 "cd": 1
             }
@@ -2196,7 +2196,7 @@
                 "atkp": 0.75,
                 "defp": 0,
                 "em": 0,
-                "er": 0.55,
+                "er": 0.3,
                 "cr": 1,
                 "cd": 1
             }
@@ -2282,7 +2282,7 @@
                 "atkp": 0.75,
                 "defp": 0,
                 "em": 0.75,
-                "er": 0.55,
+                "er": 0.45,
                 "cr": 1,
                 "cd": 1
             }
@@ -2511,7 +2511,7 @@
                 "atkp": 0.75,
                 "defp": 0,
                 "em": 0.75,
-                "er": 0.55,
+                "er": 0.3,
                 "cr": 1,
                 "cd": 1
             }
@@ -2606,8 +2606,12 @@
         "baseAttr": { "hp": 13568, "atk": 334.85, "def": 730.13 },
         "build": {
             "set": [],
-            "setList": [[]],
-            "main": { "sands": [], "goblet": [], "circlet": [] },
+            "setList": [["UnfinishedReverie", "DeepwoodMemories"]],
+            "main": {
+                "sands": ["atkp"],
+                "goblet": ["dendroDB"],
+                "circlet": ["cr", "cd"]
+            },
             "weight": {
                 "hp": 0,
                 "atk": 0,
@@ -2640,9 +2644,9 @@
                 "def": 0,
                 "hpp": 0,
                 "atkp": 0,
-                "defp": 1,
+                "defp": 0.75,
                 "em": 0,
-                "er": 0.55,
+                "er": 0.75,
                 "cr": 1,
                 "cd": 1
             }
@@ -2665,10 +2669,10 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.75,
+                "atkp": 0.85,
                 "defp": 0,
                 "em": 0,
-                "er": 0,
+                "er": 0.5,
                 "cr": 1,
                 "cd": 1
             }
@@ -2680,8 +2684,12 @@
         "baseAttr": { "hp": 15185, "atk": 181.78, "def": 570.27 },
         "build": {
             "set": [],
-            "setList": [[]],
-            "main": { "sands": [], "goblet": [], "circlet": [] },
+            "setList": [["ObsidianCodex", "GildedDreams"]],
+            "main": {
+                "sands": ["hpp", "em"],
+                "goblet": ["hydroDB"],
+                "circlet": ["cr", "cd"]
+            },
             "weight": {
                 "hp": 0,
                 "atk": 0,
@@ -2689,8 +2697,8 @@
                 "hpp": 1,
                 "atkp": 0,
                 "defp": 0,
-                "em": 0.75,
-                "er": 0.55,
+                "em": 0.85,
+                "er": 0.45,
                 "cr": 1,
                 "cd": 1
             }
@@ -2702,17 +2710,65 @@
         "baseAttr": { "hp": 12405, "atk": 275.06, "def": 929.95 },
         "build": {
             "set": [],
-            "setList": [[]],
+            "setList": [["ScrollOfTheHeroOfCinderCity"]],
+            "main": {
+                "sands": ["er", "defp"],
+                "goblet": ["defp"],
+                "circlet": ["defp", "hb"]
+            },
+            "weight": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "hpp": 0,
+                "atkp": 0,
+                "defp": 1,
+                "em": 0,
+                "er": 1,
+                "cr": 0.3,
+                "cd": 0.3
+            }
+        }
+    },
+    "Chasca": {
+        "element": "anemo",
+        "rarity": 5,
+        "baseAttr": { "hp": 9797, "atk": 346.81, "def": 614.84 },
+        "build": {
+            "set": [],
+            "setList": [],
             "main": { "sands": [], "goblet": [], "circlet": [] },
             "weight": {
                 "hp": 0,
                 "atk": 0,
                 "def": 0,
-                "hpp": 1,
-                "atkp": 0,
+                "hpp": 0,
+                "atkp": 0.75,
                 "defp": 0,
-                "em": 0.75,
-                "er": 0.55,
+                "em": 0,
+                "er": 0,
+                "cr": 1,
+                "cd": 1
+            }
+        }
+    },
+    "Ororon": {
+        "element": "electro",
+        "rarity": 4,
+        "baseAttr": { "hp": 9244, "atk": 244.26, "def": 586.97 },
+        "build": {
+            "set": [],
+            "setList": [],
+            "main": { "sands": [], "goblet": [], "circlet": [] },
+            "weight": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "hpp": 0,
+                "atkp": 0.75,
+                "defp": 0,
+                "em": 0,
+                "er": 0,
                 "cr": 1,
                 "cd": 1
             }

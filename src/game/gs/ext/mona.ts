@@ -63,6 +63,8 @@ const keymap = {
         SongOfDaysPast: "SongOfDaysPast",
         NighttimeWhispersInTheEchoingWoods:
             "NighttimeWhispersInTheEchoingWoods",
+        FragmentOfHarmonicWhimsy: "FragmentOfHarmonicWhimsy",
+        UnfinishedReverie: "UnfinishedReverie",
     },
     affix: <{ [key: string]: string }>{
         hp: "lifeStatic",
