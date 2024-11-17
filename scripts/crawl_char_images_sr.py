@@ -75,6 +75,8 @@ char_configs = [
     {"id": "lingsha-character", "key": "Lingsha"},
     {"id": "moze-character", "key": "Moze"},
     {"id": "rappa-character", "key": "Rappa"},
+    {"id": "fugue-character", "key": "Fugue"},
+    {"id": "sunday-character", "key": "Sunday"},
 ]
 
 

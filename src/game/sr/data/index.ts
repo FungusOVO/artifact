@@ -22,7 +22,7 @@ ArtifactData.adjustSlotKeys = artifactData.slotKeys.filter((key) => {
     return false;
 });
 
-const CharacterData: ICharacterData = Object.assign({}, characterData);
+const CharacterData: ICharacterData = JSON.parse(JSON.stringify(characterData));
 for (let charName in CharacterData) {
     let char = CharacterData[charName];
     char.build.set = [...new Set(char.build.setList.flat())];
@@ -40,6 +40,7 @@ export function setElementType(type: ISrElementType) {
         ArtifactData.elementKeys = artifactData.pathKeys;
         charElementKey = "path";
     }
+
     for (let charName in CharacterData) {
         let char = CharacterData[charName];
         let originChar = characterData[charName as keyof typeof characterData];

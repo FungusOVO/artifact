@@ -48,6 +48,9 @@ const elements = computed(() => {
 
 const avatars = computed(() => {
     let ret: { [e: string]: IAvatar[] } = {};
+    let elementType = artStore.elementType;
+    console.log(elementType);
+
     for (let b of artStore.builds) {
         let element, icon, rarity, data;
         if (b.key.startsWith("0")) {
@@ -56,13 +59,15 @@ const avatars = computed(() => {
             rarity = 1;
         } else {
             data = artStore.characterData[b.key];
-            element = data[artStore.elementType];
+            element = data.element;
             icon = b.key.startsWith("Traveler")
                 ? `./assets/char_faces/${artStore.game}/Traveler.webp`
                 : `./assets/char_faces/${artStore.game}/${b.key}.webp`;
             rarity = data.rarity;
         }
-        if (!(element in ret)) ret[element] = [] as IAvatar[];
+        if (!ret[element]) {
+            ret[element] = [];
+        }
         ret[element].push({
             key: b.key,
             text: b.name,

@@ -243,16 +243,7 @@ export const useArtifactStore = defineStore("artifact", () => {
             game.value = gameManager.getGame();
             artifactData.value = gameManager.getArtifactData();
             characterData.value = gameManager.getCharacterData();
-        },
-        { immediate: true },
-    );
-
-    watch(
-        elementType,
-        (val) => {
-            gameManager.updateElementType(val);
-            artifactData.value = gameManager.getArtifactData();
-            characterData.value = gameManager.getCharacterData();
+            updateElementType();
         },
         { immediate: true },
     );
@@ -536,6 +527,14 @@ export const useArtifactStore = defineStore("artifact", () => {
 
     function changeElementType() {
         elementType.value = gameManager.changeElementType(elementType.value);
+        artifactData.value = gameManager.getArtifactData();
+        characterData.value = gameManager.getCharacterData();
+    }
+
+    function updateElementType() {
+        gameManager.updateElementType(elementType.value);
+        artifactData.value = gameManager.getArtifactData();
+        characterData.value = gameManager.getCharacterData();
     }
 
     return {

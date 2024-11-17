@@ -2864,6 +2864,87 @@
         },
         "build": {
             "set": [],
+            "setList": [
+                ["IronCavalryAgainsttheScourge", "TaliaKingdomofBanditry"],
+                [["IronCavalryAgainsttheScourge", "ForgeoftheKalpagniLantern"]]
+            ],
+            "main": {
+                "Body": [],
+                "Feet": [],
+                "PlanarSphere": [],
+                "LinkRope": []
+            },
+            "weight": {
+                "hp": 0,
+                "hpp": 0,
+                "atk": 0,
+                "atkp": 0.75,
+                "def": 0,
+                "defp": 0,
+                "spd": 1,
+                "cr": 1,
+                "cd": 1,
+                "be": 0,
+                "er": 0,
+                "eh": 0,
+                "eres": 0
+            }
+        }
+    },
+    "Fugue": {
+        "element": "Fire",
+        "path": "Nihility",
+        "rarity": "5",
+        "baseAttr": {
+            "atk": 582.12,
+            "hp": 1125,
+            "def": 557.87,
+            "speed": 102,
+            "cpct": 5,
+            "cdmg": 50,
+            "aggro": 100
+        },
+        "build": {
+            "set": [],
+            "setList": [[]],
+            "main": {
+                "Body": [],
+                "Feet": [],
+                "PlanarSphere": [],
+                "LinkRope": []
+            },
+            "weight": {
+                "hp": 0,
+                "hpp": 0,
+                "atk": 0,
+                "atkp": 0.75,
+                "def": 0,
+                "defp": 0,
+                "spd": 1,
+                "cr": 1,
+                "cd": 1,
+                "be": 0,
+                "er": 0,
+                "eh": 0,
+                "eres": 0
+            }
+        }
+    },
+    "Sunday": {
+        "element": "Imaginary",
+        "path": "Harmony",
+        "rarity": "5",
+        "baseAttr": {
+            "atk": 640.33,
+            "hp": 1242,
+            "def": 533.61,
+            "speed": 96,
+            "cpct": 5,
+            "cdmg": 50,
+            "aggro": 100
+        },
+        "build": {
+            "set": [],
             "setList": [[]],
             "main": {
                 "Body": [],

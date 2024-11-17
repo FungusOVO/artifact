@@ -74,9 +74,11 @@ export function gameLocalStorage<T>(
         let curGame = gameManager.getGame();
         if (curGame == game) {
             ret.value = storage.value;
-            for (let key in fixDefaultVal) {
-                if (!ret.value[key] && fixDefaultVal[key]) {
-                    ret.value[key] = fixDefaultVal[key];
+            if (typeof fixDefaultVal == "object") {
+                for (let key in fixDefaultVal) {
+                    if (!ret.value[key] && fixDefaultVal[key]) {
+                        ret.value[key] = fixDefaultVal[key];
+                    }
                 }
             }
         }

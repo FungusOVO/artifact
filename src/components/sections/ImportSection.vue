@@ -78,7 +78,7 @@ const showPreview = ref(false);
 const showYasConfig = ref(false);
 // 测试
 nextTick(() => {
-    artStore.setArtifacts(testArts, false, "gs");
+    artStore.setArtifacts(testArts, false, gameManager.getGame());
 });
 </script>
 

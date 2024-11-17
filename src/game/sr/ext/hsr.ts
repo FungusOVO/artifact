@@ -9,6 +9,7 @@ interface tag {
 
 interface relics {
     set: string;
+    name: string;
     slot: string;
     rarity: number;
     level: number;
@@ -18,6 +19,7 @@ interface relics {
     lock: boolean;
     discard: boolean;
     _id: string;
+    _uid: string;
 }
 
 const keymap = {
@@ -177,11 +179,85 @@ const keymap = {
         "TrailblazerPreservation": "Trailblazer_Preservation",
         "TrailblazerHarmony": "Trailblazer_Harmony",
     },
+    characterId: <{ [key: string]: string }>{
+        "March 7th": "1001",
+        "Dan Heng": "1002",
+        "Himeko": "1103",
+        "Welt": "1004",
+        "Kafka": "1005",
+        "Silver Wolf": "1106",
+        "Arlan": "1008",
+        "Asta": "1009",
+        "Herta": "1013",
+        "Bronya": "1101",
+        "Seele": "1102",
+        "Serval": "1103",
+        "Gepard": "1104",
+        "Natasha": "1105",
+        "Pela": "1106",
+        "Clara": "1107",
+        "Sampo": "1108",
+        "Hook": "1109",
+        "Lynx": "1110",
+        "Luka": "1111",
+        "Topaz & Numby": "1112",
+        "Qingque": "1201",
+        "Tingyun": "1202",
+        "Luocha": "1203",
+        "Jing Yuan": "1204",
+        "Blade": "1205",
+        "Sushang": "1206",
+        "Yukong": "1207",
+        "Fu Xuan": "1208",
+        "Yanqing": "1209",
+        "Guinaifen": "1210",
+        "Bailu": "1211",
+        "Jingliu": "1212",
+        "Dan Heng • Imbibitor Lunae": "1213",
+        "Xueyi": "1214",
+        "Hanya": "1215",
+        "Huohuo": "1217",
+        "Jiaoqiu": "1218",
+        "Yunli": "1221",
+        "Gallagher": "1301",
+        "Argenti": "1302",
+        "Ruan Mei": "1303",
+        "Aventurine": "1304",
+        "Dr. Ratio": "1305",
+        "Sparkle": "1306",
+        "Black Swan": "1307",
+        "Acheron": "1308",
+        "Robin": "1309",
+        "Firefly": "1310",
+        "Misha": "1312",
+        "Jade": "1314",
+        "Boothill": "1315",
+        "March7th_TheHunt": "1224",
+        "Feixiao": "1220",
+        "Lingsha": "1222",
+        "Moze": "1223",
+        "Rappa": "1317",
+        "Fugue": "忘归人",
+        "Sunday": "星期日",
+        "TrailblazerDestruction": "8002",
+        "TrailblazerPreservation": "8004",
+        "TrailblazerHarmony": "8006",
+    },
 };
 
 function getAffix(key: string, value: number) {
     key = whatis(key, keymap.affix) as string;
     return new SrAffix({ key, value });
+}
+
+function getKeyName(o: relics) {
+    let keyIdName = (["_uid", "_id"] as Array<keyof relics>).filter((k) => {
+        return !!o[k];
+    })[0];
+    let keySetName = (["name", "set"] as Array<keyof relics>).filter((k) => {
+        return !!o[k];
+    })[0];
+    return { keyIdName, keySetName };
 }
 
 export default {
@@ -193,12 +269,16 @@ export default {
             ),
         );
         let hsrRelicArr: relics[] = hsrObj.relics;
-        assert(hsrRelicArr instanceof Object);
+        assert(hsrRelicArr instanceof Array);
+        assert(hsrRelicArr.length > 0, "Empty");
+
+        let { keyIdName, keySetName } = getKeyName(hsrRelicArr[0]);
+
         let result: Artifact[] = [];
         hsrRelicArr.sort((a, b) => {
             return (
-                Number(a._id.replaceAll(/[^\d]/g, "")) -
-                Number(b._id.replaceAll(/[^\d]/g, ""))
+                Number((a[keyIdName] as string).replaceAll(/[^\d]/g, "")) -
+                Number((b[keyIdName] as string).replaceAll(/[^\d]/g, ""))
             );
         });
 
@@ -211,14 +291,17 @@ export default {
             }
             let artifact = new SrArtifact({
                 set:
-                    whatis(a.set, keymap.set) ||
-                    (whatis(a.set, keymap.yasSet) as string),
+                    whatis(a[keySetName] as string, keymap.set) ||
+                    (whatis(a[keySetName] as string, keymap.yasSet) as string),
                 slot: whatis(a.slot, keymap.slot) as string,
                 mainKey: whatis(a.mainstat, keymap.mainKey) as string,
                 minors: a.substats.map((t) => getAffix(t.key, t.value)),
                 level: a.level,
                 rarity: a.rarity,
-                location: whatis(a.location, keymap.characterName) || "",
+                location:
+                    whatis(a.location, keymap.characterName) ||
+                    whatis(a.location, keymap.characterId) ||
+                    "",
                 lock: a.lock,
             });
             artifact.data.source = "*/hsr";

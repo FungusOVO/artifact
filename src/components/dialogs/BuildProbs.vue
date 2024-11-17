@@ -47,7 +47,6 @@ function updBuildProbsData() {
         });
     }
     probs.sort((a, b) => b.prob - a.prob);
-
     buildProbsData.value = probs.map((x) => ({
         name: x.name,
         prob: (x.prob * 100).toFixed(1) + "%",

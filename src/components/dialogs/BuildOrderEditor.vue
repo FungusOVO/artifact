@@ -63,6 +63,9 @@ interface IAvatar {
 
 const avatars = computed(() => {
     let ret: { [e: string]: IAvatar[] } = {};
+    let elementType = artStore.elementType;
+    console.log(elementType);
+
     let sotrageKeys = [];
     for (let a of artStore.customizedBuildSorts) {
         sotrageKeys.push(a.key);
