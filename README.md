@@ -18,4 +18,4 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
 2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
 
 # 交流群
-644165093
+QQ群: 644165093
