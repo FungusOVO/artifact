@@ -2866,7 +2866,7 @@
             "set": [],
             "setList": [
                 ["IronCavalryAgainsttheScourge", "TaliaKingdomofBanditry"],
-                [["IronCavalryAgainsttheScourge", "ForgeoftheKalpagniLantern"]]
+                ["IronCavalryAgainsttheScourge", "ForgeoftheKalpagniLantern"]
             ],
             "main": {
                 "Body": [],
