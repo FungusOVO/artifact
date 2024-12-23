@@ -18,6 +18,7 @@ char_configs = [
     {"id": "trailblazer-character-2", "key": "Trailblazer_Destruction"},
     {"id": "trailblazer-character-4", "key": "Trailblazer_Preservation"},
     {"id": "trailblazer-character-6", "key": "Trailblazer_Harmony"},
+    {"id": "trailblazer-character-8", "key": "Trailblazer_Remembrance"},
     {"id": "march-7th-character", "key": "March7th"},
     {"id": "dan-heng-character", "key": "DanHeng"},
     {"id": "himeko-character", "key": "Himeko"},
@@ -77,6 +78,9 @@ char_configs = [
     {"id": "rappa-character", "key": "Rappa"},
     {"id": "fugue-character", "key": "Fugue"},
     {"id": "sunday-character", "key": "Sunday"},
+    {"id": "sunday-character", "key": "Sunday"},
+    {"id": "the-herta-character", "key": "TheHerta"},
+    {"id": "aglaea-character", "key": "Aglaea"},
 ]
 
 

@@ -141,6 +141,45 @@
             }
         }
     },
+    "Trailblazer_Remembrance": {
+        "element": "Ice",
+        "path": "Remembrance",
+        "rarity": "5",
+        "baseAttr": {
+            "atk": 543.31,
+            "hp": 1048,
+            "def": 630.63,
+            "speed": 103,
+            "cpct": 5,
+            "cdmg": 50,
+            "aggro": 100
+        },
+        "build": {
+            "set": [],
+            "setList": [],
+            "main": {
+                "Body": [],
+                "Feet": [],
+                "PlanarSphere": [],
+                "LinkRope": []
+            },
+            "weight": {
+                "hp": 0,
+                "hpp": 0,
+                "atk": 0,
+                "atkp": 0.75,
+                "def": 0,
+                "defp": 0,
+                "spd": 1,
+                "cr": 1,
+                "cd": 1,
+                "be": 0,
+                "er": 0,
+                "eh": 0,
+                "eres": 0
+            }
+        }
+    },
     "March7th": {
         "element": "Ice",
         "path": "Preservation",
@@ -2869,10 +2908,10 @@
                 ["IronCavalryAgainsttheScourge", "ForgeoftheKalpagniLantern"]
             ],
             "main": {
-                "Body": [],
-                "Feet": [],
-                "PlanarSphere": [],
-                "LinkRope": []
+                "Body": ["atkp"],
+                "Feet": ["spd"],
+                "PlanarSphere": ["atkp"],
+                "LinkRope": ["be"]
             },
             "weight": {
                 "hp": 0,
@@ -2906,7 +2945,7 @@
         },
         "build": {
             "set": [],
-            "setList": [[]],
+            "setList": [],
             "main": {
                 "Body": [],
                 "Feet": [],
@@ -2945,7 +2984,110 @@
         },
         "build": {
             "set": [],
-            "setList": [[]],
+            "setList": [
+                [
+                    "SacerdosRelivedOrdeal",
+                    "LushakatheSunkenSeas",
+                    "BrokenKeel",
+                    "PenaconyLandoftheDreams",
+                    "SprightlyVonwacq",
+                    "FleetoftheAgeless"
+                ],
+                [
+                    "MessengerTraversingHackerspace",
+                    "LushakatheSunkenSeas",
+                    "BrokenKeel",
+                    "PenaconyLandoftheDreams",
+                    "SprightlyVonwacq",
+                    "FleetoftheAgeless"
+                ],
+                [
+                    "EagleofTwilightLine",
+                    "LushakatheSunkenSeas",
+                    "BrokenKeel",
+                    "PenaconyLandoftheDreams",
+                    "SprightlyVonwacq",
+                    "FleetoftheAgeless"
+                ]
+            ],
+            "main": {
+                "Body": ["cd"],
+                "Feet": ["spd"],
+                "PlanarSphere": ["hpp", "defp"],
+                "LinkRope": ["er"]
+            },
+            "weight": {
+                "hp": 0,
+                "hpp": 0,
+                "atk": 0,
+                "atkp": 0.75,
+                "def": 0,
+                "defp": 0,
+                "spd": 1,
+                "cr": 1,
+                "cd": 1,
+                "be": 0,
+                "er": 0,
+                "eh": 0,
+                "eres": 0
+            }
+        }
+    },
+    "TheHerta": {
+        "element": "Ice",
+        "path": "Erudition",
+        "rarity": "5",
+        "baseAttr": {
+            "atk": 679.14,
+            "hp": 1164,
+            "def": 485.1,
+            "speed": 99,
+            "cpct": 5,
+            "cdmg": 50,
+            "aggro": 75
+        },
+        "build": {
+            "set": [],
+            "setList": [],
+            "main": {
+                "Body": [],
+                "Feet": [],
+                "PlanarSphere": [],
+                "LinkRope": []
+            },
+            "weight": {
+                "hp": 0,
+                "hpp": 0,
+                "atk": 0,
+                "atkp": 0.75,
+                "def": 0,
+                "defp": 0,
+                "spd": 1,
+                "cr": 1,
+                "cd": 1,
+                "be": 0,
+                "er": 0,
+                "eh": 0,
+                "eres": 0
+            }
+        }
+    },
+    "Aglaea": {
+        "element": "Lightning",
+        "path": "Remembrance",
+        "rarity": "5",
+        "baseAttr": {
+            "atk": 698.54,
+            "hp": 1242,
+            "def": 485.1,
+            "speed": 102,
+            "cpct": 5,
+            "cdmg": 50,
+            "aggro": 100
+        },
+        "build": {
+            "set": [],
+            "setList": [],
             "main": {
                 "Body": [],
                 "Feet": [],

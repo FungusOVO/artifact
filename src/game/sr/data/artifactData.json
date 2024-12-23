@@ -66,7 +66,8 @@
         "Nihility",
         "Harmony",
         "Destruction",
-        "Abundance"
+        "Abundance",
+        "Remembrance"
     ],
     "minorKeys": [
         "atk",
@@ -103,7 +104,9 @@
         "PioneerDiverofDeadWaters",
         "WatchmakerMasterofDreamMachinations",
         "IronCavalryAgainsttheScourge",
-        "TheWindSoaringValorous"
+        "TheWindSoaringValorous",
+        "SacerdosRelivedOrdeal",
+        "ScholarLostinErudition"
     ],
     "setKeysGroup2": [
         "SpaceSealingStation",
@@ -121,7 +124,9 @@
         "SigoniatheUnclaimedDesolation",
         "IzumoGenseiandTakamaDivineRealm",
         "DuranDynastyofRunningWolves",
-        "ForgeoftheKalpagniLantern"
+        "ForgeoftheKalpagniLantern",
+        "LushakatheSunkenSeas",
+        "TheWondrousBananAmusementPark"
     ],
     "setKeysR4": [],
     "setGroups": {

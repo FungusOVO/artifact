@@ -170,7 +170,8 @@
                 "Nihility": "虚无",
                 "Harmony": "同谐",
                 "Destruction": "毁灭",
-                "Abundance": "丰饶"
+                "Abundance": "丰饶",
+                "Remembrance": "记忆"
             },
             "set": {
                 "PasserbyofWanderingCloud": "云无留迹的过客",
@@ -358,12 +359,16 @@
             "Mualani": "玛拉妮",
             "Xilonen": "希诺宁",
             "Chasca": "恰斯卡",
-            "Ororon": "欧洛伦"
+            "Ororon": "欧洛伦",
+            "Mavuika": "玛薇卡",
+            "Citlali": "茜特菈莉",
+            "LanYan": "蓝砚"
         },
         "sr": {
             "Trailblazer_Destruction": "物理主",
             "Trailblazer_Preservation": "火主",
             "Trailblazer_Harmony": "同谐主",
+            "Trailblazer_Remembrance": "记忆主",
             "March7th": "三月七",
             "DanHeng": "丹恒",
             "Himeko": "姬子",
@@ -422,7 +427,9 @@
             "Moze": "貊泽",
             "Rappa": "乱破",
             "Fugue": "忘归人",
-            "Sunday": "星期日"
+            "Sunday": "星期日",
+            "TheHerta": "大黑塔",
+            "Aglaea": "阿格莱雅"
         }
     },
 
