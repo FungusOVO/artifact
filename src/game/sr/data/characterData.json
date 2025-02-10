@@ -156,7 +156,27 @@
         },
         "build": {
             "set": [],
-            "setList": [],
+            "setList": [
+                [
+                    "MessengerTraversingHackerspace",
+                    "SacerdosRelivedOrdeal",
+                    "SprightlyVonwacq",
+                    "LushakatheSunkenSeas",
+                    "PenaconyLandoftheDreams"
+                ],
+                [
+                    "EagleofTwilightLine",
+                    "SprightlyVonwacq",
+                    "LushakatheSunkenSeas",
+                    "PenaconyLandoftheDreams"
+                ],
+                [
+                    "HeroofTriumphantSong",
+                    "SprightlyVonwacq",
+                    "LushakatheSunkenSeas",
+                    "PenaconyLandoftheDreams"
+                ]
+            ],
             "main": {
                 "Body": [],
                 "Feet": [],
@@ -2915,18 +2935,18 @@
             },
             "weight": {
                 "hp": 0,
-                "hpp": 0,
+                "hpp": 0.3,
                 "atk": 0,
-                "atkp": 0.75,
+                "atkp": 1,
                 "def": 0,
-                "defp": 0,
+                "defp": 0.3,
                 "spd": 1,
-                "cr": 1,
-                "cd": 1,
-                "be": 0,
+                "cr": 0,
+                "cd": 0,
+                "be": 1,
                 "er": 0,
                 "eh": 0,
-                "eres": 0
+                "eres": 0.3
             }
         }
     },
@@ -2954,17 +2974,17 @@
             },
             "weight": {
                 "hp": 0,
-                "hpp": 0,
+                "hpp": 0.5,
                 "atk": 0,
-                "atkp": 0.75,
+                "atkp": 0,
                 "def": 0,
-                "defp": 0,
+                "defp": 0.5,
                 "spd": 1,
-                "cr": 1,
-                "cd": 1,
-                "be": 0,
-                "er": 0,
-                "eh": 0,
+                "cr": 0,
+                "cd": 0,
+                "be": 1,
+                "er": 1,
+                "eh": 1,
                 "eres": 0
             }
         }
@@ -3018,18 +3038,18 @@
             },
             "weight": {
                 "hp": 0,
-                "hpp": 0,
+                "hpp": 0.75,
                 "atk": 0,
-                "atkp": 0.75,
+                "atkp": 0,
                 "def": 0,
-                "defp": 0,
+                "defp": 0.75,
                 "spd": 1,
-                "cr": 1,
+                "cr": 0,
                 "cd": 1,
                 "be": 0,
-                "er": 0,
+                "er": 1,
                 "eh": 0,
-                "eres": 0
+                "eres": 0.5
             }
         }
     },
@@ -3045,6 +3065,98 @@
             "cpct": 5,
             "cdmg": 50,
             "aggro": 75
+        },
+        "build": {
+            "set": [],
+            "setList": [
+                [
+                    "ScholarLostinErudition",
+                    "IzumoGenseiandTakamaDivineRealm",
+                    "SigoniatheUnclaimedDesolation",
+                    "RutilantArena"
+                ]
+            ],
+            "main": {
+                "Body": ["cd", "cr"],
+                "Feet": ["spd", "atkp"],
+                "PlanarSphere": ["iceDB"],
+                "LinkRope": ["atkp"]
+            },
+            "weight": {
+                "hp": 0,
+                "hpp": 0.75,
+                "atk": 0,
+                "atkp": 0,
+                "def": 0,
+                "defp": 0,
+                "spd": 1,
+                "cr": 1,
+                "cd": 1,
+                "be": 0,
+                "er": 0,
+                "eh": 0,
+                "eres": 0
+            }
+        }
+    },
+    "Aglaea": {
+        "element": "Lightning",
+        "path": "Remembrance",
+        "rarity": "5",
+        "baseAttr": {
+            "atk": 698.54,
+            "hp": 1242,
+            "def": 485.1,
+            "speed": 102,
+            "cpct": 5,
+            "cdmg": 50,
+            "aggro": 100
+        },
+        "build": {
+            "set": [],
+            "setList": [
+                [
+                    "HeroofTriumphantSong",
+                    "TheWondrousBananAmusementPark",
+                    "FirmamentFrontlineGlamoth",
+                    "RutilantArena"
+                ]
+            ],
+            "main": {
+                "Body": ["cd", "cr"],
+                "Feet": ["spd"],
+                "PlanarSphere": ["lightningDB"],
+                "LinkRope": ["er", "atkp"]
+            },
+            "weight": {
+                "hp": 0,
+                "hpp": 0.75,
+                "atk": 0,
+                "atkp": 0,
+                "def": 0,
+                "defp": 0,
+                "spd": 1,
+                "cr": 1,
+                "cd": 1,
+                "be": 0,
+                "er": 0,
+                "eh": 0,
+                "eres": 0
+            }
+        }
+    },
+    "Tribbie": {
+        "element": "Quantum",
+        "path": "Harmony",
+        "rarity": "5",
+        "baseAttr": {
+            "atk": 523.91,
+            "hp": 1048,
+            "def": 727.65,
+            "speed": 96,
+            "cpct": 5,
+            "cdmg": 50,
+            "aggro": 100
         },
         "build": {
             "set": [],
@@ -3072,18 +3184,18 @@
             }
         }
     },
-    "Aglaea": {
-        "element": "Lightning",
-        "path": "Remembrance",
+    "Mydei": {
+        "element": "Imaginary",
+        "path": "Destruction",
         "rarity": "5",
         "baseAttr": {
-            "atk": 698.54,
-            "hp": 1242,
-            "def": 485.1,
-            "speed": 102,
+            "atk": 426.89,
+            "hp": 1552,
+            "def": 194.04,
+            "speed": 95,
             "cpct": 5,
             "cdmg": 50,
-            "aggro": 100
+            "aggro": 125
         },
         "build": {
             "set": [],

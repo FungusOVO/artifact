@@ -81,6 +81,8 @@ char_configs = [
     {"id": "sunday-character", "key": "Sunday"},
     {"id": "the-herta-character", "key": "TheHerta"},
     {"id": "aglaea-character", "key": "Aglaea"},
+    {"id": "tribbie-character", "key": "Tribbie"},
+    {"id": "mydei-character", "key": "Mydei"},
 ]
 
 

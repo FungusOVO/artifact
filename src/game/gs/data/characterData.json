@@ -18,8 +18,8 @@
                 "hpp": 0,
                 "atkp": 0.75,
                 "defp": 0,
-                "em": 0.75,
-                "er": 0.55,
+                "em": 0,
+                "er": 0,
                 "cr": 1,
                 "cd": 1
             }
@@ -49,7 +49,7 @@
                 "atkp": 0.75,
                 "defp": 0,
                 "em": 0,
-                "er": 0.55,
+                "er": 0,
                 "cr": 1,
                 "cd": 1
             }
@@ -78,8 +78,8 @@
                 "hpp": 0,
                 "atkp": 0.75,
                 "defp": 0,
-                "em": 0.75,
-                "er": 0.75,
+                "em": 0,
+                "er": 0,
                 "cr": 1,
                 "cd": 1
             }
@@ -687,7 +687,7 @@
                 "atkp": 0.5,
                 "defp": 0,
                 "em": 0,
-                "er": 0.75,
+                "er": 1,
                 "cr": 0.5,
                 "cd": 0.5
             }
@@ -2749,7 +2749,7 @@
                 "hpp": 0,
                 "atkp": 0.85,
                 "defp": 0,
-                "em": 0,
+                "em": 0.3,
                 "er": 0.4,
                 "cr": 1,
                 "cd": 1
@@ -2788,8 +2788,12 @@
         "baseAttr": { "hp": 12552, "atk": 358.77, "def": 791.61 },
         "build": {
             "set": [],
-            "setList": [],
-            "main": { "sands": [], "goblet": [], "circlet": [] },
+            "setList": [["ObsidianCodex"], ["MarechausseeHunter"]],
+            "main": {
+                "sands": ["em", "atkp"],
+                "goblet": ["pyroDB", "em"],
+                "circlet": ["cd", "cr"]
+            },
             "weight": {
                 "hp": 0,
                 "atk": 0,
@@ -2797,7 +2801,7 @@
                 "hpp": 0,
                 "atkp": 0.75,
                 "defp": 0,
-                "em": 0.75,
+                "em": 0.85,
                 "er": 0,
                 "cr": 1,
                 "cd": 1
@@ -2810,6 +2814,58 @@
         "baseAttr": { "hp": 11634, "atk": 126.76, "def": 763.17 },
         "build": {
             "set": [],
+            "setList": [["ScrollOfTheHeroOfCinderCity"]],
+            "main": {
+                "sands": ["em", "er"],
+                "goblet": ["em"],
+                "circlet": ["em"]
+            },
+            "weight": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "hpp": 0,
+                "atkp": 0.3,
+                "defp": 0,
+                "em": 1,
+                "er": 1,
+                "cr": 0.3,
+                "cd": 0.3
+            }
+        }
+    },
+    "LanYan": {
+        "element": "anemo",
+        "rarity": 4,
+        "baseAttr": { "hp": 9244, "atk": 250.63, "def": 580.14 },
+        "build": {
+            "set": [],
+            "setList": [["ViridescentVenerer"]],
+            "main": {
+                "sands": ["atkp", "er"],
+                "goblet": ["atkp"],
+                "circlet": ["atkp"]
+            },
+            "weight": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "hpp": 0,
+                "atkp": 1,
+                "defp": 0,
+                "em": 0.3,
+                "er": 0.75,
+                "cr": 0.5,
+                "cd": 0.5
+            }
+        }
+    },
+    "YumemizukiMizuki": {
+        "element": "anemo",
+        "rarity": 5,
+        "baseAttr": { "hp": 12736, "atk": 215.26, "def": 757.03 },
+        "build": {
+            "set": [],
             "setList": [],
             "main": { "sands": [], "goblet": [], "circlet": [] },
             "weight": {
@@ -2820,29 +2876,7 @@
                 "atkp": 0.5,
                 "defp": 0,
                 "em": 1,
-                "er": 0.75,
-                "cr": 0.75,
-                "cd": 0.75
-            }
-        }
-    },
-    "LanYan": {
-        "element": "anemo",
-        "rarity": 4,
-        "baseAttr": { "hp": 9244, "atk": 250.63, "def": 580.14 },
-        "build": {
-            "set": [],
-            "setList": [],
-            "main": { "sands": [], "goblet": [], "circlet": [] },
-            "weight": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "hpp": 0,
-                "atkp": 1,
-                "defp": 0,
-                "em": 0.3,
-                "er": 0.75,
+                "er": 0.45,
                 "cr": 0.5,
                 "cd": 0.5
             }

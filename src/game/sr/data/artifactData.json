@@ -106,7 +106,9 @@
         "IronCavalryAgainsttheScourge",
         "TheWindSoaringValorous",
         "SacerdosRelivedOrdeal",
-        "ScholarLostinErudition"
+        "ScholarLostinErudition",
+        "HeroofTriumphantSong",
+        "PoetofMourningCollapse"
     ],
     "setKeysGroup2": [
         "SpaceSealingStation",
@@ -126,7 +128,9 @@
         "DuranDynastyofRunningWolves",
         "ForgeoftheKalpagniLantern",
         "LushakatheSunkenSeas",
-        "TheWondrousBananAmusementPark"
+        "TheWondrousBananAmusementPark",
+        "BoneCollectionsSereneDemesne",
+        "GiantTreeofRaptBrooding"
     ],
     "setKeysR4": [],
     "setGroups": {
