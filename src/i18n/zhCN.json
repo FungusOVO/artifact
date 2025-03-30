@@ -79,7 +79,9 @@
                 "FragmentOfHarmonicWhimsy": "谐律异想断章",
                 "UnfinishedReverie": "未竟的遐思",
                 "ObsidianCodex": "黑曜秘典",
-                "ScrollOfTheHeroOfCinderCity": "烬城勇者绘卷"
+                "ScrollOfTheHeroOfCinderCity": "烬城勇者绘卷",
+                "LongNightsOath": "长夜之誓",
+                "FinaleOfTheDeepGalleries": "深廊终曲"
             },
             "set_group": {
                 "s:atkp": "攻击2",
@@ -367,7 +369,11 @@
             "Mavuika": "玛薇卡",
             "Citlali": "茜特菈莉",
             "LanYan": "蓝砚",
-            "YumemizukiMizuki": "梦见月瑞希"
+            "YumemizukiMizuki": "梦见月瑞希",
+            "Iansan": "伊安珊",
+            "Varesa": "瓦雷莎",
+            "Escoffier": "爱可菲",
+            "Ifa": "伊法"
         },
         "sr": {
             "Trailblazer_Destruction": "物理主",
@@ -436,7 +442,9 @@
             "TheHerta": "大黑塔",
             "Aglaea": "阿格莱雅",
             "Tribbie": "缇宝",
-            "Mydei": "万敌"
+            "Mydei": "万敌",
+            "Anaxa": "那刻夏",
+            "Castorice": "遐蝶"
         }
     },
 

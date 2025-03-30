@@ -3084,9 +3084,9 @@
             },
             "weight": {
                 "hp": 0,
-                "hpp": 0.75,
+                "hpp": 0,
                 "atk": 0,
-                "atkp": 0,
+                "atkp": 0.75,
                 "def": 0,
                 "defp": 0,
                 "spd": 1,
@@ -3130,9 +3130,9 @@
             },
             "weight": {
                 "hp": 0,
-                "hpp": 0.75,
+                "hpp": 0,
                 "atk": 0,
-                "atkp": 0,
+                "atkp": 0.75,
                 "def": 0,
                 "defp": 0,
                 "spd": 1,
@@ -3160,6 +3160,98 @@
         },
         "build": {
             "set": [],
+            "setList": [
+                [
+                    "EagleofTwilightLine",
+                    "SprightlyVonwacq",
+                    "LushakatheSunkenSeas",
+                    "PenaconyLandoftheDreams",
+                    "FleetoftheAgeless"
+                ]
+            ],
+            "main": {
+                "Body": ["cr"],
+                "Feet": ["spd"],
+                "PlanarSphere": ["hpp"],
+                "LinkRope": ["er"]
+            },
+            "weight": {
+                "hp": 0,
+                "hpp": 1,
+                "atk": 0,
+                "atkp": 0,
+                "def": 0,
+                "defp": 0,
+                "spd": 0,
+                "cr": 1,
+                "cd": 1,
+                "be": 0,
+                "er": 1,
+                "eh": 0,
+                "eres": 0
+            }
+        }
+    },
+    "Mydei": {
+        "element": "Imaginary",
+        "path": "Destruction",
+        "rarity": "5",
+        "baseAttr": {
+            "atk": 426.89,
+            "hp": 1552,
+            "def": 194.04,
+            "speed": 95,
+            "cpct": 5,
+            "cdmg": 50,
+            "aggro": 125
+        },
+        "build": {
+            "set": [],
+            "setList": [
+                [
+                    "ScholarLostinErudition",
+                    "BoneCollectionsSereneDemesne",
+                    "RutilantArena"
+                ]
+            ],
+            "main": {
+                "Body": ["hpp", "cd"],
+                "Feet": ["spd"],
+                "PlanarSphere": ["quantumDB"],
+                "LinkRope": ["hpp"]
+            },
+            "weight": {
+                "hp": 0,
+                "hpp": 1,
+                "atk": 0,
+                "atkp": 0,
+                "def": 0,
+                "defp": 0,
+                "spd": 0,
+                "cr": 1,
+                "cd": 1,
+                "be": 0,
+                "er": 1,
+                "eh": 0,
+                "eres": 0.3
+            }
+        }
+    },
+    "Anaxa": {
+        "element": "Imaginary",
+        "path": "Erudition",
+        "rarity": "5",
+        "baseAttr": {
+            "atk": 756.76,
+            "hp": 970,
+            "def": 557.87,
+            "speed": 97,
+            "cpct": 5,
+            "cdmg": 50,
+            "aggro": 75
+        },
+        "build": {
+            "set": [],
             "setList": [],
             "main": {
                 "Body": [],
@@ -3184,18 +3276,18 @@
             }
         }
     },
-    "Mydei": {
-        "element": "Imaginary",
-        "path": "Destruction",
+    "Castorice": {
+        "element": "Quantum",
+        "path": "Remembrance",
         "rarity": "5",
         "baseAttr": {
-            "atk": 426.89,
-            "hp": 1552,
-            "def": 194.04,
+            "atk": 523.91,
+            "hp": 1630,
+            "def": 485.1,
             "speed": 95,
             "cpct": 5,
             "cdmg": 50,
-            "aggro": 125
+            "aggro": 100
         },
         "build": {
             "set": [],

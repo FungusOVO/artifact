@@ -2825,12 +2825,12 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.3,
+                "atkp": 0.5,
                 "defp": 0,
                 "em": 1,
                 "er": 1,
-                "cr": 0.3,
-                "cd": 0.3
+                "cr": 0.5,
+                "cd": 0.5
             }
         }
     },
@@ -2866,6 +2866,58 @@
         "baseAttr": { "hp": 12736, "atk": 215.26, "def": 757.03 },
         "build": {
             "set": [],
+            "setList": [["ViridescentVenerer"], ["GildedDreams"]],
+            "main": { "sands": ["em"], "goblet": ["em"], "circlet": ["em"] },
+            "weight": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "hpp": 0,
+                "atkp": 0.3,
+                "defp": 0,
+                "em": 1,
+                "er": 0.45,
+                "cr": 0.3,
+                "cd": 0.3
+            }
+        }
+    },
+    "Iansan": {
+        "element": "electro",
+        "rarity": 4,
+        "baseAttr": { "hp": 10657, "atk": 257, "def": 638.16 },
+        "build": {
+            "set": [],
+            "setList": [
+                ["LongNightsOath"],
+                ["ObsidianCodex"],
+                ["MarechausseeHunter"]
+            ],
+            "main": {
+                "sands": ["atkp"],
+                "goblet": ["electroDB"],
+                "circlet": ["cd", "cr"]
+            },
+            "weight": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "hpp": 0,
+                "atkp": 1,
+                "defp": 0,
+                "em": 0,
+                "er": 1,
+                "cr": 0.5,
+                "cd": 0.5
+            }
+        }
+    },
+    "Varesa": {
+        "element": "electro",
+        "rarity": 5,
+        "baseAttr": { "hp": 12699, "atk": 356.38, "def": 781.62 },
+        "build": {
+            "set": [],
             "setList": [],
             "main": { "sands": [], "goblet": [], "circlet": [] },
             "weight": {
@@ -2873,12 +2925,56 @@
                 "atk": 0,
                 "def": 0,
                 "hpp": 0,
-                "atkp": 0.5,
+                "atkp": 0.85,
                 "defp": 0,
-                "em": 1,
-                "er": 0.45,
-                "cr": 0.5,
-                "cd": 0.5
+                "em": 0.3,
+                "er": 0.4,
+                "cr": 1,
+                "cd": 1
+            }
+        }
+    },
+    "Escoffier": {
+        "element": "cryo",
+        "rarity": 5,
+        "baseAttr": { "hp": 13348, "atk": 346.81, "def": 731.66 },
+        "build": {
+            "set": [],
+            "setList": [],
+            "main": { "sands": [], "goblet": [], "circlet": [] },
+            "weight": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "hpp": 0,
+                "atkp": 0.75,
+                "defp": 0,
+                "em": 0,
+                "er": 0,
+                "cr": 1,
+                "cd": 1
+            }
+        }
+    },
+    "Ifa": {
+        "element": "anemo",
+        "rarity": 5,
+        "baseAttr": { "hp": 10081, "atk": 178.41, "def": 605.4 },
+        "build": {
+            "set": [],
+            "setList": [],
+            "main": { "sands": [], "goblet": [], "circlet": [] },
+            "weight": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "hpp": 0,
+                "atkp": 0.75,
+                "defp": 0,
+                "em": 0,
+                "er": 0,
+                "cr": 1,
+                "cd": 1
             }
         }
     }
