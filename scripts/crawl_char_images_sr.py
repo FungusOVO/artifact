@@ -84,7 +84,12 @@ char_configs = [
     {"id": "tribbie-character", "key": "Tribbie"},
     {"id": "mydei-character", "key": "Mydei"},
     {"id": "anaxa-character", "key": "Anaxa"},
+    {"id": "cipher-character", "key": "Cipher"},
     {"id": "castorice-character", "key": "Castorice"},
+    {"id": "phainon-character", "key": "Phainon"},
+    {"id": "hyacine-character", "key": "Hyacine"},
+    {"id": "hysilens-character", "key": "Hysilens"},
+    {"id": "cerydra-character", "key": "Cerydra"},
 ]
 
 

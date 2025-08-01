@@ -81,7 +81,9 @@
                 "ObsidianCodex": "黑曜秘典",
                 "ScrollOfTheHeroOfCinderCity": "烬城勇者绘卷",
                 "LongNightsOath": "长夜之誓",
-                "FinaleOfTheDeepGalleries": "深廊终曲"
+                "FinaleOfTheDeepGalleries": "深廊终曲",
+                "NightoftheSkysUnveiling": "穹境示现之夜",
+                "SilkenMoonsSerenade": "纺月的夜歌"
             },
             "set_group": {
                 "s:atkp": "攻击2",
@@ -200,6 +202,8 @@
                 "ScholarLostinErudition": "识海迷坠的学者",
                 "HeroofTriumphantSong": "凯歌祝捷的英豪",
                 "PoetofMourningCollapse": "哀歌覆国的诗人",
+                "WarriorGoddessofSunandThunder": "烈阳惊雷的女武神",
+                "WavestriderCaptain": "恶海逐波的船长",
 
                 "SpaceSealingStation": "太空封印站",
                 "FleetoftheAgeless": "不老者的仙舟",
@@ -220,7 +224,9 @@
                 "LushakatheSunkenSeas": "沉陆海域露莎卡",
                 "TheWondrousBananAmusementPark": "奇想蕉乐园",
                 "BoneCollectionsSereneDemesne": "谧宁拾骨地",
-                "GiantTreeofRaptBrooding": "渊思寂虑的巨树"
+                "GiantTreeofRaptBrooding": "渊思寂虑的巨树",
+                "ArcadiaofWovenDreams": "妖精织梦的乐园",
+                "RevelrybytheSea": "沉欢醉饮的海隅"
             },
             "set_group": {
                 "s:atkp": "攻击2",
@@ -373,7 +379,10 @@
             "Iansan": "伊安珊",
             "Varesa": "瓦雷莎",
             "Escoffier": "爱可菲",
-            "Ifa": "伊法"
+            "Ifa": "伊法",
+            "Skirk": "丝柯克",
+            "Dahlia": "塔利雅",
+            "Ineffa": "伊涅芙"
         },
         "sr": {
             "Trailblazer_Destruction": "物理主",
@@ -444,7 +453,12 @@
             "Tribbie": "缇宝",
             "Mydei": "万敌",
             "Anaxa": "那刻夏",
-            "Castorice": "遐蝶"
+            "Cipher": "赛飞儿",
+            "Castorice": "遐蝶",
+            "Phainon": "白厄",
+            "Hyacine": "风堇",
+            "Hysilens": "海瑟音",
+            "Cerydra": "刻律德菈"
         }
     },
 

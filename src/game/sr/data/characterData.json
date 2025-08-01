@@ -2467,7 +2467,7 @@
                 "atkp": 1,
                 "def": 0,
                 "defp": 0.75,
-                "spd": 0.5,
+                "spd": 1,
                 "cr": 0,
                 "cd": 0,
                 "be": 0,
@@ -3227,13 +3227,13 @@
                 "atkp": 0,
                 "def": 0,
                 "defp": 0,
-                "spd": 0,
+                "spd": 1,
                 "cr": 1,
                 "cd": 1,
                 "be": 0,
                 "er": 1,
                 "eh": 0,
-                "eres": 0.3
+                "eres": 0
             }
         }
     },
@@ -3270,9 +3270,48 @@
                 "cr": 1,
                 "cd": 1,
                 "be": 0,
-                "er": 0,
+                "er": 1,
                 "eh": 0,
                 "eres": 0
+            }
+        }
+    },
+    "Cipher": {
+        "element": "Quantum",
+        "path": "Nihility",
+        "rarity": "5",
+        "baseAttr": {
+            "atk": 640.33,
+            "hp": 931,
+            "def": 509.36,
+            "speed": 106,
+            "cpct": 5,
+            "cdmg": 50,
+            "aggro": 130
+        },
+        "build": {
+            "set": [],
+            "setList": [],
+            "main": {
+                "Body": [],
+                "Feet": [],
+                "PlanarSphere": [],
+                "LinkRope": []
+            },
+            "weight": {
+                "hp": 0,
+                "hpp": 1,
+                "atk": 0,
+                "atkp": 0,
+                "def": 0,
+                "defp": 0,
+                "spd": 0,
+                "cr": 1,
+                "cd": 1,
+                "be": 0,
+                "er": 0,
+                "eh": 0,
+                "eres": 0.3
             }
         }
     },
@@ -3285,6 +3324,162 @@
             "hp": 1630,
             "def": 485.1,
             "speed": 95,
+            "cpct": 5,
+            "cdmg": 50,
+            "aggro": 100
+        },
+        "build": {
+            "set": [],
+            "setList": [],
+            "main": {
+                "Body": [],
+                "Feet": [],
+                "PlanarSphere": [],
+                "LinkRope": []
+            },
+            "weight": {
+                "hp": 0,
+                "hpp": 1,
+                "atk": 0,
+                "atkp": 0,
+                "def": 0,
+                "defp": 0,
+                "spd": 0,
+                "cr": 1,
+                "cd": 1,
+                "be": 0,
+                "er": 0,
+                "eh": 0,
+                "eres": 0.3
+            }
+        }
+    },
+    "Phainon": {
+        "element": "Physical",
+        "path": "Destruction",
+        "rarity": "5",
+        "baseAttr": {
+            "atk": 582.12,
+            "hp": 1436,
+            "def": 703.39,
+            "speed": 94,
+            "cpct": 5,
+            "cdmg": 50,
+            "aggro": 125
+        },
+        "build": {
+            "set": [],
+            "setList": [],
+            "main": {
+                "Body": [],
+                "Feet": [],
+                "PlanarSphere": [],
+                "LinkRope": []
+            },
+            "weight": {
+                "hp": 0,
+                "hpp": 0,
+                "atk": 0,
+                "atkp": 0.75,
+                "def": 0,
+                "defp": 0,
+                "spd": 0,
+                "cr": 1,
+                "cd": 1,
+                "be": 0,
+                "er": 0,
+                "eh": 0,
+                "eres": 0
+            }
+        }
+    },
+    "Hyacine": {
+        "element": "Wind",
+        "path": "Remembrance",
+        "rarity": "5",
+        "baseAttr": {
+            "atk": 388.08,
+            "hp": 1087,
+            "def": 630.63,
+            "speed": 110,
+            "cpct": 5,
+            "cdmg": 50,
+            "aggro": 100
+        },
+        "build": {
+            "set": [],
+            "setList": [],
+            "main": {
+                "Body": [],
+                "Feet": [],
+                "PlanarSphere": [],
+                "LinkRope": []
+            },
+            "weight": {
+                "hp": 0,
+                "hpp": 1,
+                "atk": 0,
+                "atkp": 0,
+                "def": 0,
+                "defp": 0,
+                "spd": 1,
+                "cr": 0,
+                "cd": 0.75,
+                "be": 0,
+                "er": 1,
+                "eh": 0,
+                "eres": 0.5
+            }
+        }
+    },
+    "Hysilens": {
+        "element": "Physical",
+        "path": "Nihility",
+        "rarity": "5",
+        "baseAttr": {
+            "atk": 5601.52,
+            "hp": 1203,
+            "def": 485.1,
+            "speed": 102,
+            "cpct": 5,
+            "cdmg": 50,
+            "aggro": 100
+        },
+        "build": {
+            "set": [],
+            "setList": [],
+            "main": {
+                "Body": [],
+                "Feet": [],
+                "PlanarSphere": [],
+                "LinkRope": []
+            },
+            "weight": {
+                "hp": 0,
+                "hpp": 0,
+                "atk": 0,
+                "atkp": 0.75,
+                "def": 0,
+                "defp": 0,
+                "spd": 1,
+                "cr": 1,
+                "cd": 1,
+                "be": 0,
+                "er": 0,
+                "eh": 0,
+                "eres": 0
+            }
+        }
+    },
+    "Cerydra": {
+        "element": "Wind",
+        "path": "Harmony",
+        "rarity": "5",
+        "baseAttr": {
+            "atk": 620.93,
+            "hp": 1358,
+            "def": 485.1,
+            "speed": 99,
             "cpct": 5,
             "cdmg": 50,
             "aggro": 100

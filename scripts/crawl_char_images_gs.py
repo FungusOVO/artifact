@@ -103,6 +103,9 @@ char_configs = [
     {"id": "varesa_111", "key": "Varesa"},
     {"id": "escoffier_112", "key": "Escoffier"},
     {"id": "ifa_113", "key": "Ifa"},
+    {"id": "skirknew_114", "key": "Skirk"},
+    {"id": "dahlia_115", "key": "Dahlia"},
+    {"id": "ineffa_116", "key": "Ineffa"},
 ]
 
 dir_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
