@@ -65,6 +65,12 @@ const keymap = {
             "NighttimeWhispersInTheEchoingWoods",
         FragmentOfHarmonicWhimsy: "FragmentOfHarmonicWhimsy",
         UnfinishedReverie: "UnfinishedReverie",
+        ObsidianCodex: "ObsidianCodex",
+        ScrollOfTheHeroOfCinderCity: "ScrollOfTheHeroOfCinderCity",
+        LongNightsOath: "LongNightsOath",
+        FinaleOfTheDeepGalleries: "FinaleOfTheDeepGalleries",
+        NightoftheSkysUnveiling: "NightoftheSkysUnveiling",
+        SilkenMoonsSerenade: "SilkenMoonsSerenade",
     },
     affix: <{ [key: string]: string }>{
         hp: "lifeStatic",

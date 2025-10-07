@@ -110,7 +110,9 @@
         "HeroofTriumphantSong",
         "PoetofMourningCollapse",
         "WarriorGoddessofSunandThunder",
-        "WavestriderCaptain"
+        "WavestriderCaptain",
+        "SelfEnshroudedRecluse",
+        "WorldRemakingDeliverer"
     ],
     "setKeysGroup2": [
         "SpaceSealingStation",
@@ -134,7 +136,8 @@
         "BoneCollectionsSereneDemesne",
         "GiantTreeofRaptBrooding",
         "ArcadiaofWovenDreams",
-        "RevelrybytheSea"
+        "RevelrybytheSea",
+        "AmphoreusTheEternalLand"
     ],
     "setKeysR4": [],
     "setGroups": {

@@ -204,6 +204,8 @@
                 "PoetofMourningCollapse": "哀歌覆国的诗人",
                 "WarriorGoddessofSunandThunder": "烈阳惊雷的女武神",
                 "WavestriderCaptain": "恶海逐波的船长",
+                "SelfEnshroudedRecluse": "自匿星芒的隐士",
+                "WorldRemakingDeliverer": "再创天地的救世主",
 
                 "SpaceSealingStation": "太空封印站",
                 "FleetoftheAgeless": "不老者的仙舟",
@@ -226,7 +228,8 @@
                 "BoneCollectionsSereneDemesne": "谧宁拾骨地",
                 "GiantTreeofRaptBrooding": "渊思寂虑的巨树",
                 "ArcadiaofWovenDreams": "妖精织梦的乐园",
-                "RevelrybytheSea": "沉欢醉饮的海隅"
+                "RevelrybytheSea": "沉欢醉饮的海隅",
+                "AmphoreusTheEternalLand": "永恒之地翁法罗斯"
             },
             "set_group": {
                 "s:atkp": "攻击2",
@@ -382,7 +385,11 @@
             "Ifa": "伊法",
             "Skirk": "丝柯克",
             "Dahlia": "塔利雅",
-            "Ineffa": "伊涅芙"
+            "Ineffa": "伊涅芙",
+            "Lauma": "菈乌玛",
+            "Flins": "菲林斯",
+            "Aino": "爱诺",
+            "Nefer": "奈芙尔"
         },
         "sr": {
             "Trailblazer_Destruction": "物理主",
@@ -458,7 +465,10 @@
             "Phainon": "白厄",
             "Hyacine": "风堇",
             "Hysilens": "海瑟音",
-            "Cerydra": "刻律德菈"
+            "Cerydra": "刻律德菈",
+            "Evernight": "长夜月",
+            "DanHengPermansorTerrae": "丹恒•腾荒",
+            "Cyrene": "昔涟"
         }
     },
 

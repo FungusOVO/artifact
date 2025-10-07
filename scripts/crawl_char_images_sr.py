@@ -90,6 +90,9 @@ char_configs = [
     {"id": "hyacine-character", "key": "Hyacine"},
     {"id": "hysilens-character", "key": "Hysilens"},
     {"id": "cerydra-character", "key": "Cerydra"},
+    {"id": "evernight-character", "key": "Evernight"},
+    {"id": "dan-heng-permansor-terrae-character", "key": "DanHengPermansorTerrae"},
+    {"id": "cyrene-character", "key": "Cyrene"},
 ]
 
 
