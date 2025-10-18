@@ -1,6 +1,12 @@
-export function whatis(w: string, dict: { [key: string]: string }) {
+export function whatis(
+    w: string,
+    dict: { [key: string]: string | Array<string> },
+) {
     for (let key in dict) {
-        if (dict[key] == w) {
+        if (
+            dict[key] == w ||
+            (Array.isArray(dict[key]) && dict[key].includes(w))
+        ) {
             return key;
         }
     }

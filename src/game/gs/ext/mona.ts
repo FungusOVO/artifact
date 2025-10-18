@@ -28,7 +28,7 @@ interface IMonaFormat {
 }
 
 const keymap = {
-    set: <{ [key: string]: string }>{
+    set: <{ [key: string]: string | Array<string> }>{
         Instructor: "instructor",
         GladiatorsFinale: "gladiatorFinale",
         WanderersTroupe: "wandererTroupe",
@@ -69,8 +69,14 @@ const keymap = {
         ScrollOfTheHeroOfCinderCity: "ScrollOfTheHeroOfCinderCity",
         LongNightsOath: "LongNightsOath",
         FinaleOfTheDeepGalleries: "FinaleOfTheDeepGalleries",
-        NightoftheSkysUnveiling: "NightoftheSkysUnveiling",
-        SilkenMoonsSerenade: "SilkenMoonsSerenade",
+        NightOfTheSkysUnveiling: [
+            "NightoftheSkysUnveiling",
+            "穹境示现之夜RealmMirrorNight",
+        ],
+        SilkenMoonsSerenade: [
+            "SilkenMoonsSerenade",
+            "纺月的夜歌SpinMoonSerenade",
+        ],
     },
     affix: <{ [key: string]: string }>{
         hp: "lifeStatic",
