@@ -110,12 +110,16 @@ char_configs = [
     {"id": "flins_120", "key": "Flins"},
     {"id": "aino_121", "key": "Aino"},
     {"id": "nefer_122", "key": "Nefer"},
+    {"id": "durin_123", "key": "Durin"},
+    {"id": "jahoda_124", "key": "Jahoda"},
+    {"id": "columbina_125", "key": "Columbina"},
+    {"id": "zibai_126", "key": "Zibai"},
+    {"id": "illuga_127", "key": "Illuga"},
 ]
 
 dir_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 for c in char_configs:
-    print(c["id"])
     if os.path.exists(
         os.path.join(
             dir_path, "public", "assets", "char_faces", "gs", c["key"] + ".webp"

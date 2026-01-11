@@ -1,6 +1,6 @@
 import { gameManager } from "@/game/GameManager";
 import { gameUtils } from "@/game/GameUtils";
-import { CharacterData } from "@/game/sr/data";
+import { CharacterData } from "@/game/gs/data";
 
 // const charKeys = ["Traveler"].concat(
 //     Object.keys(CharacterData).filter((k) => !k.startsWith("Traveler"))

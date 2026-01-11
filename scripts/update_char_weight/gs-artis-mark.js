@@ -19,7 +19,7 @@ export const usefulAttr = {
   神里绫华: { hp: 0, atk: 85, def: 0, cpct: 100, cdmg: 100, mastery: 0, dmg: 100, phy: 0, recharge: 45, heal: 0 },
   香菱: { hp: 0, atk: 75, def: 0, cpct: 100, cdmg: 100, mastery: 75, dmg: 100, phy: 0, recharge: 75, heal: 0 },
   胡桃: { hp: 80, atk: 50, def: 0, cpct: 100, cdmg: 100, mastery: 75, dmg: 100, phy: 0, recharge: 0, heal: 0 },
-  温迪: { hp: 0, atk: 75, def: 0, cpct: 80, cdmg: 80, mastery: 75, dmg: 100, phy: 0, recharge: 55, heal: 0 },
+  温迪: { hp: 0, atk: 75, def: 0, cpct: 100, cdmg: 100, mastery: 30, dmg: 100, phy: 0, recharge: 45, heal: 0 },
   珊瑚宫心海: { hp: 100, atk: 50, def: 0, cpct: 0, cdmg: 0, mastery: 75, dmg: 100, phy: 0, recharge: 55, heal: 100 },
   莫娜: { hp: 0, atk: 75, def: 0, cpct: 100, cdmg: 100, mastery: 75, dmg: 100, phy: 0, recharge: 75, heal: 0 },
   阿贝多: { hp: 0, atk: 0, def: 75, cpct: 100, cdmg: 100, mastery: 0, dmg: 100, phy: 0, recharge: 0, heal: 0 },
@@ -89,7 +89,7 @@ export const usefulAttr = {
   希格雯: { hp: 100, atk: 0, def: 0, cpct: 100, cdmg: 100, mastery: 0, dmg: 95, phy: 0, recharge: 30, heal: 100 },
   艾梅莉埃: { hp: 0, atk: 100, def: 0, cpct: 100, cdmg: 100, mastery: 30, dmg: 100, phy: 0, recharge: 55, heal: 0 },
   卡齐娜: { hp: 0, atk: 0, def: 75, cpct: 100, cdmg: 100, mastery: 0, dmg: 100, phy: 0, recharge: 75, heal: 0 },
-  玛拉妮: { hp: 100, atk: 0, def: 0, cpct: 100, cdmg: 100, mastery: 85, dmg: 100, phy: 0, recharge: 45, heal: 0 },
+  玛拉妮: { hp: 100, atk: 0, def: 0, cpct: 100, cdmg: 100, mastery: 100, dmg: 100, phy: 0, recharge: 45, heal: 0 },
   基尼奇: { hp: 0, atk: 85, def: 0, cpct: 100, cdmg: 100, mastery: 0, dmg: 100, phy: 0, recharge: 50, heal: 0 },
   希诺宁: { hp: 0, atk: 0, def: 100, cpct: 30, cdmg: 30, mastery: 0, dmg: 80, phy: 0, recharge: 100, heal: 100 },
   恰斯卡: { hp: 0, atk: 85, def: 0, cpct: 100, cdmg: 100, mastery: 30, dmg: 80, phy: 0, recharge: 40, heal: 0 },
@@ -104,5 +104,14 @@ export const usefulAttr = {
   伊法: { hp: 0, atk: 75, def: 0, cpct: 50, cdmg: 50, mastery: 100, dmg: 80, phy: 0, recharge: 35, heal: 0 },
   丝柯克: { hp: 0, atk: 100, def: 0, cpct: 100, cdmg: 100, mastery: 0, dmg: 100, phy: 0, recharge: 0, heal: 0 },
   塔利雅: { hp: 100, atk: 50, def: 0, cpct: 50, cdmg: 50, mastery: 0, dmg: 80, phy: 0, recharge: 100, heal: 0 },
-  伊涅芙: { hp: 0, atk: 75, def: 0, cpct: 100, cdmg: 100, mastery: 75, dmg: 0, phy: 0, recharge: 40, heal: 0 }
+  伊涅芙: { hp: 0, atk: 75, def: 0, cpct: 100, cdmg: 100, mastery: 75, dmg: 0, phy: 0, recharge: 40, heal: 0 },
+  菈乌玛: { hp: 0, atk: 25, def: 0, cpct: 50, cdmg: 50, mastery: 100, dmg: 0, phy: 0, recharge: 100, heal: 0 },
+  爱诺: { hp: 0, atk: 75, def: 0, cpct: 100, cdmg: 100, mastery: 75, dmg: 100, phy: 0, recharge: 40, heal: 0 },
+  菲林斯: { hp: 0, atk: 75, def: 0, cpct: 100, cdmg: 100, mastery: 75, dmg: 0, phy: 0, recharge: 50, heal: 0 },
+  奈芙尔: { hp: 0, atk: 0, def: 0, cpct: 100, cdmg: 100, mastery: 100, dmg: 0, phy: 0, recharge: 35, heal: 0 },
+  杜林: { hp: 0, atk: 75, def: 0, cpct: 100, cdmg: 100, mastery: 75, dmg: 100, phy: 0, recharge: 20, heal: 0 },
+  雅珂达: { hp: 0, atk: 100, def: 0, cpct: 50, cdmg: 50, mastery: 0, dmg: 80, phy: 0, recharge: 100, heal: 0 },
+  哥伦比娅: { hp: 100, atk: 0, def: 0, cpct: 100, cdmg: 100, mastery: 35, dmg: 0, phy: 0, recharge: 100, heal: 0 },
+  兹白: { hp: 0, atk: 0, def: 75, cpct: 100, cdmg: 100, mastery: 45, dmg: 0, phy: 0, recharge: 30, heal: 0 },
+  叶洛亚: { hp: 0, atk: 0, def: 50, cpct: 50, cdmg: 50, mastery: 100, dmg: 80, phy: 0, recharge: 75, heal: 0 }
 }

@@ -1,6 +1,7 @@
 import fs from "fs";
 import axios from "axios";
 import https from "https";
+import path from "path";
 
 const agent = new https.Agent({
     rejectUnauthorized: false,
@@ -13,7 +14,7 @@ axios
     )
     .then(function (response) {
         fs.writeFileSync(
-            "scripts/update_char_weight/gs-artis-mark.js",
+            "gs-artis-mark.js",
             response.data,
         );
     })
@@ -27,7 +28,7 @@ axios
     )
     .then(function (response) {
         fs.writeFileSync(
-            "scripts/update_char_weight/sr-artis-mark.js",
+            "sr-artis-mark.js",
             response.data,
         );
     })
@@ -38,10 +39,10 @@ axios
 import * as gsMark from "./gs-artis-mark.js";
 import * as srMark from "./sr-artis-mark.js";
 
-import zhCN from "../../src/i18n/zhCN.json" assert { type: "json" };
+import zhCN from "../../src/i18n/zhCN.json" with { type: "json" };
 
-import gsCharData from "../../src/game/gs/data/characterData.json" assert { type: "json" };
-import srCharData from "../../src/game/sr/data/characterData.json" assert { type: "json" };
+import gsCharData from "../../src/game/gs/data/characterData.json" with { type: "json" };
+import srCharData from "../../src/game/sr/data/characterData.json" with { type: "json" };
 
 function CharWeightUpdater() {
     let aliasCnName = {
@@ -113,10 +114,10 @@ let newSrCharData = updateCharacterData(
 );
 
 fs.writeFileSync(
-    "src/game/gs/data/characterData.json",
+    path.join("..","..","src", "game", "gs", "data", "characterData.json"),
     JSON.stringify(newGsCharData),
 );
 fs.writeFileSync(
-    "src/game/sr/data/characterData.json",
+    path.join("..","..","src", "game", "sr", "data", "characterData.json"),
     JSON.stringify(newSrCharData),
 );

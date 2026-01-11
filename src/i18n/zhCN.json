@@ -83,7 +83,9 @@
                 "LongNightsOath": "长夜之誓",
                 "FinaleOfTheDeepGalleries": "深廊终曲",
                 "NightOfTheSkysUnveiling": "穹境示现之夜",
-                "SilkenMoonsSerenade": "纺月的夜歌"
+                "SilkenMoonsSerenade": "纺月的夜歌",
+                "AubadeofMorningstarandMoon": "晨星与月的晓歌",
+                "ADayCarvedFromRisingWinds": "风起之日"
             },
             "set_group": {
                 "s:atkp": "攻击2",
@@ -389,7 +391,12 @@
             "Lauma": "菈乌玛",
             "Flins": "菲林斯",
             "Aino": "爱诺",
-            "Nefer": "奈芙尔"
+            "Nefer": "奈芙尔",
+            "Durin": "杜林",
+            "Jahoda": "雅珂达",
+            "Columbina": "哥伦比娅",
+            "Zibai": "兹白",
+            "Illuga": "叶洛亚"
         },
         "sr": {
             "Trailblazer_Destruction": "物理主",
