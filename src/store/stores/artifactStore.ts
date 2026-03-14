@@ -236,6 +236,10 @@ export const useArtifactStore = defineStore("artifact", () => {
         "elementType",
         "element",
     );
+    const customerArtifactSet = gameLocalStorage<{ [key: string]: string }>(
+        "customerArtifactSet",
+        {},
+    );
 
     watch(
         gameManager.getGameRef(),
@@ -574,5 +578,6 @@ export const useArtifactStore = defineStore("artifact", () => {
         characterData,
         elementType,
         changeElementType,
+        customerArtifactSet,
     };
 });

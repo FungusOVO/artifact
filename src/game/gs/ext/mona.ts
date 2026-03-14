@@ -167,8 +167,10 @@ export default {
             let position = keymap.slot[a.slot],
                 mainStats = a.mainStats;
             if (!mainStats) continue;
+            let setName = keymap.set[a.set];
+            if (typeof setName == "object")  setName = setName[0];
             mona[position as "cup"]!.push({
-                setName: keymap.set[a.set],
+                setName: setName,
                 position: position,
                 mainTag: {
                     name: keymap.affix[a.mainKey],

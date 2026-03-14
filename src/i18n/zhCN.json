@@ -84,7 +84,7 @@
                 "FinaleOfTheDeepGalleries": "深廊终曲",
                 "NightOfTheSkysUnveiling": "穹境示现之夜",
                 "SilkenMoonsSerenade": "纺月的夜歌",
-                "AubadeofMorningstarandMoon": "晨星与月的晓歌",
+                "AubadeOfMorningstarAndMoon": "晨星与月的晓歌",
                 "ADayCarvedFromRisingWinds": "风起之日"
             },
             "set_group": {
@@ -505,6 +505,7 @@
         "alike_desc": "加解锁时联想相似@.artifact:{'ui.artifact'}",
         "normalize_affixes": "显示提升量",
         "add_art": "手动添加",
+        "artifact_set_create": "手动添加套装配置",
         "gen_rand_art": "随机生成",
         "start_calc": "开始计算",
         "art_set": "套装",

@@ -1,6 +1,7 @@
 import { IArtifactData, ICharacterData } from "@/game/base/data/type";
 import { default as artifactData } from "./artifactData.json";
 import { default as characterData } from "./characterData.json";
+import { useLocalStorage } from "@vueuse/core";
 
 const ArtifactData: IArtifactData = Object.assign(
     {
@@ -12,6 +13,15 @@ ArtifactData.setKeys = [
     ...artifactData.setKeysGroup4,
     ...artifactData.setKeysGroup2,
 ];
+
+let customerArtifactSet = useLocalStorage("sr.customerArtifactSet", {});
+ArtifactData.setKeys = Array.from(
+    new Set([
+        ...ArtifactData.setKeys,
+        ...Object.keys(customerArtifactSet.value),
+    ]),
+);
+
 ArtifactData.adjustSlotKeys = artifactData.slotKeys.filter((key) => {
     if (
         artifactData.mainKeys[key as keyof typeof artifactData.mainKeys]

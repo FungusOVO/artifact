@@ -9,6 +9,7 @@ import AlikeLocker from "@/components/dialogs/AlikeLocker.vue";
 import DefeatList from "@/components/dialogs/DefeatList.vue";
 import BuildProbs from "@/components/dialogs/BuildProbs.vue";
 import EquipProbs from "@/components/dialogs/EquipProbs.vue";
+import ArtifactSetCreator from "@/components/dialogs/ArtifactSetCreator.vue";
 import DatabaseLoader from "@/components/dialogs/DatabaseLoader.vue";
 import QuickFilter from "@/components/dialogs/QuickFilter.vue";
 import Grid from "vue-virtual-scroll-grid";
@@ -23,6 +24,7 @@ import {
     CirclePlus,
     MagicStick,
     Stopwatch,
+    Upload,
     Coin,
 } from "@element-plus/icons-vue";
 import { Artifact } from "@/game/base/artifact";
@@ -59,6 +61,7 @@ const selection = ref([] as number[]);
 const selectionSet = computed<Set<number>>(() => {
     return new Set(selection.value);
 });
+const showArtifactSetCreator = ref(false);
 const selected = (index: number) => {
     return selectionSet.value.has(index);
 };
@@ -319,6 +322,16 @@ const showDatabaseLoader = ref(false);
                     </div>
                     <div
                         class="btn"
+                        @click="showArtifactSetCreator = true"
+                        :title="$t('ui.artifact_set_create')"
+                        role="button"
+                    >
+                        <el-icon>
+                            <Upload />
+                        </el-icon>
+                    </div>
+                    <div
+                        class="btn"
                         @click="showDatabaseLoader = true"
                         :title="$t('ui.database_loader_title')"
                         role="button"
@@ -458,6 +471,7 @@ const showDatabaseLoader = ref(false);
     <defeat-list v-model="showDefeatList" :art="tgtArt" />
     <build-probs v-model="showBuildProbs" :art="tgtArt" />
     <equip-probs v-model="showEquipProbs" :art="tgtArt" />
+    <artifact-set-creator v-model="showArtifactSetCreator" />
     <database-loader v-model="showDatabaseLoader" />
 </template>
 
